@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8" />
+  <!-- <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" /> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#2c7be5" />
+
+  <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+  <link rel="stylesheet" href="../public/css/bross.css">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700|Poppins:100,200,300,400,500,600,700,800,900&display=swap" />
+
+
+  <style>
+    body,
+    p,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    a,
+    i,
+    li,
+    ul,
+    div,
+    section,
+    nav {
+      font-family: Aptos_display !important;
+    }
+
+    .search-box .form-control {
+      height: 40px;
+      box-shadow: none;
+      border: 1px solid #ced4da;
+      transition: border-color 0.2s ease-in-out;
+      border-radius: 4px !important;
+    }
+
+    .search-box .form-control:focus {
+      border-color: #0d6efd;
+      box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+    }
+
+    .search-box .dropdown-menu {
+      border-radius: 0.5rem;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .search-box .dropdown-item {
+      font-size: 14px;
+      padding: 0.5rem 1rem;
+    }
+
+    .search-box .dropdown-item:hover {
+      background-color: #f8f9fa;
+    }
+
+    .search-container {
+      display: flex;
+      align-items: center;
+      border: 1px solid #ced4da;
+      border-radius: 4px;
+      background-color: #fff;
+      height: 40px;
+      padding: 0 8px;
+      transition: border-color 0.2s ease-in-out;
+    }
+
+    .search-container:focus-within {
+      border-color: #0d6efd;
+      box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+    }
+
+    .search-icon {
+      margin-left: 8px;
+      margin-right: 1em;
+      font-size: 16px;
+    }
+
+    .text-muted {
+      --falcon-text-opacity: 1 !important;
+      color: #d6d6d6 !important;
+    }
+
+    .search-input {
+      flex: 1;
+      border: none;
+      outline: none;
+      box-shadow: none;
+      font-size: 14px;
+      padding: 0 8px;
+    }
+
+    .search-input::placeholder {
+      color: #ced4da;
+    }
+
+    .separator {
+      width: 1px;
+      height: 60%;
+      background-color: #ced4da;
+      margin: 0 8px;
+    }
+
+    .microphone-icon {
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    li.nav-item {
+      /* padding-left: 1em; */
+    }
+
+    li.nav-item:hover {
+      background-color: #ac3636;
+      border-radius: 0.6rem !important;
+
+    }
+
+    .prinnnn {
+      background-color: #940000;
+      /* border-radius: 0.6rem !important; */
+    }
+
+    .prinnnn:hover {
+      background-color: #940000;
+      user-select: none;
+      /* Evita la selección del texto */
+      /* cursor: pointer; */
+      /* border-radius: 0.6rem !important; */
+    }
+
+    /* Estilo general para navegadores modernos */
+    .scrollbar::-webkit-scrollbar {
+      width: 8px;
+      /* Ancho de la barra vertical */
+      height: 8px;
+      /* Ancho de la barra horizontal (si existe) */
+    }
+
+    .scrollbar::-webkit-scrollbar-thumb {
+      background-color: #940000;
+      /* Color de la barra */
+      border-radius: 10px;
+      /* Bordes redondeados */
+    }
+
+    .scrollbar::-webkit-scrollbar-track {
+      /* background-color: #f0f0f0; */
+      /* Color del fondo del track */
+      border-radius: 10px;
+    }
+
+    /* Compatibilidad con Firefox */
+    .scrollbar {
+      scrollbar-color: #940000 #940000;
+      /* Color del scroll y su track */
+      scrollbar-width: thin;
+      /* Tamaño del scroll */
+    }
+
+
+    .titulo_primera_pagina {
+      color: #940000 !important;
+      font-style: bold;
+      font-size: 16px !important;
+      font-family: Aptos_Display_Bold !important;
+    }
+
+    .titulo_primera_pagina_title {
+      color: #940000 !important;
+      font-style: bold;
+      font-family: Aptos_Display_Bold !important;
+    }
+
+    .titulo_primera_pagina_desc {
+      /* color: #940000 !important; */
+      font-style: bold;
+      font-family: Aptos_Display_Bold !important;
+    }
+
+    .footer_titulo_primera_pagina {
+      display: inline-block;
+      margin: 0;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 0.9rem;
+      text-align: center;
+      margin-bottom: 0px;
+      padding-right: 16px;
+    }
+
+    .card_valdemar>.card {
+      box-shadow: red !important;
+      color: #000000 !important;
+
+    }
+
+    .card_valdemar {
+      padding: 0em 0em 1em 0em !important;
+      border-radius: 10px !important;
+    }
+
+    .black_important {
+      color: #000000 !important;
+    }
+
+    .bolddd {
+      font-family: Aptos_Display_Bold !important;
+    }
+
+    .regular {
+      font-family: Aptos_regular !important;
+    }
+
+    .text-800 {
+      color: #000000 !important;
+    }
+
+    .card {
+      border-radius: 12px !important;
+    }
+
+    .collapse {
+      border-radius: 12px !important;
+    }
+
+    .navbar-vertical.navbar-inverted .navbar-nav .nav-item .navbar-vertical-label {
+      color: #B78686 !important;
+    }
+
+    .navbar-vertical .navbar-nav .nav-item .nav-link {
+      color: white !important;
+    }
+
+    a.active.nav-link {
+      padding: 0.6rem 0 !important;
+    }
+
+    span.nav-link-icon {
+      margin: 0px 10px;
+    }
+
+
+    .slick-prev,
+    .slick-next {
+      opacity: 1 !important;
+      /* Asegúrate de que sean visibles */
+      visibility: visible !important;
+      /* Fuerza la visibilidad */
+      z-index: 1;
+      /* Coloca las flechas encima de las imágenes */
+    }
+
+    .slick-prev {
+      left: -25px;
+      /* Ajusta la posición izquierda si es necesario */
+    }
+
+    .slick-next {
+      right: -25px;
+      /* Ajusta la posición derecha si es necesario */
+    }
+
+    .slick-arrow {
+      background-color: rgba(0, 0, 0, 0.5);
+      /* Opcional: fondo para mayor visibilidad */
+      border-radius: 50%;
+      /* Opcional: redondear las flechas */
+      width: 40px;
+      height: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .slick-arrow::before {
+      color: white;
+      /* Cambia el color de las flechas */
+      font-size: 20px;
+    }
+
+
+    .margin_left_10 {
+      margin-left: 10px !important;
+    }
+
+
+    /* Loading Overlay */
+    .loading-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      /* Oscurece la pantalla */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      /* Asegura que esté por encima de todo */
+      opacity: 1;
+      transition: opacity 0.5s ease-in-out;
+      /* Transición suave */
+    }
+
+    .loading-text {
+      color: white;
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-align: center;
+    }
+
+
+    /* Pantalla de carga */
+    .loading-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      /* Fondo oscuro transparente */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      transition: opacity 0.5s ease-in-out;
+      /* Transición de salida */
+    }
+
+    /* Ocultar la pantalla de carga */
+    .loading-overlay.hidden {
+      opacity: 0;
+      pointer-events: none;
+      /* Evita interferencia con la app debajo */
+    }
+
+    /* Spinner de carga */
+    .spinner {
+      width: 50px;
+      height: 50px;
+      border: 6px solid rgba(255, 255, 255, 0.3);
+      border-top-color: #ffffff;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+
+    @font-face {
+      font-family: 'Aptos';
+      src: url('../fonts/Aptos.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: 'Aptos_Display';
+      src: url('../fonts/Aptos-Display.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+
+    @font-face {
+      font-family: 'Aptos_Display_Bold';
+      src: url('../fonts/Aptos-Display-Bold.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: 'Aptos_bold';
+      src: url('../fonts/Aptos-bold.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: 'Aptos_regular';
+      src: url('../fonts/Aptos-regular.ttf') format('truetype');
+      font-weight: bold;
+      font-style: normal;
+    }
+
+    .navbar-vertical.navbar-expand-xl .nav-link {
+      padding: 0.6rem 0 !important
+    }
+
+    li.nav-item {
+      font-family: 'Aptos' !important;
+
+    }
+
+
+    .btn,
+    .tox .tox-menu__footer .tox-button:last-child,
+    .tox .tox-dialog__footer .tox-button:last-child,
+    .tox .tox-menu__footer .tox-button--secondary,
+    .tox .tox-dialog__footer .tox-button--secondary {
+      --falcon-btn-padding-x: 20px !important;
+      --falcon-btn-padding-y: 8px !important;
+      --falcon-btn-font-size: 14px !important;
+
+    }
+  </style>
+  <title>Organización Sanchez</title>
+</head>
+
+<body>
+  <!-- <noscript>You need to enable JavaScript to run this app.</noscript> -->
+  <main class="main" id="main"></main>
+</body>
+
+</html>

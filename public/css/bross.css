@@ -1,0 +1,7 @@
+/* Estos son mis estilos */
+
+.mb-2.card {
+    background: blue;
+    padding: 3em;
+    /* margin: -1em; */
+}
