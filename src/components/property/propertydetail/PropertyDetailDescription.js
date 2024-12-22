@@ -22,6 +22,8 @@ const PropertyDetailDescription = ({ property }) => {
   const [selectedButton, setSelectedButton] = useState('caracteristicas');
   const wordLimit = 50; // Límite de palabras
 
+  console.log(property)
+
   // Estado para manejar las coordenadas
   const [coordinates, setCoordinates] = useState({ lat: 0, long: 0 });
 
@@ -78,7 +80,7 @@ const PropertyDetailDescription = ({ property }) => {
         );
 
       case 'servicios':
-        const servicios = property.servicios || [];
+        const servicios = property.aspectosAdicionales.servicios || [];
         return (
           <div
             style={{

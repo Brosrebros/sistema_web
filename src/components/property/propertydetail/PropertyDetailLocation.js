@@ -3,6 +3,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const PropertyDetailLocation = ({ markers }) => {
+
+  console.log(markers)
+
   return (
     <>
       <LeafletMap
@@ -10,7 +13,7 @@ const PropertyDetailLocation = ({ markers }) => {
         className="h-100 bg-body-tertiary"
         style={{
           minHeight: '600px',
-          borderRadius: '12px'
+          borderRadius: '12px',
         }}
       />
       {/* <iframe

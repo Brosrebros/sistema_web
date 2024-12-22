@@ -88,7 +88,7 @@ const TagCard = ({ item }) => {
 const Supportpage = () => {
   return (
     <>
-      <Row className=" m-2 justify-content-center mx-auto">
+      <Row className=" m-2 justify-content-center mx-auto" style={{ maxWidth: '1620px', margin: '0 auto' }}>
         <Col xs={12} lg={8} xxl={6}>
           <Row>
             <Col xs={6}>

@@ -8,7 +8,7 @@ import { rootPaths } from 'routes/paths';
 
 const TermsConditionsPage = () => {
   return (
-    <Row className=" m-2 justify-content-center mx-auto">
+    <Row className=" m-2 justify-content-center mx-auto" style={{ maxWidth: '1620px', margin: '0 auto' }}>
       <Col xs={12} lg={12} xxl={10}>
         <Container style={{ maxWidth: '800px' }}>
           <Row>

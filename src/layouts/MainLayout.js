@@ -50,7 +50,14 @@ const MainLayout = () => {
             <NavbarTop />
             {/*------ Main Routes ------*/}
             <div
-              style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '16px',
+                maxWidth: '1920px',
+                margin: '0 auto',
+                justifyContent:"center"
+              }}
             >
               <PropertyProvider>
                 <Outlet />

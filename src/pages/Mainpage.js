@@ -31,7 +31,7 @@ const Mainpage = () => {
 
   return (
     <>
-      <Stack gap={3}>
+      <Stack gap={3} style={{ maxWidth: '1620px', margin: '0 auto' }}>
         <MainpageBanner src={state.data ? state.data[0].imagenes : ''} />
         <PropertyForm
           filterForm={filterForm}

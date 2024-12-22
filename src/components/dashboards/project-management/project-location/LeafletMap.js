@@ -46,6 +46,13 @@ const LayerComponent = ({ data }) => {
     }
   }, [isDark]);
 
+  useEffect(() => {
+    if (data && data.length > 0) {
+      const { lat, long } = data[0];
+      map.flyTo([lat, long], 17, { duration: 2 });
+    }
+  }, [data, map]);
+
   return (
     <>
       <TileLayer
@@ -105,7 +112,14 @@ LeafletMap.propTypes = {
 };
 
 LayerComponent.propTypes = {
-  data: LeafletMap.propTypes.data,
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      lat: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+      long: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+      name: PropTypes.string,
+      street: PropTypes.string,
+      location: PropTypes.string,
+    })
+  ),
 };
-
 export default LeafletMap;

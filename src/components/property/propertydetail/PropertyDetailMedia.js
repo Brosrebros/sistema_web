@@ -34,12 +34,15 @@ const PropertyDetailMedia = ({ imagenes: files }) => {
   };
 
   return (
-    <div className="position-relative h-sm-100 overflow-hidden">
+    <div
+      className="position-relative h-sm-100 overflow-hidden"
+      style={{ width: '100%', position: 'relative' }}
+    >
       <>
         {files.length === 1 && (
           <Image
             fluid
-            className="fit-cover w-sm-100 h-sm-100 rounded cursor-pointer"
+            className="fit-cover rounded cursor-pointer"
             src={files[0].src}
             alt="product media"
             onClick={() => handleImageClick(files[0].src)}
@@ -70,8 +73,8 @@ const PropertyDetailMedia = ({ imagenes: files }) => {
                   style={{
                     maxWidth: '100%',
                     objectFit: 'cover',
-                    margin: 'auto',
                     borderRadius: '10px',
+                    width: '100%',
                   }}
                   onClick={() => handleImageClick(item)}
                   className="cursor-pointer"
@@ -83,29 +86,31 @@ const PropertyDetailMedia = ({ imagenes: files }) => {
         <Slider
           slidesToShow={4}
           asNavFor={nav1}
+          infinite={false}
           ref={slider => (slider2 = slider)}
           swipeToSlide={true}
           focusOnSelect={true}
-          centerMode={files.length >= 4 ? true : false}
           arrows={false}
           className="slick-slider-arrow-inner mt-1 mr-n1"
         >
           {files.map(img => (
-            <div className="pe-1 outline-none" key={img}>
+            <div className=" outline-none" key={img}>
               <div
                 className="cursor-pointer"
                 style={{
                   backgroundColor: '#D6D6D6',
                   display: 'flex',
-                  maxWidth: '150px',
+                  justifyContent: 'flex-start',
                   borderRadius: '0.6rem',
                   overflow: 'hidden',
+                  marginTop: '8px',
+                  maxWidth: '205px',
                 }}
               >
                 <img
                   className="fit-cover"
-                  height={'80px'}
-                  style={{ width: '100%', margin: '1px' }}
+                  height={'110px'}
+                  style={{ width: '100%', margin: '0px' }}
                   src={img}
                   alt="product media"
                   onClick={() => handleImageClick(img)}
@@ -128,6 +133,31 @@ const PropertyDetailMedia = ({ imagenes: files }) => {
           )}
         </Modal.Body>
       </Modal>
+      <p
+        style={{
+          fontSize: '16px',
+          color: '#888',
+          textAlign: 'center',
+          maxWidth: '200px',
+          width: '52px',
+          height: '52px',
+          position: 'absolute',
+          display: 'flex',
+          alignItems: 'center',
+          right: '10px',
+          bottom: '30px',
+          color: 'black',
+          fontSize: '1.8em',
+          fontWeight: 'bold',
+          backgroundColor: 'white',
+          margin: '0px',
+          padding: '8px',
+          borderRadius: '100px',
+          boxShadow: '0 6px 10px 0 rgba(0, 0, 0, 0.2)',
+        }}
+      >
+        +{files.length - 2}
+      </p>
     </div>
   );
 };

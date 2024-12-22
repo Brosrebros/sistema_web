@@ -9,6 +9,7 @@ import idioma from 'assets/icons/icono_de_idioma_rojo.svg';
 import corazon from 'assets/img/icons/corazonrojo.svg';
 import compartir_rojo from 'assets/img/icons/compartir_rojo.svg';
 import { LuSendHorizontal } from 'react-icons/lu';
+import { CiBarcode } from 'react-icons/ci';
 
 // import usuario_rojo from 'assets/icons/usuario_rojo.svg';
 
@@ -29,24 +30,70 @@ const PropertyDetailAdvertiser = ({ property }) => {
             gap: '10px',
           }}
         >
-          <div style={{ color: 'black' }}>
-            {' '}
-            <img
-              height={'18px'}
-              src={corazon}
-              alt="Teléfono"
-              className="m-1"
-            />{' '}
-            Añadir a favoritos
+          <div
+            style={{
+              color: 'black',
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              gap: '8px',
+            }}
+          >
+            <Button
+              className="fs-10 d-flex p-1 gap-1 align-items-center"
+              variant="light"
+              style={{ border: '1px solid #bbbbbb' }}
+            >
+              <img
+                height={'18px'}
+                src={corazon}
+                alt="Teléfono"
+                className="m-1"
+              />
+            </Button>
+            Favorito
           </div>
-          <div style={{ color: 'black' }}>
-            <img
-              height={'18px'}
-              src={compartir_rojo}
-              alt="Teléfono"
-              className="m-1"
-            />{' '}
+          <div
+            style={{
+              color: 'black',
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              gap: '8px',
+            }}
+          >
+            <Button
+              className="fs-10 d-flex p-1 gap-1 align-items-center"
+              variant="light"
+              style={{ border: '1px solid #bbbbbb' }}
+            >
+              <img
+                height={'18px'}
+                src={compartir_rojo}
+                alt="Teléfono"
+                className="m-1"
+              />
+            </Button>
             Compartir
+          </div>
+
+          <div
+            style={{
+              marginLeft: 'auto',
+              color: '#424242',
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              backgroundColor: '#F2F2F2',
+              gap: '8px',
+              padding: '0px 8px',
+              borderRadius: '12px',
+            }}
+          >
+            <CiBarcode style={{ fontSize: '1.4rem' }} />
+            <p style={{ margin: '0px' }}>
+              <b>Código de anuncio: </b>IMPV-0001
+            </p>
           </div>
         </div>
         <div
@@ -111,6 +158,7 @@ const PropertyDetailAdvertiser = ({ property }) => {
               <Button
                 className="fs-10 d-flex p-2 gap-1 align-items-center"
                 variant="light"
+                style={{ border: '1px solid #bbbbbb' }}
               >
                 <img
                   height={'18px'}

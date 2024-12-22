@@ -16,7 +16,7 @@ const Propertypage = () => {
   // const { propertyState, filterBasic } = propertyReducer();
   return (
     <>
-      <PropertyDetail />
+      <PropertyDetail/>
     </>
   );
 };

@@ -59,7 +59,7 @@ const Catalogpage = () => {
   }, [filterForm]);
 
   return (
-    <Stack gap={3}>
+    <Stack gap={3} style={{ maxWidth: '1620px', margin: '0 auto' }}>
       <PropertyForm
         filterForm={filterForm}
         setFilterForm={setFilterForm}

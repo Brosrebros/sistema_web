@@ -7,10 +7,9 @@ import Icon from 'components/common/icon/Icon';
 
 const NavbarVerticalMenuItem = ({ route }) => {
   return (
-
     <Flex alignItems="center">
       {route.icon && (
-        <span className="nav-link-icon ms-0">
+        <span className="nav-link-icon ms-0" style={{ paddingLeft: '8px' }}>
           <Icon src={route.icon} width="20px" />
         </span>
       )}
