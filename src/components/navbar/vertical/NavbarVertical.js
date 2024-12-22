@@ -55,12 +55,14 @@ const NavbarVertical = () => {
   const NavbarLabel = ({ label }) => (
     <Nav.Item as="p">
       <Row className="mt-1 navbar-vertical-label-wrapper prinnnn">
-        <Col xs="auto" className="navbar-vertical-label navbar-vertical-label">
+        <Col
+          xs="auto"
+          className="navbar-vertical-label navbar-vertical-label"
+          style={{ marginLeft: '8px' }}
+        >
           {label}
         </Col>
-
       </Row>
-
     </Nav.Item>
   );
 
@@ -103,8 +105,7 @@ const NavbarVertical = () => {
                   <NavbarLabel label={capitalize(route.label)} />
                 )}
                 <NavbarVerticalMenu routes={route.children} />
-      <hr className="mb-0 navbar-vertical-divider"></hr>
-
+                <hr className="mb-0 navbar-vertical-divider"></hr>
               </Fragment>
             ))}
           </Nav>
@@ -132,4 +133,3 @@ NavbarVertical.propTypes = {
 };
 
 export default NavbarVertical;
-

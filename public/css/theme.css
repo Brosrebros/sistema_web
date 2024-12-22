@@ -28616,7 +28616,7 @@ h5,
   .navbar-vertical.navbar-expand-xl.navbar-card .navbar-vertical-content,
   .navbar-vertical.navbar-expand-xl.navbar-vibrant .navbar-vertical-content,
   .navbar-vertical.navbar-expand-xl.navbar-inverted .navbar-vertical-content {
-    padding: 0.5rem 0.625rem 0 1rem !important;
+    padding: 0.5rem 0.625rem 0 0.4rem !important;
   }
 
   .navbar-vertical.navbar-expand-xl.navbar-card .toggle-icon-wrapper,

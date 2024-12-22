@@ -85,6 +85,7 @@ const NavbarVerticalMenu = ({ routes }) => {
             }
           >
             <NavbarVerticalMenuItem route={route} />
+            
           </NavLink>
         </Nav.Item>
       );
