@@ -1,0 +1,66 @@
+name: Build and deploy Node.js app to Azure Web App - organizacionsanchez
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node.js version
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+
+      - name: npm install, build, and test
+        run: |
+          npm install
+          npm run build # Asegúrate de que este comando genere la carpeta "dist"
+
+      - name: Zip artifact for deployment
+        run: zip -r release.zip dist # Comprime solo la carpeta dist
+
+      - name: Upload artifact for deployment job
+        uses: actions/upload-artifact@v4
+        with:
+          name: node-app
+          path: release.zip
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    environment:
+      name: 'Production'
+      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
+    permissions:
+      id-token: write #This is required for requesting the JWT
+
+    steps:
+      - name: Download artifact from build job
+        uses: actions/download-artifact@v4
+        with:
+          name: node-app
+
+      - name: Unzip artifact for deployment
+        run: unzip release.zip
+
+      - name: Login to Azure
+        uses: azure/login@v2
+        with:
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_BC1C9DC964C745D1A1E6A3DE3CFC58C9 }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_EB14B85DFFA343AD9EFECAD07DA94CFC }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_278563C95D8C4D7C824253BB10E816BD }}
+
+      - name: 'Deploy to Azure Web App'
+        id: deploy-to-webapp
+        uses: azure/webapps-deploy@v3
+        with:
+          app-name: 'organizacionsanchez'
+          slot-name: 'Production'
+          package: ./dist # Define la carpeta "dist" como el paquete de despliegue
