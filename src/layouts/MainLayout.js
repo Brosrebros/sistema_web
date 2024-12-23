@@ -20,6 +20,11 @@ const MainContainer = styled.div`
   justify-content: center;
   transition: all 0.15s linear;
 
+  @media (min-width: 1920px) {
+    max-width: 100%;
+    align-items: center;
+  }
+
   @media (max-width: 1746px) {
     max-width: 89vw;
   }
