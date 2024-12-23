@@ -8,8 +8,30 @@ import ProductProvider from 'providers/ProductProvider';
 import CourseProvider from 'providers/CourseProvider';
 import ModalAuth from 'components/authentication/modal/ModalAuth';
 import PropertyProvider from 'providers/PropertyProvider';
-
 import { useAppContext } from 'providers/AppProvider';
+import styled from 'styled-components';
+
+const MainContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 1700px;
+  margin-left: auto;
+  justify-content: center;
+  transition: all 0.15s linear;
+
+  @media (max-width: 1746px) {
+    max-width: 89vw;
+  }
+
+  @media (max-width: 1400px) {
+    max-width: 78.6vw;
+  }
+
+  @media (max-width: 1300px) {
+    max-width: 85vw;
+  }
+`;
 
 const MainLayout = () => {
   const { hash, pathname } = useLocation();
@@ -45,25 +67,16 @@ const MainLayout = () => {
         <CourseProvider>
           <div
             className={classNames('content', { 'pb-0': isKanban })}
-            style={{ paddingBottom: '21px' }}
+            style={{ paddingBottom: '21px', transition:"all .2s ease" }}
           >
             <NavbarTop />
             {/*------ Main Routes ------*/}
-            <div
-              style={{
-                display: 'flex',
-                flexDirection: 'column',
-                gap: '16px',
-                maxWidth: '1920px',
-                margin: '0 auto',
-                justifyContent:"center"
-              }}
-            >
+            <MainContainer>
               <PropertyProvider>
                 <Outlet />
               </PropertyProvider>
               {!isKanban && <Footer />}
-            </div>
+            </MainContainer>
           </div>
         </CourseProvider>
       </ProductProvider>

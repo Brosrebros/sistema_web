@@ -32,6 +32,7 @@ const PropertyGrid = ({ property }) => {
       onClick={() => {
         navigate(`/${rootPaths.propertyDetailRoot}/${property.id}`);
       }}
+      style={{ width: '100%' }}
     >
       <Card.Body
         as={Flex}

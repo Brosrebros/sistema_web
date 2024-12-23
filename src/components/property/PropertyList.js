@@ -134,7 +134,7 @@ const PropertyList = ({ property }) => {
                   <SubtleBadge
                     // key={tag.id} pill bg={tag.type}
                     className="my-2"
-                    bg={tipoOperacion == 'Alquiler' ? 'danger' : 'success'}
+                    bg={tipoOperacion == 'Alquiler' ? 'success' : 'danger'}
                   >
                     {/* <FontAwesomeIcon
                   icon={tag.icon}

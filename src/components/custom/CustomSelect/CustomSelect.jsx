@@ -18,6 +18,7 @@ const CustomSelect = ({
   onChange,
   background,
   children,
+  size,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedValue, setSelectedValue] = useState(value || '');
@@ -49,7 +50,7 @@ const CustomSelect = ({
     placeholder;
 
   return (
-    <CustomSelectContainer background={background}>
+    <CustomSelectContainer background={background} size={size}>
       {children}
 
       <CustomSelectStyled ref={selectRef}>

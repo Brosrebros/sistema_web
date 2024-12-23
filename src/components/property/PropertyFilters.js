@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import SimpleBar from 'simplebar-react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Button,Card } from 'react-bootstrap';
+import { Button, Card } from 'react-bootstrap';
 // import { slugifyText } from 'helpers/utils';
 import Flex from 'components/common/Flex';
 import SubtleBadge from 'components/common/SubtleBadge';
@@ -73,73 +73,77 @@ const PropertyFilters = ({
 
   useEffect(() => {
     updateFilters(filterOptions);
+    console.log(filterOptions);
   }, [filterOptions]);
 
   return (
-    <Card className="course-filter">
-      <SimpleBar style={{ height: '100%' }}>
-        <Card.Header
-          as={Flex}
-          className="flex-between-center pt-x1"
-          style={{ borderBottom: '1px solid #D6D6D6', flexDirection: 'column' }}
+    <Card className="course-filter" style={{ boxShadow: 'none' }}>
+      <div
+        as={Flex}
+        style={{
+          borderBottom: '1px solid #D6D6D6',
+          flexDirection: 'column',
+          padding: '1.4em',
+        }}
+      >
+        <Flex
+          className="gap-4 flex-xl-grow-1 align-items-center justify-content-xl-between"
+          style={{ width: '100%' }}
         >
-          <Flex
-            className="gap-4 flex-xl-grow-1 align-items-center justify-content-xl-between"
-            style={{ width: '100%' }}
+          <h4
+            className="mb-0 fs-9 d-flex align-items-center"
+            style={{ color: '#1e1e1e', fontWeight: 'bold', gap: '6px' }}
           >
-            <h4
-              className="mb-0 fs-9 d-flex align-items-center"
-              style={{ color: '#1e1e1e', fontWeight: 'bold', gap: '6px' }}
-            >
-              <HiOutlineFilter />
-              <span style={{ fontSize: '1.1em' }}>Más filtros</span>
-            </h4>
-            <PrimaryCustomButton
-              onClick={() => setFilterOptions([])}
-              variant="primary"
-            >
-              <FontAwesomeIcon icon="redo-alt" className="me-1 fs-11" />
-              Reset
-            </PrimaryCustomButton>
-          </Flex>
-          {isOffcanvas && (
-            <Button
-              onClick={() => setShow(false)}
-              className="btn-close text-reset"
-              size="sm"
-              variant="link"
-            ></Button>
-          )}
-          {filterOptions.length > 0 && (
-            <Flex
-              wrap="wrap"
-              className="gap-2 mb-3"
-              style={{ width: '100%', marginTop: '1em' }}
-            >
-              {filterOptions.map((tag, idx) => (
-                <SubtleBadge key={`${tag.name}-${idx}`} pill={false}>
-                  {tag.value}
-                  <Button
-                    size="sm"
-                    variant="link"
-                    className="p-0 text-900"
-                    onClick={() =>
-                      setFilterOptions(
-                        filterOptions.filter(
-                          ({ name, value }) =>
-                            !(name === tag.name && value === tag.value)
-                        )
+            <HiOutlineFilter />
+            <span style={{ fontSize: '1.1em' }}>Más filtros</span>
+          </h4>
+          <PrimaryCustomButton
+            onClick={() => setFilterOptions([])}
+            variant="primary"
+          >
+            <FontAwesomeIcon icon="redo-alt" className="me-1 fs-11" />
+            Reset
+          </PrimaryCustomButton>
+        </Flex>
+        {isOffcanvas && (
+          <Button
+            onClick={() => setShow(false)}
+            className="btn-close text-reset"
+            size="sm"
+            variant="link"
+          ></Button>
+        )}
+        {filterOptions.length > 0 && (
+          <Flex
+            wrap="wrap"
+            className="gap-2 mb-3"
+            style={{ width: '100%', marginTop: '1em' }}
+          >
+            {filterOptions.map((tag, idx) => (
+              <SubtleBadge key={`${tag.name}-${idx}`} pill={false}>
+                {tag.value}
+                <Button
+                  size="sm"
+                  variant="link"
+                  className="p-0 text-900"
+                  onClick={() =>
+                    setFilterOptions(
+                      filterOptions.filter(
+                        ({ name, value }) =>
+                          !(name === tag.name && value === tag.value)
                       )
-                    }
-                  >
-                    <FontAwesomeIcon icon="times" className="ms-1 fs-11" />
-                  </Button>
-                </SubtleBadge>
-              ))}
-            </Flex>
-          )}
-        </Card.Header>
-        <Card.Body className="py-0">
+                    )
+                  }
+                >
+                  <FontAwesomeIcon icon="times" className="ms-1 fs-11" />
+                </Button>
+              </SubtleBadge>
+            ))}
+          </Flex>
+        )}
+      </div>
+      <SimpleBar style={{ height: '100%', overflowY: 'auto' }}>
+        <Card.Body className="py-0" style={{ height: '100%' }}>
           <form
             onSubmit={e => {
               e.preventDefault();
@@ -313,6 +317,10 @@ const NumberFeaturesFilter = ({ onChange }) => {
     });
   };
 
+  const handleChange = e => {
+    onChange(e); // Llama a la función onChange pasada como prop
+  };
+
   return (
     <div
       style={{
@@ -327,21 +335,25 @@ const NumberFeaturesFilter = ({ onChange }) => {
         title="Dormitorios"
         value={features.dormitorios}
         onValueChange={value => handleFeatureChange('dormitorios', value)}
+        onChange={handleChange}
       />
       <NumberFeatureContainer
         title="Baños"
         value={features.banos}
         onValueChange={value => handleFeatureChange('banos', value)}
+        onChange={handleChange}
       />
       <NumberFeatureContainer
         title="Medios Baños"
         value={features.mediosBanos}
         onValueChange={value => handleFeatureChange('mediosBanos', value)}
+        onChange={handleChange}
       />
       <NumberFeatureContainer
         title="Estacionamientos"
         value={features.estacionamientos}
         onValueChange={value => handleFeatureChange('estacionamientos', value)}
+        onChange={handleChange}
       />
     </div>
   );

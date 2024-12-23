@@ -3,7 +3,28 @@ import Properties from 'components/property/Properties';
 import React, { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { usePropertyContext } from 'providers/PropertyProvider';
-import { Stack } from 'react-bootstrap';
+import styled from 'styled-components';
+
+const MainContent = styled.div`
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 1640px;
+  font-family: 'Aptos_display';
+  transition: all 0.15s linear;
+
+  @media (max-width: 1746px) {
+    max-width: 84vw;
+  }
+
+  @media (max-width: 1400px) {
+    max-width: 70vw;
+  }
+  @media (max-width: 1300px) {
+    max-width: 80vw;
+  }
+`;
 
 const Catalogpage = () => {
   const [searchParams] = useSearchParams();
@@ -59,7 +80,7 @@ const Catalogpage = () => {
   }, [filterForm]);
 
   return (
-    <Stack gap={3} style={{ maxWidth: '1620px', margin: '0 auto' }}>
+    <MainContent>
       <PropertyForm
         filterForm={filterForm}
         setFilterForm={setFilterForm}
@@ -83,7 +104,7 @@ const Catalogpage = () => {
         properties={propertyList}
         title={title}
       />
-    </Stack>
+    </MainContent>
   );
 };
 

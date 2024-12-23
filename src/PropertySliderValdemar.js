@@ -3,14 +3,14 @@ import Slider from 'react-slick';
 import PropertyGrid from './PropertyGridValdemar';
 import PropTypes from 'prop-types';
 
-const PropertySliderValdemar = ({ data, slidesToShow = 5 }) => {
+const PropertySliderValdemar = ({ data, slidesToShow = 4.5 }) => {
   const sliderSettings = {
-    infinite: true,
+    infinite: false,
     speed: 500,
-    slidesToShow: slidesToShow,
+    slidesToShow: slidesToShow, // Se asegura de que solo se muestra una card completa
     slidesToScroll: 1,
-    arrows: true, // Activa siempre las flechas
-    initialSlide: 2,
+    initialSlide: 0,
+    centerMode: false, // Habilita el modo centrado
     responsive: [
       {
         breakpoint: 1600,

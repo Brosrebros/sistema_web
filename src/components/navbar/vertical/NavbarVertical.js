@@ -1,4 +1,4 @@
-import React, { useEffect, Fragment } from 'react';
+import React, { useEffect, Fragment, useState } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { Nav, Navbar, Row, Col } from 'react-bootstrap';
@@ -14,8 +14,30 @@ import PurchaseCard from './PurchaseCard';
 import bgNavbar from 'assets/img/generic/bg-navbar.png';
 import { useAppContext } from 'providers/AppProvider';
 import styles from 'styles.module.css';
+import CustomSelect from 'components/custom/CustomSelect/CustomSelect';
+
+const vendedoresOptions = [
+  { value: 'Dueño directo', label: 'Dueño directo' },
+  { value: 'Agente inmobiliario', label: 'Agente inmobiliario' },
+  {
+    value: 'Constructora o desarrolladora',
+    label: 'Constructora o desarrolladora',
+  },
+];
 
 const NavbarVertical = () => {
+  const [filterForm, setFilterForm] = useState({
+    tipoPropiedad: '',
+  });
+
+  const handleCustomChange = e => {
+    const { name, value } = e.target;
+    setFilterForm(prev => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
   const {
     config: {
       navbarPosition,
@@ -73,10 +95,22 @@ const NavbarVertical = () => {
         [`navbar-${navbarStyle}`]: navbarStyle !== 'transparent',
       })}
       variant="light"
+      style={{ zIndex: 1022 }}
     >
       <Flex alignItems="center" className={'py-0'}>
-        <ToggleButton />
+        <ToggleButton/>
         <Logo at="navbar-vertical" textClass="text-primary" width={40} />
+        <CustomSelect
+          id="vendedoresInmobiliarios"
+          name="vendedoresInmobiliarios"
+          aria-label="Vendedores Inmobiliarios"
+          value={filterForm.vendedoresOptions}
+          onChange={handleCustomChange}
+          placeholder="Vendedores Inmobiliarios"
+          options={vendedoresOptions}
+          background="nav"
+          size="large"
+        />
       </Flex>
       <Navbar.Collapse
         in={showBurgerMenu}

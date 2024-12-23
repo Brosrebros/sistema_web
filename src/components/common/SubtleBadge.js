@@ -5,7 +5,7 @@ const SubtleBadge = ({ bg = 'primary', pill, children, className }) => {
   // Personalización del color y estilo
   const customStyles = {
     backgroundColor:
-      bg === 'danger' ? '#940000' : bg === 'success' ? '#940000' : '#D6D6D6',
+      bg === 'danger' ? '#940000' : bg === 'success' ? '#438020' : '#D6D6D6',
     fontWeight: 'light',
     color: bg === 'danger' ? 'white' : bg === 'success' ? 'white' : 'black', // Texto blanco
     borderRadius: pill ? '50px' : '8px', // Redondeado si 'pill' es true

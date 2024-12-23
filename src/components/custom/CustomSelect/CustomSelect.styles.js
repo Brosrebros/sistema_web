@@ -10,6 +10,7 @@ export const CustomSelectContainer = styled.div`
   padding: 0 0 0 8px;
   gap: 12px;
   height: 36px;
+  min-width: ${({ size }) => (size === 'large' ? '180px' : 'auto')};
   font-family: 'Aptos_Display';
 
   @media (max-width: 968px) {

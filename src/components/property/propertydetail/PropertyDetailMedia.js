@@ -48,7 +48,7 @@ const PropertyDetailMedia = ({ imagenes: files }) => {
             onClick={() => handleImageClick(files[0].src)}
           />
         )}
-        <div className="product-slider">
+        <div className="product-slider" style={{ borderRadius: '12px', overflow: 'hidden' }}>
           <Slider
             {...sliderSettings}
             asNavFor={nav2}
@@ -98,10 +98,9 @@ const PropertyDetailMedia = ({ imagenes: files }) => {
               <div
                 className="cursor-pointer"
                 style={{
-                  backgroundColor: '#D6D6D6',
                   display: 'flex',
                   justifyContent: 'flex-start',
-                  borderRadius: '0.6rem',
+                  borderRadius: '10px',
                   overflow: 'hidden',
                   marginTop: '8px',
                   maxWidth: '205px',
@@ -110,7 +109,12 @@ const PropertyDetailMedia = ({ imagenes: files }) => {
                 <img
                   className="fit-cover"
                   height={'110px'}
-                  style={{ width: '100%', margin: '0px' }}
+                  style={{
+                    width: '100%',
+                    margin: '0px',
+                    marginRight: '12px',
+                    borderRadius: '10px',
+                  }}
                   src={img}
                   alt="product media"
                   onClick={() => handleImageClick(img)}

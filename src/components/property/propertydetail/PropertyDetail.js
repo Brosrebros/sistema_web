@@ -26,7 +26,7 @@ const PropertyDetail = () => {
         <BackButton />
         <CustomBreadcrumb prevlink="Inmobiliarias" link1="Detalles" />
       </div>
-      <Card>
+      <Card style={{ boxShadow: 'none' }}>
         {propertyState.property !== null &&
           propertyState.property !== undefined && (
             <Row className="m-3 g-3">

@@ -5,15 +5,14 @@ import PropertyGrid from './PropertyGrid';
 import PropTypes from 'prop-types';
 import styles from 'styles.module.css';
 
-const PropertySlider = ({ data, title, slidesToShow = 4 }) => {
+const PropertySlider = ({ data, title, slidesToShow = 5.4 }) => {
   const sliderSettings = {
-    infinite: true,
+    infinite: false,
     speed: 500,
-    slidesToShow: slidesToShow,
+    slidesToShow: slidesToShow, // Se asegura de que solo se muestra una card completa
     slidesToScroll: 1,
-    initialSlide: 2,
-    centerMode: true, // Habilita el modo centrado
-    centerPadding: '50px', // Controla cuánto de la tarjeta parcialmente visible se muestra
+    initialSlide: 0,
+    centerMode: false, // Habilita el modo centrado
     responsive: [
       {
         breakpoint: 1600,

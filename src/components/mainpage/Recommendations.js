@@ -24,8 +24,8 @@ const SingleItem = ({ icon, title, description }) => {
         <Icon src={icon} width="75px" height="75px" />
         <div>
           <Link to="#!" className="stretched-link text-decoration-none">
-            <h5 className="fs-10  mb-1 ps-3 black_important bolddd">{title}</h5>
-            <h5 className="fs-10 text-800 mb-0 ps-3 black_important">
+            <h5 className="mb-1 ps-3 black_important bolddd" style={{ fontSize: '1rem' }}>{title}</h5>
+            <h5 className="text-800 mb-0 ps-3 black_important" style={{ fontSize: '0.78rem' }}>
               {description}
             </h5>
           </Link>

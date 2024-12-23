@@ -10,16 +10,6 @@ import { navbarBreakPoint, topNavbarBreakpoint } from 'config';
 import TopNavRightSideNavItem from './TopNavRightSideNavItem';
 import { useLocation } from 'react-router-dom';
 import { useAppContext } from 'providers/AppProvider';
-import CustomSelect from 'components/custom/CustomSelect/CustomSelect';
-
-const vendedoresOptions = [
-  { value: 'Dueño directo', label: 'Dueño directo' },
-  { value: 'Agente inmobiliario', label: 'Agente inmobiliario' },
-  {
-    value: 'Constructora o desarrolladora',
-    label: 'Constructora o desarrolladora',
-  },
-];
 
 const NavbarTop = () => {
   const {
@@ -31,10 +21,6 @@ const NavbarTop = () => {
   const isChat = pathname.includes('chat');
 
   const [showDropShadow, setShowDropShadow] = useState(false);
-  const [filterForm, setFilterForm] = useState({
-    tipoPropiedad: '',
-    // Agregar otros campos si es necesario
-  });
 
   const handleBurgerMenu = () => {
     (navbarPosition === 'top' || navbarPosition === 'double-top') &&
@@ -50,14 +36,6 @@ const NavbarTop = () => {
     } else {
       setShowDropShadow(false);
     }
-  };
-
-  const handleCustomChange = e => {
-    const { name, value } = e.target;
-    setFilterForm(prev => ({
-      ...prev,
-      [name]: value,
-    }));
   };
 
   useEffect(() => {
@@ -88,17 +66,6 @@ const NavbarTop = () => {
           : true
       }
     >
-      <CustomSelect
-        id="vendedoresInmobiliarios"
-        name="vendedoresInmobiliarios"
-        aria-label="Vendedores Inmobiliarios"
-        value={filterForm.vendedoresOptions}
-        onChange={handleCustomChange}
-        placeholder="Vendedores Inmobiliarios"
-        options={vendedoresOptions}
-        background="nav"
-      />
-
       {navbarPosition === 'double-top' ? (
         <div className="w-100">
           <div className="d-flex flex-between-center">
