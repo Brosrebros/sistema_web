@@ -8,6 +8,8 @@ import tipoIcon from 'assets/icons/tipodepropiedad_gris.svg';
 import presupuestoIcon from 'assets/icons/presupuesto_gris.svg';
 import ordenIcon from 'assets/icons/simplenavbar-ordenarpor.svg';
 import masfiltros_gris from 'assets/icons/masfiltros_gris.svg';
+import { PiMagnifyingGlass } from 'react-icons/pi';
+import mapaIcon from 'assets/img/icons/mapa_boton.svg';
 // import operacionIcon from 'assets/icons/simplenavbar-clasedepropiedad.svg';
 // import locationIcon from '../../assets/icons-svg/En donde la buscas - Barra de busqueda simple.svg';
 // import tipoIcon from '../../assets/icons-svg/Tipo de propiedad - Barra de busqueda simple.svg';
@@ -105,7 +107,10 @@ const PropertyForm = ({
             onSubmit={handleSubmit} // Maneja el evento submit
           >
             <div className="row">
-              <form className="form d-flex" style={{ gap: '8px' }}>
+              <form
+                className="form d-flex"
+                style={{ gap: '8px', height: 'auto', alignItems: 'center' }}
+              >
                 {/* Toggle de Venta/Alquiler */}
                 <div
                   className="toggle-switch"
@@ -114,13 +119,14 @@ const PropertyForm = ({
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'space-between',
-                    width: '150px',
-                    height: '36px',
+                    width: '170px',
+                    height: '42px',
                     backgroundColor: '#e9ecef',
                     borderRadius: '10px',
                     cursor: 'pointer',
                     overflow: 'hidden',
                     userSelect: 'none',
+                    padding: '0 6px',
                   }}
                   onClick={() => setIsChecked(!isChecked)} // Cambiar entre "Venta" y "Alquiler"
                 >
@@ -128,12 +134,12 @@ const PropertyForm = ({
                   <span
                     style={{
                       position: 'absolute',
-                      height: '100%',
+                      height: '80%',
                       width: '50%',
                       backgroundColor: '#940000',
                       borderRadius: '10px',
                       transform: isChecked
-                        ? 'translateX(100%)'
+                        ? 'translateX(88%)'
                         : 'translateX(0)',
                       transition:
                         'transform 0.4s ease-in-out, background-color 0.3s ease',
@@ -149,7 +155,7 @@ const PropertyForm = ({
                       textAlign: 'center',
                       fontSize: '14px',
                       fontFamily: 'Aptos_display',
-                      color: !isChecked ? 'white' : '#424242 !important',
+                      color: !isChecked ? 'white' : '#424242',
                       transition: 'color 0.3s ease',
                     }}
                   >
@@ -165,7 +171,7 @@ const PropertyForm = ({
                       textAlign: 'center',
                       fontSize: '14px',
                       fontFamily: 'Aptos_display',
-                      color: isChecked ? 'white' : '#424242 !important',
+                      color: isChecked ? 'white' : '#424242',
                       transition: 'color 0.3s ease',
                     }}
                   >
@@ -183,7 +189,7 @@ const PropertyForm = ({
                     justifyContent: 'center',
                     width: '85px',
                     height: '36px',
-                    backgroundColor: '#e9ecef',
+                    backgroundColor: '#2F7474',
                     borderRadius: '10px',
                     cursor: 'pointer',
                     userSelect: 'none',
@@ -196,12 +202,46 @@ const PropertyForm = ({
                       textAlign: 'center',
                       fontSize: '14px',
                       fontFamily: 'Aptos_display',
-                      color: '#424242 !important',
+                      color: 'white',
                       transition: 'color 0.3s ease',
                       padding: '0 10px',
                     }}
                   >
                     Proyectos
+                  </span>
+                </div>
+
+                {/* Botón de ver mapa */}
+                <div
+                  className="toggle-switch"
+                  style={{
+                    position: 'relative',
+                    marginLeft: 'auto',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    height: '36px',
+                    backgroundColor: '#e9ecef',
+                    borderRadius: '10px',
+                    cursor: 'pointer',
+                    userSelect: 'none',
+                    gap: '8px',
+                    padding: '0px 10px',
+                  }}
+                >
+                  <img src={mapaIcon} style={{ width: '1.2rem' }} />
+                  <span
+                    style={{
+                      position: 'relative',
+                      zIndex: 2,
+                      textAlign: 'center',
+                      fontSize: '14px',
+                      fontFamily: 'Aptos_display',
+                      color: '#424242',
+                      transition: 'color 0.3s ease',
+                    }}
+                  >
+                    Ver mapa
                   </span>
                 </div>
               </form>
@@ -226,7 +266,7 @@ const PropertyForm = ({
                 <div
                   style={{
                     display: 'flex',
-                    borderRadius: '0.6rem',
+                    borderRadius: '10px',
                     alignItems: 'center',
                     backgroundColor: '#F2F2F2',
                     padding: '0 8px',
@@ -290,7 +330,7 @@ const PropertyForm = ({
                 <div
                   style={{
                     display: 'flex',
-                    borderRadius: '0.6rem',
+                    borderRadius: '10px',
                     alignItems: 'center',
                     justifyContent: 'space-between',
                     backgroundColor: '#F2F2F2',
@@ -308,7 +348,7 @@ const PropertyForm = ({
                       backgroundColor: '#F2F2F2',
                       fontFamily: 'Aptos_Display',
                       border: 'none',
-                      borderRadius: '8px',
+                      borderRadius: '10px',
                       width: '100%',
                       height: '36px',
                       // cursor: "not-allowed", /* Cursor de no permitido */
@@ -351,8 +391,16 @@ const PropertyForm = ({
                   variant="danger"
                   onClick={handleSubmit}
                   disabled={activeBtn}
-                  style={{ fontFamily: 'Aptos_display' }}
+                  style={{
+                    fontFamily: 'Aptos_display',
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    gap: '0.5rem',
+                    padding: '0.5rem 1rem',
+                  }}
                 >
+                  <PiMagnifyingGlass style={{ fontSize: '1.2rem' }} />
                   {msgBtn}
                 </Button>
               </Col>

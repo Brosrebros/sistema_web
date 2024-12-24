@@ -26,8 +26,8 @@ const MainContent = styled.div`
   font-family: 'Aptos_display';
   transition: all 0.15s linear;
 
-  @media (min-width: 1940px) {
-    max-width: 2000px;
+  @media (min-width: 1930px) {
+    max-width: 1850px;
   }
 
   @media (max-width: 1746px) {
