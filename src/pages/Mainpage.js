@@ -15,32 +15,7 @@ import { usePropertyContext } from 'providers/PropertyProvider';
 import { useNavigate } from 'react-router-dom';
 import { rootPaths } from 'routes/paths';
 import MainpageCharsSlider from 'components/mainpage/MainpageCharsSlider';
-import styled from 'styled-components';
-
-const MainContent = styled.div`
-  display: flex;
-  flex: 1 1 auto;
-  flex-direction: column;
-  gap: 1rem;
-  max-width: 1640px;
-  font-family: 'Aptos_display';
-  transition: all 0.15s linear;
-
-  @media (min-width: 1930px) {
-    max-width: 1850px;
-  }
-
-  @media (max-width: 1746px) {
-    max-width: 84vw;
-  }
-
-  @media (max-width: 1400px) {
-    max-width: 70vw;
-  }
-  @media (max-width: 1300px) {
-    max-width: 80vw;
-  }
-`;
+import CustomPageLayout from 'components/custom/CustomPageLayout/CustomPageLayout';
 
 const Mainpage = () => {
   const [state] = useFrontpage();
@@ -56,7 +31,7 @@ const Mainpage = () => {
 
   return (
     <>
-      <MainContent>
+      <CustomPageLayout>
         <MainpageBanner src={state.data ? state.data[0].imagenes : ''} />
         <PropertyForm
           filterForm={filterForm}
@@ -73,7 +48,7 @@ const Mainpage = () => {
         />
         <MainpageCards />
         <MainpageCharsSlider />
-      </MainContent>
+      </CustomPageLayout>
     </>
   );
 };

@@ -6,6 +6,7 @@ import SubtleBadge from 'components/common/SubtleBadge';
 import { useNavigate } from 'react-router-dom';
 import { rootPaths } from 'routes/paths';
 import corazon_rojo from '../../assets/img/icons/corazonrojo.svg';
+import placeholderImage from '../../assets/img/placeholder-image.png';
 
 const PropertyGrid = ({ property }) => {
   const navigate = useNavigate();
@@ -39,6 +40,8 @@ const PropertyGrid = ({ property }) => {
         direction="column"
         justifyContent="between"
         className="black_important p-0"
+
+        style={{objectFit: 'contain'}}
       >
         {/* Contenedor de imagen y botón de favorito */}
         <div
@@ -74,7 +77,6 @@ const PropertyGrid = ({ property }) => {
               style={{
                 width: '20px',
                 height: '20px',
-                borderRadius: '8px',
               }}
             />
           </div>
@@ -85,45 +87,71 @@ const PropertyGrid = ({ property }) => {
           <Col className="ps-2">
             <div
               style={{
+                width: '100%',
                 display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'flex-start',
                 marginTop: '8px',
+                paddingRight: '0.5rem',
               }}
             >
-              <SubtleBadge
-                className="my-2 regular"
-                bg={tipoOperacion === 'Alquiler' ? 'success' : 'danger'}
-              >
-                {tipoOperacion}
-              </SubtleBadge>
-              <p
+              <div
                 style={{
-                  fontSize: '13px',
+                  display: 'flex',
+                  flexDirection: 'column',
                 }}
-                className="black_important pb-0 my-auto px-1"
               >
-                {tipoPropiedad}
-              </p>
+                <div
+                  style={{
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    gap: '4px',
+                  }}
+                >
+                  <SubtleBadge
+                    className="my-2 regular"
+                    bg={tipoOperacion === 'Alquiler' ? 'success' : 'danger'}
+                  >
+                    {tipoOperacion}
+                  </SubtleBadge>
+                  <p
+                    style={{
+                      fontSize: '13px',
+                    }}
+                    className="black_important pb-0 my-auto px-1"
+                  >
+                    {tipoPropiedad}
+                  </p>
+                </div>
+
+                <h4 className="black_important fs-8 text-warning d-flex align-items-center mb-0">
+                  {precio !== null && precio.pen ? (
+                    <span className="black_important bolddd">
+                      &nbsp;S/{precio.pen}
+                    </span>
+                  ) : null}
+                  {precio !== null && precio.pen && precio.usd ? (
+                    <span className="black_important bolddd">{' - '}</span>
+                  ) : null}
+                  {precio !== null && precio.usd ? (
+                    <span className="black_important bolddd">
+                      &nbsp;${precio.usd}
+                    </span>
+                  ) : null}
+                  {oldPrice ? (
+                    <del className="black_important ms-2 fs-10 text-700">
+                      ${oldPrice}
+                    </del>
+                  ) : null}
+                </h4>
+              </div>
+
+              <img
+                src={placeholderImage}
+                style={{ height: '2rem', width: 'auto' }}
+              />
             </div>
-            <h4 className="black_important fs-8 text-warning d-flex align-items-center mb-0">
-              {precio !== null && precio.pen ? (
-                <span className="black_important bolddd">
-                  &nbsp;S/{precio.pen}
-                </span>
-              ) : null}
-              {precio !== null && precio.pen && precio.usd ? (
-                <span className="black_important bolddd">{' - '}</span>
-              ) : null}
-              {precio !== null && precio.usd ? (
-                <span className="black_important bolddd">
-                  &nbsp;${precio.usd}
-                </span>
-              ) : null}
-              {oldPrice ? (
-                <del className="black_important ms-2 fs-10 text-700">
-                  ${oldPrice}
-                </del>
-              ) : null}
-            </h4>
           </Col>
         </Row>
         <Row

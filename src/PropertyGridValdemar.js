@@ -2,17 +2,16 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Card, Col, Image, Row } from 'react-bootstrap';
 import Flex from 'components/common/Flex';
-import SubtleBadge from 'components/common/SubtleBadge';
 import { useNavigate } from 'react-router-dom';
 import { rootPaths } from 'routes/paths';
-
+import placeholderImage from './assets/img/placeholder-image.png';
 import corazon_rojo from '../src/assets/img/icons/corazonrojo.svg';
 
 const PropertyGrid = ({ property }) => {
   const navigate = useNavigate();
   const [isFavorite, setIsFavorite] = useState(false);
 
-  const toggleFavorite = (e) => {
+  const toggleFavorite = e => {
     e.stopPropagation();
     setIsFavorite(!isFavorite);
   };
@@ -51,20 +50,20 @@ const PropertyGrid = ({ property }) => {
           {/* Barra superior "En construcción" */}
           <div
             style={{
-              backgroundColor: '#007599',
+              backgroundColor: '#2F7474',
               color: '#fff',
-              fontWeight: 'bold',
               padding: '4px 10px',
               position: 'absolute',
               left: '0',
               right: '0',
               bottom: '0',
               display: 'flex',
-              justifyContent: 'space-between',
+              justifyContent: 'flex-start',
+              gap: '10px',
               fontSize: '12px',
             }}
           >
-            <span>En construcción</span>
+            <span style={{ fontWeight: '600' }}>En construcción</span>
             <span>Entrega en junio de 2027</span>
           </div>
 
@@ -93,7 +92,6 @@ const PropertyGrid = ({ property }) => {
               style={{
                 width: '20px',
                 height: '20px',
-                borderRadius: '8px',
               }}
             />
           </div>
@@ -102,35 +100,63 @@ const PropertyGrid = ({ property }) => {
         {/* Información del inmueble */}
         <Row className="g-0 mb-1 align-items-end">
           <Col className="ps-2">
-            <div style={{ display: 'flex', alignItems: 'center' }}>
-              {/* Etiqueta azul "Proyecto" */}
+            <div
+              style={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                paddingRight: '0.5rem',
+                marginTop: '8px',
+              }}
+            >
               <div
                 style={{
-                  backgroundColor: '#007bff', // Azul
-                  color: '#fff',              // Texto blanco
-                  borderRadius: '4px',
-                  padding: '2px 6px',
-                  fontSize: '12px',
-                  fontWeight: 'bold',
-                  marginRight: '8px',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'flex-start',
+                  gap: '2px',
                 }}
               >
-                Proyecto
-              </div>
+                <div
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                  }}
+                >
+                  <div
+                    style={{
+                      backgroundColor: '#2F7474',
+                      color: '#fffff',
+                      borderRadius: '4px',
+                      padding: '0px 6px',
+                      fontSize: '0.8rem',
+                      fontWeight: 'normal',
+                      marginRight: '4px',
+                      color: '#fff',
+                      lineHeight: '130%',
+                    }}
+                  >
+                    Proyecto
+                  </div>
+                  <p
+                    style={{
+                      fontSize: '13px',
+                    }}
+                    className="black_important pb-0 my-auto px-1"
+                  >
+                    {tipoPropiedad}
+                  </p>
+                </div>
 
-              {/* Etiqueta tipo de operación */}
-              <SubtleBadge className="my-2 regular">
-                {tipoOperacion}
-              </SubtleBadge>
-              <p
-                style={{
-                  fontSize: '13px',
-                }}
-                className="black_important pb-0 my-auto px-1"
-              >
-                {tipoPropiedad}
-              </p>
+                <span style={{ fontSize: '10px' }} className="black_important">
+                  Cuotas desde
+                </span>
+              </div>
+              <img
+                src={placeholderImage}
+                style={{ height: '2rem', width: 'auto' }}
+              />
             </div>
+
             <h4 className="black_important fs-8 text-warning d-flex align-items-center mb-0">
               {precio !== null && precio.pen ? (
                 <span className="black_important bolddd">

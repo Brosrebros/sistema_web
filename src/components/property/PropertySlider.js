@@ -1,9 +1,9 @@
 import React from 'react';
-import Slider from 'react-slick';
 import { TitleValdemar } from '../mainpage/TitleValdemar';
 import PropertyGrid from './PropertyGrid';
 import PropTypes from 'prop-types';
 import styles from 'styles.module.css';
+import CustomSliderButton from 'components/custom/CustomButtons/CustomSliderButton/CustomSliderButton';
 
 const PropertySlider = ({ data, title, slidesToShow = 5.4 }) => {
   const sliderSettings = {
@@ -17,36 +17,31 @@ const PropertySlider = ({ data, title, slidesToShow = 5.4 }) => {
       {
         breakpoint: 1600,
         settings: {
-          slidesToShow: slidesToShow,
-          centerPadding: '40px',
+          slidesToShow: slidesToShow - 1,
         },
       },
       {
         breakpoint: 1400,
         settings: {
-          slidesToShow: slidesToShow - 1,
-          centerPadding: '30px',
+          slidesToShow: slidesToShow - 2,
         },
       },
       {
         breakpoint: 992,
         settings: {
           slidesToShow: slidesToShow - 2,
-          centerPadding: '20px',
         },
       },
       {
         breakpoint: 767,
         settings: {
           slidesToShow: 2,
-          centerPadding: '15px',
         },
       },
       {
         breakpoint: 576,
         settings: {
           slidesToShow: 1,
-          centerPadding: '10px',
         },
       },
     ],
@@ -56,10 +51,9 @@ const PropertySlider = ({ data, title, slidesToShow = 5.4 }) => {
     <div>
       {title ? <TitleValdemar classname={styles.title} >{title}</TitleValdemar> : null}
       {data ? (
-        <Slider
+        <CustomSliderButton
           {...sliderSettings}
           className="full-height-slider slick-slider-arrow-inner similar-courses-slider"
-          
         >
           {data.map(property => (
             <PropertyGrid
@@ -68,7 +62,7 @@ const PropertySlider = ({ data, title, slidesToShow = 5.4 }) => {
               color="#F9F9F9"
             />
           ))}
-        </Slider>
+        </CustomSliderButton>
       ) : null}
     </div>
   );

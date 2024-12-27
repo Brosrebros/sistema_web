@@ -204,7 +204,7 @@ const MainpageCharsSlider = ({ className }) => {
         <Col xs={12} md={8}>
           <div>
             {/* Pasa los inmuebles filtrados al slider */}
-            <PropertySliderValdemar slidesToShow={4} data={filteredInmuebles || []} />
+            <PropertySliderValdemar data={filteredInmuebles || []} />
           </div>
           {/* Renderizar filtro oculto */}
           <p style={{ display: 'none' }}>{filtro}</p>

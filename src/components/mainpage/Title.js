@@ -11,7 +11,7 @@ export const Title = ({ children, classname }) => {
             : 'titulo_primera_pagina_desc bolddd '
         }
         style={{
-          // fontSize: '20px',
+          color:"black"
         }}
       >
         {children}

@@ -5,21 +5,27 @@ import {
   FilterGroupOptions,
 } from './CustomFilter.styles';
 import CustomLabel from '../CustomLabel/CustomLabel';
+import { IoIosArrowDown } from 'react-icons/io';
 
-function CustomFilter({ title, options, inputType, name, onChange }) {
-  const [selectedOption, setSelectedOption] = useState('');
+function CustomFilter({ title, options = [], inputType = 'radio', name, onChange }) {
+  const [visibleCount, setVisibleCount] = useState(6);
 
   const handleChange = e => {
-    setSelectedOption(e.target.value);
-    onChange(e); // Llama a la función onChange pasada como prop
+    if (onChange) {
+      onChange(e);
+    }
+  };
+
+  const handleShowMore = () => {
+    setVisibleCount(prevCount => prevCount + 2);
   };
 
   return (
     <FilterGroupContainer>
       <FilterGroupTitle>{title}</FilterGroupTitle>
       <FilterGroupOptions>
-        {options.map(option => (
-          <CustomLabel key={option.value}>
+        {options.slice(0, visibleCount).map(option => (
+          <CustomLabel key={option.value || option.label}>
             <input
               type={inputType}
               name={name}
@@ -30,6 +36,15 @@ function CustomFilter({ title, options, inputType, name, onChange }) {
           </CustomLabel>
         ))}
       </FilterGroupOptions>
+      {options.length > visibleCount && (
+        <p
+          style={{ color: 'black', fontSize: '1rem', cursor: 'pointer' }}
+          onClick={handleShowMore}
+        >
+          {options.length > visibleCount ? 'Ver más' : 'Ver menos'}{' '}
+          <IoIosArrowDown />
+        </p>
+      )}
     </FilterGroupContainer>
   );
 }

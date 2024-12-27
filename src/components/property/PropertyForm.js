@@ -120,13 +120,13 @@ const PropertyForm = ({
                     alignItems: 'center',
                     justifyContent: 'space-between',
                     width: '170px',
-                    height: '42px',
-                    backgroundColor: '#e9ecef',
+                    height: '36px',
+                    backgroundColor: '#f2f2f2',
                     borderRadius: '10px',
                     cursor: 'pointer',
                     overflow: 'hidden',
                     userSelect: 'none',
-                    padding: '0 6px',
+                    padding: '0 4px',
                   }}
                   onClick={() => setIsChecked(!isChecked)} // Cambiar entre "Venta" y "Alquiler"
                 >
@@ -139,7 +139,7 @@ const PropertyForm = ({
                       backgroundColor: '#940000',
                       borderRadius: '10px',
                       transform: isChecked
-                        ? 'translateX(88%)'
+                        ? 'translateX(90%)'
                         : 'translateX(0)',
                       transition:
                         'transform 0.4s ease-in-out, background-color 0.3s ease',
@@ -221,7 +221,7 @@ const PropertyForm = ({
                     alignItems: 'center',
                     justifyContent: 'center',
                     height: '36px',
-                    backgroundColor: '#e9ecef',
+                    backgroundColor: '#f2f2f2',
                     borderRadius: '10px',
                     cursor: 'pointer',
                     userSelect: 'none',
@@ -262,7 +262,7 @@ const PropertyForm = ({
                   <img src={tipoIcon} width={'16px'} />
                 </CustomSelect>
               </Col>
-              <Col lg={3} md={3} xs={12} className="px-2">
+              <Col lg={4} md={3} xs={12} className="px-2">
                 <div
                   style={{
                     display: 'flex',
@@ -326,17 +326,17 @@ const PropertyForm = ({
                 </CustomSelect>
               </Col>
 
-              <Col lg={2} md={2} xs={12} className="px-2">
+              <Col lg={1} md={2} xs={12} className="px-2">
                 <div
                   style={{
                     display: 'flex',
                     borderRadius: '10px',
                     alignItems: 'center',
-                    justifyContent: 'space-between',
+                    justifyContent: 'center',
                     backgroundColor: '#F2F2F2',
-                    padding: '0 0 0 8px',
                     width: '100%',
                     height: '36px',
+                    padding: '0px 8px',
                     fontFamily: 'Aptos_Display',
                   }}
                 >
@@ -344,34 +344,26 @@ const PropertyForm = ({
                     style={{
                       display: 'flex',
                       alignItems: 'center',
-                      justifyContent: 'space-between',
+                      justifyContent: 'center',
                       backgroundColor: '#F2F2F2',
                       fontFamily: 'Aptos_Display',
                       border: 'none',
                       borderRadius: '10px',
                       width: '100%',
                       height: '36px',
-                      // cursor: "not-allowed", /* Cursor de no permitido */
                       fontSize: '14px',
                       color: '#424242 !important',
-                      padding: '0 12px',
                       outline: 'none',
-                      boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)',
-                      opacity: '0.7' /* Visualmente más tenue */,
+                      opacity: '0.7',
+                      gap: '0.5rem',
                     }}
                   >
                     {/* Icono de la izquierda */}
 
-                    <img
-                      src={masfiltros_gris}
-                      width={'16px'}
-                      style={{ marginRight: '8px' }}
-                    />
+                    <img src={masfiltros_gris} width={'16px'} />
                     {/* Texto */}
                     <span
                       style={{
-                        flexGrow: 1,
-                        textAlign: 'left',
                         color: '#424242 !important',
                       }}
                     >
@@ -398,6 +390,7 @@ const PropertyForm = ({
                     alignItems: 'center',
                     gap: '0.5rem',
                     padding: '0.5rem 1rem',
+                    width: '100%',
                   }}
                 >
                   <PiMagnifyingGlass style={{ fontSize: '1.2rem' }} />

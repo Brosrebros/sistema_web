@@ -9,9 +9,12 @@ const SubtleBadge = ({ bg = 'primary', pill, children, className }) => {
     fontWeight: 'light',
     color: bg === 'danger' ? 'white' : bg === 'success' ? 'white' : 'black', // Texto blanco
     borderRadius: pill ? '50px' : '8px', // Redondeado si 'pill' es true
-    padding: '0px 8px', // Espaciado interno
-    fontSize: '0.9rem', // Tamaño de texto pequeño
+    padding: '0px 6px', // Espaciado interno
+    fontSize: '0.8rem', // Tamaño de texto pequeño
     border: '1px solid transparent', // Borde opcional
+    maxHeight: '22px',
+    height: 'auto',
+    lineHeight: '130%',
   };
 
   return <div style={customStyles}>{children}</div>;

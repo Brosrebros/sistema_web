@@ -1,15 +1,7 @@
 import React from 'react';
-// import eventBanner from 'assets/img/generic/13.jpg';
-// import { Card } from 'react-bootstrap';
-// , Row, Col, Button
-// import Flex from 'components/common/Flex';
-// import Calendar from 'components/common/Calendar';
-// import { Link } from 'react-router-dom';
-// import IconButton from 'components/common/IconButton';
 import { Imagebanner } from 'components/common/Imagebanner';
 import PropTypes from 'prop-types';
 import { Row, Col } from 'react-bootstrap';
-// Form, Button, Stack
 import { Title } from './Title';
 import { Recommendations } from './Recommendations';
 import img1 from 'assets/icons/mainpage-banner-card-propiedadesquebajarondeprecio.svg';
@@ -39,7 +31,7 @@ const intelligence = [
 
 export const MainpageBanner = ({ src }) => {
   return (
-    <div>
+    <div style={{ maxHeight: '340px', overflow: 'hidden' }}>
       <Row>
         <Imagebanner classname="d-lg-none d-grid px-0" src={src} />
       </Row>
@@ -54,11 +46,11 @@ export const MainpageBanner = ({ src }) => {
             Encuentra lo que te puede interesar
           </Title>
         </Col>
-        <Col xl={8} lg={6} xs={12} className="d-lg-grid d-none">
+        <Col>
           <Imagebanner
             extraStyles={{ borderRadius: '10px' }}
             src={src}
-            height="auto"
+            height="100%"
           />
         </Col>
         <Col xl={4} lg={6} xs={12}>

@@ -6,7 +6,7 @@ import styled from 'styled-components';
 const MainFooter = styled.footer`
   border-radius: 0.6rem;
   background-color: #940000;
-  width: 100%;
+  width: 1640px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -14,18 +14,18 @@ const MainFooter = styled.footer`
   transition: all 0.15s linear;
 
   @media (min-width: 1940px) {
-    max-width: 2000px;
+    width: 1840px;
   }
 
   @media (max-width: 1746px) {
-    max-width: 84vw;
+    width: 84vw;
   }
 
   @media (max-width: 1400px) {
-    max-width: 70vw;
+    width: 70vw;
   }
   @media (max-width: 1300px) {
-    max-width: 80vw;
+    width: 80vw;
   }
 `;
 

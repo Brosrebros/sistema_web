@@ -55,8 +55,10 @@ const TagCard = ({ item }) => {
         }}
       >
         <Icon src={item.icon} width="105px" height="115px" />
-        <Title >{item.title}</Title>
-        <h5 className='fs-10 '>{item.description}</h5>
+        <Title style={{ color: 'black' }}>{item.title}</Title>
+        <h5 className="fs-10 " style={{ color: '#424242' }}>
+          {item.description}
+        </h5>
       </Card>
     </Col>
   );

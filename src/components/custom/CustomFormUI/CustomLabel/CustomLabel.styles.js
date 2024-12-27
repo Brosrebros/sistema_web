@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { FaCheck } from "react-icons/fa6";
 
 export const CustomLabelStyled = styled.label`
   width: 100%;
@@ -35,6 +36,15 @@ export const CustomLabelStyled = styled.label`
     &:checked {
       background-color: #940000;
       border: none;
+
+      &::before {
+        content: '✓';
+        font-size: 12px;
+        color: white;
+        display: flex;
+        width: 100%;
+        justify-content: center;
+      }
     }
   }
 `;

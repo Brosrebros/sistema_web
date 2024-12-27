@@ -9,39 +9,22 @@ import CourseProvider from 'providers/CourseProvider';
 import ModalAuth from 'components/authentication/modal/ModalAuth';
 import PropertyProvider from 'providers/PropertyProvider';
 import { useAppContext } from 'providers/AppProvider';
+import CustomFooter from 'components/custom/CustomFooter/CustomFooter';
 import styled from 'styled-components';
 
 const MainContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 16px;
-  max-width: 1700px;
+  max-width: 100%;
   margin-left: auto;
   justify-content: center;
   transition: all 0.15s linear;
-
-  @media (min-width: 1920px) {
-    max-width: 100%;
-    align-items: center;
-  }
-
-  @media (max-width: 1746px) {
-    max-width: 89vw;
-  }
-
-  @media (max-width: 1400px) {
-    max-width: 78.6vw;
-  }
-
-  @media (max-width: 1300px) {
-    max-width: 85vw;
-  }
 `;
 
 const MainLayout = () => {
   const { hash, pathname } = useLocation();
   const isKanban = pathname.includes('kanban');
-  // const isChat = pathname.includes('chat');
 
   const {
     config: { isFluid, navbarPosition },
@@ -72,7 +55,7 @@ const MainLayout = () => {
         <CourseProvider>
           <div
             className={classNames('content', { 'pb-0': isKanban })}
-            style={{ paddingBottom: '21px', transition:"all .2s ease" }}
+            style={{ paddingBottom: '21px', transition: 'all .2s ease' }}
           >
             <NavbarTop />
             {/*------ Main Routes ------*/}
@@ -80,6 +63,7 @@ const MainLayout = () => {
               <PropertyProvider>
                 <Outlet />
               </PropertyProvider>
+              <CustomFooter />
               {!isKanban && <Footer />}
             </MainContainer>
           </div>

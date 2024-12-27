@@ -206,6 +206,15 @@ const PropertyFilters = ({
                   value: 'Piscina al aire libre',
                   label: 'Piscina al aire libre',
                 },
+                { value: 'Area BBQ1', label: 'Area BBQ' },
+                { value: 'Balcon1', label: 'Balcón' },
+                { value: 'Cancha1', label: 'Cancha' },
+                { value: 'Jardín privado1', label: 'Jardín privado' },
+                { value: 'Laguna1', label: 'Laguna' },
+                {
+                  value: 'Piscina al aire libre1',
+                  label: 'Piscina al aire libre',
+                },
               ]}
               onChange={handleFilterOptions}
             />
@@ -380,66 +389,5 @@ const NumberFeatureContainer = ({ title, value, onValueChange }) => {
     </div>
   );
 };
-
-// const FilterItem = ({ filter, index, filterOptions, handleFilterOptions }) => {
-//   const {
-//     propertyState: { filters },
-//   } = usePropertyContext();
-
-//   return (
-//     <li
-//       className={`${filters.length - 1 !== index}`}
-//       style={{ padding: '16px 0px' }}
-//     >
-//       {filter.options &&
-//         filter.options.map(option => (
-//           <li key={slugifyText(option.label)} style={{ width: '100%' }}>
-//             <Form.Check type={option.type} className="form-check d-flex ps-0">
-//               <Form.Check.Label
-//                 className="fs-10 flex-1 text-truncate"
-//                 htmlFor={`filter-${slugifyText(filter.label)}-${slugifyText(
-//                   option.label
-//                 )}`}
-//               >
-//                 {option.label}
-//               </Form.Check.Label>
-
-//               <Form.Check.Input
-//                 type={option.type}
-//                 onChange={e => handleFilterOptions(e)}
-//                 checked={
-//                   option.type === 'checkbox'
-//                     ? filterOptions.some(({ value }) => option.value === value)
-//                     : undefined
-//                 }
-//                 id={`filter-${slugifyText(filter.label)}-${slugifyText(
-//                   option.label
-//                 )}`}
-//                 name={option.name}
-//                 value={option.value}
-//               />
-//             </Form.Check>
-//           </li>
-//         ))}
-//     </li>
-//   );
-// };
-
-// FilterItem.propTypes = {
-//   index: PropTypes.number,
-//   filter: PropTypes.shape({
-//     label: PropTypes.string,
-//     options: PropTypes.arrayOf(
-//       PropTypes.shape({
-//         label: PropTypes.string,
-//         name: PropTypes.string,
-//         type: PropTypes.string,
-//         value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-//       })
-//     ),
-//   }),
-//   handleFilterOptions: PropTypes.func,
-//   filterOptions: PropTypes.array,
-// };
 
 export default PropertyFilters;
