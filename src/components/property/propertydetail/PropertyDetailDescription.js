@@ -24,7 +24,7 @@ const PropertyDetailDescription = ({ property }) => {
   const [selectedButton, setSelectedButton] = useState('caracteristicas');
   const wordLimit = 50; // Límite de palabras
 
-  console.log(property);
+  console.log("property"+ property);
 
   // Estado para manejar las coordenadas
   const [coordinates, setCoordinates] = useState({ lat: 0, long: 0 });
