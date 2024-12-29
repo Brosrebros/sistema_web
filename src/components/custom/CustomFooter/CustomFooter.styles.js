@@ -9,6 +9,7 @@ export const FooterContainerStyled = styled.footer`
   padding: 1rem;
   background-color: #ffffff;
   border-radius: 16px;
+  margin: 0 auto;
 
   ul {
     display: flex;

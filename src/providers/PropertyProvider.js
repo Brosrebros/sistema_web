@@ -357,7 +357,7 @@ const PropertyProvider = ({ children }) => {
     try {
       dispatch({ type: 'SET_LOADING', payload: true });
       const response = await axios.get(
-        `${process.env.REACT_APP_API_URL}/inmuebles`
+        `${process.env.REACT_APP_API_URL}`
       );
       dispatch({ type: 'FIND_ALL', payload: response.data });
     } catch (error) {

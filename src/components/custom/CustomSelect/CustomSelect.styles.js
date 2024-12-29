@@ -12,9 +12,14 @@ export const CustomSelectContainer = styled.div`
   height: 36px;
   min-width: ${({ size }) => (size === 'large' ? '180px' : 'auto')};
   font-family: 'Aptos_Display';
+  transition: all 0.2s ease;
 
   @media (max-width: 968px) {
     display: ${({ background }) => (background === 'form' ? 'flex' : 'none')};
+  }
+
+  &:hover {
+    background-color:rgb(231, 231, 231);
   }
 `;
 
@@ -31,13 +36,13 @@ export const CustomDropdown = styled.div`
   top: 100%;
   left: 0;
   width: 100%;
-  background-color: rgb(255, 255, 255);
   border-radius: 16px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   z-index: 1000;
   min-width: 100px;
   max-height: 200px;
   overflow-y: auto;
+  background-color: rgb(255, 255, 255);
 
   p {
     font-size: 12px;
@@ -79,8 +84,6 @@ export const CustomSelectWrapper = styled.div`
   align-items: center;
   gap: 12px;
   color: #424242;
-  background-color: ${({ background }) =>
-    background === 'form' ? '#F2F2F2' : '#FFFFFF'};
   min-height: 35px;
   border-radius: 0.6rem;
   padding-right: 12px;

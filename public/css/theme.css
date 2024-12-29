@@ -34015,9 +34015,9 @@ create-product-description-textarea .tox-tinymce {
 
 @media (min-width: 1200px) {
   .course-filter {
-    height: calc(100vh - var(--falcon-top-nav-height)) !important;
+    height: calc(97vh - var(--falcon-top-nav-height)) !important;
     position: sticky !important;
-    top: var(--falcon-top-nav-height) !important;
+    top: 80px !important;
   }
 }
 

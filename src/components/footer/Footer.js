@@ -12,6 +12,7 @@ const MainFooter = styled.footer`
   align-items: center;
   padding: 1rem;
   transition: all 0.15s linear;
+  margin: 0 auto;
 
   @media (min-width: 1940px) {
     width: 1840px;

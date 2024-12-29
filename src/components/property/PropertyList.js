@@ -1,41 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Button, Card, Col, Image, Row, Stack } from 'react-bootstrap';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { Link } from 'react-router-dom';
-// import classNames from 'classnames';
-// import { useCourseContext } from 'providers/CourseProvider';
-// import useCourses from 'hooks/useCourses';
-// import playIcon from 'assets/img/icons/play.svg';
-// import ModalVideoContent from 'components/app/e-learning/ModalVideoContent';
-// import Flex from 'components/common/Flex';
-// import Hoverbox from 'components/common/Hoverbox';
 import SubtleBadge from 'components/common/SubtleBadge';
-// import StarRating from 'components/common/StarRating';
-// import paths from 'routes/paths';
-import telefono from 'assets/icons/propertylist-telefono-red.svg';
+import corazon_rojo from '../../assets/img/icons/corazonrojo.svg';
+import telefono from 'assets/icons/propertylist-telefono-white.svg';
 import whatsapp from 'assets/icons/propertylist-whatsapp.svg';
 import contactar from 'assets/icons/propertylist-contactar.svg';
 import { useNavigate } from 'react-router-dom';
 import { rootPaths } from 'routes/paths';
+import placeholderImage from '../../assets/img/placeholder-image.png';
+import CustomListSlider from 'components/custom/CustomListSlider/CustomListSlider';
+import { useState } from 'react';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 const PropertyList = ({ property }) => {
-  // const [showModal, setShowModal] = useState(false);
-
-  // const {
-  //   thumbnail: { image, video, videoPoster },
-  //   id,
-  //   name,
-  //   trainer,
-  //   price,
-  //   oldPrice,
-  //   totalEnrolled,
-  //   tags,
-  //   excerpt,
-  //   rating,
-  //   review,
-  // } = property;
-
+  const [currentSlide, setCurrentSlide] = useState(0);
   const navigate = useNavigate();
 
   const {
@@ -49,16 +29,17 @@ const PropertyList = ({ property }) => {
     descripcion,
   } = property;
 
-  // const { isInFavouriteItems, isInCart } = useCourseContext();
+  const sliderSettings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    afterChange: index => setCurrentSlide(index),
+  };
 
-  // const { handleAddToCart, handleFavouriteClick } = useCourses(property);
   return (
     <>
-      {/* <ModalVideoContent
-        show={showModal}
-        setShow={setShowModal}
-        attachment={{ image: videoPoster, src: video }}
-      /> */}
       <Card
         className="overflow-hidden"
         onClick={() => {
@@ -78,26 +59,44 @@ const PropertyList = ({ property }) => {
                   alignContent: 'center',
                   backgroundColor: '#D6D6D6',
                 }}
+                onClick={e => e.stopPropagation()}
                 className="d-md-flex d-none"
               >
-                <Image
-                  src={imagenes ? imagenes[0] : ''}
-                  alt=""
+                <CustomListSlider
+                  {...sliderSettings}
+                  style={{ width: '100%', height: '100%' }}
+                >
+                  {imagenes && imagenes.length > 0
+                    ? imagenes.map((img, index) => (
+                        <div key={index} style={{ height: '100%' }}>
+                          <img
+                            src={img}
+                            alt={`Imagen ${index + 1}`}
+                            style={{
+                              objectFit: 'cover',
+                              width: '100%',
+                              height: '100%',
+                            }}
+                          />
+                        </div>
+                      ))
+                    : null}
+                </CustomListSlider>
+                <p
                   style={{
-                    objectFit: 'cover',
-                    width: '100%',
+                    opacity: "0",
+                    position: 'absolute',
+                    left: '10px',
+                    bottom: '-5px',
+                    backgroundColor: 'white',
+                    color: '#424242',
+                    fontSize: '0.8rem',
+                    padding: '0.1rem 0.4rem',
+                    borderRadius: '8px',
                   }}
-                />
-                {/* <div className="p-3">
-              <h5 className="fs-9 mb-2">
-                <Link to={paths.courseDetails(id)} className="text-1100">
-                  {name}
-                </Link>
-              </h5>
-              <h5 className="fs-9">
-                <Link to={paths.trainerProfile}>{trainer}</Link>
-              </h5>
-            </div> */}
+                >
+                  {`${currentSlide + 1}/${imagenes.length}`}
+                </p>
               </div>
               <div
                 style={{
@@ -111,24 +110,20 @@ const PropertyList = ({ property }) => {
                   alt=""
                   className="w-100 h-100 fit-cover fit-cover"
                 />
-                {/* <div className="p-3">
-              <h5 className="fs-9 mb-2">
-                <Link to={paths.courseDetails(id)} className="text-1100">
-                  {name}
-                </Link>
-              </h5>
-              <h5 className="fs-9">
-                <Link to={paths.trainerProfile}>{trainer}</Link>
-              </h5>
-            </div> */}
               </div>
             </Col>
-            <Col md={8} lg={9} className="px-2 pb-1">
+            <Col
+              md={8}
+              lg={9}
+              className="pb-1"
+              style={{ padding: '0px 0.8rem' }}
+            >
               <Row className="g-0 h-100">
                 <div
                   style={{
                     display: 'flex',
                     marginTop: '12px',
+                    position: 'relative',
                   }}
                 >
                   <SubtleBadge
@@ -152,6 +147,18 @@ const PropertyList = ({ property }) => {
                   >
                     {tipoPropiedad}
                   </p>
+
+                  <Button
+                    className="fs-10 d-flex p-1 gap-1 align-items-center"
+                    style={{
+                      position: 'absolute',
+                      right: '0',
+                      backgroundColor: '#f2f2f2',
+                      border: 'none',
+                    }}
+                  >
+                    <img height={'15px'} src={corazon_rojo} className="m-1" />
+                  </Button>
                 </div>
                 {/* <h5 className="fs-9">
                     <Link to={paths.trainerProfile}>{trainer}</Link>
@@ -176,13 +183,19 @@ const PropertyList = ({ property }) => {
                   style={{ fontWeight: 'bold' }}
                 >
                   {precio !== null && precio.pen ? (
-                    <span style={{ color: 'black' }}>S/{precio.pen}</span>
+                    <span style={{ color: 'black', fontSize: '1.5rem' }}>
+                      S/{precio.pen}
+                    </span>
                   ) : null}
                   {precio !== null && precio.pen && precio.usd ? (
-                    <span style={{ color: 'black' }}>{' - '}</span>
+                    <span style={{ color: 'black', fontSize: '1.5rem' }}>
+                      {' - '}
+                    </span>
                   ) : null}
                   {precio !== null && precio.usd ? (
-                    <span style={{ color: 'black' }}>${precio.usd}</span>
+                    <span style={{ color: 'black', fontSize: '1.5rem' }}>
+                      ${precio.usd}
+                    </span>
                   ) : null}
                   {oldPrice ? (
                     <del className="ms-2 fs-10 text-700">${oldPrice}</del>
@@ -198,17 +211,18 @@ const PropertyList = ({ property }) => {
                     textOverflow: 'ellipsis',
                     color: 'black',
                     fontWeight: 'bold',
+                    fontSize: '1.1rem',
                   }}
                 >
                   {calleNumero}
                 </div>
                 <div
-                  className="fs-10"
                   style={{
                     whiteSpace: 'nowrap',
                     overflow: 'hidden',
                     textOverflow: 'ellipsis',
                     color: 'black',
+                    fontSize: '1rem',
                   }}
                 >
                   {provincia}, {departamento}
@@ -246,11 +260,14 @@ const PropertyList = ({ property }) => {
                     borderColor: '#D6D6D6',
                   }}
                 >
-                  <Button className="p-1 fs-10">Ver más</Button>
+                  <img
+                    src={placeholderImage}
+                    style={{ height: '2rem', width: 'auto' }}
+                  />
                   <Stack direction="horizontal" gap={1}>
                     <Button
                       className="fs-10 d-flex p-1 gap-1 align-items-center"
-                      variant="light"
+                      variant="danger"
                     >
                       <img height={'15px'} src={telefono} className="m-1" />
                     </Button>

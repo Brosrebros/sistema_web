@@ -7,6 +7,7 @@ import icono_de_idioma_gris from 'assets/icons/idioma_gris.svg';
 // import icono_de_divisa_gris from "assets/icons/"
 import notificacion from 'assets/icons/notificacion.svg';
 import CustomSelect from 'components/custom/CustomSelect/CustomSelect';
+import SecondaryCustomButton from 'components/custom/CustomButtons/SecondaryCustomButton/SecondaryCustomButton';
 
 const idiomaOptions = [
   { value: 'Español', label: 'Español' },
@@ -72,19 +73,9 @@ const TopNavRightSideNavItem = () => {
       />
       {/* <NotificationDropdown /> */}
 
-      <Button
-        type="submit"
-        // variant="gray"
-        style={{
-          fontFamily: 'Aptos_display',
-          backgroundColor: 'white',
-          color: '#6d6d6d',
-          marginRight: '10px',
-          border: 'transparent',
-        }}
-      >
+      <SecondaryCustomButton variant="white">
         Vender
-      </Button>
+      </SecondaryCustomButton>
 
       <ProfileDropdown />
     </Nav>

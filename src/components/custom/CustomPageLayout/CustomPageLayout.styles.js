@@ -10,8 +10,8 @@ export const CustomPageLayoutStyled = styled.div`
   transition: all 0.15s linear;
   margin: 0 auto;
 
-  @media (min-width: 1940px) {
-    width: 1840px;
+  @media (min-width: 1746px) {
+    width: 1468px;
   }
 
   @media (max-width: 1746px) {

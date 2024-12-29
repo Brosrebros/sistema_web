@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { Dropdown, Button, Modal } from 'react-bootstrap';
 import logo from 'assets/img/illustrations/logo-organizacion.png';
 import { rootPaths } from 'routes/paths';
-
 import CustomModalBody from 'components/custom/CustomModalBody/CustomModalBody';
 import PrimaryCustomButton from 'components/custom/CustomButtons/PrimaryCustomButton/PrimaryCustomButton';
 import SecondaryCustomButton from 'components/custom/CustomButtons/SecondaryCustomButton/SecondaryCustomButton';
@@ -27,14 +26,15 @@ const ProfileDropdown = () => {
           as={Link}
           to="#!"
           className="pe-0 ps-2 nav-link"
+          style={{ minWidth: '122px' }}
         >
-          <Button
+          <PrimaryCustomButton
             type="submit"
             variant="danger"
             style={{ fontFamily: 'Aptos_display' }}
           >
             Iniciar sesión
-          </Button>
+          </PrimaryCustomButton>
         </Dropdown.Toggle>
 
         <Dropdown.Menu className="dropdown-caret dropdown-menu-card dropdown-menu-end text-center">
@@ -81,7 +81,10 @@ const ProfileDropdown = () => {
               Crear una cuenta
             </Button>
 
-            <Dropdown.Item href={`/${rootPaths.supportRoot}`} style={{ fontSize: '15px' }}>
+            <Dropdown.Item
+              href={`/${rootPaths.supportRoot}`}
+              style={{ fontSize: '15px' }}
+            >
               Al registrarte, aceptas los{' '}
               <b>
                 Términos y <br /> condiciones generales de uso

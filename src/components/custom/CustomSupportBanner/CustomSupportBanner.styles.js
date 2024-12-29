@@ -19,7 +19,7 @@ export const CustomSupportBannerTitle = styled.div`
   padding: 16px;
   border-radius: 16px;
 
-  img {
+  a > img {
     height: 40px;
     width: auto;
   }

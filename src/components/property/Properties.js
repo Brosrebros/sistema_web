@@ -14,7 +14,6 @@ import classNames from 'classnames';
 import usePagination from 'hooks/usePagination';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Flex from 'components/common/Flex';
-// import CourseFilters from 'components/app/e-learning/course/CourseFilters';
 import { useBreakpoints } from 'hooks/useBreakpoints';
 import { useAppContext } from 'providers/AppProvider';
 import PropertyGrid from 'components/property/PropertyGrid';
@@ -29,7 +28,6 @@ const Properties = ({ filterForm, setFilterForm, properties, title }) => {
   const navigate = useNavigate();
   const { breakpoints } = useBreakpoints();
   const [layout, setLayout] = useState('list');
-  // const [courseLayout, setCourseLayout] = useState('course-grid');
 
   const {
     config: { isNavbarVerticalCollapsed },
@@ -76,12 +74,6 @@ const Properties = ({ filterForm, setFilterForm, properties, title }) => {
     <>
       <Row className="g-3">
         <Col xl={9}>
-          {/* Courses Header */}
-          {/* <CourseHeader
-            layout={layout}
-            setShowFilterOffcanvas={setShowFilterOffcanvas}
-          /> */}
-          {/* Courses */}
           <Row className="mb-3 g-3">
             <Title>{title}</Title>
             {paginatedCourses.length > 0 ? (
