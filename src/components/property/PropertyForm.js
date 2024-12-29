@@ -10,12 +10,51 @@ import ordenIcon from 'assets/icons/simplenavbar-ordenarpor.svg';
 import masfiltros_gris from 'assets/icons/masfiltros_gris.svg';
 import { PiMagnifyingGlass } from 'react-icons/pi';
 import mapaIcon from 'assets/img/icons/mapa_boton.svg';
-// import operacionIcon from 'assets/icons/simplenavbar-clasedepropiedad.svg';
-// import locationIcon from '../../assets/icons-svg/En donde la buscas - Barra de busqueda simple.svg';
-// import tipoIcon from '../../assets/icons-svg/Tipo de propiedad - Barra de busqueda simple.svg';
-// import presupuestoIcon from '../../assets/icons-svg/Presupuesto - Barra de busqueda simple.svg';
-// import ordenIcon from '../../assets/icons-svg/Ordenar por - Barra de busqueda simple.svg';
-// import operacionIcon from '../../assets/icons-svg/Clase de propiedad - Barra de busqueda simple.svg';
+import styled from 'styled-components';
+import SecondaryCustomButton from 'components/custom/CustomButtons/SecondaryCustomButton/SecondaryCustomButton';
+import PrimaryCustomButton from 'components/custom/CustomButtons/PrimaryCustomButton/PrimaryCustomButton';
+
+const ButtonStyled = styled.button`
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  font-size: 14px;
+  font-family: Aptos_display;
+  color: white;
+  transition: color 0.3s ease;
+  padding: 8px 20px;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  height: 36px;
+  background-color: #2f7474;
+  border-radius: 10px;
+  cursor: pointer;
+  border: none;
+
+  &:hover {
+    filter: brightness(0.9);
+  }
+`;
+
+const SlidingIndicator = styled.span`
+  position: absolute;
+  height: 80%;
+  width: 50%;
+  background-color: #940000;
+  border-radius: 10px;
+  transform: ${({ isChecked }) =>
+    isChecked ? 'translateX(90%)' : 'translateX(0)'};
+  transition: transform 0.4s ease-in-out, background-color 0.3s ease;
+
+  &:hover {
+    filter: brightness(0.9);
+  }
+`;
+
+const SlidingIndicatorComponent = ({ isChecked }) => {
+  return <SlidingIndicator isChecked={isChecked} />;
+};
 
 const propiedadOptions = [
   { value: 'Casa', label: 'Casa' },
@@ -131,20 +170,7 @@ const PropertyForm = ({
                   onClick={() => setIsChecked(!isChecked)} // Cambiar entre "Venta" y "Alquiler"
                 >
                   {/* Barra deslizante */}
-                  <span
-                    style={{
-                      position: 'absolute',
-                      height: '80%',
-                      width: '50%',
-                      backgroundColor: '#940000',
-                      borderRadius: '10px',
-                      transform: isChecked
-                        ? 'translateX(90%)'
-                        : 'translateX(0)',
-                      transition:
-                        'transform 0.4s ease-in-out, background-color 0.3s ease',
-                    }}
-                  ></span>
+                  <SlidingIndicatorComponent isChecked={isChecked} />
 
                   {/* Opción Venta */}
                   <span
@@ -180,224 +206,109 @@ const PropertyForm = ({
                 </div>
 
                 {/* Botón de Proyectos */}
-                <div
-                  className="toggle-switch"
-                  style={{
-                    position: 'relative',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    width: '85px',
-                    height: '36px',
-                    backgroundColor: '#2F7474',
-                    borderRadius: '10px',
-                    cursor: 'pointer',
-                    userSelect: 'none',
-                  }}
-                >
-                  <span
-                    style={{
-                      position: 'relative',
-                      zIndex: 2,
-                      textAlign: 'center',
-                      fontSize: '14px',
-                      fontFamily: 'Aptos_display',
-                      color: 'white',
-                      transition: 'color 0.3s ease',
-                      padding: '0 10px',
-                    }}
-                  >
-                    Proyectos
-                  </span>
-                </div>
+                <ButtonStyled>Proyectos</ButtonStyled>
 
                 {/* Botón de ver mapa */}
                 <div
-                  className="toggle-switch"
                   style={{
-                    position: 'relative',
                     marginLeft: 'auto',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    height: '36px',
-                    backgroundColor: '#f2f2f2',
-                    borderRadius: '10px',
-                    cursor: 'pointer',
-                    userSelect: 'none',
-                    gap: '8px',
-                    padding: '0px 10px',
                   }}
                 >
-                  <img src={mapaIcon} style={{ width: '1.2rem' }} />
-                  <span
-                    style={{
-                      position: 'relative',
-                      zIndex: 2,
-                      textAlign: 'center',
-                      fontSize: '14px',
-                      fontFamily: 'Aptos_display',
-                      color: '#424242',
-                      transition: 'color 0.3s ease',
-                    }}
-                  >
+                  <SecondaryCustomButton variant={'gray'}>
+                    <img src={mapaIcon} />
                     Ver mapa
-                  </span>
+                  </SecondaryCustomButton>
                 </div>
               </form>
             </div>
 
-            <Row className="justify-content-center mx-auto gy-2  mt-2">
-              <Col lg={2} md={2} xs={12} className="px-2">
-                <CustomSelect
-                  id="tipoPropiedad"
-                  name="tipoPropiedad"
-                  aria-label="Tipo"
-                  value={filterForm.tipoPropiedad}
-                  onChange={handleCustomChange}
-                  placeholder="Tipo de propiedad"
-                  options={propiedadOptions}
-                  background="form"
-                >
-                  <img src={tipoIcon} width={'16px'} />
-                </CustomSelect>
-              </Col>
-              <Col lg={4} md={3} xs={12} className="px-2">
-                <div
-                  style={{
-                    display: 'flex',
-                    borderRadius: '10px',
-                    alignItems: 'center',
-                    backgroundColor: '#F2F2F2',
-                    padding: '0 8px',
-                    width: '100%',
-                    height: '36px',
-                    fontFamily: 'Aptos_Display',
-                  }}
-                >
-                  <img src={locationIcon} width="16px" />
-                  <Form.Control
-                    type="text"
-                    id="direccionCompleta"
-                    name="direccionCompleta"
-                    aria-describedby="Ubicación"
-                    placeholder="¿En donde la buscas?"
-                    value={filterForm.direccionCompleta}
-                    onChange={handleCustomChange}
-                    style={{
-                      fontSize: '14px',
-                      border: 'none',
-                      height: '100%',
-                      boxShadow: 'none',
-                      fontFamily: 'Aptos_Display',
-                      backgroundColor: '#F2F2F2',
-                    }}
-                  />
-                </div>
-              </Col>
-
-              <Col lg={2} md={2} xs={12} className="px-2">
-                <CustomSelect
-                  id="presupuesto"
-                  name="presupuesto"
-                  aria-label="Presupuesto"
-                  value={filterForm.presupuesto}
-                  onChange={handleCustomChange}
-                  placeholder="Presupuesto"
-                  options={presupuestoOptions}
-                  background="form"
-                >
-                  <img src={presupuestoIcon} width={'16px'} />
-                </CustomSelect>
-              </Col>
-
-              <Col lg={2} md={2} xs={12} className="px-2">
-                <CustomSelect
-                  id="ordenarPor"
-                  name="ordenarPor"
-                  aria-label="Ordenar por"
-                  value={filterForm.ordenarPor}
-                  onChange={handleCustomChange}
-                  placeholder="Ordenar por"
-                  options={ordenarPorOptions}
-                  background="form"
-                >
-                  <img src={ordenIcon} width={'16px'} />{' '}
-                </CustomSelect>
-              </Col>
-
-              <Col lg={1} md={2} xs={12} className="px-2">
-                <div
-                  style={{
-                    display: 'flex',
-                    borderRadius: '10px',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    backgroundColor: '#F2F2F2',
-                    width: '100%',
-                    height: '36px',
-                    padding: '0px 8px',
-                    fontFamily: 'Aptos_Display',
-                  }}
-                >
-                  <button
-                    style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      backgroundColor: '#F2F2F2',
-                      fontFamily: 'Aptos_Display',
-                      border: 'none',
-                      borderRadius: '10px',
-                      width: '100%',
-                      height: '36px',
-                      fontSize: '14px',
-                      color: '#424242 !important',
-                      outline: 'none',
-                      opacity: '0.7',
-                      gap: '0.5rem',
-                    }}
-                  >
-                    {/* Icono de la izquierda */}
-
-                    <img src={masfiltros_gris} width={'16px'} />
-                    {/* Texto */}
-                    <span
-                      style={{
-                        color: '#424242 !important',
-                      }}
-                    >
-                      Más filtros
-                    </span>
-                  </button>
-                </div>
-              </Col>
-              <Col
-                lg={1}
-                md={1}
-                xs={12}
-                className="px-2 d-flex justify-content-xs-center"
+            <div
+              style={{
+                display: 'grid',
+                marginTop: '1rem',
+                gridTemplateColumns: '1fr 2fr 1fr 1fr auto auto',
+                gap: '1rem',
+              }}
+            >
+              <CustomSelect
+                id="tipoPropiedad"
+                name="tipoPropiedad"
+                aria-label="Tipo"
+                value={filterForm.tipoPropiedad}
+                onChange={handleCustomChange}
+                placeholder="Tipo de propiedad"
+                options={propiedadOptions}
+                background="form"
               >
-                <Button
-                  type="submit"
-                  variant="danger"
-                  onClick={handleSubmit}
-                  disabled={activeBtn}
+                <img src={tipoIcon} width={'16px'} />
+              </CustomSelect>
+              <div
+                style={{
+                  display: 'flex',
+                  borderRadius: '10px',
+                  alignItems: 'center',
+                  backgroundColor: '#F2F2F2',
+                  padding: '0 8px',
+                  width: '100%',
+                  height: '36px',
+                  fontFamily: 'Aptos_Display',
+                }}
+              >
+                <img src={locationIcon} width="16px" />
+                <Form.Control
+                  type="text"
+                  id="direccionCompleta"
+                  name="direccionCompleta"
+                  aria-describedby="Ubicación"
+                  placeholder="¿En donde la buscas?"
+                  value={filterForm.direccionCompleta}
+                  onChange={handleCustomChange}
                   style={{
-                    fontFamily: 'Aptos_display',
-                    display: 'flex',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    gap: '0.5rem',
-                    padding: '0.5rem 1rem',
-                    width: '100%',
+                    fontSize: '14px',
+                    border: 'none',
+                    height: '100%',
+                    boxShadow: 'none',
+                    fontFamily: 'Aptos_Display',
+                    backgroundColor: '#F2F2F2',
                   }}
-                >
-                  <PiMagnifyingGlass style={{ fontSize: '1.2rem' }} />
-                  {msgBtn}
-                </Button>
-              </Col>
-            </Row>
+                />
+              </div>
+
+              <CustomSelect
+                id="presupuesto"
+                name="presupuesto"
+                aria-label="Presupuesto"
+                value={filterForm.presupuesto}
+                onChange={handleCustomChange}
+                placeholder="Presupuesto"
+                options={presupuestoOptions}
+                background="form"
+              >
+                <img src={presupuestoIcon} width={'16px'} />
+              </CustomSelect>
+
+              <CustomSelect
+                id="ordenarPor"
+                name="ordenarPor"
+                aria-label="Ordenar por"
+                value={filterForm.ordenarPor}
+                onChange={handleCustomChange}
+                placeholder="Ordenar por"
+                options={ordenarPorOptions}
+                background="form"
+              >
+                <img src={ordenIcon} width={'16px'} />
+              </CustomSelect>
+
+              <SecondaryCustomButton variant={'gray'}>
+                <img src={masfiltros_gris} />
+                Más filtros
+              </SecondaryCustomButton>
+              <PrimaryCustomButton type="submit" onClick={handleSubmit}>
+                <PiMagnifyingGlass style={{ fontSize: '1.2rem' }} />
+                {msgBtn}
+              </PrimaryCustomButton>
+            </div>
           </Form>
         </Row>
       </div>

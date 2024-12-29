@@ -4,6 +4,9 @@ import PropTypes from 'prop-types';
 import CustomSliderButton from 'components/custom/CustomButtons/CustomSliderButton/CustomSliderButton';
 
 const PropertySliderValdemar = ({ data }) => {
+
+  console.log(data)
+
   const sliderSettings = {
     infinite: false,
     speed: 500,
@@ -48,16 +51,7 @@ const PropertySliderValdemar = ({ data }) => {
 
   return (
     <div>
-      <h5
-        className="black_important bolddd fs-10"
-        style={
-          {
-            // fontSize: '20px',
-          }
-        }
-      >
-        {/* {children} */}
-      </h5>
+      <h5 className="black_important bolddd fs-10"></h5>
       {data ? (
         <CustomSliderButton
           {...sliderSettings}

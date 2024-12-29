@@ -5,6 +5,8 @@ import PropTypes from 'prop-types';
 import SubtleBadge from 'components/common/SubtleBadge';
 import PropertyDetailLocation from './PropertyDetailLocation';
 import mapa_boton from 'assets/img/icons/mapa_boton.svg';
+import pin_icono from 'assets/img/icons/endondelabuscas_gris.svg';
+import cochera_icono from 'assets/img/icons/cochera_negro.svg';
 import area_detalle from 'assets/img/icons/area_detalle.svg';
 import banio_detalle from 'assets/img/icons/banio_detalle.svg';
 import dormitorio_detalle from 'assets/img/icons/dormitorio_detalle.svg';
@@ -22,7 +24,7 @@ const PropertyDetailDescription = ({ property }) => {
   const [selectedButton, setSelectedButton] = useState('caracteristicas');
   const wordLimit = 50; // Límite de palabras
 
-  console.log(property)
+  console.log(property);
 
   // Estado para manejar las coordenadas
   const [coordinates, setCoordinates] = useState({ lat: 0, long: 0 });
@@ -35,7 +37,7 @@ const PropertyDetailDescription = ({ property }) => {
   };
 
   const handleButtonClick = buttonKey => {
-    setSelectedButton(buttonKey === selectedButton ? null : buttonKey); // Alterna entre seleccionar y deseleccionar
+    setSelectedButton(buttonKey === selectedButton ? null : buttonKey);
   };
 
   const renderDetails = () => {
@@ -195,26 +197,40 @@ const PropertyDetailDescription = ({ property }) => {
                 ? descripcion.titulo
                 : 'PropertyDetailDescription'}
             </TitleValdemarDes>
-            <p style={{ fontSize: '1rem' }}>
+            <p
+              style={{
+                fontSize: '1rem',
+                display: 'flex',
+                alignItems: 'center',
+              }}
+            >
               <img
                 className="me-2"
-                src={mapa_boton}
+                src={pin_icono}
                 alt="Logo"
-                style={{ width: '24px' }}
+                style={{ width: '1rem' }}
               />
               {direccionCompleta}
             </p>
           </Col>
           <Col xs={5}>
             <div
-              style={{ display: 'flex', flexWrap: 'wrap', marginBottom: '1em' }}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                flexWrap: 'wrap',
+                marginBottom: '1em',
+              }}
             >
               <SubtleBadge
                 bg={tipoOperacion === 'Alquiler' ? 'danger' : 'success'}
               >
                 {tipoOperacion}
               </SubtleBadge>
-              <p className="px-1 fs-9 pb-0" style={{ margin: '0px' }}>
+              <p
+                className="px-1 fs-9 pb-0"
+                style={{ margin: '0px', color: 'black' }}
+              >
                 {tipoPropiedad}
               </p>
             </div>
@@ -227,7 +243,7 @@ const PropertyDetailDescription = ({ property }) => {
                 gap: '8px',
               }}
             >
-              {precio?.pen && <span>S/{precio.pen}</span>}
+              {precio?.pen && <span>S/.{precio.pen}</span>}
               {precio?.pen && precio?.usd && <span>{' - '}</span>}
               {precio?.usd && <span>${precio.usd}</span>}
             </h4>
@@ -248,7 +264,9 @@ const PropertyDetailDescription = ({ property }) => {
             }}
           >
             <img src={area_detalle} alt="Logo" style={{ width: '20px' }} />
-            {`${areaTotal}m2`}
+            <p style={{ margin: '0px' }}>
+              <b>{areaTotal}</b>m2
+            </p>
           </div>
           <div
             style={{
@@ -262,7 +280,10 @@ const PropertyDetailDescription = ({ property }) => {
             }}
           >
             <img src={banio_detalle} alt="Logo" style={{ width: '20px' }} />
-            {`${banos} Baño${banos > 1 ? 's' : ''}`}
+            <p style={{ margin: '0px' }}>
+              <b>{banos} </b>
+              Baño{banos > 1 ? 's' : ''}
+            </p>
           </div>
           <div
             style={{
@@ -275,8 +296,11 @@ const PropertyDetailDescription = ({ property }) => {
               color: 'black',
             }}
           >
-            <img src={mapa_boton} alt="Logo" style={{ width: '20px' }} />
-            {`${estacionamientos} Cochera${estacionamientos > 1 ? 's' : ''}`}
+            <img src={cochera_icono} alt="Logo" style={{ width: '20px' }} />
+            <p style={{ margin: '0px' }}>
+              <b>{estacionamientos} </b>
+              Cochera{estacionamientos > 1 ? 's' : ''}
+            </p>
           </div>
           <div
             style={{
@@ -294,7 +318,10 @@ const PropertyDetailDescription = ({ property }) => {
               alt="Logo"
               style={{ width: '20px' }}
             />
-            {`${dormitorios} Dorm.`}
+            <p style={{ margin: '0px' }}>
+              <b>{dormitorios} </b>
+              Dorm.
+            </p>
           </div>
           <div
             style={{

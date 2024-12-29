@@ -1,8 +1,12 @@
+import styled from "styled-components";
 import Slider from 'react-slick';
-import styled from 'styled-components';
 
-export const CustomSliderButtonStyled = styled(Slider)`
+export const CustomListSliderStyled = styled(Slider)`
   height: 100%;
+
+  div {
+    height: 100%;
+  }
 
   .slick-prev,
   .slick-next {
@@ -11,8 +15,16 @@ export const CustomSliderButtonStyled = styled(Slider)`
     width: 40px;
     height: 40px;
     z-index: 2;
-    opacity: 0 !important; /* Oculta las flechas inicialmente */
-    transition: opacity 0.3s ease; /* Transición suave para la aparición */
+    opacity: 0 !important;
+    transition: opacity 0.3s ease;
+  }
+
+  .slick-prev {
+    left: 10px;
+  }
+
+  .slick-next {
+    right: 10px;
   }
 
   .slick-prev::after,
@@ -24,6 +36,11 @@ export const CustomSliderButtonStyled = styled(Slider)`
 
   &:hover .slick-prev,
   &:hover .slick-next {
-    opacity: 1 !important; /* Muestra las flechas al hacer hover */
+    opacity: 1 !important;
+  }
+
+  &:hover + p {
+    opacity: 1 !important;
+    transition: opacity 0.3s ease;
   }
 `;

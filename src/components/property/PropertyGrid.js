@@ -128,7 +128,7 @@ const PropertyGrid = ({ property }) => {
                 <h4 className="black_important fs-8 text-warning d-flex align-items-center mb-0">
                   {precio !== null && precio.pen ? (
                     <span className="black_important bolddd">
-                      &nbsp;S/{precio.pen}
+                      &nbsp;S/. {precio.pen}
                     </span>
                   ) : null}
                   {precio !== null && precio.pen && precio.usd ? (

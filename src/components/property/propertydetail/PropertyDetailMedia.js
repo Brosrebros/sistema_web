@@ -2,13 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Image, Modal } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import Slider from 'react-slick';
-
-const sliderSettings = {
-  infinite: true,
-  speed: 500,
-  slidesToShow: 1,
-  slidesToScroll: 1,
-};
+import CustomListSlider from 'components/custom/CustomListSlider/CustomListSlider';
 
 const PropertyDetailMedia = ({ imagenes: files }) => {
   let slider1;
@@ -17,7 +11,10 @@ const PropertyDetailMedia = ({ imagenes: files }) => {
   const [nav2, setNav2] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
+  const [currentSlide, setCurrentSlide] = useState(0);
 
+
+  console.log(files)
   useEffect(() => {
     setNav1(slider1);
     setNav2(slider2);
@@ -31,6 +28,14 @@ const PropertyDetailMedia = ({ imagenes: files }) => {
   const handleCloseModal = () => {
     setShowModal(false);
     setSelectedImage(null);
+  };
+
+  const sliderSettings = {
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    afterChange: index => setCurrentSlide(index),
   };
 
   return (
@@ -48,8 +53,11 @@ const PropertyDetailMedia = ({ imagenes: files }) => {
             onClick={() => handleImageClick(files[0].src)}
           />
         )}
-        <div className="product-slider" style={{ borderRadius: '12px', overflow: 'hidden' }}>
-          <Slider
+        <div
+          className="product-slider"
+          style={{ borderRadius: '12px', overflow: 'hidden' }}
+        >
+          <CustomListSlider
             {...sliderSettings}
             asNavFor={nav2}
             ref={slider => (slider1 = slider)}
@@ -81,7 +89,23 @@ const PropertyDetailMedia = ({ imagenes: files }) => {
                 />
               </div>
             ))}
-          </Slider>
+          </CustomListSlider>
+
+          <p
+            style={{
+              opacity: '0',
+              position: 'absolute',
+              left: '10px',
+              bottom: '-5px',
+              backgroundColor: 'white',
+              color: '#424242',
+              fontSize: '0.8rem',
+              padding: '0.1rem 0.4rem',
+              borderRadius: '8px',
+            }}
+          >
+            {`${currentSlide + 1}/${files.length}`}
+          </p>
         </div>
         <Slider
           slidesToShow={4}
@@ -137,31 +161,6 @@ const PropertyDetailMedia = ({ imagenes: files }) => {
           )}
         </Modal.Body>
       </Modal>
-      <p
-        style={{
-          fontSize: '16px',
-          color: '#888',
-          textAlign: 'center',
-          maxWidth: '200px',
-          width: '52px',
-          height: '52px',
-          position: 'absolute',
-          display: 'flex',
-          alignItems: 'center',
-          right: '10px',
-          bottom: '30px',
-          color: 'black',
-          fontSize: '1.8em',
-          fontWeight: 'bold',
-          backgroundColor: 'white',
-          margin: '0px',
-          padding: '8px',
-          borderRadius: '100px',
-          boxShadow: '0 6px 10px 0 rgba(0, 0, 0, 0.2)',
-        }}
-      >
-        +{files.length - 2}
-      </p>
     </div>
   );
 };
