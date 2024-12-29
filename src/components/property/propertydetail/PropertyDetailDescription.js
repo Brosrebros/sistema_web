@@ -243,9 +243,9 @@ const PropertyDetailDescription = ({ property }) => {
                 gap: '8px',
               }}
             >
-              {precio?.pen && <span>S/.{precio.pen}</span>}
-              {precio?.pen && precio?.usd && <span>{' - '}</span>}
-              {precio?.usd && <span>${precio.usd}</span>}
+{precio?.pen && <span>S/.{precio.pen.toLocaleString('es-PE')}</span>}
+{precio?.pen && precio?.usd && <span>{' - '}</span>}
+{precio?.usd && <span>${precio.usd}</span>}
             </h4>
           </Col>
         </Row>
