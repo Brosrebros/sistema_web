@@ -5,6 +5,12 @@
         "serve": "/index.html",
         "statusCode": 200
       }
-    ]
+    ],
+    "responseOverrides": {
+      "404": {
+        "redirect": "/index.html",
+        "statusCode": 200
+      }
+    }
   }
   
