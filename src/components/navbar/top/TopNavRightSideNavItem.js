@@ -39,17 +39,6 @@ const TopNavRightSideNavItem = () => {
       as="ul"
       style={{ gap: '.8rem' }}
     >
-<<<<<<< HEAD
-      <div style={{ width: '120px' }}>
-        <CustomSelect
-          id="divisa"
-          name="divisa"
-          aria-label="Tipo"
-          value="PEN S/."
-          onChange={handleCustomChange}
-          placeholder="Divisa"
-          options={divisaOptions}
-=======
       <CustomSelect
         id="divisa"
         name="divisa"
@@ -70,45 +59,22 @@ const TopNavRightSideNavItem = () => {
           value={filterForm.idioma}
           onChange={e => handleCustomChange('idioma', e.target.value)}
           options={idiomaOptions}
->>>>>>> 4686396bb95881a904ac0b9c4b7b5d23247b8ee2
           background="nav"
         >
           <img src={icono_de_idioma_gris} width={'16px'} alt="idioma-icon" />
         </CustomSelect>
-<<<<<<< HEAD
-      </div>
-      <CustomSelect
-        id="idioma"
-        name="idioma"
-        aria-label="Tipo"
-        value="Español"
-        onChange={handleCustomChange}
-        placeholder="Idioma"
-        options={idiomaOptions}
-        background="nav"
-      >
-        <img src={icono_de_idioma_gris} width={'16px'} />
-      </CustomSelect>
-=======
       </Col>
 
->>>>>>> 4686396bb95881a904ac0b9c4b7b5d23247b8ee2
       <img
         src={notificacion}
         width={'16px'}
         style={{ marginLeft: '5px', marginRight: '15px' }}
         alt="notificacion-icon"
       />
-<<<<<<< HEAD
-      <div>
-        <SecondaryCustomButton variant="white">Vender</SecondaryCustomButton>
-      </div>
-=======
 
       <SecondaryCustomButton variant="white">
         Vender
       </SecondaryCustomButton>
->>>>>>> 4686396bb95881a904ac0b9c4b7b5d23247b8ee2
 
       <ProfileDropdown />
     </Nav>
