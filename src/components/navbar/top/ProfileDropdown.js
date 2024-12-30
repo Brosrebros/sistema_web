@@ -28,13 +28,15 @@ const ProfileDropdown = () => {
           className="pe-0 ps-2 nav-link"
           style={{ minWidth: '122px' }}
         >
-          <PrimaryCustomButton
-            type="submit"
-            variant="danger"
-            style={{ fontFamily: 'Aptos_display' }}
-          >
-            Iniciar sesión
-          </PrimaryCustomButton>
+          <div>
+            <PrimaryCustomButton
+              type="submit"
+              variant="danger"
+              style={{ fontFamily: 'Aptos_display' }}
+            >
+              Iniciar sesión
+            </PrimaryCustomButton>
+          </div>
         </Dropdown.Toggle>
 
         <Dropdown.Menu className="dropdown-caret dropdown-menu-card dropdown-menu-end text-center">

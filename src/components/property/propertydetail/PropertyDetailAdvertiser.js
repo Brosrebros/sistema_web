@@ -2,7 +2,7 @@ import React from 'react';
 import PropertyDetailMedia from './PropertyDetailMedia';
 import { Button, Stack, Form, Row, Col } from 'react-bootstrap';
 import PropTypes from 'prop-types';
-import telefono from 'assets/icons/propertylist-telefono-red.svg';
+import telefono from 'assets/icons/propertylist-telefono-white.svg';
 import whatsapp from 'assets/icons/propertylist-whatsapp.svg';
 import contactar from 'assets/icons/propertylist-contactar.svg';
 import idioma from 'assets/icons/icono_de_idioma_rojo.svg';
@@ -10,12 +10,35 @@ import corazon from 'assets/img/icons/corazonrojo.svg';
 import compartir_rojo from 'assets/img/icons/compartir_rojo.svg';
 import { LuSendHorizontal } from 'react-icons/lu';
 import { CiBarcode } from 'react-icons/ci';
-
-// import usuario_rojo from 'assets/icons/usuario_rojo.svg';
-
 import { TitleValdemarDes } from 'components/mainpage/TitleValdemarDes';
+import { useState } from 'react';
+import styled from 'styled-components';
+
+const CustomContainer = styled.div`
+  width: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0px;
+
+  button {
+    transition: all 0.2s ease;
+    &:hover {
+      filter: brightness(0.9);
+    }
+  }
+`;
 
 const PropertyDetailAdvertiser = ({ property }) => {
+  const [activeButton, setActiveButton] = useState('question_1');
+  const [message, setMessage] = useState('');
+
+  const handleActiveButton = (button, buttonText) => {
+    setActiveButton(button);
+    setMessage(buttonText);
+  };
+
   return (
     <div>
       <div style={{ height: 'fit-content' }}>
@@ -24,10 +47,11 @@ const PropertyDetailAdvertiser = ({ property }) => {
         )}
       </div>
       <div>
-        <div
+        <CustomContainer
           style={{
             display: 'flex',
             gap: '10px',
+            marginTop: '.4rem',
           }}
         >
           <div
@@ -41,8 +65,7 @@ const PropertyDetailAdvertiser = ({ property }) => {
           >
             <Button
               className="fs-10 d-flex p-1 gap-1 align-items-center"
-              variant="light"
-              style={{ border: '1px solid #bbbbbb' }}
+              style={{ background: '#f2f2f2', border: 'none' }}
             >
               <img
                 height={'18px'}
@@ -64,8 +87,7 @@ const PropertyDetailAdvertiser = ({ property }) => {
           >
             <Button
               className="fs-10 d-flex p-1 gap-1 align-items-center"
-              variant="light"
-              style={{ border: '1px solid #bbbbbb' }}
+              style={{ background: '#f2f2f2', border: 'none' }}
             >
               <img
                 height={'18px'}
@@ -86,7 +108,7 @@ const PropertyDetailAdvertiser = ({ property }) => {
               alignItems: 'center',
               backgroundColor: '#F2F2F2',
               gap: '8px',
-              padding: '0px 8px',
+              padding: '8px',
               borderRadius: '12px',
             }}
           >
@@ -95,7 +117,7 @@ const PropertyDetailAdvertiser = ({ property }) => {
               <b>Código de anuncio: </b>IMPV-0001
             </p>
           </div>
-        </div>
+        </CustomContainer>
         <div
           className="my-3 pt-3"
           style={{
@@ -153,12 +175,11 @@ const PropertyDetailAdvertiser = ({ property }) => {
                 </p>
               </div>
             </div>
-            <Stack direction="horizontal" gap={2}>
+            <CustomContainer>
               {/* Botón de Teléfono */}
               <Button
                 className="fs-10 d-flex p-2 gap-1 align-items-center"
-                variant="light"
-                style={{ border: '1px solid #bbbbbb' }}
+                variant="danger"
               >
                 <img
                   height={'18px'}
@@ -199,7 +220,7 @@ const PropertyDetailAdvertiser = ({ property }) => {
                   Contactar
                 </span>
               </Button>
-            </Stack>
+            </CustomContainer>
           </div>
         </div>
         <p style={{ color: 'black' }}>
@@ -236,40 +257,52 @@ const PropertyDetailAdvertiser = ({ property }) => {
               gap: '1em',
             }}
           >
-            <Col
-              xxl={4}
-              lg={6}
-              style={{
-                minHeight: '36px',
-                padding: '0px',
-              }}
-            >
+            <CustomContainer>
               <Button
                 style={{
-                  width: '100%',
+                  width: 'auto',
                   fontSize: '12px',
                   height: '100%',
                   border: 'none',
+                  backgroundColor:
+                    activeButton === 'question_1' ? '#940000' : '#d6d6d6',
+                  color: activeButton === 'question_1' ? 'white' : '#424242',
                 }}
-                variant="danger"
+                onClick={() => handleActiveButton('question_1', "¿Sigue disponible?")}
               >
                 ¿Sigue disponible?
               </Button>
-            </Col>
-            <Col xxl={5} style={{ minHeight: '36px', padding: '0px' }}>
+
               <Button
                 style={{
-                  width: '100%',
+                  width: 'auto',
                   fontSize: '12px',
                   height: '100%',
-                  backgroundColor: '#d0d3d8',
                   border: 'none',
-                  color: '#2e2e2e',
+                  backgroundColor:
+                    activeButton === 'question_2' ? '#940000' : '#d6d6d6',
+                  color: activeButton === 'question_2' ? 'white' : '#424242',
                 }}
+                onClick={() => handleActiveButton('question_2', "¿Cuando puedo hacer una visita?")}
               >
                 ¿Cuando puedo hacer una visita?
               </Button>
-            </Col>
+
+              <Button
+                style={{
+                  width: 'auto',
+                  fontSize: '12px',
+                  height: '100%',
+                  border: 'none',
+                  backgroundColor:
+                    activeButton === 'question_3' ? '#940000' : '#d6d6d6',
+                  color: activeButton === 'question_3' ? 'white' : '#424242',
+                }}
+                onClick={() => handleActiveButton('question_3', "¿La documentación está en regla?")}
+              >
+                ¿La documentación está en regla?
+              </Button>
+            </CustomContainer>
           </Row>
 
           <Row
@@ -279,31 +312,53 @@ const PropertyDetailAdvertiser = ({ property }) => {
               width: '100%',
             }}
           >
-            <Col
-              lg={8}
+            <div
               style={{
+                display: 'flex',
+                justifyContent: 'flex-start',
+                alignItems: 'center',
+                gap: '.6rem',
+                minHeight: '36px',
                 padding: '0px',
+                width: '100%',
+                marginTop: '.6rem',
               }}
             >
-              <Form.Control
-                placeholder="Escribe aquí"
+              <div
                 style={{
-                  height: '36px',
-                  padding: '0 16px',
-                  fontSize: '14px',
-                  border: 'none',
-                  boxShadow: 'none',
+                  width: '100%',
+                  display: 'flex',
+                  justifyContent: 'flex-start',
+                  alignItems: 'center',
+                  gap: '0.4rem',
                   backgroundColor: '#f2f2f2',
                   borderRadius: '0.6rem',
                 }}
-              />
-            </Col>
-            <Col
-              style={{
-                width: 'auto',
-                padding: '0px',
-              }}
-            >
+              >
+                <p
+                  style={{
+                    margin: '0px',
+                    marginLeft: '1rem',
+                    fontFamily:"Aptos_display"
+                  }}
+                >
+                  {message}
+                </p>
+                <Form.Control
+                  placeholder="Escribe aquí"
+                  style={{
+                    width: '50%',
+                    height: '36px',
+                    padding: '0 16px',
+                    fontSize: '14px',
+                    border: 'none',
+                    boxShadow: 'none',
+                    backgroundColor: '#f2f2f2',
+                    borderRadius: '0.6rem',
+                  }}
+                />
+              </div>
+
               <Button
                 variant="danger"
                 style={{
@@ -319,7 +374,7 @@ const PropertyDetailAdvertiser = ({ property }) => {
                 <LuSendHorizontal />
                 Enviar
               </Button>
-            </Col>
+            </div>
           </Row>
         </Stack>
         <Stack
@@ -327,13 +382,13 @@ const PropertyDetailAdvertiser = ({ property }) => {
           style={{
             backgroundColor: '#f2f2f2',
             borderRadius: '0.6rem',
-            gap: '8px',
+            gap: '1rem',
           }}
         >
           <Row
             style={{
               margin: '0px',
-              gap: '1em',
+              gap: '2em',
               width: '100%',
             }}
           >
@@ -343,61 +398,56 @@ const PropertyDetailAdvertiser = ({ property }) => {
                 margin: '0px',
                 color: 'black',
                 fontWeight: 'bold',
+                fontSize: '1.1rem',
               }}
             >
               ¿Encontraste algún problema con este anuncio?
             </p>
           </Row>
-          <Row className="g-2" style={{ fontSize: '12px' }}>
-            <Col lg={5} style={{ height: '46px' }}>
-              <Button
-                className="px-1"
-                style={{
-                  height: '100%',
-                  fontSize: '12px',
-                  width: '100%',
-                  color: '#2e2e2e',
-                  backgroundColor: '#fff',
-                  border: 'none',
-                  boxShadow: 'none',
-                }}
-              >
-                No puedo contactar con el anunciante
-              </Button>
-            </Col>
-            <Col lg={5} style={{ height: '46px' }}>
-              <Button
-                className="px-1"
-                style={{
-                  height: '100%',
-                  fontSize: '12px',
-                  width: '100%',
-                  backgroundColor: '#fff',
-                  border: 'none',
-                  color: '#2e2e2e',
-                  boxShadow: 'none',
-                }}
-              >
-                El inmueble esta vendido o reservado
-              </Button>
-            </Col>
-            <Col lg={2} style={{ height: '46px' }}>
-              <Button
-                className="px-1"
-                style={{
-                  height: '100%',
-                  fontSize: '12px',
-                  width: '100%',
-                  backgroundColor: '#fff',
-                  color: '#2e2e2e',
-                  border: 'none',
-                  boxShadow: 'none',
-                }}
-              >
-                Otros motivos
-              </Button>
-            </Col>
-          </Row>
+          <CustomContainer>
+            <Button
+              className="px-1"
+              style={{
+                height: '100%',
+                fontSize: '12px',
+                width: '40%',
+                color: '#2e2e2e',
+                backgroundColor: '#fff',
+                border: 'none',
+                boxShadow: 'none',
+              }}
+            >
+              No puedo contactar con el anunciante
+            </Button>
+            <Button
+              className="px-1"
+              style={{
+                height: '100%',
+                fontSize: '12px',
+                width: '40%',
+                backgroundColor: '#fff',
+                border: 'none',
+                color: '#2e2e2e',
+                boxShadow: 'none',
+              }}
+            >
+              El inmueble esta vendido o reservado
+            </Button>
+            <Button
+              className="px-1"
+              style={{
+                height: '100%',
+                fontSize: '12px',
+                width: '20%',
+                backgroundColor: '#fff',
+                color: '#2e2e2e',
+                border: 'none',
+                boxShadow: 'none',
+              }}
+            >
+              Otros motivos
+            </Button>
+          </CustomContainer>
         </Stack>
       </div>
       {/* <div

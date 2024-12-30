@@ -12,7 +12,7 @@ export const PrimaryCustomButtonStyled = styled.button`
   outline: none;
   background-color: #940000;
   border-radius: 12px;
-  padding: 8px 12px;
+  padding: 8px 20px;
   transition: all 0.2s ease;
 
   /* Fuente */

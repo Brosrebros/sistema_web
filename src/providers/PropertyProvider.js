@@ -356,9 +356,7 @@ const PropertyProvider = ({ children }) => {
   const fetchProperties = async () => {
     try {
       dispatch({ type: 'SET_LOADING', payload: true });
-      const response = await axios.get(
-        `${process.env.REACT_APP_API_URL}`
-      );
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}`);
       dispatch({ type: 'FIND_ALL', payload: response.data });
     } catch (error) {
       dispatch({ type: 'FETCH_ERROR', payload: 'Error al cargar el usuario' });

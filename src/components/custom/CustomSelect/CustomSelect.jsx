@@ -21,7 +21,9 @@ const CustomSelect = ({
   size,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedValue, setSelectedValue] = useState(value || '');
+  const [selectedValue, setSelectedValue] = useState(
+    value || options[0]?.value || ''
+  );
   const selectRef = useRef(null);
 
   const toggleDropdown = () => setIsOpen(prevState => !prevState);

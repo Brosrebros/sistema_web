@@ -39,43 +39,42 @@ const TopNavRightSideNavItem = () => {
       navbar
       className="navbar-nav-icons ms-auto flex-row align-items-center"
       as="ul"
+      style={{ gap: '.8rem' }}
     >
-      <CustomSelect
-        id="divisa"
-        name="divisa"
-        aria-label="Tipo"
-        value={filterForm.divisaOptions}
-        onChange={handleCustomChange}
-        placeholder="Divisa"
-        options={divisaOptions}
-        background="nav"
-      >
-        <img src={icono_de_idioma_gris} width={'16px'} />
-      </CustomSelect>
-      <Col className="px-2">
+      <div style={{ width: '120px' }}>
         <CustomSelect
-          id="idioma"
-          name="idioma"
+          id="divisa"
+          name="divisa"
           aria-label="Tipo"
-          value={filterForm.idiomaOptions}
+          value="PEN S/."
           onChange={handleCustomChange}
-          placeholder="Idioma"
-          options={idiomaOptions}
+          placeholder="Divisa"
+          options={divisaOptions}
           background="nav"
         >
           <img src={icono_de_idioma_gris} width={'16px'} />
         </CustomSelect>
-      </Col>
+      </div>
+      <CustomSelect
+        id="idioma"
+        name="idioma"
+        aria-label="Tipo"
+        value="Español"
+        onChange={handleCustomChange}
+        placeholder="Idioma"
+        options={idiomaOptions}
+        background="nav"
+      >
+        <img src={icono_de_idioma_gris} width={'16px'} />
+      </CustomSelect>
       <img
         src={notificacion}
         width={'16px'}
         style={{ marginLeft: '5px', marginRight: '15px' }}
       />
-      {/* <NotificationDropdown /> */}
-
-      <SecondaryCustomButton variant="white">
-        Vender
-      </SecondaryCustomButton>
+      <div>
+        <SecondaryCustomButton variant="white">Vender</SecondaryCustomButton>
+      </div>
 
       <ProfileDropdown />
     </Nav>

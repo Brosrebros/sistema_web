@@ -4,6 +4,14 @@ import { Row, Col } from 'react-bootstrap';
 import classNames from 'classnames';
 import { usePropertyContext } from 'providers/PropertyProvider';
 import PropertySliderValdemar from '../../../src/PropertySliderValdemar';
+import construccionBlanco from '../../assets/img/icons/enconstruccion_blanco.svg';
+import construccionGris from '../../assets/img/icons/enconstruccion_gris.svg';
+import planosBlanco from '../../assets/img/icons/enplanos_blanco.svg';
+import planosGris from '../../assets/img/icons/enplanos_gris.svg';
+import entregaBlanco from '../../assets/img/icons/entregainmediata_blanco.svg';
+import entregaGris from '../../assets/img/icons/entregainmediata_gris.svg';
+import conoceBlanco from '../../assets/img/icons/conocetodoslosdesarrollos_blanco.svg';
+import PrimaryCustomButton from 'components/custom/CustomButtons/PrimaryCustomButton/PrimaryCustomButton';
 import styled from 'styled-components';
 
 const CustomButton = styled.div`
@@ -18,6 +26,7 @@ const CustomButton = styled.div`
   cursor: pointer;
   padding: 8px 20px;
   border-radius: 10px;
+  transition: all 0.2s ease;
 
   img {
     width: 1rem;
@@ -34,10 +43,6 @@ const MainpageCharsSlider = ({ className }) => {
     propertyState: { properties },
   } = usePropertyContext();
 
-  console.log(usePropertyContext())
-
-  console.log(properties);
-
   const [filteredInmuebles, setFilteredInmuebles] = useState([]);
   const [filtro, setFiltro] = useState('En construccion');
 
@@ -47,44 +52,65 @@ const MainpageCharsSlider = ({ className }) => {
 
   const filtrarInmuebles = tipoProyecto => {
     setFiltro(tipoProyecto);
-    if (tipoProyecto === 'Todos') {
-      setFilteredInmuebles(properties);
-    } else {
-      const inmueblesFiltrados = properties.filter(
-        inmueble => inmueble.tipoProyecto === tipoProyecto
-      );
-      setFilteredInmuebles(inmueblesFiltrados);
-    }
+    setFilteredInmuebles(
+      tipoProyecto === 'Todos'
+        ? properties
+        : properties.filter(inmueble => inmueble.tipoProyecto === tipoProyecto)
+    );
   };
 
-  console.log(filteredInmuebles);
+  // Mapeo de imágenes según el estado del botón
+  const obtenerImagen = (tipo, seleccionado) => {
+    const imagenes = {
+      'En construccion': seleccionado ? construccionBlanco : construccionGris,
+      'En planos': seleccionado ? planosBlanco : planosGris,
+      'Entrega inmediata': seleccionado ? entregaBlanco : entregaGris,
+    };
+    return imagenes[tipo];
+  };
+
+  // Renderizado del botón
+  const renderBoton = tipo => {
+    const seleccionado = filtro === tipo;
+
+    return (
+      <CustomButton
+        key={tipo}
+        selected={seleccionado}
+        onClick={() => filtrarInmuebles(tipo)}
+      >
+        <img
+          src={obtenerImagen(tipo, seleccionado)}
+          alt={tipo}
+          style={{
+            width: '24px',
+            height: '24px',
+            marginRight: '0.5rem',
+          }}
+        />
+        {tipo === 'En construccion'
+          ? 'En construcción'
+          : tipo === 'En planos'
+          ? 'En planos'
+          : 'Entrega inmediata'}
+      </CustomButton>
+    );
+  };
 
   return (
     <div className={classNames(className, 'overflow-hidden pt-3')}>
       <Row>
         <Col xs={12} md={4}>
-          <div className="p-3">
-            <div style={{ display: 'flex', gap: '0.8rem' }}>
-              {['En construccion', 'En planos', 'Entrega inmediata'].map(
-                tipo => (
-                  <form key={tipo}>
-                    <CustomButton
-                      selected={filtro === tipo}
-                      onClick={() => filtrarInmuebles(tipo)}
-                    >
-                      {tipo === 'En construccion'
-                        ? 'En construcción'
-                        : tipo === 'En planos'
-                        ? 'En planos'
-                        : 'Entrega inmediata'}
-                    </CustomButton>
-                  </form>
-                )
-              )}
+          <div>
+            <div className={classNames(className, 'overflow-hidden pt-3')}>
+              <div style={{ display: 'flex', gap: '0.8rem' }}>
+                {['En construccion', 'En planos', 'Entrega inmediata'].map(
+                  tipo => renderBoton(tipo)
+                )}
+              </div>
             </div>
 
-            <div className="row" style={{ marginLeft: '18px' }}>
-              <p></p>
+            <div className="row" style={{ marginTop: '2rem' }}>
               <h2 className="bolddd" style={{ color: 'black' }}>
                 {' '}
                 Conoce todos <br /> nuestros desarrollos{' '}
@@ -94,61 +120,35 @@ const MainpageCharsSlider = ({ className }) => {
                 construcción, adquiérelos en precios de preventa.
               </p>
 
-              <form
-                className="form text-center"
-                style={{ width: '100%', textAlign: 'center' }}
-              >
-                <div
+              <form style={{marginTop:"0.8rem"}}>
+                <CustomButton
                   onClick={() => filtrarInmuebles('EnPlanos')}
-                  className="toggle-switch"
                   style={{
-                    position: 'relative',
-                    display: 'flex',
-                    marginLeft: '18px',
-                    alignItems: 'center',
-                    justifyContent: 'space-between',
-                    width: '220px',
-                    height: '36px',
-                    backgroundColor: '#940000',
-                    borderRadius: '10px',
-
-                    cursor: 'pointer',
-                    overflow: 'hidden',
-                    userSelect: 'none', // Deshabilitar selección de texto
+                    background: '#940000',
+                    color: 'white',
+                    width: 'auto',
+                    maxWidth: '243px',
+                    margin: '0 auto',
                   }}
                 >
-                  <span
-                    style={{
-                      position: 'relative',
-                      zIndex: 2,
-                      flex: 1,
-                      textAlign: 'center',
-                      fontSize: '14px',
-                      fontFamily: 'Aptos_display',
-                      color: 'white',
-                      transition: 'color 0.3s ease',
-                      paddingLeft: '10px !important',
-                      paddingRight: '10px !important',
-                    }}
-                  >
-                    &nbsp;&nbsp;&nbsp;&nbsp;Conoce todos nuestros
-                    desarrollos&nbsp;&nbsp;&nbsp;&nbsp;
-                  </span>
-                </div>
+                  <img
+                    src={conoceBlanco}
+                    style={{ width: '1rem', height: 'auto' }}
+                  />
+                  Conoce todos nuestros desarrollos
+                </CustomButton>
               </form>
             </div>
           </div>
         </Col>
         <Col xs={12} md={8}>
           <div>
-            {/* Pasa los inmuebles filtrados al slider */}
             {filteredInmuebles.length ? (
               <PropertySliderValdemar data={filteredInmuebles} />
             ) : (
               <p>No hay inmuebles disponibles para este filtro.</p>
             )}
           </div>
-          {/* Renderizar filtro oculto */}
           <p style={{ display: 'none' }}>{filtro}</p>
         </Col>
       </Row>

@@ -4,7 +4,7 @@ import { Col, Row, Button } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import SubtleBadge from 'components/common/SubtleBadge';
 import PropertyDetailLocation from './PropertyDetailLocation';
-import mapa_boton from 'assets/img/icons/mapa_boton.svg';
+import fecha_icon from 'assets/img/icons/anos_negro.svg';
 import pin_icono from 'assets/img/icons/endondelabuscas_gris.svg';
 import cochera_icono from 'assets/img/icons/cochera_negro.svg';
 import area_detalle from 'assets/img/icons/area_detalle.svg';
@@ -18,15 +18,33 @@ import ambientesBlanco from 'assets/img/icons/ambientes_blanco.svg';
 import ambientesGris from 'assets/img/icons/ambientes_gris.svg';
 import alrededoresBlanco from 'assets/img/icons/alrededores_blanco.svg';
 import alrededoresGris from 'assets/img/icons/alrededores_gris.svg';
+import flechaAbajo from 'assets/img/icons/flechaabajopequeña_negro.svg';
+import flechaArriba from 'assets/img/icons/flechaarribapequeña_negro.svg';
+import styled from 'styled-components';
+
+const CustomContainer = styled.div`
+  width: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0px;
+
+  button {
+    transition: all 0.2s ease;
+    &:hover {
+      filter: brightness(0.9);
+    }
+  }
+`;
 
 const PropertyDetailDescription = ({ property }) => {
-  const [isExpanded, setIsExpanded] = useState(false); // Estado para expandir/colapsar el texto
+  const [isExpanded, setIsExpanded] = useState(false);
   const [selectedButton, setSelectedButton] = useState('caracteristicas');
-  const wordLimit = 50; // Límite de palabras
+  const wordLimit = 50;
 
   console.log(property);
 
-  // Estado para manejar las coordenadas
   const [coordinates, setCoordinates] = useState({ lat: 0, long: 0 });
 
   const truncateText = (text, limit) => {
@@ -38,6 +56,10 @@ const PropertyDetailDescription = ({ property }) => {
 
   const handleButtonClick = buttonKey => {
     setSelectedButton(buttonKey === selectedButton ? null : buttonKey);
+  };
+
+  const handleExpanded = () => {
+    setIsExpanded(prev => !prev);
   };
 
   const renderDetails = () => {
@@ -263,9 +285,9 @@ const PropertyDetailDescription = ({ property }) => {
               color: 'black',
             }}
           >
-            <img src={area_detalle} alt="Logo" style={{ width: '20px' }} />
+            <img src={area_detalle} alt="Logo" style={{ width: '1.4rem' }} />
             <p style={{ margin: '0px' }}>
-              <b>{areaTotal}</b>m2
+              <b>{areaTotal} </b>m2
             </p>
           </div>
           <div
@@ -279,7 +301,7 @@ const PropertyDetailDescription = ({ property }) => {
               color: 'black',
             }}
           >
-            <img src={banio_detalle} alt="Logo" style={{ width: '20px' }} />
+            <img src={banio_detalle} alt="Logo" style={{ width: '1.4rem' }} />
             <p style={{ margin: '0px' }}>
               <b>{banos} </b>
               Baño{banos > 1 ? 's' : ''}
@@ -296,7 +318,7 @@ const PropertyDetailDescription = ({ property }) => {
               color: 'black',
             }}
           >
-            <img src={cochera_icono} alt="Logo" style={{ width: '20px' }} />
+            <img src={cochera_icono} alt="Logo" style={{ width: '1.4rem' }} />
             <p style={{ margin: '0px' }}>
               <b>{estacionamientos} </b>
               Cochera{estacionamientos > 1 ? 's' : ''}
@@ -316,7 +338,7 @@ const PropertyDetailDescription = ({ property }) => {
             <img
               src={dormitorio_detalle}
               alt="Logo"
-              style={{ width: '20px' }}
+              style={{ width: '1.4rem' }}
             />
             <p style={{ margin: '0px' }}>
               <b>{dormitorios} </b>
@@ -334,7 +356,7 @@ const PropertyDetailDescription = ({ property }) => {
               color: 'black',
             }}
           >
-            <img src={mapa_boton} alt="Logo" style={{ width: '20px' }} />
+            <img src={fecha_icon} alt="Logo" style={{ width: '1.4rem' }} />
             {`${antiguedad}`}
           </div>
         </div>
@@ -354,8 +376,12 @@ const PropertyDetailDescription = ({ property }) => {
             </p>
             {descripcion.detalle.split(' ').length > wordLimit && (
               <button
-                onClick={() => setIsExpanded(!isExpanded)}
+                onClick={handleExpanded}
                 style={{
+                  display: 'flex',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  gap: '.4rem',
                   background: 'none',
                   border: 'none',
                   fontWeight: 'bold',
@@ -363,9 +389,22 @@ const PropertyDetailDescription = ({ property }) => {
                   cursor: 'pointer',
                   textDecoration: 'none',
                   marginTop: '10px',
+                  fontSize: '1rem',
+                  padding: '0px',
                 }}
               >
                 {isExpanded ? 'Leer menos' : 'Leer descripción completa'}
+                {isExpanded ? (
+                  <img
+                    src={flechaArriba}
+                    style={{ width: '1rem', height: 'auto' }}
+                  />
+                ) : (
+                  <img
+                    src={flechaAbajo}
+                    style={{ width: '1rem', height: 'auto' }}
+                  />
+                )}
               </button>
             )}
           </div>
@@ -377,7 +416,7 @@ const PropertyDetailDescription = ({ property }) => {
         <TitleValdemarDes>Conoce más sobre este inmueble....</TitleValdemarDes>
 
         {/* Botones de navegación */}
-        <div
+        <CustomContainer
           style={{
             width: '100%',
             display: 'flex',
@@ -475,7 +514,7 @@ const PropertyDetailDescription = ({ property }) => {
             />
             Alrededores
           </Button>
-        </div>
+        </CustomContainer>
 
         {/* Listas de características */}
         <Row>
