@@ -43,7 +43,7 @@ const PropertyDetailDescription = ({ property }) => {
   const [selectedButton, setSelectedButton] = useState('caracteristicas');
   const wordLimit = 50;
 
-  console.log(property);
+  console.log("property"+ property);
 
   const [coordinates, setCoordinates] = useState({ lat: 0, long: 0 });
 
@@ -265,9 +265,9 @@ const PropertyDetailDescription = ({ property }) => {
                 gap: '8px',
               }}
             >
-              {precio?.pen && <span>S/.{precio.pen}</span>}
-              {precio?.pen && precio?.usd && <span>{' - '}</span>}
-              {precio?.usd && <span>${precio.usd}</span>}
+{precio?.pen && <span>S/.{precio.pen.toLocaleString('es-PE')}</span>}
+{precio?.pen && precio?.usd && <span>{' - '}</span>}
+{precio?.usd && <span>${precio.usd}</span>}
             </h4>
           </Col>
         </Row>

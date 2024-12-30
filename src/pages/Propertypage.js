@@ -10,14 +10,17 @@ const Propertypage = () => {
     propertyState: { properties, property },
     findPropertyById,
   } = usePropertyContext();
+
   useEffect(() => {
     findPropertyById(propertyId);
-  }, [properties]);
+  }, [propertyId, findPropertyById]);  // Agregar propertyId como dependencia
+
   console.log(property);
-  // const { propertyState, filterBasic } = propertyReducer();
+
   return (
     <CustomPageLayout>
-      <PropertyDetail/>
+      {/* Solo renderiza el detalle si hay una propiedad cargada */}
+      {property ? <PropertyDetail /> : <p>Cargando propiedad...</p>}
     </CustomPageLayout>
   );
 };
