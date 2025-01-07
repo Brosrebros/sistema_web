@@ -1,9 +1,9 @@
 import React from 'react'
 import { CustomInputNumberStyled } from './CustomInputNumber.styles'
 
-function CustomInputNumber({children}) {
+function CustomInputNumber({children, placeholder}) {
   return (
-    <CustomInputNumberStyled>
+    <CustomInputNumberStyled placeholder={placeholder}>
       {children}
     </CustomInputNumberStyled>
   )

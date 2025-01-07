@@ -40,7 +40,6 @@ const PropertyDetail = () => {
           alignItems: 'center',
         }}
       >
-        <BackButton />
         <CustomBreadcrumb prevlink="Inmobiliarias" link1="Detalles" />
       </div>
       <Card style={{ boxShadow: 'none' }}>

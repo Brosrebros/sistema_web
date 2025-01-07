@@ -16,6 +16,7 @@ import CustomLabel from 'components/custom/CustomFormUI/CustomLabel/CustomLabel'
 import CustomCounter from 'components/custom/CustomFormUI/CustomCounter/CustomCounter';
 import CustomFilter from 'components/custom/CustomFormUI/CustomFilter/CustomFilter';
 import CustomInputNumber from 'components/custom/CustomFormUI/CustomInputNumber/CustomInputNumber';
+import resetIcon from '../../assets/img/icons/reiniciar_blanco.svg';
 
 const PropertyFilters = ({
   filterForm,
@@ -97,13 +98,15 @@ const PropertyFilters = ({
             <HiOutlineFilter />
             <span style={{ fontSize: '1.1em' }}>Más filtros</span>
           </h4>
-          <PrimaryCustomButton
-            onClick={() => setFilterOptions([])}
-            variant="primary"
-          >
-            <FontAwesomeIcon icon="redo-alt" className="me-1 fs-11" />
-            Reset
-          </PrimaryCustomButton>
+          <div>
+            <PrimaryCustomButton
+              onClick={() => setFilterOptions([])}
+              variant="primary"
+            >
+              <img src={resetIcon} style={{ width: '1rem', height:"auto" }} />
+              Reiniciar
+            </PrimaryCustomButton>
+          </div>
         </Flex>
         {isOffcanvas && (
           <Button
@@ -291,8 +294,8 @@ const SurfaceFilter = () => {
           name="surfaceType"
           background="form"
         />
-        <CustomInputNumber id="from" type="number" placeholder="Mín." />
-        <CustomInputNumber id="to" type="number" placeholder="Máx." />
+        <CustomInputNumber id="from" type="number" placeholder="Desde" />
+        <CustomInputNumber id="to" type="number" placeholder="Hasta" />
       </div>
     </div>
   );

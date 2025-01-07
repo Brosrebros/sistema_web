@@ -10,6 +10,7 @@ import { useNavigate } from 'react-router-dom';
 import { rootPaths } from 'routes/paths';
 import placeholderImage from '../../assets/img/placeholder-image.png';
 import CustomListSlider from 'components/custom/CustomListSlider/CustomListSlider';
+import cameraIcon from '../../assets/img/icons/camara_gris.svg';
 import { useState } from 'react';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -84,18 +85,27 @@ const PropertyList = ({ property }) => {
                 </CustomListSlider>
                 <p
                   style={{
-                    opacity: "0",
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'flex-start',
+                    gap: '0.4rem',
+                    opacity: '0',
                     position: 'absolute',
                     left: '10px',
-                    bottom: '-5px',
+                    bottom: '10px',
                     backgroundColor: 'white',
                     color: '#424242',
                     fontSize: '0.8rem',
-                    padding: '0.1rem 0.4rem',
+                    padding: '0.2rem 0.4rem',
                     borderRadius: '8px',
+                    margin: '0px',
                   }}
                 >
                   {`${currentSlide + 1}/${imagenes.length}`}
+                  <img
+                    src={cameraIcon}
+                    style={{ height: '1rem', width: 'auto' }}
+                  />
                 </p>
               </div>
               <div

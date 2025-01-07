@@ -6,7 +6,7 @@ export const CustomBreadcrumbStyled = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  gap: 8px;
+  gap: 1rem;
   color: #940000;
 
   a {

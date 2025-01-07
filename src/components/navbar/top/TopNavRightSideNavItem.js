@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import ProfileDropdown from 'components/navbar/top/ProfileDropdown';
 import { Nav } from 'react-bootstrap';
-import { Col } from 'react-bootstrap';
 import icono_de_idioma_gris from 'assets/icons/idioma_gris.svg';
+import icono_de_divisa_gris from "../../../assets/img/icons/alerta_gris.svg"
 import notificacion from 'assets/icons/notificacion.svg';
 import CustomSelect from 'components/custom/CustomSelect/CustomSelect';
 import SecondaryCustomButton from 'components/custom/CustomButtons/SecondaryCustomButton/SecondaryCustomButton';
@@ -21,8 +21,8 @@ const divisaOptions = [
 
 const TopNavRightSideNavItem = () => {
   const [filterForm, setFilterForm] = useState({
-    divisa: divisaOptions[0].value,  // Selecciona PEN por defecto
-    idioma: idiomaOptions[0].value,  // Selecciona Español por defecto
+    divisa: divisaOptions[0].value,
+    idioma: idiomaOptions[0].value,
   });
 
   const handleCustomChange = (name, value) => {
@@ -47,23 +47,23 @@ const TopNavRightSideNavItem = () => {
         onChange={e => handleCustomChange('divisa', e.target.value)}
         options={divisaOptions}
         background="nav"
+        placeholder='Divisa'
       >
-        <img src={icono_de_idioma_gris} width={'16px'} alt="divisa-icon" />
+        <img src={icono_de_divisa_gris} width={'16px'} alt="divisa-icon" />
       </CustomSelect>
 
-      <Col className="px-2">
-        <CustomSelect
-          id="idioma"
-          name="idioma"
-          aria-label="Idioma"
-          value={filterForm.idioma}
-          onChange={e => handleCustomChange('idioma', e.target.value)}
-          options={idiomaOptions}
-          background="nav"
-        >
-          <img src={icono_de_idioma_gris} width={'16px'} alt="idioma-icon" />
-        </CustomSelect>
-      </Col>
+      <CustomSelect
+        id="idioma"
+        name="idioma"
+        aria-label="Idioma"
+        value={filterForm.idioma}
+        onChange={e => handleCustomChange('idioma', e.target.value)}
+        options={idiomaOptions}
+        background="nav"
+        placeholder="Idioma"
+      >
+        <img src={icono_de_idioma_gris} width={'16px'} alt="idioma-icon" />
+      </CustomSelect>
 
       <img
         src={notificacion}
@@ -71,10 +71,10 @@ const TopNavRightSideNavItem = () => {
         style={{ marginLeft: '5px', marginRight: '15px' }}
         alt="notificacion-icon"
       />
-
-      <SecondaryCustomButton variant="white">
-        Vender
-      </SecondaryCustomButton>
+      
+      <div>
+        <SecondaryCustomButton variant="white">Vender</SecondaryCustomButton>
+      </div>
 
       <ProfileDropdown />
     </Nav>

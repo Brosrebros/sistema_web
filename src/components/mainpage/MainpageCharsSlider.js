@@ -11,7 +11,6 @@ import planosGris from '../../assets/img/icons/enplanos_gris.svg';
 import entregaBlanco from '../../assets/img/icons/entregainmediata_blanco.svg';
 import entregaGris from '../../assets/img/icons/entregainmediata_gris.svg';
 import conoceBlanco from '../../assets/img/icons/conocetodoslosdesarrollos_blanco.svg';
-import PrimaryCustomButton from 'components/custom/CustomButtons/PrimaryCustomButton/PrimaryCustomButton';
 import styled from 'styled-components';
 
 const CustomButton = styled.div`
