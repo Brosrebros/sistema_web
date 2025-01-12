@@ -1,26 +1,38 @@
-import { MainpageBanner } from 'components/mainpage/MainpageBanner';
+import SectionLayout from 'components/custom/SectionLayout/SectionLayout';
+import HomeBanner from 'components/custom/HomeBanner/HomeBanner';
+import CardButton from 'components/custom/CustomButtons/CardButton/CardButton';
+import ContentInfo from 'components/custom/ContentInfo/ContentInfo';
+import ProyectsSection from 'components/custom/ProyectsSection/ProyectsSection';
 import React, { useState } from 'react';
-// Card, Row, Col,
-// import FalconLink from 'components/common/FalconLink';
-// import paths from 'routes/paths';
-// import { Recommendations } from 'components/mainpage/Recommendations';
-// import { Title } from 'components/mainpage/Title';
-// import { intelligence } from 'data/dashboard/analytics';
-import PropertyForm from 'components/property/PropertyForm';
+import PropertyForm from 'components/custom/PropertyForm/PropertyForm';
 import PropertySlider from 'components/property/PropertySlider';
-// import Revenue from 'components/mainpage/Revenue';
 import { useFrontpage } from 'hooks/useFrontpage';
-import MainpageCards from 'components/mainpage/MainpageCards';
 import { usePropertyContext } from 'providers/PropertyProvider';
 import { useNavigate } from 'react-router-dom';
-import { rootPaths } from 'routes/paths';
-import MainpageCharsSlider from 'components/mainpage/MainpageCharsSlider';
 import CustomPageLayout from 'components/custom/CustomPageLayout/CustomPageLayout';
+import styled from 'styled-components';
+
+const ButtonContainer = styled.section`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 0px;
+
+  @media (max-width: 1200px) {
+    gap: 12px;
+  }
+
+  @media (max-width: 968px) {
+    flex-direction: column;
+    gap: 20px;
+  }
+`;
 
 const Mainpage = () => {
   const [state] = useFrontpage();
   const { propertyState } = usePropertyContext();
-  const navigate = useNavigate(); // Inicializa useNavigate
+  const navigate = useNavigate();
   const [filterForm, setFilterForm] = useState({
     tipoOperacion: '',
     direccionCompleta: '',
@@ -32,22 +44,29 @@ const Mainpage = () => {
   return (
     <>
       <CustomPageLayout>
-        <MainpageBanner src={state.data ? state.data[0].imagenes : ''} />
-        <PropertyForm
-          filterForm={filterForm}
-          setFilterForm={setFilterForm}
-          handleOnSubmit={() => {
-            const params = new URLSearchParams(filterForm).toString();
-            navigate(`/${rootPaths.catalogRoot}?${params}`);
-          }}
-          msgBtn="Buscar"
-        />
+        <SectionLayout title="Inmobiliaria">
+          <HomeBanner />
+        </SectionLayout>
+
+        <ButtonContainer>
+          <CardButton option="option1" />
+          <CardButton option="option2" />
+          <CardButton option="option3" />
+        </ButtonContainer>
+
+        <SectionLayout title="Encuentra tu propiedad ideal">
+          <PropertyForm />
+        </SectionLayout>
+
         <PropertySlider
+          slidesToShow={5.4}
           data={propertyState.properties}
           title="Descubre las propiedades recomendadas (24)"
         />
-        <MainpageCards />
-        <MainpageCharsSlider />
+
+        <ContentInfo type="left" />
+
+        <ProyectsSection />
       </CustomPageLayout>
     </>
   );

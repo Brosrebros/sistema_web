@@ -58,7 +58,7 @@ const CustomSelect = ({
       <CustomSelectStyled ref={selectRef}>
         <CustomSelectWrapper onClick={toggleDropdown} background={background}>
           <span>{selectedLabel}</span>
-          <IoIosArrowDown />
+          <IoIosArrowDown background={background}/>
         </CustomSelectWrapper>
 
         {isOpen && (
@@ -69,7 +69,7 @@ const CustomSelect = ({
                 key={option.value}
                 onClick={() => handleOptionSelect(option.value)}
               >
-                <span>{option.label}</span>
+                <span background={background}>{option.label}</span>
               </CustomOption>
             ))}
           </CustomDropdown>

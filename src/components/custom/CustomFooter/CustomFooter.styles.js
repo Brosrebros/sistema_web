@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const FooterContainerStyled = styled.footer`
-  width: 1640px;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -34,20 +34,5 @@ export const FooterContainerStyled = styled.footer`
       font-family: 'Aptos_display';
       color: #424242;
     }
-  }
-
-  @media (min-width: 1940px) {
-    width: 1840px;
-  }
-
-  @media (max-width: 1746px) {
-    width: 84vw;
-  }
-
-  @media (max-width: 1400px) {
-    width: 70vw;
-  }
-  @media (max-width: 1300px) {
-    width: 80vw;
   }
 `;

@@ -1,68 +1,73 @@
 import React from 'react';
-import PropertyGrid from './PropertyGridValdemar';
+import SliderCard from 'components/custom/SliderCard/SliderCard';
 import PropTypes from 'prop-types';
 import CustomSliderButton from 'components/custom/CustomButtons/CustomSliderButton/CustomSliderButton';
 
-const PropertySliderValdemar = ({ data }) => {
-
-  console.log(data)
+const PropertySliderValdemar = ({ data, slidesToShow }) => {
+  console.log("aca no", data)
 
   const sliderSettings = {
     infinite: false,
     speed: 500,
-    slidesToShow: 3.5, // Se asegura de que solo se muestra una card completa
+    slidesToShow: slidesToShow, // Se asegura de que solo se muestra una card completa
     slidesToScroll: 1,
     initialSlide: 0,
     centerMode: false, // Habilita el modo centrado
     responsive: [
       {
+        breakpoint: 1760,
+        settings: {
+          slidesToShow: slidesToShow - 0.4, //4.8
+        },
+      },
+      {
         breakpoint: 1600,
         settings: {
-          slidesToShow: 3.5,
+          slidesToShow: slidesToShow - 0.8,
           initialSlide: 2,
         },
       },
       {
-        breakpoint: 1300,
+        breakpoint: 1440,
         settings: {
-          slidesToShow: 3.5 - 1,
+          slidesToShow: slidesToShow - 0.9,
         },
       },
       {
-        breakpoint: 992,
+        breakpoint: 1380,
         settings: {
-          slidesToShow: 3.5 - 2,
+          slidesToShow: slidesToShow - 1,
         },
       },
       {
-        breakpoint: 767,
+        breakpoint: 1280,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: slidesToShow - 1.2,
         },
       },
       {
-        breakpoint: 576,
+        breakpoint: 1140,
         settings: {
-          slidesToShow: 1,
+          slidesToShow: slidesToShow - 1.6,
+        },
+      },
+      {
+        breakpoint: 1140,
+        settings: {
+          slidesToShow: 1.4,
         },
       },
     ],
   };
 
   return (
-    <div>
-      <h5 className="black_important bolddd fs-10"></h5>
+    <div style={{ width: '100%'}}>
       {data ? (
         <CustomSliderButton
           {...sliderSettings}
-          className="full-height-slider slick-slider-arrow-inner similar-courses-slider"
         >
           {data.map(property => (
-            <PropertyGrid
-              property={property}
-              key={property.id}
-              color="#F9F9F9"
-            />
+            <SliderCard property={property} key={property.id} type="proyect" />
           ))}
         </CustomSliderButton>
       ) : null}

@@ -2,8 +2,7 @@ import styled from 'styled-components';
 
 export const PrimaryCustomButtonStyled = styled.button`
   /* Botón */
-  width: 100%;
-  max-width: 180px;
+  width: auto;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -12,14 +11,15 @@ export const PrimaryCustomButtonStyled = styled.button`
   outline: none;
   background-color: #940000;
   border-radius: 12px;
-  padding: 8px 20px;
+  padding: 12px 16px;
   transition: all 0.2s ease;
 
   /* Fuente */
-  font-size: 0.875rem;
+  font-size: 1em;
   font-weight: normal;
   font-family: 'Aptos_display';
   color: #ffffff;
+  line-height: 100%;
 
   &:hover {
     filter: brightness(70%);

@@ -1,34 +1,16 @@
 import React, { useEffect } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
-import classNames from 'classnames';
-import NavbarTop from 'components/navbar/top/NavbarTop';
-import NavbarVertical from 'components/navbar/vertical/NavbarVertical';
+import Navbar from 'components/navbar/Navbar';
+import Menu from 'components/menu/Menu';
 import Footer from 'components/footer/Footer';
 import ProductProvider from 'providers/ProductProvider';
 import CourseProvider from 'providers/CourseProvider';
 import ModalAuth from 'components/authentication/modal/ModalAuth';
 import PropertyProvider from 'providers/PropertyProvider';
-import { useAppContext } from 'providers/AppProvider';
 import CustomFooter from 'components/custom/CustomFooter/CustomFooter';
-import styled from 'styled-components';
-
-const MainContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  max-width: 100%;
-  margin-left: auto;
-  justify-content: center;
-  transition: all 0.15s linear;
-`;
 
 const MainLayout = () => {
   const { hash, pathname } = useLocation();
-  const isKanban = pathname.includes('kanban');
-
-  const {
-    config: { isFluid, navbarPosition },
-  } = useAppContext();
 
   useEffect(() => {
     setTimeout(() => {
@@ -47,30 +29,43 @@ const MainLayout = () => {
   }, [pathname]);
 
   return (
-    <div className={isFluid ? 'container-fluid' : 'container'}>
-      {(navbarPosition === 'vertical' || navbarPosition === 'combo') && (
-        <NavbarVertical />
-      )}
+    <main>
       <ProductProvider>
         <CourseProvider>
+          <Navbar />
           <div
-            className={classNames('content', { 'pb-0': isKanban })}
-            style={{ paddingBottom: '21px', transition: 'all .2s ease' }}
+            style={{
+              width: '100%',
+              display: 'flex',
+              gap: '24px',
+              justifyContent: 'flex-start',
+              padding: '24px',
+              position: 'relative',
+            }}
           >
-            <NavbarTop />
-            {/*------ Main Routes ------*/}
-            <MainContainer>
+            <Menu />
+            <div
+              style={{
+                width: '100%',
+                maxWidth: '82vw',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                alignItems: 'center',
+                gap: '24px',
+              }}
+            >
               <PropertyProvider>
                 <Outlet />
+                <CustomFooter />
+                <Footer />
               </PropertyProvider>
-              <CustomFooter />
-              {!isKanban && <Footer />}
-            </MainContainer>
+            </div>
           </div>
         </CourseProvider>
       </ProductProvider>
       <ModalAuth />
-    </div>
+    </main>
   );
 };
 

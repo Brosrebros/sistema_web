@@ -2,8 +2,7 @@ import styled from 'styled-components';
 
 export const SecondaryCustomButtonStyled = styled.button`
   /* Botón */
-  width: 100%;
-  max-width: 180px;
+  width: auto;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -13,14 +12,15 @@ export const SecondaryCustomButtonStyled = styled.button`
   background-color: ${({ variant }) =>
     variant === 'gray' ? '#f2f2f2' : '#ffffff'};
   border-radius: 12px;
-  padding: 8px 20px;
+  padding: 12px 16px;
   transition: all 0.2s ease;
 
   /* Fuente */
-  font-size: 0.875rem;
+  font-size: 1em;
   font-weight: normal;
   font-family: 'Aptos_display';
   color: #424242;
+  line-height: 100%;
 
   b {
     font-size: 0.875rem;

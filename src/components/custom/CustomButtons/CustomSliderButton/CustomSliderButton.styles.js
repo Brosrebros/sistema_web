@@ -2,6 +2,7 @@ import Slider from 'react-slick';
 import styled from 'styled-components';
 
 export const CustomSliderButtonStyled = styled(Slider)`
+  width: 100%;
   height: 100%;
 
   .slick-prev,
@@ -22,8 +23,17 @@ export const CustomSliderButtonStyled = styled(Slider)`
     border-radius: 2px;
   }
 
+  .slick-prev {
+    left: 12px;
+  }
+
+  .slick-next {
+    right: 12px;
+  }
+
   &:hover .slick-prev,
   &:hover .slick-next {
     opacity: 1 !important; /* Muestra las flechas al hacer hover */
   }
+
 `;

@@ -2,15 +2,17 @@ import styled from 'styled-components';
 
 export const CustomSelectContainer = styled.div`
   display: flex;
-  border-radius: 0.6rem;
+  border-radius: 12px;
   align-items: center;
   justify-content: flex-start;
   background-color: ${({ background }) =>
-    background === 'form' ? '#f2f2f2' : '#ffffff'};
-  padding: 0 0 0 8px;
-  gap: 12px;
-  height: 36px;
-  min-width: ${({ size }) => (size === 'large' ? '180px' : 'auto')};
+    background === 'form' ? '#f2f2f2' : '#940000'};
+  border: ${({ background }) =>
+    background === 'form' ? 'none' : '1px solid #ffffff'};
+  padding: 0 0 0 16px;
+  gap: 8px;
+  height: 41px;
+  font-size: 1em;
   font-family: 'Aptos_Display';
   transition: all 0.2s ease;
 
@@ -19,7 +21,8 @@ export const CustomSelectContainer = styled.div`
   }
 
   &:hover {
-    background-color:rgb(231, 231, 231);
+    background-color: ${({ background }) =>
+    background === 'form' ? '#c6c6c6' : '#760000'};
   }
 `;
 
@@ -57,20 +60,20 @@ export const CustomOption = styled.div`
   cursor: pointer;
   background-color: rgb(255, 255, 255);
   padding: 4px 8px;
-  border-radius: 8px;
+  border-radius: 12px;
   margin-bottom: 4px;
 
   span {
     display: block;
     color: #424242;
-    font-size: 12px;
+    font-size: 1em;
     font-family: 'Aptos_Display', sans-serif;
     font-weight: lighter;
     text-overflow: ellipsis;
   }
 
   &:hover {
-    background-color: rgb(216, 216, 216);
+    filter: brightness(90%);
   }
 `;
 
@@ -82,11 +85,12 @@ export const CustomSelectWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 12px;
-  color: #424242;
+  gap: 8px;
+  color: ${({ background }) =>
+      background === 'form' ? '#424242' : '#ffffff'};;
   min-height: 35px;
-  border-radius: 0.6rem;
-  padding-right: 12px;
+  border-radius: 12px;
+  padding-right: 16px;
   cursor: pointer;
   position: relative;
   display: flex;
@@ -95,8 +99,9 @@ export const CustomSelectWrapper = styled.div`
 
   span {
     display: block;
-    color: #424242;
-    font-size: 12px;
+    color: ${({ background }) =>
+      background === 'form' ? '#424242' : '#ffffff'};
+    font-size: 1em;
     font-family: 'Aptos_Display', sans-serif;
     font-weight: lighter;
     text-overflow: ellipsis;

@@ -10,7 +10,7 @@ import placeholderImage from '../../assets/img/placeholder-image.png';
 
 const PropertyGrid = ({ property }) => {
   const navigate = useNavigate();
-  const [isFavorite, setIsFavorite] = useState(false); // Estado para gestionar favoritos
+  const [isFavorite, setIsFavorite] = useState(false);
 
   const toggleFavorite = e => {
     e.stopPropagation(); // Evita que el click en el corazón navegue al detalle
@@ -26,6 +26,8 @@ const PropertyGrid = ({ property }) => {
     ubicacion: { calleNumero, provincia, departamento },
     caracteristicas: { areaTotal, banos },
   } = property;
+
+  console.log(property)
 
   return (
     <Card
@@ -52,7 +54,7 @@ const PropertyGrid = ({ property }) => {
           }}
         >
           {/* Imagen del inmueble */}
-          <Image
+          <img
             src={imagenes ? imagenes[0] : ''}
             alt="Imagen del inmueble"
             className="black_important w-100 h-100 fit-cover fit-cover"
