@@ -9,8 +9,11 @@ import PrimaryCustomButton from '../CustomButtons/PrimaryCustomButton/PrimaryCus
 import PropertySliderValdemar from '../../../PropertySliderValdemar';
 import { usePropertyContext } from '../../../providers/PropertyProvider';
 import icon from '../../../assets/img/icons/conocetodoslosdesarrollos_blanco.svg';
+import { useMenu } from 'menuContext';
 
 function ProyectsSection() {
+  const { isMenuOpen } = useMenu();
+
   const [activeButton, setActiveButton] = useState('en construccion');
   const { propertyState } = usePropertyContext();
 
@@ -56,7 +59,7 @@ function ProyectsSection() {
           </CustomButton>
         </OptionsContainer>
         <PropertySliderValdemar
-          slidesToShow={3.5}
+          slidesToShow={isMenuOpen ? 3.5 : 4}
           data={propertyState.properties}
           type="proyect"
         />

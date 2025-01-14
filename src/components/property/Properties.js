@@ -19,6 +19,7 @@ import { useAppContext } from 'providers/AppProvider';
 import PropertyGrid from 'components/property/PropertyGrid';
 import PropTypes from 'prop-types';
 import PropertyList from 'components/property/PropertyList';
+import CatalogCard from 'components/custom/CatalogCard/CatalogCard';
 import { Title } from 'components/mainpage/Title';
 import PropertyFilters from './PropertyFilters';
 
@@ -79,9 +80,7 @@ const Properties = ({ filterForm, setFilterForm, properties, title }) => {
             {paginatedCourses.length > 0 ? (
               paginatedCourses.map(course =>
                 layout === 'list' ? (
-                  <Col key={course.id} xs={12}>
-                    <PropertyList property={course} />
-                  </Col>
+                    <CatalogCard property={course} />
                 ) : (
                   <Col key={course.id} md={6} xxl={4}>
                     <PropertyGrid property={course} />

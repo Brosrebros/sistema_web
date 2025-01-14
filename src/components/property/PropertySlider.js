@@ -1,8 +1,6 @@
 import React from 'react';
-import { TitleValdemar } from '../mainpage/TitleValdemar';
 import SliderCard from 'components/custom/SliderCard/SliderCard';
 import PropTypes from 'prop-types';
-import styles from 'styles.module.css';
 import CustomSliderButton from 'components/custom/CustomButtons/CustomSliderButton/CustomSliderButton';
 
 const PropertySlider = ({ data, title, slidesToShow }) => {
@@ -17,7 +15,7 @@ const PropertySlider = ({ data, title, slidesToShow }) => {
       {
         breakpoint: 1760,
         settings: {
-          slidesToShow: slidesToShow - 0.6, //4.8
+          slidesToShow: slidesToShow - 0.2, //4.8
         },
       },
       {
@@ -35,13 +33,13 @@ const PropertySlider = ({ data, title, slidesToShow }) => {
       {
         breakpoint: 1460,
         settings: {
-          slidesToShow: slidesToShow - 1.6, //3.8
+          slidesToShow: slidesToShow - 1.2, //3.8
         },
       },
       {
         breakpoint: 1360,
         settings: {
-          slidesToShow: slidesToShow - 2, //3.4
+          slidesToShow: slidesToShow - 1.8, //3.4
         },
       },
 
@@ -60,23 +58,9 @@ const PropertySlider = ({ data, title, slidesToShow }) => {
       },
 
       {
-        breakpoint: 960,
+        breakpoint: 968,
         settings: {
-          slidesToShow: slidesToShow - 3, //2.4
-        },
-      },
-
-      {
-        breakpoint: 860,
-        settings: {
-          slidesToShow: slidesToShow - 3.2, //2.2
-        },
-      },
-
-      {
-        breakpoint: 760,
-        settings: {
-          slidesToShow: slidesToShow - 3.8, //1.6
+          slidesToShow: 1.2, //2.4
         },
       },
     ],
@@ -85,10 +69,33 @@ const PropertySlider = ({ data, title, slidesToShow }) => {
   return (
     <div style={{ width: '100%' }}>
       {title ? (
-        <TitleValdemar classname={styles.title}>{title}</TitleValdemar>
+        <h3
+          style={{
+            width: '100%',
+            fontSize: '1.4375em',
+            fontWeight: 'bold',
+            color: 'black',
+            display: 'flex',
+            margin: '0px',
+            lineHeight: '65%',
+          }}
+        >
+          {title}
+          <a
+            style={{
+              marginLeft: 'auto',
+              fontWeight: 'bold',
+              color: '#940000',
+              cursor: 'pointer',
+              lineHeight: '65%',
+            }}
+          >
+            Ver más
+          </a>
+        </h3>
       ) : null}
       {data ? (
-        <div style={{ width: '100%', marginTop:"24px" }}>
+        <div style={{ width: '100%', marginTop: '24px' }}>
           <CustomSliderButton {...sliderSettings}>
             {data.map(property => (
               <SliderCard

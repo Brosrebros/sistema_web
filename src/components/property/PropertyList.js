@@ -14,6 +14,7 @@ import cameraIcon from '../../assets/img/icons/camara_gris.svg';
 import { useState } from 'react';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import CatalogCard from 'components/custom/CatalogCard/CatalogCard';
 
 const PropertyList = ({ property }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -41,6 +42,7 @@ const PropertyList = ({ property }) => {
 
   return (
     <>
+    <CatalogCard property={property}/>
       <Card
         className="overflow-hidden"
         onClick={() => {
@@ -137,15 +139,9 @@ const PropertyList = ({ property }) => {
                   }}
                 >
                   <SubtleBadge
-                    // key={tag.id} pill bg={tag.type}
                     className="my-2"
                     bg={tipoOperacion == 'Alquiler' ? 'success' : 'danger'}
                   >
-                    {/* <FontAwesomeIcon
-                  icon={tag.icon}
-                  className="me-1"
-                  transform="shrink-4"
-                /> */}
                     {tipoOperacion}
                   </SubtleBadge>
                   <p
@@ -170,24 +166,6 @@ const PropertyList = ({ property }) => {
                     <img height={'15px'} src={corazon_rojo} className="m-1" />
                   </Button>
                 </div>
-                {/* <h5 className="fs-9">
-                    <Link to={paths.trainerProfile}>{trainer}</Link>
-                  </h5>
-                  <h4 className="mt-3 mt-sm-0 fs-9 fs-lg-8">
-                    <Link to={paths.courseDetails(id)} className="text-900">
-                      {name}
-                    </Link>
-                  </h4> */}
-                {/* <p className="fs-10 mt-2 d-none d-lg-block">
-                    {excerpt.substring(0, 142)}...
-                  </p> */}
-                {/* <div className="flex-1 d-flex align-items-end fw-semibold fs-10">
-                    <span className="me-1 text-900">{rating}</span>
-                    <StarRating readonly initialValue={rating} />
-                    <span className="ms-2 text-secondary">
-                      {review.toLocaleString()} reviews
-                    </span>
-                  </div> */}
                 <h4
                   className="fs-8 text-warning d-flex align-items-center"
                   style={{ fontWeight: 'bold' }}
@@ -211,9 +189,6 @@ const PropertyList = ({ property }) => {
                     <del className="ms-2 fs-10 text-700">${oldPrice}</del>
                   ) : null}
                 </h4>
-                {/* <p className="mb-0 fs-10 text-800">
-                        {totalEnrolled.toLocaleString()} Learners Enrolled
-                      </p> */}
                 <div
                   style={{
                     whiteSpace: 'nowrap',
@@ -297,63 +272,6 @@ const PropertyList = ({ property }) => {
                     </Button>
                   </Stack>
                 </div>
-
-                {/* <Col lg={4} className="mt-4 mt-lg-0">
-                  <Flex
-                    justifyContent="between"
-                    className="h-100 rounded border-lg border-1 flex-lg-column p-lg-3"
-                  >
-                    <div className="mb-lg-4 mt-auto mt-lg-0">
-                      <h4 className="fs-8 text-warning d-flex align-items-center">
-                        <span>${precio}</span>
-                        {oldPrice && (
-                          <del className="ms-2 fs-10 text-700">${oldPrice}</del>
-                        )} 
-                      </h4> 
-                      <p className="mb-0 fs-10 text-800">
-                        {totalEnrolled.toLocaleString()} Learners Enrolled
-                      </p> 
-                      <p>{calleNumero}</p>
-                    </div>
-                    <Flex className="mt-3 flex-lg-column gap-2">
-                      <Button
-                        size="md"
-                        variant="falcon-default"
-                        className="fs-10 text-600 white-space-nowrap w-100"
-                        onClick={handleFavouriteClick}
-                      >
-                        <FontAwesomeIcon
-                          icon={
-                            isInFavouriteItems(id) ? 'heart' : ['far', 'heart']
-                          }
-                          className={classNames('', {
-                            'text-danger': isInFavouriteItems(id),
-                          })}
-                        />
-                        <span className="ms-1 d-none d-lg-inline">
-                          {isInFavouriteItems(id)
-                            ? 'Wishlisted'
-                            : 'Add to Wishlist'}
-                        </span>
-                      </Button>
-                      <Button
-                        size="md"
-                        variant="primary"
-                        className="fs-10"
-                        onClick={handleAddToCart}
-                      >
-                        <FontAwesomeIcon
-                          icon={`${
-                            isInCart(id) ? 'shopping-cart' : 'cart-plus'
-                          }`}
-                        />
-                        <span className="ms-1 d-none d-lg-inline">
-                          {isInCart(id) ? 'Added' : 'Add to Cart'}
-                        </span>
-                      </Button>
-                    </Flex> 
-                  </Flex>
-                </Col> */}
               </Row>
             </Col>
           </Row>

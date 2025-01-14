@@ -8,8 +8,42 @@ import CourseProvider from 'providers/CourseProvider';
 import ModalAuth from 'components/authentication/modal/ModalAuth';
 import PropertyProvider from 'providers/PropertyProvider';
 import CustomFooter from 'components/custom/CustomFooter/CustomFooter';
+import { useMenu } from 'menuContext';
+import styled from 'styled-components';
+
+const CustomPageContainer = styled.div`
+  max-width: ${({ isMenuOpen }) => (isMenuOpen ? '81.5vw' : '91.5vw')};
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  transition: all 0.2s ease;
+
+  
+  @media (max-width: 1760px) {
+    max-width: ${({ isMenuOpen }) => (isMenuOpen ? '80vw' : '90.9vw')};
+  }
+
+  @media (max-width: 1550px) {
+    max-width: ${({ isMenuOpen }) => (isMenuOpen ? '77vw' : '90vw')};
+  }
+
+  @media (max-width: 1450px) {
+    max-width: ${({ isMenuOpen }) => (isMenuOpen ? '75.5vw' : '89.5vw')};
+  }
+
+  @media (max-width: 1380px) {
+    max-width: ${({ isMenuOpen }) => (isMenuOpen ? '74.5vw' : '89vw')};
+  }
+
+  @media (max-width: 1280px) {
+    max-width: ${({ isMenuOpen }) => (isMenuOpen ? '73vw' : '88.5vw')};
+  }
+`;
 
 const MainLayout = () => {
+  const { isMenuOpen } = useMenu();
   const { hash, pathname } = useLocation();
 
   useEffect(() => {
@@ -36,31 +70,21 @@ const MainLayout = () => {
           <div
             style={{
               width: '100%',
-              display: 'flex',
+              display: 'grid',
+              gridTemplateColumns: 'auto auto',
               gap: '24px',
-              justifyContent: 'flex-start',
               padding: '24px',
               position: 'relative',
             }}
           >
             <Menu />
-            <div
-              style={{
-                width: '100%',
-                maxWidth: '82vw',
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'center',
-                alignItems: 'center',
-                gap: '24px',
-              }}
-            >
+            <CustomPageContainer isMenuOpen={isMenuOpen}>
               <PropertyProvider>
                 <Outlet />
                 <CustomFooter />
                 <Footer />
               </PropertyProvider>
-            </div>
+            </CustomPageContainer>
           </div>
         </CourseProvider>
       </ProductProvider>

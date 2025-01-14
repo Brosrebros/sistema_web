@@ -1,33 +1,72 @@
 import React from 'react';
-import { FooterContainerStyled } from './CustomFooter.styles';
+import {
+  FooterContainerStyled,
+  TextContainer,
+  ButtonsContainer,
+  CustomInputMail
+} from './CustomFooter.styles';
+import PrimaryCustomButton from '../CustomButtons/PrimaryCustomButton/PrimaryCustomButton';
+import buttonIcon from '../../../assets/img/icons/directbox-default.svg';
+import instagramIcon from "../../../assets/img/icons/mdi_instagram.svg"
+import twitterIcon from "../../../assets/img/icons/devicon_twitter.svg"
+import facebookIcon from "../../../assets/img/icons/ic_baseline-facebook.svg"
+import youtubeIcon from "../../../assets/img/icons/mdi_youtube.svg"
+import linkedinIcon from "../../../assets/img/icons/mdi_linkedin.svg"
 
 function CustomFooter() {
   return (
     <FooterContainerStyled>
+      <div
+        style={{
+          width: '100%',
+          maxWidth: '480px',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '24px',
+        }}
+      >
+        <TextContainer>
+          <h3>Suscríbete a nuestro newsletter</h3>
+          <p>
+            Recibe actualizaciones y ofertas exclusivas directamente en tu
+            correo
+          </p>
+        </TextContainer>
+
+        <div style={{ width: '100%', display: 'flex', gap: '12px' }}>
+          <CustomInputMail placeholder='Email'/>
+          <PrimaryCustomButton>
+            <img src={buttonIcon} alt="directbox" />
+            Suscribe
+          </PrimaryCustomButton>
+        </div>
+      </div>
+
       <ul>
-        <li>Búsquedas más populares</li>
-        <li>Departamento en alquiler en Lima</li>
-        <li>Terrenos en venta en Pucallpa</li>
-        <li>Departamentos en alquiler en San Miguel</li>
-        <li>Departamentos en alquiler en Jesús María</li>
-        <li>Terrenos en venta en Chancay</li>
-        <li>Departamentos en alquiler en Pucallpa</li>
-        <li>Departamentos en alquiler en Cusco</li>
-        <li>Departamentos en venta en Lima</li>
+        <li>Soporte legal</li>
+        <li>Centro de ayuda</li>
+        <li>Preguntas frecuentes</li>
+        <li>Políticas de privacidad</li>
+        <li>Términos y condiciones</li>
+        <li>Reportar un problema</li>
       </ul>
       <ul>
-        <li>Más de la organización Sanchez</li>
+        <li>Organización Sánchez</li>
+        <li>Sobre nosotros</li>
+        <li>Empresas que confían en nosotros</li>
+        <li>Blog y novedades</li>
         <li>Trabaja con nosotros</li>
-        <li>Logísitica y Transporte</li>
-        <li>Industria y Maquinaria</li>
-        <li>Inversiones y Finanzas</li>
-        <li>Publicidad y Marketing</li>
-        <li>Comercio y Productos</li>
-        <li>Empleos</li>
-        <li>Promociones y Novedades</li>
+        <li>Contacto</li>
       </ul>
       <ul>
-        <li>Síguenos</li>
+        <li>Síguenos y mantente informado:</li>
+        <ButtonsContainer>
+          <img src={instagramIcon} alt="instagram"/>
+          <img src={twitterIcon} alt="twitter" />
+          <img src={facebookIcon} alt="facebook" />
+          <img src={youtubeIcon} alt="youtube" />
+          <img src={linkedinIcon} alt="linkedin" />
+        </ButtonsContainer>
       </ul>
     </FooterContainerStyled>
   );

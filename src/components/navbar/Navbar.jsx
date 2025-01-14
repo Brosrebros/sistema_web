@@ -13,6 +13,7 @@ import navbarLogo from '../../assets/img/icons/Logo comercial - blanco.svg';
 import divisaIcon from '../../assets/img/icons/money-change.svg';
 import languageIcon from '../../assets/img/icons/global.svg';
 import notificationIcon from '../../assets/img/icons/notification.svg';
+import { useMenu } from '../../menuContext';
 import styled from 'styled-components';
 
 const CustomButton = styled.button`
@@ -39,6 +40,8 @@ const CustomButton = styled.button`
 `;
 
 function Navbar() {
+  const { toggleMenu } = useMenu();
+
   const vendedoresOptions = [
     { value: 'Dueño directo', label: 'Dueño directo' },
     { value: 'Agente inmobiliario', label: 'Agente inmobiliario' },
@@ -76,7 +79,7 @@ function Navbar() {
     <NavbarContainer>
       <NavbarMainDataContainer>
         <NavbarLogoMenuContainer>
-          <IoIosMenu />
+          <IoIosMenu onClick={toggleMenu}/>
           <img src={navbarLogo} alt="inmobiliaria sanchez" />
         </NavbarLogoMenuContainer>
         <CustomSelect

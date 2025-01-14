@@ -6,10 +6,9 @@ import ProyectsSection from 'components/custom/ProyectsSection/ProyectsSection';
 import React, { useState } from 'react';
 import PropertyForm from 'components/custom/PropertyForm/PropertyForm';
 import PropertySlider from 'components/property/PropertySlider';
-import { useFrontpage } from 'hooks/useFrontpage';
 import { usePropertyContext } from 'providers/PropertyProvider';
-import { useNavigate } from 'react-router-dom';
 import CustomPageLayout from 'components/custom/CustomPageLayout/CustomPageLayout';
+import { useMenu } from 'menuContext';
 import styled from 'styled-components';
 
 const ButtonContainer = styled.section`
@@ -30,16 +29,8 @@ const ButtonContainer = styled.section`
 `;
 
 const Mainpage = () => {
-  const [state] = useFrontpage();
+  const { isMenuOpen } = useMenu();
   const { propertyState } = usePropertyContext();
-  const navigate = useNavigate();
-  const [filterForm, setFilterForm] = useState({
-    tipoOperacion: '',
-    direccionCompleta: '',
-    tipoPropiedad: '',
-    presupuesto: '',
-    ordenarPor: '',
-  });
 
   return (
     <>
@@ -59,7 +50,7 @@ const Mainpage = () => {
         </SectionLayout>
 
         <PropertySlider
-          slidesToShow={5.4}
+          slidesToShow={isMenuOpen ? 5.5 : 6.1}
           data={propertyState.properties}
           title="Descubre las propiedades recomendadas (24)"
         />

@@ -5,6 +5,10 @@ export const CustomSliderButtonStyled = styled(Slider)`
   width: 100%;
   height: 100%;
 
+  .slick-slide {
+    padding-right: 16px;
+  }
+
   .slick-prev,
   .slick-next {
     background-color: #ffffff !important;
@@ -12,8 +16,8 @@ export const CustomSliderButtonStyled = styled(Slider)`
     width: 40px;
     height: 40px;
     z-index: 2;
-    opacity: 0 !important; /* Oculta las flechas inicialmente */
-    transition: opacity 0.3s ease; /* Transición suave para la aparición */
+    opacity: 0 !important;
+    transition: opacity 0.3s ease;
   }
 
   .slick-prev::after,
@@ -35,5 +39,4 @@ export const CustomSliderButtonStyled = styled(Slider)`
   &:hover .slick-next {
     opacity: 1 !important; /* Muestra las flechas al hacer hover */
   }
-
 `;

@@ -14,6 +14,7 @@ export const TitleValdemar = ({ children, classname }) => {
           fontSize: '1.2rem',
           fontWeight: 'bold',
           color: 'black',
+          display:"flex"
         }}
       >
         {children}

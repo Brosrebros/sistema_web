@@ -15,6 +15,8 @@ import CustomSelect from '../CustomSelect/CustomSelect';
 import mapaIcon from '../../../assets/img/icons/mapa_boton.svg';
 import tipoIcon from '../../../assets/icons/tipodepropiedad_gris.svg';
 import { PiMagnifyingGlass } from 'react-icons/pi';
+import { Link } from 'react-router-dom';
+import { rootPaths } from 'routes/paths';
 
 function PropertyForm() {
   const [activeButton, setActiveButton] = useState('venta');
@@ -112,10 +114,12 @@ function PropertyForm() {
           <img src={mapaIcon} />
           Mas filtros
         </SecondaryCustomButton>
-        <PrimaryCustomButton>
-          <PiMagnifyingGlass style={{ fontSize: '1.07rem' }} />
-          Buscar
-        </PrimaryCustomButton>
+        <a href={rootPaths.catalogRoot} style={{ textDecoration: 'none' }}>
+          <PrimaryCustomButton>
+            <PiMagnifyingGlass style={{ fontSize: '1.07rem' }} />
+            Buscar
+          </PrimaryCustomButton>
+        </a>
       </FormOptionsContainer>
     </PropertyFormContainer>
   );

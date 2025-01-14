@@ -4,68 +4,63 @@ import PropTypes from 'prop-types';
 import CustomSliderButton from 'components/custom/CustomButtons/CustomSliderButton/CustomSliderButton';
 
 const PropertySliderValdemar = ({ data, slidesToShow }) => {
-  console.log("aca no", data)
-
   const sliderSettings = {
+    slidesToShow: slidesToShow,
+    slidesToScroll: 1,
     infinite: false,
     speed: 500,
-    slidesToShow: slidesToShow, // Se asegura de que solo se muestra una card completa
-    slidesToScroll: 1,
-    initialSlide: 0,
-    centerMode: false, // Habilita el modo centrado
+    centerPadding: '32px',
     responsive: [
       {
         breakpoint: 1760,
         settings: {
-          slidesToShow: slidesToShow - 0.4, //4.8
+          slidesToShow: slidesToShow - 0.2, //4.8
         },
       },
       {
-        breakpoint: 1600,
+        breakpoint: 1660,
         settings: {
-          slidesToShow: slidesToShow - 0.8,
-          initialSlide: 2,
+          slidesToShow: slidesToShow - 1, //4.4
         },
       },
       {
-        breakpoint: 1440,
+        breakpoint: 1560,
         settings: {
-          slidesToShow: slidesToShow - 0.9,
+          slidesToShow: slidesToShow - 0.6, //4.2
         },
       },
       {
-        breakpoint: 1380,
+        breakpoint: 1460,
         settings: {
-          slidesToShow: slidesToShow - 1,
+          slidesToShow: slidesToShow - 0.8, //3.8
         },
       },
       {
-        breakpoint: 1280,
+        breakpoint: 1360,
         settings: {
-          slidesToShow: slidesToShow - 1.2,
+          slidesToShow: slidesToShow - 1.2, //3.4
+        },
+      },
+
+      {
+        breakpoint: 1260,
+        settings: {
+          slidesToShow: slidesToShow - 2.2, //3.2
         },
       },
       {
-        breakpoint: 1140,
+        breakpoint: 968,
         settings: {
-          slidesToShow: slidesToShow - 1.6,
-        },
-      },
-      {
-        breakpoint: 1140,
-        settings: {
-          slidesToShow: 1.4,
+          slidesToShow: 1.2, //2.4
         },
       },
     ],
   };
 
   return (
-    <div style={{ width: '100%'}}>
+    <div style={{ width: '100%' }}>
       {data ? (
-        <CustomSliderButton
-          {...sliderSettings}
-        >
+        <CustomSliderButton {...sliderSettings}>
           {data.map(property => (
             <SliderCard property={property} key={property.id} type="proyect" />
           ))}

@@ -1,17 +1,22 @@
 import styled from 'styled-components';
 
 export const MenuContainer = styled.div`
-  width: 270px;
+  width: ${({ isMenuOpen }) => (isMenuOpen ? '270px' : '73px')};
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   padding: 8px 0px;
-  background-color: #ffffff;
+  background-color: white;
   border-radius: 12px;
   position: sticky;
-  max-height: 890px;
+  max-height: 870px;
   top: 24px;
+  transition: all 0.2s ease;
+
+  & > div:last-child {
+    margin-top: auto;
+  }
 `;
 
 export const MenuSection = styled.div`
@@ -33,8 +38,9 @@ export const MenuSection = styled.div`
     font-size: 0.6875em;
     font-weight: normal;
     color: #424242;
-    line-height: 100%;
+    line-height: 64%;
     margin: 0px;
+    display: ${({ isMenuOpen }) => (isMenuOpen ? 'block' : 'none')};
   }
 `;
 
@@ -48,7 +54,7 @@ export const MenuOptionsContainer = styled.div`
 `;
 
 export const MenuOption = styled.div`
-  width: 100%;
+  width:${({ isMenuOpen }) => (isMenuOpen ? '100%' : '41px')};
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -58,13 +64,26 @@ export const MenuOption = styled.div`
   transition: all 0.2s ease;
   cursor: pointer;
 
-  font-family: 'Aptos_display';
-  font-size: 1em;
-  font-weight: normal;
-  color: #424242;
-  line-height: 100%;
+  span {
+    font-size: 1em;
+    font-weight: normal;
+    color: #424242;
+    line-height: 106%;
+    display: ${({ isMenuOpen }) => (isMenuOpen ? 'block' : 'none')};
+  }
 
   &:hover {
     background-color: #f2f2f2;
   }
+
+  img {
+    width: 17px;
+    height: 17px;
+  }
+`;
+
+export const MarginIcon = styled.div`
+  width: auto;
+  margin-left: auto;
+  display: ${({ isMenuOpen }) => (isMenuOpen ? 'block' : 'none')};
 `;

@@ -27,6 +27,10 @@ export const NavbarLogoMenuContainer = styled(NavbarMainDataContainer)`
     width: 159px;
     height: auto;
   }
+
+  svg {
+    cursor: pointer;
+  }
 `;
 
 export const NavbarOptionsContainer = styled(NavbarMainDataContainer)`
