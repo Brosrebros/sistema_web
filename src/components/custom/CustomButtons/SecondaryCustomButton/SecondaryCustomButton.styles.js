@@ -18,14 +18,14 @@ export const SecondaryCustomButtonStyled = styled.button`
   /* Fuente */
   font-size: 1em;
   font-weight: normal;
-  font-family: 'Aptos_display';
+  font-family: 'Aptos';
   color: #424242;
   line-height: 100%;
 
   b {
     font-size: 0.875rem;
     font-weight: bold;
-    font-family: 'Aptos_display';
+    font-family: 'Aptos';
     color: #940000;
   }
 

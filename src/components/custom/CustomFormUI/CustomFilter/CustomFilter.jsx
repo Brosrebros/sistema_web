@@ -5,10 +5,17 @@ import {
   FilterGroupOptions,
 } from './CustomFilter.styles';
 import CustomLabel from '../CustomLabel/CustomLabel';
-import { IoIosArrowDown } from 'react-icons/io';
+import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
 
-function CustomFilter({ title, options = [], inputType = 'radio', name, onChange }) {
+function CustomFilter({
+  title,
+  options = [],
+  inputType = 'radio',
+  name,
+  onChange,
+}) {
   const [visibleCount, setVisibleCount] = useState(6);
+  const [isExpanded, setIsExpanded] = useState(false);
 
   const handleChange = e => {
     if (onChange) {
@@ -16,8 +23,13 @@ function CustomFilter({ title, options = [], inputType = 'radio', name, onChange
     }
   };
 
-  const handleShowMore = () => {
-    setVisibleCount(prevCount => prevCount + 2);
+  const handleToggleVisibility = () => {
+    if (isExpanded) {
+      setVisibleCount(6); // Restaurar al estado inicial.
+    } else {
+      setVisibleCount(options.length); // Mostrar todos los elementos.
+    }
+    setIsExpanded(prev => !prev); // Alternar estado.
   };
 
   return (
@@ -36,13 +48,22 @@ function CustomFilter({ title, options = [], inputType = 'radio', name, onChange
           </CustomLabel>
         ))}
       </FilterGroupOptions>
-      {options.length > visibleCount && (
+      {options.length > 6 && (
         <p
-          style={{ color: 'black', fontSize: '1rem', cursor: 'pointer' }}
-          onClick={handleShowMore}
+          style={{
+            color: 'black',
+            fontSize: '1rem',
+            fontWeight: 'bold',
+            cursor: 'pointer',
+            display: 'flex',
+            justifyContent: 'flex-end',
+            alignItems: 'center',
+            gap: '8px',
+          }}
+          onClick={handleToggleVisibility}
         >
-          {options.length > visibleCount ? 'Ver más' : 'Ver menos'}{' '}
-          <IoIosArrowDown />
+          {isExpanded ? 'Ver menos' : 'Ver todo'}
+          {isExpanded ? <IoIosArrowUp /> : <IoIosArrowDown />}
         </p>
       )}
     </FilterGroupContainer>

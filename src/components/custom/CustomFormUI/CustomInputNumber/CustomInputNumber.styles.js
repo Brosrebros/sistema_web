@@ -7,9 +7,9 @@ export const CustomInputNumberStyled = styled.input`
   align-items: center;
   justify-content: flex-start;
   background-color: #f2f2f2;
-  padding: 0 0 0 8px;
+  padding: 12px 16px;
   gap: 12px;
-  height: 36px;
+  height: 41px;
   outline: none;
   border: none;
   appearance: none;
@@ -30,6 +30,6 @@ export const CustomInputNumberStyled = styled.input`
   }
 
   &::placeholder {
-    color: #8b8b8b;
+    color: #424242;
   }
 `;

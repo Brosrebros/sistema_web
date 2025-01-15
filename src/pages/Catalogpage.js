@@ -1,9 +1,9 @@
-import PropertyForm from 'components/property/PropertyForm';
 import Properties from 'components/property/Properties';
 import React, { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { usePropertyContext } from 'providers/PropertyProvider';
 import CustomPageLayout from 'components/custom/CustomPageLayout/CustomPageLayout';
+import PropertyForm from 'components/custom/PropertyForm/PropertyForm';
 
 const Catalogpage = () => {
   const [searchParams] = useSearchParams();
@@ -60,23 +60,7 @@ const Catalogpage = () => {
 
   return (
     <CustomPageLayout>
-      <PropertyForm
-        filterForm={filterForm}
-        setFilterForm={setFilterForm}
-        handleOnSubmit={() => {
-          setFilterForm({
-            ...filterForm,
-            tipoOperacion: '',
-            direccionCompleta: '',
-            tipoPropiedad: '',
-            presupuesto: '',
-            ordenarPor: '',
-          });
-          unFilter();
-        }}
-        msgBtn="Limpiar"
-      />
-
+      <PropertyForm />
       <Properties
         filterForm={filterForm}
         setFilterForm={setFilterForm}

@@ -8,10 +8,12 @@ export const CustomLabelStyled = styled.label`
   gap: 4px;
   text-align: start;
   color: rgb(46, 46, 46);
+  white-space: nowrap;
+  text-overflow: ellipsis;
 
   input[type='radio'] {
     appearance: none;
-    width: 16px;
+    min-width: 16px;
     height: 16px;
     border-radius: 50%;
     background-color: rgb(209, 209, 209);
@@ -26,7 +28,7 @@ export const CustomLabelStyled = styled.label`
 
   input[type='checkbox'] {
     appearance: none;
-    width: 16px;
+    min-width: 16px;
     height: 16px;
     border-radius: 4px;
     background-color: rgb(209, 209, 209);

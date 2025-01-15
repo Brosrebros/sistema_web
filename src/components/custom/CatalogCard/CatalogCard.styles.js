@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const CatalogCardContainer = styled.div`
   width: 100%;
   display: grid;
-  grid-template-columns: auto 100%;
+  grid-template-columns: 354px auto;
   gap: 22px;
   padding: 16px;
   background-color: white;
@@ -12,6 +12,7 @@ export const CatalogCardContainer = styled.div`
 
 export const CatalogDataContainer = styled.div`
   width: 100%;
+  max-width: 965px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -93,6 +94,11 @@ export const DataDescription = styled(CatalogDataContainer)`
     line-height: 107%;
     max-width: 90ch;
     margin: 0px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 `;
 

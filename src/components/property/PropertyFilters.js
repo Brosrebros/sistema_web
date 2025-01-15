@@ -17,6 +17,9 @@ import CustomCounter from 'components/custom/CustomFormUI/CustomCounter/CustomCo
 import CustomFilter from 'components/custom/CustomFormUI/CustomFilter/CustomFilter';
 import CustomInputNumber from 'components/custom/CustomFormUI/CustomInputNumber/CustomInputNumber';
 import resetIcon from '../../assets/img/icons/reiniciar_blanco.svg';
+import CustomBadge from 'components/custom/CustomBadge/CustomBadge';
+import closeIcon from '../../assets/img/icons/Close_MD.svg';
+import filterIcon from '../../assets/img/icons/filter.svg';
 
 const PropertyFilters = ({
   filterForm,
@@ -78,74 +81,98 @@ const PropertyFilters = ({
   }, [filterOptions]);
 
   return (
-    <Card className="course-filter" style={{ boxShadow: 'none' }}>
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        gap: '16px',
+        padding: '20px',
+        borderRadius: '12px',
+        backgroundColor: 'white',
+        boxShadow: 'none',
+        width: '359px',
+      }}
+    >
       <div
         as={Flex}
         style={{
-          borderBottom: '1px solid #D6D6D6',
+          width: '100%',
           flexDirection: 'column',
-          padding: '1.4em',
         }}
       >
-        <Flex
-          className="gap-4 flex-xl-grow-1 align-items-center justify-content-xl-between"
-          style={{ width: '100%' }}
+        <div
+          style={{
+            width: '100%',
+            padding: '12px',
+            backgroundColor: '#f2f2f2',
+            borderRadius: '12px',
+          }}
         >
-          <h4
-            className="mb-0 fs-9 d-flex align-items-center"
-            style={{ color: '#1e1e1e', fontWeight: 'bold', gap: '6px' }}
-          >
-            <HiOutlineFilter />
-            <span style={{ fontSize: '1.1em' }}>Más filtros</span>
-          </h4>
-          <div>
-            <PrimaryCustomButton
-              onClick={() => setFilterOptions([])}
-              variant="primary"
-            >
-              <img src={resetIcon} style={{ width: '1rem', height:"auto" }} />
-              Reiniciar
-            </PrimaryCustomButton>
-          </div>
-        </Flex>
-        {isOffcanvas && (
-          <Button
-            onClick={() => setShow(false)}
-            className="btn-close text-reset"
-            size="sm"
-            variant="link"
-          ></Button>
-        )}
-        {filterOptions.length > 0 && (
           <Flex
-            wrap="wrap"
-            className="gap-2 mb-3"
-            style={{ width: '100%', marginTop: '1em' }}
+            className="gap-4 flex-xl-grow-1 align-items-center justify-content-xl-between"
+            style={{ width: '100%' }}
           >
-            {filterOptions.map((tag, idx) => (
-              <SubtleBadge key={`${tag.name}-${idx}`} pill={false}>
-                {tag.value}
-                <Button
-                  size="sm"
-                  variant="link"
-                  className="p-0 text-900"
-                  onClick={() =>
-                    setFilterOptions(
-                      filterOptions.filter(
-                        ({ name, value }) =>
-                          !(name === tag.name && value === tag.value)
-                      )
-                    )
-                  }
-                >
-                  <FontAwesomeIcon icon="times" className="ms-1 fs-11" />
-                </Button>
-              </SubtleBadge>
-            ))}
+            <h4
+              className="mb-0 fs-9 d-flex align-items-center"
+              style={{ color: '#1e1e1e', fontWeight: 'bold', gap: '6px' }}
+            >
+              <img src={filterIcon} />
+              <span style={{ fontSize: '1.1em' }}>Más filtros</span>
+            </h4>
+            <div>
+              <PrimaryCustomButton
+                onClick={() => setFilterOptions([])}
+                variant="primary"
+              >
+                <img
+                  src={resetIcon}
+                  style={{ width: '1rem', height: 'auto' }}
+                />
+                Reiniciar
+              </PrimaryCustomButton>
+            </div>
           </Flex>
-        )}
+          {isOffcanvas && (
+            <Button
+              onClick={() => setShow(false)}
+              className="btn-close text-reset"
+              size="sm"
+              variant="link"
+            ></Button>
+          )}
+          {filterOptions.length > 0 && (
+            <Flex
+              wrap="wrap"
+              className="gap-2"
+              style={{ width: '100%', marginTop: '1em' }}
+            >
+              {filterOptions.map((tag, idx) => (
+                <CustomBadge key={`${tag.name}-${idx}`} color="white">
+                  {tag.value}
+                  <Button
+                    size="sm"
+                    variant="link"
+                    className="p-0 text-900"
+                    onClick={() =>
+                      setFilterOptions(
+                        filterOptions.filter(
+                          ({ name, value }) =>
+                            !(name === tag.name && value === tag.value)
+                        )
+                      )
+                    }
+                  >
+                    <img src={closeIcon} alt="close" />
+                  </Button>
+                </CustomBadge>
+              ))}
+            </Flex>
+          )}
+        </div>
       </div>
-      <SimpleBar style={{ height: '100%', overflowY: 'auto' }}>
+      <SimpleBar style={{ width: '100%', height: '100%', overflowY: 'auto' }}>
         <Card.Body className="py-0" style={{ height: '100%' }}>
           <form
             onSubmit={e => {
@@ -159,9 +186,9 @@ const PropertyFilters = ({
               }
             />
             <CustomFilter
-              title="Superficie"
+              title="Tipo de anunciante"
               inputType="radio"
-              name="superficie"
+              name="anunciante"
               options={[
                 { value: 'Todos', label: 'Todos' },
                 { value: 'Inmobiliaria', label: 'Inmobiliaria' },
@@ -182,59 +209,72 @@ const PropertyFilters = ({
               onChange={handleFilterOptions}
             />
             <CustomFilter
+              title="Fecha de publicación"
+              inputType="radio"
+              name="publicacion"
+              options={[
+                { value: 'Esta semana', label: 'Esta semana' },
+                { value: 'Este mes', label: 'Este mes' },
+                { value: 'Ultimos 3 meses', label: 'Ultimos 3 meses' },
+                { value: 'Ultimos 6 meses', label: 'Ultimos 6 meses' },
+              ]}
+              onChange={handleFilterOptions}
+            />
+            <CustomFilter
+              title="Características generales"
+              inputType="radio"
+              name="caracteristicas"
+              options={[
+                { value: 'Aire acondicionado', label: 'Aire acondicionado' },
+                { value: 'Balcón', label: 'Balcón' },
+                { value: 'Amoblado', label: 'Amoblado' },
+                { value: 'Calefación', label: 'Calefación' },
+                { value: 'Ascensor', label: 'Ascensor' },
+                { value: 'Cisterna', label: 'Cisterna' },
+                { value: 'Calefación', label: 'Calefación' },
+                { value: 'Ascensor', label: 'Ascensor' },
+                { value: 'Cisterna', label: 'Cisterna' },
+              ]}
+              onChange={handleFilterOptions}
+            />
+            <CustomFilter
               title="Ambientes"
               inputType="checkbox"
-              name="ambiente"
+              name="ambientes"
               options={[
-                { value: 'Bodega', label: 'Bodega' },
-                { value: 'Area de cafeteria', label: 'Área de cafetería' },
-                { value: 'Patio', label: 'Patio' },
-                { value: 'Area común', label: 'Área común' },
-                { value: 'Baño propio', label: 'Baño propio' },
-                { value: 'Cuarto de juegos', label: 'Cuarto de juegos' },
+                { value: 'Almacen/Depósito', label: 'Almacen/Depósito' },
+                { value: 'Cocina abierta', label: 'Cocina abierta' },
+                { value: 'Baño de visistas', label: 'Baño de visistas' },
+                { value: 'Cocina cerrada', label: 'Cocina cerrada' },
+                { value: 'Baño principal', label: 'Baño principal' },
+                { value: 'Comedor diario', label: 'Comedor diario' },
+                { value: 'Cocina cerrada', label: 'Cocina cerrada' },
+                { value: 'Baño principal', label: 'Baño principal' },
+                { value: 'Comedor diario', label: 'Comedor diario' },
               ]}
               onChange={handleFilterOptions}
             />
             <CustomFilter
-              title="Exteriores"
+              title="Alrededores"
               inputType="checkbox"
-              name="amenities"
+              name="alrededores"
               options={[
-                { value: 'Area BBQ', label: 'Area BBQ' },
-                { value: 'Balcon', label: 'Balcón' },
-                { value: 'Cancha', label: 'Cancha' },
-                { value: 'Jardín privado', label: 'Jardín privado' },
-                { value: 'Laguna', label: 'Laguna' },
-                {
-                  value: 'Piscina al aire libre',
-                  label: 'Piscina al aire libre',
-                },
-                { value: 'Area BBQ1', label: 'Area BBQ' },
-                { value: 'Balcon1', label: 'Balcón' },
-                { value: 'Cancha1', label: 'Cancha' },
-                { value: 'Jardín privado1', label: 'Jardín privado' },
-                { value: 'Laguna1', label: 'Laguna' },
-                {
-                  value: 'Piscina al aire libre1',
-                  label: 'Piscina al aire libre',
-                },
-              ]}
-              onChange={handleFilterOptions}
-            />
-            <CustomFilter
-              title="Exteriores"
-              inputType="checkbox"
-              name="amenities"
-              options={[
-                { value: 'Area de lavandería', label: 'Area de lavandería' },
-                { value: 'Control de acceso', label: 'Control de acceso' },
+                { value: 'Áreas recreativas', label: 'Áreas recreativas' },
+                { value: 'Cerca de colegios', label: 'Cerca de colegios' },
+                { value: 'Banco cercano', label: 'Banco cercano' },
+                { value: 'Cerca de hospitales', label: 'Cerca de hospitales' },
+                { value: 'Cerca de avenidas', label: 'Cerca de avenidas' },
+                { value: 'Cerca de parques', label: 'Cerca de parques' },
+                { value: 'Cerca de hospitales', label: 'Cerca de hospitales' },
+                { value: 'Cerca de avenidas', label: 'Cerca de avenidas' },
+                { value: 'Cerca de parques', label: 'Cerca de parques' },
               ]}
               onChange={handleFilterOptions}
             />
           </form>
         </Card.Body>
       </SimpleBar>
-    </Card>
+    </div>
   );
 };
 

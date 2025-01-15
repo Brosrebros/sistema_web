@@ -85,15 +85,15 @@ function SliderCard({ property, type }) {
       </span>
 
       <TagContainer>
-        <CustomBadge color="white">{areaTotal} m2</CustomBadge>
+        <CustomBadge color="gray">{areaTotal} m2</CustomBadge>
 
         {type === 'property' ? (
           <>
-            <CustomBadge color="white">5 Habitaciones</CustomBadge>
-            <CustomBadge color="white">{banos} Baños</CustomBadge>
+            <CustomBadge color="gray">5 Habitaciones</CustomBadge>
+            <CustomBadge color="gray">{banos} Baños</CustomBadge>
           </>
         ) : (
-          <CustomBadge color="white">Financiamiento Directo</CustomBadge>
+          <CustomBadge color="gray">Financiamiento Directo</CustomBadge>
         )}
       </TagContainer>
     </SliderCardContainer>

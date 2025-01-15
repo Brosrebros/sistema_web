@@ -15,8 +15,10 @@ import pinIcon from '../../../assets/img/icons/location.svg';
 import cameraIcon from '../../../assets/img/icons/camera.svg';
 import placeholder from '../../../assets/img/placeholder-image.png';
 import { rootPaths } from 'routes/paths';
+import { useMenu } from 'menuContext';
 
 function CatalogCard({ property }) {
+  const { isMenuOpen } = useMenu();
   const [currentSlide, setCurrentSlide] = useState(0);
   const navigate = useNavigate();
 
@@ -47,10 +49,10 @@ function CatalogCard({ property }) {
       onClick={() => {
         navigate(`/${rootPaths.propertyDetailRoot}/${property.id}`);
       }}
+      isMenuOpen={isMenuOpen}
     >
       <div
         style={{
-          width: '354px',
           height: '282px',
           borderRadius: '12px',
           overflow: 'hidden',
@@ -63,7 +65,7 @@ function CatalogCard({ property }) {
         >
           {imagenes && imagenes.length > 0
             ? imagenes.map((img, index) => (
-                <div key={index} style={{ height: '100%' }}>
+                <div key={index} style={{ width: '100%', height: '100%' }}>
                   <img
                     src={img}
                     alt={`Imagen ${index + 1}`}
@@ -109,7 +111,7 @@ function CatalogCard({ property }) {
                   ? 'green'
                   : tipoOperacion === 'Venta'
                   ? 'red'
-                  : 'white'
+                  : 'gray'
               }
             >
               {tipoOperacion}
@@ -118,9 +120,9 @@ function CatalogCard({ property }) {
           </div>
 
           <div>
-            <CustomBadge color="white">{areaTotal} m2</CustomBadge>
-            <CustomBadge color="white">5 Habitaciones</CustomBadge>
-            <CustomBadge color="white">{banos} Baños</CustomBadge>
+            <CustomBadge color="gray">{areaTotal} m2</CustomBadge>
+            <CustomBadge color="gray">5 Habitaciones</CustomBadge>
+            <CustomBadge color="gray">{banos} Baños</CustomBadge>
           </div>
         </TagContainer>
 

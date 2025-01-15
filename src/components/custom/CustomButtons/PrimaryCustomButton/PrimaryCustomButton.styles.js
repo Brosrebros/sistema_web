@@ -17,7 +17,7 @@ export const PrimaryCustomButtonStyled = styled.button`
   /* Fuente */
   font-size: 1em;
   font-weight: normal;
-  font-family: 'Aptos_display';
+  font-family: 'Aptos';
   color: #ffffff;
   line-height: 100%;
 

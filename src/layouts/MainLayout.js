@@ -12,7 +12,7 @@ import { useMenu } from 'menuContext';
 import styled from 'styled-components';
 
 const CustomPageContainer = styled.div`
-  max-width: ${({ isMenuOpen }) => (isMenuOpen ? '81.5vw' : '91.5vw')};
+  /* max-width: ${({ isMenuOpen }) => (isMenuOpen ? '81.5vw' : '91.5vw')}; */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -20,7 +20,7 @@ const CustomPageContainer = styled.div`
   gap: 24px;
   transition: all 0.2s ease;
 
-  
+  /*   
   @media (max-width: 1760px) {
     max-width: ${({ isMenuOpen }) => (isMenuOpen ? '80vw' : '90.9vw')};
   }
@@ -39,7 +39,7 @@ const CustomPageContainer = styled.div`
 
   @media (max-width: 1280px) {
     max-width: ${({ isMenuOpen }) => (isMenuOpen ? '73vw' : '88.5vw')};
-  }
+  } */
 `;
 
 const MainLayout = () => {
@@ -71,10 +71,11 @@ const MainLayout = () => {
             style={{
               width: '100%',
               display: 'grid',
-              gridTemplateColumns: 'auto auto',
+              gridTemplateColumns: isMenuOpen ? '270px minmax(0, 1fr)' : '73px minmax(0, 1fr)',
               gap: '24px',
               padding: '24px',
               position: 'relative',
+              transition:"all 0.2s ease"
             }}
           >
             <Menu />

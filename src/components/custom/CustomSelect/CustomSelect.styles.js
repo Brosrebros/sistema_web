@@ -12,7 +12,6 @@ export const CustomSelectContainer = styled.div`
   padding: 0 0 0 16px;
   gap: 8px;
   height: 41px;
-  font-size: 1em;
   font-family: 'Aptos_Display';
   transition: all 0.2s ease;
 
@@ -48,7 +47,7 @@ export const CustomDropdown = styled.div`
   background-color: rgb(255, 255, 255);
 
   p {
-    font-size: 12px;
+    font-size: 0.75em;
     color: #424242;
     font-weight: 600;
     display: block;
@@ -67,7 +66,6 @@ export const CustomOption = styled.div`
     display: block;
     color: #424242;
     font-size: 1em;
-    font-family: 'Aptos_Display', sans-serif;
     font-weight: lighter;
     text-overflow: ellipsis;
   }
@@ -101,8 +99,7 @@ export const CustomSelectWrapper = styled.div`
     display: block;
     color: ${({ background }) =>
       background === 'form' ? '#424242' : '#ffffff'};
-    font-size: 1em;
-    font-family: 'Aptos_Display', sans-serif;
+    font-size: 1rem;
     font-weight: lighter;
     text-overflow: ellipsis;
   }
