@@ -45,7 +45,7 @@ export default {
   widgets: '/widgets',
   landing: '/landing',
   /* ----- Nuevas páginas ----- */
-  catalog: `/${rootPaths.catalog}`,
+  catalog: `/catalog`,
   propertyDetail: propertyId =>
     `/${rootPaths.propertyDetailRoot}${propertyId ? `/${propertyId}` : ''}`,
   support: `/${rootPaths.supportRoot}`,
