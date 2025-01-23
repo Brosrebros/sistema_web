@@ -94,9 +94,11 @@ export const CustomInputMail = styled.input`
   border-radius: 12px;
   border: 1px solid #c6c6c6;
   outline: none;
+  font-family: 'Aptos';
 
   &::placeholder {
     color: #424242;
     font-weight: normal;
+    font-family: 'Aptos';
   }
 `;

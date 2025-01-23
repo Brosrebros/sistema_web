@@ -12,6 +12,7 @@ export const SliderCardContainer = styled.div`
   border-radius: 12px;
   overflow: hidden;
   cursor: pointer;
+  border: 1px solid #dbdbdb;
 
   img {
     width: 100%;
@@ -93,7 +94,6 @@ export const LikeButton = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  /* padding: 5px; */
   background-color: #ffffff;
   border-radius: 40px;
   border: none;

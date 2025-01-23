@@ -8,11 +8,12 @@ import {
 } from './NavbarStyles';
 import { useState } from 'react';
 import CustomSelect from 'components/custom/CustomSelect/CustomSelect';
-import { IoIosMenu } from 'react-icons/io';
 import navbarLogo from '../../assets/img/icons/Logo comercial - blanco.svg';
 import divisaIcon from '../../assets/img/icons/money-change.svg';
 import languageIcon from '../../assets/img/icons/global.svg';
 import notificationIcon from '../../assets/img/icons/notification.svg';
+import menuIcon from '../../assets/img/icons/menu.svg';
+import PrimaryCustomButton from 'components/custom/CustomButtons/PrimaryCustomButton/PrimaryCustomButton';
 import { useMenu } from '../../menuContext';
 import styled from 'styled-components';
 
@@ -30,9 +31,14 @@ const CustomButton = styled.button`
   transition: all 0.2s ease;
   font-size: 1em;
   font-weight: normal;
-  font-family: 'Aptos_display';
+  font-family: 'Aptos';
   color: ${({ type }) => (type === 'main' ? '#424242' : 'white')};
   line-height: 100%;
+
+  img {
+    height: 20px;
+    width: 20px;
+  }
 
   &:hover {
     filter: brightness(0.9);
@@ -79,19 +85,14 @@ function Navbar() {
     <NavbarContainer>
       <NavbarMainDataContainer>
         <NavbarLogoMenuContainer>
-          <IoIosMenu onClick={toggleMenu}/>
-          <img src={navbarLogo} alt="inmobiliaria sanchez" />
+          <PrimaryCustomButton onClick={toggleMenu}>
+            <img src={menuIcon} alt="menu" />
+          </PrimaryCustomButton>
+          <a href="/">
+            <img src={navbarLogo} alt="inmobiliaria sanchez" />
+          </a>
         </NavbarLogoMenuContainer>
-        <CustomSelect
-          id="vendedoresInmobiliarios"
-          name="vendedoresInmobiliarios"
-          aria-label="Vendedores Inmobiliarios"
-          value="Vendedores Inmobiliarios"
-          onChange={handleCustomChange}
-          placeholder="Vendedores Inmobiliarios"
-          options={vendedoresOptions}
-          background="nav"
-        />
+        <CustomButton>Vendedores Inmobiliarios</CustomButton>
       </NavbarMainDataContainer>
       <NavbarOptionsContainer>
         <NavbarButtonsContainer>
@@ -122,7 +123,9 @@ function Navbar() {
         </NavbarButtonsContainer>
         <NavbarButtonsContainer>
           <CustomButton type="main">Vender</CustomButton>
-          <img src={notificationIcon} alt="lenguaje" />
+          <PrimaryCustomButton>
+            <img src={notificationIcon} alt="lenguaje" />
+          </PrimaryCustomButton>
         </NavbarButtonsContainer>
 
         <NavbarButtonsContainer>

@@ -20,16 +20,10 @@ export const NavbarMainDataContainer = styled.div`
 
 export const NavbarLogoMenuContainer = styled(NavbarMainDataContainer)`
   gap: 20px;
-  color: #ffffff;
-  font-size: 1.5em;
 
-  img {
+  & > img:last-child {
     width: 159px;
     height: auto;
-  }
-
-  svg {
-    cursor: pointer;
   }
 `;
 
@@ -38,7 +32,7 @@ export const NavbarOptionsContainer = styled(NavbarMainDataContainer)`
 `;
 
 export const NavbarButtonsContainer = styled(NavbarMainDataContainer)`
-  gap: 10px;
+  gap: 8px;
 
   img {
     width: 24px;

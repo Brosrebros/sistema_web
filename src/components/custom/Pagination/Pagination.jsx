@@ -21,7 +21,6 @@ function Pagination({
   onPageChange,
   onItemsPerPageChange,
 }) {
-  console.log(paginationArray);
   return (
     <PaginationContainer>
       {/* Selector de artículos por página */}

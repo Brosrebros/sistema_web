@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { PrimaryCustomButtonStyled } from '../CustomButtons/PrimaryCustomButton/PrimaryCustomButton.styles';
 
 export const CatalogCardContainer = styled.div`
   width: 100%;
@@ -8,6 +9,7 @@ export const CatalogCardContainer = styled.div`
   padding: 16px;
   background-color: white;
   border-radius: 12px;
+  border: 1px solid #dbdbdb;
 `;
 
 export const CatalogDataContainer = styled.div`
@@ -20,7 +22,6 @@ export const CatalogDataContainer = styled.div`
 `;
 
 export const TagContainer = styled.div`
-  width: 100%;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -108,7 +109,7 @@ export const OptionsContainer = styled.div`
   justify-content: space-between;
   align-items: center;
 
-  img {
+  & > img:first-child {
     width: 94px;
     height: auto;
   }
@@ -119,4 +120,8 @@ export const OptionsContainer = styled.div`
     align-items: center;
     gap: 16px;
   }
+`;
+
+export const WtspButton = styled(PrimaryCustomButtonStyled)`
+  background-color: #25d366;
 `;

@@ -6,16 +6,15 @@ import {
   FormOptionsContainer,
   FormTab,
   TabButtonStyled,
-  ButtonStyled,
 } from './PropertyForm.styles';
 import PrimaryCustomButton from '../CustomButtons/PrimaryCustomButton/PrimaryCustomButton';
 import SecondaryCustomButton from '../CustomButtons/SecondaryCustomButton/SecondaryCustomButton';
 import CustomInputText from '../CustomFormUI/CustomInputText/CustomInputText';
 import CustomSelect from '../CustomSelect/CustomSelect';
-import mapaIcon from '../../../assets/img/icons/mapa_boton.svg';
+import mapaIcon from '../../../assets/img/icons/map.svg';
+import filterIcon from '../../../assets/img/icons/filter.svg';
+import lupaIcon from '../../../assets/img/icons/search-white.svg';
 import tipoIcon from '../../../assets/icons/tipodepropiedad_gris.svg';
-import { PiMagnifyingGlass } from 'react-icons/pi';
-import { Link } from 'react-router-dom';
 import { rootPaths } from 'routes/paths';
 
 function PropertyForm() {
@@ -68,15 +67,15 @@ function PropertyForm() {
               Alquiler
             </TabButtonStyled>
           </FormTab>
-          <ButtonStyled>Proyectos</ButtonStyled>
+          <PrimaryCustomButton>Proyectos</PrimaryCustomButton>
         </FormMainContainer>
-        <SecondaryCustomButton variant={'gray'}>
+        <SecondaryCustomButton variant={'white'}>
           <img src={mapaIcon} />
           Ver mapa
         </SecondaryCustomButton>
       </FormButtonsContainer>
       <FormOptionsContainer>
-        <CustomInputText />
+        <CustomInputText placeholder={'¿En dónde lo buscas?'} icon={lupaIcon} />
         <CustomSelect
           id="tipoPropiedad"
           name="tipoPropiedad"
@@ -108,15 +107,15 @@ function PropertyForm() {
           options={ordenarPorOptions}
           background="form"
         >
-          <img src={tipoIcon} width={'16px'} />
+          <img src={tipoIcon} alt="type" />
         </CustomSelect>
-        <SecondaryCustomButton variant={'gray'}>
-          <img src={mapaIcon} />
+        <SecondaryCustomButton variant={'white'}>
+          <img src={filterIcon} alt="filter" />
           Mas filtros
         </SecondaryCustomButton>
         <a href={rootPaths.catalogRoot} style={{ textDecoration: 'none' }}>
           <PrimaryCustomButton>
-            <PiMagnifyingGlass style={{ fontSize: '1.07rem' }} />
+            <img src={lupaIcon} alt="lupa" />
             Buscar
           </PrimaryCustomButton>
         </a>

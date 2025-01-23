@@ -6,9 +6,10 @@ import {
   MainDataContainer,
   DataDescription,
   OptionsContainer,
+  WtspButton,
 } from './CatalogCard.styles';
 import { useState } from 'react';
-import { defer, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import CustomListSlider from '../CustomListSlider/CustomListSlider';
 import CustomBadge from '../CustomBadge/CustomBadge';
 import pinIcon from '../../../assets/img/icons/location.svg';
@@ -16,13 +17,22 @@ import cameraIcon from '../../../assets/img/icons/camera.svg';
 import placeholder from '../../../assets/img/placeholder-image.png';
 import { rootPaths } from 'routes/paths';
 import { useMenu } from 'menuContext';
+import callIcon from '../../../assets/img/icons/call.svg';
+import wtspIcon from '../../../assets/img/icons/whatsapp.svg';
+import smsIcon from '../../../assets/img/icons/sms.svg';
+import heartIcon from '../../../assets/img/icons/heart.svg';
+import heartIconBold from '../../../assets/img/icons/heart-bold.svg';
+import PrimaryCustomButton from '../CustomButtons/PrimaryCustomButton/PrimaryCustomButton';
 
 function CatalogCard({ property }) {
   const { isMenuOpen } = useMenu();
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [isFavourite, setIsFavourite] = useState(false);
   const navigate = useNavigate();
 
-  console.log('aca', property);
+  const handleFavourite = () => {
+    setIsFavourite(prev => !prev);
+  };
 
   const sliderSettings = {
     dots: false,
@@ -52,6 +62,7 @@ function CatalogCard({ property }) {
       isMenuOpen={isMenuOpen}
     >
       <div
+        onClick={e => e.stopPropagation()}
         style={{
           height: '282px',
           borderRadius: '12px',
@@ -79,27 +90,57 @@ function CatalogCard({ property }) {
               ))
             : null}
         </CustomListSlider>
-        <p
+
+        <div
           style={{
             display: 'flex',
             justifyContent: 'center',
-            alignItems: 'flex-start',
-            gap: '0.4rem',
-            opacity: '0',
+            alignItems: 'center',
             position: 'absolute',
-            left: '10px',
-            bottom: '10px',
-            backgroundColor: 'white',
-            color: '#424242',
-            fontSize: '0.8rem',
-            padding: '0.2rem 0.4rem',
-            borderRadius: '8px',
+            opacity: '0',
+            top: '12px',
+            right: '12px',
+            padding: '12px',
+            borderRadius: '100px',
+            backgroundColor: '#ffffff',
+            cursor: 'pointer',
+          }}
+          onClick={handleFavourite}
+        >
+          <img
+            src={isFavourite ? heartIconBold : heartIcon}
+            alt="heart"
+            style={{ height: '20px', width: '20px' }}
+          />
+        </div>
+        <div
+          style={{
+            position: 'absolute',
+            opacity: '0',
+            bottom: '12px',
+            left: '12px',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            gap: '8px',
+            padding: '12px 16px',
             margin: '0px',
+            backgroundColor: 'white',
+            borderRadius: '8px',
           }}
         >
-          {`${currentSlide + 1}/${imagenes.length}`}
-          <img src={cameraIcon} style={{ height: '1rem', width: 'auto' }} />
-        </p>
+          <img src={cameraIcon} style={{ height: '20px', width: '20px' }} />
+          <p
+            style={{
+              color: '#424242',
+              fontSize: '1rem',
+              margin: '0px',
+              lineHeight: '65%',
+            }}
+          >
+            {`${currentSlide + 1}/${imagenes.length}`}
+          </p>
+        </div>
       </div>
 
       <CatalogDataContainer>
@@ -143,7 +184,19 @@ function CatalogCard({ property }) {
         <OptionsContainer>
           <img src={placeholder} alt="inmobiliaria" />
 
-          <div></div>
+          <TagContainer>
+            <PrimaryCustomButton>
+              <img src={callIcon} alt="call" />
+            </PrimaryCustomButton>
+            <WtspButton>
+              <img src={wtspIcon} alt="whatsapp" />
+              Whatsapp
+            </WtspButton>
+            <PrimaryCustomButton>
+              <img src={smsIcon} alt="sms" />
+              Contactar
+            </PrimaryCustomButton>
+          </TagContainer>
         </OptionsContainer>
       </CatalogDataContainer>
     </CatalogCardContainer>

@@ -12,10 +12,15 @@ export const MenuContainer = styled.div`
   position: sticky;
   max-height: 870px;
   top: 24px;
-  transition: all 0.2s ease;
+  transition: width 0.2s ease;
 
   & > div:last-child {
     margin-top: auto;
+    border-top: 1px solid #f2f2f2;
+  }
+
+  & > div:nth-child(3) {
+    border: none;
   }
 `;
 
@@ -61,7 +66,7 @@ export const MenuOption = styled.div`
   gap: 8px;
   padding: 12px;
   border-radius: 12px;
-  transition: all 0.2s ease;
+  transition: background 0.2s ease;
   cursor: pointer;
 
   span {
@@ -77,8 +82,8 @@ export const MenuOption = styled.div`
   }
 
   img {
-    width: 17px;
-    height: 17px;
+    width: 20px;
+    height: 20px;
   }
 `;
 

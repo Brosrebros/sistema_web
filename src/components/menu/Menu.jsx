@@ -37,7 +37,7 @@ function Menu() {
           </MenuOption>
         </MenuOptionsContainer>
       </MenuSection>
-      <MenuSection>
+      <MenuSection isMenuOpen={isMenuOpen}>
         <h6>Servicios</h6>
         <MenuOptionsContainer>
           <MenuOption isMenuOpen={isMenuOpen}>
@@ -48,7 +48,7 @@ function Menu() {
           </MenuOption>
         </MenuOptionsContainer>
       </MenuSection>
-      <MenuSection>
+      <MenuSection isMenuOpen={isMenuOpen}>
         <h6>Novedades</h6>
         <MenuOptionsContainer>
           <MenuOption isMenuOpen={isMenuOpen}>
@@ -65,7 +65,7 @@ function Menu() {
           </MenuOption>
         </MenuOptionsContainer>
       </MenuSection>
-      <MenuSection>
+      <MenuSection isMenuOpen={isMenuOpen}>
         <h6>Otros</h6>
         <MenuOptionsContainer>
           <MenuOption isMenuOpen={isMenuOpen}>
@@ -75,7 +75,7 @@ function Menu() {
           <MenuOption isMenuOpen={isMenuOpen}>
             <img src={supportIcon} alt="soporte" />
             <span>Soporte</span>
-            <MarginIcon>
+            <MarginIcon isMenuOpen={isMenuOpen}>
               <img src={exportIcon} alt="exportar" />
             </MarginIcon>
           </MenuOption>

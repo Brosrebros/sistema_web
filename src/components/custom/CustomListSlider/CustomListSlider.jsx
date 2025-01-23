@@ -1,10 +1,9 @@
 import React from 'react';
 import { CustomListSliderStyled } from './CustomListSlider.styles';
-// import cameraIcon from "../../../assets/icons/"
 
-function CustomListSlider({ children, ...sliderSettings }) {
+function CustomListSlider({ children, onClick, ...sliderSettings }) {
   return (
-    <CustomListSliderStyled {...sliderSettings}>
+    <CustomListSliderStyled {...sliderSettings} onClick={onClick}>
       {children}
     </CustomListSliderStyled>
   );

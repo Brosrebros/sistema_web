@@ -5,7 +5,8 @@ import {
   FilterGroupOptions,
 } from './CustomFilter.styles';
 import CustomLabel from '../CustomLabel/CustomLabel';
-import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
+import arrowUp from '../../../../assets/img/icons/arrow-up.svg';
+import arrowDown from '../../../../assets/img/icons/arrow-down.svg';
 
 function CustomFilter({
   title,
@@ -51,9 +52,9 @@ function CustomFilter({
       {options.length > 6 && (
         <p
           style={{
-            color: 'black',
+            color: '#424242',
             fontSize: '1rem',
-            fontWeight: 'bold',
+            fontWeight: 'normal',
             cursor: 'pointer',
             display: 'flex',
             justifyContent: 'flex-end',
@@ -62,8 +63,20 @@ function CustomFilter({
           }}
           onClick={handleToggleVisibility}
         >
+          {isExpanded ? (
+            <img
+              src={arrowUp}
+              alt="arrow-up"
+              style={{ width: '20px', height: '20px' }}
+            />
+          ) : (
+            <img
+              src={arrowDown}
+              alt="arrow-down"
+              style={{ width: '20px', height: '20px' }}
+            />
+          )}
           {isExpanded ? 'Ver menos' : 'Ver todo'}
-          {isExpanded ? <IoIosArrowUp /> : <IoIosArrowDown />}
         </p>
       )}
     </FilterGroupContainer>

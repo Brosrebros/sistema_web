@@ -5,7 +5,6 @@ import PrimaryCustomButton from '../CustomButtons/PrimaryCustomButton/PrimaryCus
 
 function HomeBanner() {
   return (
-
       <Banner>
         <div style={{ display: 'flex', gap: '12px' }}>
           <CustomBadge color="turquoise">Proyecto</CustomBadge>

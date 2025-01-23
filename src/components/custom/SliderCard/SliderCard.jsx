@@ -9,8 +9,9 @@ import {
 } from './SliderCard.styles';
 import CustomBadge from '../CustomBadge/CustomBadge';
 import { LuMapPin } from 'react-icons/lu';
-import { GoHeart, GoHeartFill } from 'react-icons/go';
 import { rootPaths } from 'routes/paths';
+import heartIcon from "../../../assets/img/icons/heart.svg"
+import heartIconBold from "../../../assets/img/icons/heart-bold.svg"
 import { useNavigate } from 'react-router-dom';
 import placeholderImage from '../../../assets/img/placeholder-image.png';
 
@@ -42,7 +43,11 @@ function SliderCard({ property, type }) {
             setIsFavourite(prev => !prev);
           }}
         >
-          {isFavourite === true ? <GoHeartFill /> : <GoHeart />}
+          <img
+            src={isFavourite ? heartIconBold : heartIcon}
+            alt="heart"
+            style={{ height: '20px', width: '20px' }}
+          />
         </LikeButton>
 
         {type === 'proyect' ? (

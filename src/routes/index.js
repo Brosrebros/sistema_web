@@ -204,6 +204,7 @@ import SupportLayout from 'layouts/SupportLayout';
 import Propertypage from 'pages/Propertypage';
 import TermsPage from 'pages/SupportPages/Termspage';
 import TermsConditionsPage from 'pages/SupportPages/TermsConditionspage';
+import Sellerpage from "pages/Sellerpage"
 
 const routes = [
   {
@@ -389,6 +390,10 @@ const routes = [
           {
             path: paths.propertyDetail(':propertyId'),
             element: <Propertypage />,
+          },
+          {
+            path: paths.sellerRoot, // Define esta ruta en tu archivo de rutas.
+            element: <Sellerpage />,
           },
           {
             path: rootPaths.dashboardRoot,

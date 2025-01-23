@@ -1,18 +1,19 @@
 import React, { useEffect, useState } from 'react';
-import { Card, Col, Row, Stack } from 'react-bootstrap';
+import { Card, Col, Row } from 'react-bootstrap';
 import PropertyDetailAdvertiser from './PropertyDetailAdvertiser';
 import PropertyDetailDescription from './PropertyDetailDescription';
 import { usePropertyContext } from 'providers/PropertyProvider';
-import BackButton from 'components/utilities/BackButton';
 import PropertySlider from '../PropertySlider';
-import CustomBreadcrumb from 'components/custom/CustomBreadcrumb/CustomBreadcrumb';
 import { useNavigate, useParams } from 'react-router-dom';
+import { useMenu } from 'menuContext';
+import PropertyData from 'components/custom/PropertyData/PropertyData';
 
 const PropertyDetail = () => {
+  const { isMenuOpen } = useMenu();
   const { propertyState, fetchPropertyById } = usePropertyContext();
   const { id } = useParams();
   const navigate = useNavigate();
-  
+
   // Estado para forzar el refresco
   const [refreshKey, setRefreshKey] = useState(0);
 
@@ -23,50 +24,42 @@ const PropertyDetail = () => {
   }, [id, fetchPropertyById]);
 
   // Forzar refresco y actualización de propiedad
-  const handlePropertyClick = (propertyId) => {
+  const handlePropertyClick = propertyId => {
     navigate(`/properties/${propertyId}`);
     fetchPropertyById(propertyId);
-    setRefreshKey((prevKey) => prevKey + 1);  // Cambiar la clave fuerza el re-render
+    setRefreshKey(prevKey => prevKey + 1); // Cambiar la clave fuerza el re-render
   };
 
   return (
-    <Stack key={refreshKey} className="mx-2" gap={3}>
-      <div
-        style={{
-          display: 'flex',
-          gap: '10px',
-          textAlign: 'center',
-          alignContent: 'center',
-          alignItems: 'center',
-        }}
-      >
-        <CustomBreadcrumb prevlink="Inmobiliarias" link1="Detalles" />
-      </div>
-      <Card style={{ boxShadow: 'none' }}>
+    <>
+      <div>
         {propertyState.property && (
-          <Row className="m-3 g-3">
+          <Row className="g-3">
             <Col xl={6} xs={12}>
               <PropertyDetailAdvertiser property={propertyState.property} />
             </Col>
             <Col xl={6} xs={12}>
-              <PropertyDetailDescription property={propertyState.property} />
+              {/* <PropertyDetailDescription property={propertyState.property} /> */}
+              <PropertyData property={propertyState.property}/>
             </Col>
           </Row>
         )}
-      </Card>
+      </div>
 
       <PropertySlider
+        slidesToShow={isMenuOpen ? 5.5 : 6.1}
         data={propertyState.properties}
         title="Encuentra propiedades similares"
-        onPropertyClick={handlePropertyClick}  // Pasar el click handler
+        onPropertyClick={handlePropertyClick}
       />
 
       <PropertySlider
+        slidesToShow={isMenuOpen ? 5.5 : 6.1}
         data={propertyState.properties}
         title="Propiedades recomendadas (24)"
         onPropertyClick={handlePropertyClick}
       />
-    </Stack>
+    </>
   );
 };
 

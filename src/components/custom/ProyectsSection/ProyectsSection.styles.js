@@ -69,10 +69,20 @@ export const OptionsContainer = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  gap: 10px;
   padding: 16px;
   background-color: #ffffff;
   border-radius: 12px;
+`;
+
+export const Options = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding: 6px;
+  border-radius: 12px;
+  border: 1px solid #dbdbdb;
+  background-color: #f2f2f2;
 `;
 
 export const CustomButton = styled.button`
@@ -100,4 +110,3 @@ export const CustomButton = styled.button`
     filter: brightness(0.9);
   }
 `;
-

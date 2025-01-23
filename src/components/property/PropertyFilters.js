@@ -10,8 +10,8 @@ import SubtleBadge from 'components/common/SubtleBadge';
 import { HiOutlineFilter } from 'react-icons/hi';
 import PrimaryCustomButton from 'components/custom/CustomButtons/PrimaryCustomButton/PrimaryCustomButton';
 import CustomSelect from 'components/custom/CustomSelect/CustomSelect';
-import { IoMdAdd } from 'react-icons/io';
-import { IoIosRemove } from 'react-icons/io';
+import addIcon from '../../assets/img/icons/add.svg';
+import removeIcon from '../../assets/img/icons/minus.svg';
 import CustomLabel from 'components/custom/CustomFormUI/CustomLabel/CustomLabel';
 import CustomCounter from 'components/custom/CustomFormUI/CustomCounter/CustomCounter';
 import CustomFilter from 'components/custom/CustomFormUI/CustomFilter/CustomFilter';
@@ -83,98 +83,110 @@ const PropertyFilters = ({
   return (
     <div
       style={{
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-        gap: '16px',
-        padding: '20px',
-        borderRadius: '12px',
-        backgroundColor: 'white',
-        boxShadow: 'none',
         width: '359px',
+        position: 'relative',
       }}
     >
       <div
-        as={Flex}
         style={{
-          width: '100%',
+          display: 'flex',
           flexDirection: 'column',
+          justifyContent: 'flex-start',
+          alignItems: 'center',
+          gap: '16px',
+          borderRadius: '12px',
+          backgroundColor: 'white',
+          padding: '20px',
+          position: 'sticky',
+          top: '20px',
+          height: 'calc(100vh - 40px)',
+          overflow: 'hidden',
         }}
       >
         <div
+          as={Flex}
           style={{
             width: '100%',
-            padding: '12px',
-            backgroundColor: '#f2f2f2',
-            borderRadius: '12px',
+            flexDirection: 'column',
           }}
         >
-          <Flex
-            className="gap-4 flex-xl-grow-1 align-items-center justify-content-xl-between"
-            style={{ width: '100%' }}
+          <div
+            style={{
+              width: '100%',
+              padding: '12px',
+              backgroundColor: '#f2f2f2',
+              borderRadius: '12px',
+            }}
           >
-            <h4
-              className="mb-0 fs-9 d-flex align-items-center"
-              style={{ color: '#1e1e1e', fontWeight: 'bold', gap: '6px' }}
-            >
-              <img src={filterIcon} />
-              <span style={{ fontSize: '1.1em' }}>Más filtros</span>
-            </h4>
-            <div>
-              <PrimaryCustomButton
-                onClick={() => setFilterOptions([])}
-                variant="primary"
-              >
-                <img
-                  src={resetIcon}
-                  style={{ width: '1rem', height: 'auto' }}
-                />
-                Reiniciar
-              </PrimaryCustomButton>
-            </div>
-          </Flex>
-          {isOffcanvas && (
-            <Button
-              onClick={() => setShow(false)}
-              className="btn-close text-reset"
-              size="sm"
-              variant="link"
-            ></Button>
-          )}
-          {filterOptions.length > 0 && (
             <Flex
-              wrap="wrap"
-              className="gap-2"
-              style={{ width: '100%', marginTop: '1em' }}
+              className="gap-4 flex-xl-grow-1 align-items-center justify-content-xl-between"
+              style={{ width: '100%' }}
             >
-              {filterOptions.map((tag, idx) => (
-                <CustomBadge key={`${tag.name}-${idx}`} color="white">
-                  {tag.value}
-                  <Button
-                    size="sm"
-                    variant="link"
-                    className="p-0 text-900"
-                    onClick={() =>
-                      setFilterOptions(
-                        filterOptions.filter(
-                          ({ name, value }) =>
-                            !(name === tag.name && value === tag.value)
-                        )
-                      )
-                    }
-                  >
-                    <img src={closeIcon} alt="close" />
-                  </Button>
-                </CustomBadge>
-              ))}
+              <h4
+                className="mb-0 fs-9 d-flex align-items-center"
+                style={{ color: '#1e1e1e', fontWeight: 'bold', gap: '6px' }}
+              >
+                <img src={filterIcon} />
+                <span style={{ fontSize: '1.1875em' }}>Más filtros</span>
+              </h4>
+              <div>
+                <PrimaryCustomButton
+                  onClick={() => setFilterOptions([])}
+                  variant="primary"
+                >
+                  <img
+                    src={resetIcon}
+                    style={{ width: '20px', height: '20px' }}
+                  />
+                  Reiniciar
+                </PrimaryCustomButton>
+              </div>
             </Flex>
-          )}
+            {isOffcanvas && (
+              <Button
+                onClick={() => setShow(false)}
+                className="btn-close text-reset"
+                size="sm"
+                variant="link"
+              />
+            )}
+            {filterOptions.length > 0 && (
+              <Flex
+                wrap="wrap"
+                className="gap-2"
+                style={{ width: '100%', marginTop: '1em' }}
+              >
+                {filterOptions.map((tag, idx) => (
+                  <CustomBadge key={`${tag.name}-${idx}`} color="white">
+                    {tag.value}
+                    <Button
+                      size="sm"
+                      variant="link"
+                      className="p-0 text-900"
+                      onClick={() =>
+                        setFilterOptions(
+                          filterOptions.filter(
+                            ({ name, value }) =>
+                              !(name === tag.name && value === tag.value)
+                          )
+                        )
+                      }
+                    >
+                      <img
+                        src={closeIcon}
+                        alt="close"
+                        style={{ width: '20px', height: '20px' }}
+                      />
+                    </Button>
+                  </CustomBadge>
+                ))}
+              </Flex>
+            )}
+          </div>
         </div>
-      </div>
-      <SimpleBar style={{ width: '100%', height: '100%', overflowY: 'auto' }}>
-        <Card.Body className="py-0" style={{ height: '100%' }}>
+        <SimpleBar style={{ width: '100%', height: 'calc(100vh - 160px)' }}>
           <form
+            style={{ overflow: 'hidden' }}
             onSubmit={e => {
               e.preventDefault();
             }}
@@ -262,18 +274,24 @@ const PropertyFilters = ({
                 { value: 'Áreas recreativas', label: 'Áreas recreativas' },
                 { value: 'Cerca de colegios', label: 'Cerca de colegios' },
                 { value: 'Banco cercano', label: 'Banco cercano' },
-                { value: 'Cerca de hospitales', label: 'Cerca de hospitales' },
+                {
+                  value: 'Cerca de hospitales',
+                  label: 'Cerca de hospitales',
+                },
                 { value: 'Cerca de avenidas', label: 'Cerca de avenidas' },
                 { value: 'Cerca de parques', label: 'Cerca de parques' },
-                { value: 'Cerca de hospitales', label: 'Cerca de hospitales' },
+                {
+                  value: 'Cerca de hospitales',
+                  label: 'Cerca de hospitales',
+                },
                 { value: 'Cerca de avenidas', label: 'Cerca de avenidas' },
                 { value: 'Cerca de parques', label: 'Cerca de parques' },
               ]}
               onChange={handleFilterOptions}
             />
           </form>
-        </Card.Body>
-      </SimpleBar>
+        </SimpleBar>
+      </div>
     </div>
   );
 };
@@ -293,7 +311,7 @@ PropertyFilters.propTypes = {
 
 const SurfaceFilter = () => {
   const options = [
-    { value: 'M²', label: 'M²' },
+    { value: 'M2', label: 'M2' },
     { value: 'Ha', label: 'Ha' },
   ];
 
@@ -422,11 +440,11 @@ const NumberFeatureContainer = ({ title, value, onValueChange }) => {
       </h5>
       <CustomCounter>
         <button onClick={decrement}>
-          <IoIosRemove />
+          <img src={removeIcon} alt="remove" />
         </button>
         <span>{value}</span>
         <button onClick={increment}>
-          <IoMdAdd />
+          <img src={addIcon} alt="add" />
         </button>
       </CustomCounter>
     </div>

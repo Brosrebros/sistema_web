@@ -29,16 +29,17 @@ export const SquareButton = styled.button`
   gap: 0.5rem;
   border: none;
   outline: none;
-  background-color: #940000;
+  background-color: white;
   border-radius: 12px;
-  padding: 6px;
+  padding: 12px 16px;
   transition: all 0.2s ease;
   font-size: 1em;
   font-weight: normal;
   font-family: 'Aptos';
-  color: #ffffff;
+  color: #424242;
   line-height: 100%;
   cursor: pointer;
+  border: 1px solid #dbdbdb;
 
   img {
     width: 24px;
@@ -60,5 +61,6 @@ export const PagesContainer = styled.div`
 export const CircleButton = styled(SecondaryCustomButtonStyled)`
   background-color: ${({ variant }) =>
     variant === 'white' ? '#ffffff' : '#f2f2f2'};
-  border-radius: 100px;
+  border: ${({ variant }) =>
+    variant === 'white' ? '1px solid #dbdbdb' : 'none'};
 `;

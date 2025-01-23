@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { FaCheck } from "react-icons/fa6";
+import { FaCheck } from 'react-icons/fa6';
 
 export const CustomLabelStyled = styled.label`
   width: 100%;
@@ -16,13 +16,13 @@ export const CustomLabelStyled = styled.label`
     min-width: 16px;
     height: 16px;
     border-radius: 50%;
-    background-color: rgb(209, 209, 209);
+    background-color: #f2f2f2;
+    border: 1px solid #dbdbdb;
     cursor: pointer;
     transition: all 0.2s ease;
 
     &:checked {
       background-color: #940000;
-      border: none;
     }
   }
 
@@ -31,13 +31,14 @@ export const CustomLabelStyled = styled.label`
     min-width: 16px;
     height: 16px;
     border-radius: 4px;
-    background-color: rgb(209, 209, 209);
+    background-color: #f2f2f2;
     cursor: pointer;
     transition: all 0.2s ease;
+    border: 1px solid #dbdbdb;
 
     &:checked {
       background-color: #940000;
-      border: none;
+      border: 1px solid #dbdbdb;
 
       &::before {
         content: '✓';

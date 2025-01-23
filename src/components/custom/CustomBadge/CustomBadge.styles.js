@@ -7,10 +7,11 @@ export const CustomBadgeStyled = styled.div`
   gap: 8px;
   padding: 8px 12px;
   border-radius: 80px;
+  max-height: 25px;
 
-  font-family: 'Aptos_display';
+  font-family: 'Aptos';
   font-weight: normal;
-  font-size: 13px;
+  font-size: 0.8125rem;
   line-height: 65%;
   color: ${({ color }) =>
     color === 'gray' || color === 'white' ? '#424242' : '#FFFFFF'};

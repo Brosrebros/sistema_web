@@ -1,9 +1,8 @@
-import SectionLayout from 'components/custom/SectionLayout/SectionLayout';
 import HomeBanner from 'components/custom/HomeBanner/HomeBanner';
 import CardButton from 'components/custom/CustomButtons/CardButton/CardButton';
 import ContentInfo from 'components/custom/ContentInfo/ContentInfo';
 import ProyectsSection from 'components/custom/ProyectsSection/ProyectsSection';
-import React, { useState } from 'react';
+import React from 'react';
 import PropertyForm from 'components/custom/PropertyForm/PropertyForm';
 import PropertySlider from 'components/property/PropertySlider';
 import { usePropertyContext } from 'providers/PropertyProvider';
@@ -15,7 +14,7 @@ const ButtonContainer = styled.section`
   width: 100%;
   display: flex;
   justify-content: space-between;
-  gap: 24px;
+  gap: 16px;
   padding: 0px;
 
   @media (max-width: 1200px) {
@@ -35,9 +34,7 @@ const Mainpage = () => {
   return (
     <>
       <CustomPageLayout>
-        <SectionLayout title="Inmobiliaria">
-          <HomeBanner />
-        </SectionLayout>
+        <HomeBanner />
 
         <ButtonContainer>
           <CardButton option="option1" />
@@ -45,9 +42,7 @@ const Mainpage = () => {
           <CardButton option="option3" />
         </ButtonContainer>
 
-        <SectionLayout title="Encuentra tu propiedad ideal">
-          <PropertyForm />
-        </SectionLayout>
+        <PropertyForm />
 
         <PropertySlider
           slidesToShow={isMenuOpen ? 5.5 : 6.1}

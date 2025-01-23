@@ -3,10 +3,11 @@ import styled from 'styled-components';
 export const PrimaryCustomButtonStyled = styled.button`
   /* Botón */
   width: auto;
+  max-height: 41px;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 0.5rem;
+  gap: 8px;
   border: none;
   outline: none;
   background-color: #940000;
@@ -23,5 +24,10 @@ export const PrimaryCustomButtonStyled = styled.button`
 
   &:hover {
     filter: brightness(70%);
+  }
+
+  img {
+    height: 20px;
+    width: 20px;
   }
 `;

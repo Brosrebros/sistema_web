@@ -42,9 +42,6 @@ const PropertyDetailDescription = ({ property }) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const [selectedButton, setSelectedButton] = useState('caracteristicas');
   const wordLimit = 50;
-
-  console.log("property"+ property);
-
   const [coordinates, setCoordinates] = useState({ lat: 0, long: 0 });
 
   const truncateText = (text, limit) => {
@@ -210,7 +207,7 @@ const PropertyDetailDescription = ({ property }) => {
   } = property;
 
   return (
-    <>
+    <div>
       <div className="pb-3">
         <Row>
           <Col xs={7}>
@@ -265,9 +262,11 @@ const PropertyDetailDescription = ({ property }) => {
                 gap: '8px',
               }}
             >
-{precio?.pen && <span>S/.{precio.pen.toLocaleString('es-PE')}</span>}
-{precio?.pen && precio?.usd && <span>{' - '}</span>}
-{precio?.usd && <span>${precio.usd}</span>}
+              {precio?.pen && (
+                <span>S/.{precio.pen.toLocaleString('es-PE')}</span>
+              )}
+              {precio?.pen && precio?.usd && <span>{' - '}</span>}
+              {precio?.usd && <span>${precio.usd}</span>}
             </h4>
           </Col>
         </Row>
@@ -525,24 +524,9 @@ const PropertyDetailDescription = ({ property }) => {
           <Col style={{ color: 'black', minHeight: '6rem', width: '100%' }}>
             <ul className="list-unstyled">{renderDetails()}</ul>
           </Col>
-          {/* <Col md={6} lg={4} style={{ color: 'black' }}>
-            <ul className="list-unstyled">
-              <li>Cuartos de servicio</li>
-              <li>Seguridad</li>
-              <li>Cerca a colegios</li>
-              <li>Número de pisos: 0</li>
-            </ul>
-          </Col>
-          <Col md={6} lg={4} style={{ color: 'black' }}>
-            <ul className="list-unstyled">
-              <li>Closet</li>
-              <li>Walk-in closet</li>
-            </ul>
-          </Col> */}
         </Row>
       </div>
 
-      {/* Mapa */}
       <div className="py-3" style={{ borderTop: '0.5px solid #D6D6D6' }}>
         <TitleValdemarDes>Mapa de ubicación</TitleValdemarDes>
         <PropertyDetailLocation
@@ -555,7 +539,7 @@ const PropertyDetailDescription = ({ property }) => {
           }}
         />
       </div>
-    </>
+    </div>
   );
 };
 

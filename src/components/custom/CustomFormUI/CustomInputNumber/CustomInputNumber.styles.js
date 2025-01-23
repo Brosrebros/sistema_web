@@ -6,7 +6,7 @@ export const CustomInputNumberStyled = styled.input`
   border-radius: 0.6rem;
   align-items: center;
   justify-content: flex-start;
-  background-color: #f2f2f2;
+  background-color: #ffffff;
   padding: 12px 16px;
   gap: 12px;
   height: 41px;
@@ -15,7 +15,8 @@ export const CustomInputNumberStyled = styled.input`
   appearance: none;
   -moz-appearance: textfield;
   -webkit-appearance: none;
-  font-family: "Aptos_display";
+  font-family: "Aptos";
+  border: 1px solid #dbdbdb;
 
   &:focus {
     appearance: none;
@@ -30,6 +31,6 @@ export const CustomInputNumberStyled = styled.input`
   }
 
   &::placeholder {
-    color: #424242;
+    color: #AAAAAA;
   }
 `;

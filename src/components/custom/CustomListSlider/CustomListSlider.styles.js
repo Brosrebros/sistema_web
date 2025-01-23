@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 import Slider from 'react-slick';
 
 export const CustomListSliderStyled = styled(Slider)`
@@ -12,11 +12,12 @@ export const CustomListSliderStyled = styled(Slider)`
   .slick-next {
     background-color: #ffffff !important;
     border-radius: 8px !important;
-    width: 40px;
-    height: 40px;
+    width: 52px;
+    height: 41px;
     z-index: 2;
     opacity: 0 !important;
     transition: opacity 0.3s ease;
+    border: 1px solid #dbdbdb;
   }
 
   .slick-prev {
@@ -39,8 +40,13 @@ export const CustomListSliderStyled = styled(Slider)`
     opacity: 1 !important;
   }
 
-  &:hover + p {
+  &:hover + div,
+  &:hover + div + div {
     opacity: 1 !important;
     transition: opacity 0.3s ease;
+  }
+
+  & + div:hover {
+    opacity: 1 !important;
   }
 `;

@@ -1,9 +1,37 @@
 import React, { useEffect, useState } from 'react';
 import { Image, Modal } from 'react-bootstrap';
 import PropTypes from 'prop-types';
-import Slider from 'react-slick';
+import cameraIcon from '../../../assets/img/icons/camera.svg';
+import barcodeIcon from '../../../assets/img/icons/barcode.svg';
 import CustomListSlider from 'components/custom/CustomListSlider/CustomListSlider';
-import cameraIcon from '../../../assets/img/icons/camara_gris.svg';
+import heartIcon from '../../../assets/img/icons/heart.svg';
+import heartIconBold from '../../../assets/img/icons/heart-bold.svg';
+import shareIcon from '../../../assets/img/icons/share.svg';
+import styled from 'styled-components';
+
+const LikeButton = styled.button`
+  width: 41px;
+  height: 41px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+  border-radius: 40px;
+  border: none;
+  outline: none;
+  color: #940000;
+  transition: all 0.2s ease;
+
+  &:hover {
+    filter: brightness(0.9);
+  }
+`;
+
+const CustomContainer = styled.div`
+  div {
+    margin-right: 12px;
+  }
+`;
 
 const PropertyDetailMedia = ({ imagenes: files }) => {
   let slider1;
@@ -13,6 +41,7 @@ const PropertyDetailMedia = ({ imagenes: files }) => {
   const [showModal, setShowModal] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [isFavourite, setIsFavourite] = useState(false);
 
   console.log(files);
   useEffect(() => {
@@ -23,6 +52,10 @@ const PropertyDetailMedia = ({ imagenes: files }) => {
   const handleImageClick = img => {
     setSelectedImage(img);
     setShowModal(true);
+  };
+
+  const handleFavourite = () => {
+    setIsFavourite(prev => !prev);
   };
 
   const handleCloseModal = () => {
@@ -38,9 +71,18 @@ const PropertyDetailMedia = ({ imagenes: files }) => {
     afterChange: index => setCurrentSlide(index),
   };
 
+  const miniSliderSettings = {
+    infinite: false,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    initialSlide: 0,
+    centerMode: false,
+  };
+
   return (
     <div
-      className="position-relative h-sm-100 overflow-hidden"
+      className="position-relative overflow-hidden"
       style={{ width: '100%', position: 'relative' }}
     >
       <>
@@ -55,7 +97,7 @@ const PropertyDetailMedia = ({ imagenes: files }) => {
         )}
         <div
           className="product-slider"
-          style={{ borderRadius: '12px', overflow: 'hidden' }}
+          style={{ borderRadius: '12px', overflow: 'hidden', height: '502px' }}
         >
           <CustomListSlider
             {...sliderSettings}
@@ -79,6 +121,7 @@ const PropertyDetailMedia = ({ imagenes: files }) => {
                   src={item}
                   alt="product media"
                   style={{
+                    height: '100%',
                     maxWidth: '100%',
                     objectFit: 'cover',
                     borderRadius: '10px',
@@ -91,40 +134,88 @@ const PropertyDetailMedia = ({ imagenes: files }) => {
             ))}
           </CustomListSlider>
 
-          <p
+          <div
             style={{
+              opacity: '0',
               display: 'flex',
               justifyContent: 'center',
-              alignItems: 'flex-start',
-              gap: '0.4rem',
-              opacity: '0',
+              alignContent: 'center',
+              gap: '10px',
+              position: 'absolute',
+              top: '12px',
+              right: '12px',
+            }}
+          >
+            <LikeButton onClick={handleFavourite}>
+              <img src={isFavourite ? heartIconBold : heartIcon} alt="heart" />
+            </LikeButton>
+
+            <LikeButton>
+              <img src={shareIcon} alt="heart" />
+            </LikeButton>
+          </div>
+          <div
+            style={{
+              width: 'calc(100% - 20px)',
+              display: 'flex',
+              justifyContent: 'space-between',
               position: 'absolute',
               left: '10px',
               bottom: '10px',
-              backgroundColor: 'white',
-              color: '#424242',
-              fontSize: '0.8rem',
-              padding: '0.2rem 0.4rem',
-              borderRadius: '8px',
-              margin: '0px',
+              opacity: '0',
             }}
           >
-            {`${currentSlide + 1}/${files.length}`}
-            <img src={cameraIcon} style={{ height: '1rem', width: 'auto' }} />
-          </p>
+            <div
+              style={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                gap: '8px',
+                padding: '12px 16px',
+                margin: '0px',
+                backgroundColor: 'white',
+                borderRadius: '8px',
+                height: '41px',
+              }}
+            >
+              <img src={cameraIcon} style={{ height: '20px', width: '20px' }} />
+              <p
+                style={{
+                  color: '#424242',
+                  fontSize: '1rem',
+                  margin: '0px',
+                  lineHeight: '75%',
+                }}
+              >
+                {`${currentSlide + 1}/${files.length}`}
+              </p>
+            </div>
+            <div
+              style={{
+                marginLeft: 'auto',
+                color: '#424242',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                backgroundColor: '#F2F2F2',
+                gap: '8px',
+                padding: '8px',
+                borderRadius: '12px',
+              }}
+            >
+              <img
+                src={barcodeIcon}
+                style={{ width: '20px', height: '20px' }}
+              />
+              <p style={{ margin: '0px' }}>
+                <b>Código de anuncio: </b>IMPV-0001
+              </p>
+            </div>
+          </div>
         </div>
-        <Slider
-          slidesToShow={4}
-          asNavFor={nav1}
-          infinite={false}
-          ref={slider => (slider2 = slider)}
-          swipeToSlide={true}
-          focusOnSelect={true}
-          arrows={false}
-          className="slick-slider-arrow-inner mt-1 mr-n1"
-        >
+        <CustomListSlider {...miniSliderSettings}>
           {files.map(img => (
-            <div className=" outline-none" key={img}>
+            <CustomContainer>
               <div
                 className="cursor-pointer"
                 style={{
@@ -132,8 +223,7 @@ const PropertyDetailMedia = ({ imagenes: files }) => {
                   justifyContent: 'flex-start',
                   borderRadius: '10px',
                   overflow: 'hidden',
-                  marginTop: '8px',
-                  maxWidth: '205px',
+                  marginTop: '12px',
                 }}
               >
                 <img
@@ -141,8 +231,8 @@ const PropertyDetailMedia = ({ imagenes: files }) => {
                   height={'110px'}
                   style={{
                     width: '100%',
+                    height: '136px',
                     margin: '0px',
-                    marginRight: '12px',
                     borderRadius: '10px',
                   }}
                   src={img}
@@ -150,9 +240,9 @@ const PropertyDetailMedia = ({ imagenes: files }) => {
                   onClick={() => handleImageClick(img)}
                 />
               </div>
-            </div>
+            </CustomContainer>
           ))}
-        </Slider>
+        </CustomListSlider>
       </>
 
       {/* Modal */}

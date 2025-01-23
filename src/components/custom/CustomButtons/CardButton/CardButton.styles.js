@@ -10,6 +10,7 @@ export const CardButtonContainer = styled.div`
   background-color: #ffffff;
   border-radius: 12px;
   transition: all 0.2s ease;
+  border: 1px solid #DBDBDB;
   cursor: pointer;
 
   &:hover {

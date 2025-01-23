@@ -49,6 +49,7 @@ export default {
   propertyDetail: propertyId =>
     `/${rootPaths.propertyDetailRoot}${propertyId ? `/${propertyId}` : ''}`,
   support: `/${rootPaths.supportRoot}`,
+  sellerRoot: '/seller',
   /* -------------------------- */
   starter: `/${rootPaths.pagesRoot}/starter`,
   error404: `/${rootPaths.errorsRoot}/404`,

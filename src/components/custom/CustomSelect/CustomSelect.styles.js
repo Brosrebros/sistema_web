@@ -6,17 +6,21 @@ export const CustomSelectContainer = styled.div`
   align-items: center;
   justify-content: flex-start;
   background-color: ${({ background }) =>
-    background === 'form' ? '#f2f2f2' : '#940000'};
-  border: ${({ background }) =>
-    background === 'form' ? 'none' : '1px solid #ffffff'};
+    background === 'form' ? '#ffffff' : '#940000'};
+  border: 1px solid ${({ background }) =>
+    background === 'form' ? '#dbdbdb' : '#ffffff'};
   padding: 0 0 0 16px;
   gap: 8px;
   height: 41px;
-  font-family: 'Aptos_Display';
   transition: all 0.2s ease;
 
   @media (max-width: 968px) {
     display: ${({ background }) => (background === 'form' ? 'flex' : 'none')};
+  }
+
+  img {
+    width: 20px;
+    height: 20px;
   }
 
   &:hover {

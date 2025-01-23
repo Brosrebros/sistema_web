@@ -1,18 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export const TitleValdemarDes = ({ children, classname }) => {
+export const TitleValdemarDes = ({ children }) => {
   return (
     <>
       <h6
-        className={
-          classname
-            ? `${classname} bolddd`
-            : 'bolddd'
-        }
         style={{
-          fontSize: '25px',
-          color: 'black'
+          fontSize: '1.1875em',
+          fontWeight: 'bold',
+          color: 'black',
+          margin: '0px',
         }}
       >
         {children}

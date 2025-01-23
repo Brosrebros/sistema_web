@@ -1,12 +1,11 @@
 import React from 'react';
 import { CustomInputTextContainer, InputText } from './CustomInputText.styles';
-import searchIcon from '../../../../assets/img/icons/buscar_gris.svg';
 
-function CustomInputText() {
+function CustomInputText({placeholder, icon}) {
   return (
     <CustomInputTextContainer>
-      <img src={searchIcon} alt="search" />
-      <InputText placeholder='¿En dónde lo buscas?'/>
+      <img src={icon} alt="icon" />
+      <InputText placeholder={placeholder}/>
     </CustomInputTextContainer>
   );
 }

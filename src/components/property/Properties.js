@@ -1,19 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
-import {
-  Button,
-  Card,
-  Col,
-  Form,
-  Offcanvas,
-  OverlayTrigger,
-  Row,
-  Tooltip,
-} from 'react-bootstrap';
+import { Card, Col, Offcanvas } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
-import classNames from 'classnames';
 import usePagination from 'hooks/usePagination';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Flex from 'components/common/Flex';
 import { useBreakpoints } from 'hooks/useBreakpoints';
 import { useAppContext } from 'providers/AppProvider';
 import PropertyGrid from 'components/property/PropertyGrid';
@@ -78,8 +67,6 @@ const Properties = ({ filterForm, setFilterForm, properties, title }) => {
     };
   }, []);
 
-  console.log(paginationArray);
-
   return (
     <>
       <div
@@ -118,7 +105,7 @@ const Properties = ({ filterForm, setFilterForm, properties, title }) => {
                 flexDirection: 'column',
                 justifyContent: 'center',
                 alignItems: 'flex-start',
-                gap: '24px',
+                gap: '16px',
               }}
             >
               {paginatedCourses.length > 0 ? (
@@ -150,102 +137,6 @@ const Properties = ({ filterForm, setFilterForm, properties, title }) => {
             </div>
             {/* Course pagination */}
             {paginatedCourses.length > 0 && (
-              //  <Card>
-              //   <Card.Body>
-              //     <Row className="g-3 flex-column flex-sm-row flex-center justify-content-sm-between">
-              //       <Col
-              //         xs="auto"
-              //         as={Flex}
-              //         alignItems="center"
-              //         className="d-none d-sm-flex"
-              //       >
-              //         <small className="d-none d-sm-block me-2">Show:</small>
-              //         <Form.Select
-              //           size="sm"
-              //           value={itemsPerPage}
-              //           onChange={({ target }) => {
-              //             setItemsPerPage(target.value);
-              //             setCoursePerPage(target.value);
-              //           }}
-              //           style={{ maxWidth: '4.875rem' }}
-              //         >
-              //           <option value={2}>2</option>
-              //           <option value={4}>4</option>
-              //           <option value={6}>6</option>
-              //           <option value={totalItems}>All</option>
-              //         </Form.Select>
-              //       </Col>
-              //       <Col xs="auto" as={Flex}>
-              //         <div>
-              //           <OverlayTrigger
-              //             placement="top"
-              //             overlay={
-              //               <Tooltip style={{ position: 'fixed' }}>
-              //                 Prev
-              //               </Tooltip>
-              //             }
-              //           >
-              //             <Button
-              //               variant="falcon-default"
-              //               size="sm"
-              //               disabled={!canPreviousPage}
-              //               onClick={prevPage}
-              //               className="me-2"
-              //               trigger="focus"
-              //             >
-              //               <FontAwesomeIcon icon="chevron-left" />
-              //             </Button>
-              //           </OverlayTrigger>
-              //         </div>
-
-              //         <ul className="pagination mb-0">
-              //           {paginationArray.map(page => (
-              //             <li
-              //               key={page}
-              //               className={classNames({
-              //                 active: currentPage === page,
-              //               })}
-              //             >
-              //               <Button
-              //                 size="sm"
-              //                 variant="falcon-default"
-              //                 className="page me-2"
-              //                 onClick={() => goToPage(page)}
-              //               >
-              //                 {page}
-              //               </Button>
-              //             </li>
-              //           ))}
-              //         </ul>
-              //         <div>
-              //           <OverlayTrigger
-              //             trigger="click"
-              //             placement="top"
-              //             overlay={
-              //               <Tooltip
-              //                 style={{ position: 'fixed' }}
-              //                 id="button-tooltip-2"
-              //               >
-              //                 Next
-              //               </Tooltip>
-              //             }
-              //           >
-              //             <Button
-              //               variant="falcon-default"
-              //               size="sm"
-              //               disabled={!canNextPage}
-              //               onClick={nextPage}
-              //               trigger="focus"
-              //             >
-              //               <FontAwesomeIcon icon="chevron-right" />
-              //             </Button>
-              //           </OverlayTrigger>
-              //         </div>
-              //       </Col>
-              //     </Row>
-              //   </Card.Body>
-              // </Card>
-
               <Pagination
                 totalItems={100}
                 itemsPerPageOptions={[5, 10, 20]}

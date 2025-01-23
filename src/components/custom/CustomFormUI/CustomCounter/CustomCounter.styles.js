@@ -7,24 +7,24 @@ export const CustomCounterStyled = styled.div`
   justify-content: space-between;
   border-radius: 0.6rem;
   background-color: #f2f2f2;
-  padding: 4px;
+  padding: 6px;
   gap: 12px;
-  height: 36px;
   outline: none;
   border: none;
 
   button {
-    height: 100%;
-    background-color: white;
-    border-radius: 0.4rem;
     border: none;
     outline: none;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 0px;
 
-    svg {
-      color: #8b8b8b;
+    img {
+      transition: all 0.2s ease;
+      &:hover {
+        filter: brightness(0.9);
+      }
     }
   }
 `;

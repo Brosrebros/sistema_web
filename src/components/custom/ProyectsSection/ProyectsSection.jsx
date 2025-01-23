@@ -4,6 +4,7 @@ import {
   TextButtonContainer,
   OptionsContainer,
   CustomButton,
+  Options,
 } from './ProyectsSection.styles';
 import PrimaryCustomButton from '../CustomButtons/PrimaryCustomButton/PrimaryCustomButton';
 import PropertySliderValdemar from '../../../PropertySliderValdemar';
@@ -39,24 +40,26 @@ function ProyectsSection() {
 
       <div>
         <OptionsContainer>
-          <CustomButton
-            isActive={activeButton === 'en construccion'}
-            onClick={() => setActiveButton('en construccion')}
-          >
-            En construcción
-          </CustomButton>
-          <CustomButton
-            isActive={activeButton === 'en planos'}
-            onClick={() => setActiveButton('en planos')}
-          >
-            En planos
-          </CustomButton>
-          <CustomButton
-            isActive={activeButton === 'entrega inmediata'}
-            onClick={() => setActiveButton('entrega inmediata')}
-          >
-            Entrega inmediata
-          </CustomButton>
+          <Options>
+            <CustomButton
+              isActive={activeButton === 'en construccion'}
+              onClick={() => setActiveButton('en construccion')}
+            >
+              En construcción
+            </CustomButton>
+            <CustomButton
+              isActive={activeButton === 'en planos'}
+              onClick={() => setActiveButton('en planos')}
+            >
+              En planos
+            </CustomButton>
+            <CustomButton
+              isActive={activeButton === 'entrega inmediata'}
+              onClick={() => setActiveButton('entrega inmediata')}
+            >
+              Entrega inmediata
+            </CustomButton>
+          </Options>
         </OptionsContainer>
         <PropertySliderValdemar
           slidesToShow={isMenuOpen ? 3.5 : 4}

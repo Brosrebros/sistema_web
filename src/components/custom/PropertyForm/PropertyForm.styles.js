@@ -31,6 +31,7 @@ export const FormButtonsContainer = styled.div`
 
 export const FormMainContainer = styled.div`
   display: flex;
+  align-items: center;
   gap: 12px;
 
   @media (max-width: 1100px) {
@@ -80,6 +81,7 @@ export const FormTab = styled.div`
   padding: 6px;
   background-color: #f2f2f2;
   border-radius: 16px;
+  border: 1px solid #dbdbdb;
 
   @media (max-width: 1100px) {
     width: auto;
@@ -110,9 +112,4 @@ export const TabButtonStyled = styled.button`
   &:hover {
     filter: brightness(0.9);
   }
-`;
-
-export const ButtonStyled = styled(TabButtonStyled)`
-  background-color: #257573;
-  color: #ffffff;
 `;
