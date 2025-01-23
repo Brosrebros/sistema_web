@@ -48,15 +48,6 @@ const CustomButton = styled.button`
 function Navbar() {
   const { toggleMenu } = useMenu();
 
-  const vendedoresOptions = [
-    { value: 'Dueño directo', label: 'Dueño directo' },
-    { value: 'Agente inmobiliario', label: 'Agente inmobiliario' },
-    {
-      value: 'Constructora o desarrolladora',
-      label: 'Constructora o desarrolladora',
-    },
-  ];
-
   const idiomaOptions = [
     { value: 'Español', label: 'Español' },
     { value: 'Ingles', label: 'Ingles' },

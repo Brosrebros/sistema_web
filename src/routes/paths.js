@@ -50,6 +50,7 @@ export default {
     `/${rootPaths.propertyDetailRoot}${propertyId ? `/${propertyId}` : ''}`,
   support: `/${rootPaths.supportRoot}`,
   sellerRoot: '/seller',
+  saleRoot: '/sale',
   /* -------------------------- */
   starter: `/${rootPaths.pagesRoot}/starter`,
   error404: `/${rootPaths.errorsRoot}/404`,

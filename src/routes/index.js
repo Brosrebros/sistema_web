@@ -205,6 +205,7 @@ import Propertypage from 'pages/Propertypage';
 import TermsPage from 'pages/SupportPages/Termspage';
 import TermsConditionsPage from 'pages/SupportPages/TermsConditionspage';
 import Sellerpage from "pages/Sellerpage"
+import Salepage from "pages/Salepage"
 
 const routes = [
   {
@@ -392,8 +393,12 @@ const routes = [
             element: <Propertypage />,
           },
           {
-            path: paths.sellerRoot, // Define esta ruta en tu archivo de rutas.
+            path: paths.sellerRoot,
             element: <Sellerpage />,
+          },
+          {
+            path: paths.saleRoot,
+            element: <Salepage />,
           },
           {
             path: rootPaths.dashboardRoot,

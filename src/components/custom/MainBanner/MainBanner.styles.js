@@ -5,7 +5,7 @@ export const Banner = styled.div`
   height: 444px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: ${({type}) => type === "home" ? "flex-end" : "center"};
   align-items: flex-start;
   gap: 24px;
   padding: 24px;
@@ -13,12 +13,12 @@ export const Banner = styled.div`
   border-radius: 12px;
 
   h1 {
-    font-size: 1.75em;
+    font-size: 1.4375em;
     font-weight: bolder;
     font-family: 'Aptos_display';
     color: black;
     margin: 0px;
-    line-height: 65%;
+    line-height: 110%;
   }
 
   p {
@@ -28,7 +28,7 @@ export const Banner = styled.div`
     color: #424242;
     max-width: 320px;
     margin: 0px;
-    line-height: 110%;
+    line-height: 120%;
   }
 `;
 

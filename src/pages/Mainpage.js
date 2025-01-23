@@ -1,4 +1,4 @@
-import HomeBanner from 'components/custom/HomeBanner/HomeBanner';
+import MainBanner from 'components/custom/MainBanner/MainBanner';
 import CardButton from 'components/custom/CustomButtons/CardButton/CardButton';
 import ContentInfo from 'components/custom/ContentInfo/ContentInfo';
 import ProyectsSection from 'components/custom/ProyectsSection/ProyectsSection';
@@ -34,7 +34,7 @@ const Mainpage = () => {
   return (
     <>
       <CustomPageLayout>
-        <HomeBanner />
+        <MainBanner type="home"/>
 
         <ButtonContainer>
           <CardButton option="option1" />
