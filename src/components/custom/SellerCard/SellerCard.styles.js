@@ -7,7 +7,9 @@ export const SellerCardContainer = styled.div`
   gap: 24px;
   padding: 16px;
   background-color: #ffffff;
+  border: 1px solid #dbdbdb;
   border-radius: 12px;
+  transition: all 0.2s ease;
 
   & > img:first-child {
     width: 60px;
@@ -22,6 +24,14 @@ export const SellerCardContainer = styled.div`
     justify-content: center;
     align-items: flex-start;
     gap: 24px;
+  }
+
+  &:hover{ 
+    filter: brightness(0.95);
+  }
+
+  &:active{ 
+    filter: brightness(0.9);
   }
 `;
 

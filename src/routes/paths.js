@@ -38,6 +38,8 @@ export const rootPaths = {
   utilitiesRoot: 'utilities',
   docRoot: 'documentation',
   layoutRoot: 'layouts',
+  sellerRoot: 'seller',
+  saleRoot: 'sale',
 };
 
 export default {
@@ -45,12 +47,12 @@ export default {
   widgets: '/widgets',
   landing: '/landing',
   /* ----- Nuevas páginas ----- */
-  catalog: `/catalog`,
+  catalog: `/${rootPaths.catalog}`,
   propertyDetail: propertyId =>
     `/${rootPaths.propertyDetailRoot}${propertyId ? `/${propertyId}` : ''}`,
   support: `/${rootPaths.supportRoot}`,
-  sellerRoot: '/seller',
-  saleRoot: '/sale',
+  sellerRoot: `/${rootPaths.sellerRoot}`,
+  saleRoot: `/${rootPaths.saleRoot}`,
   /* -------------------------- */
   starter: `/${rootPaths.pagesRoot}/starter`,
   error404: `/${rootPaths.errorsRoot}/404`,

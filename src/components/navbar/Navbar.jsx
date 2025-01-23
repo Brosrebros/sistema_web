@@ -16,6 +16,7 @@ import menuIcon from '../../assets/img/icons/menu.svg';
 import PrimaryCustomButton from 'components/custom/CustomButtons/PrimaryCustomButton/PrimaryCustomButton';
 import { useMenu } from '../../menuContext';
 import styled from 'styled-components';
+import { rootPaths } from 'routes/paths';
 
 const CustomButton = styled.button`
   width: auto;
@@ -113,7 +114,9 @@ function Navbar() {
           </CustomSelect>
         </NavbarButtonsContainer>
         <NavbarButtonsContainer>
-          <CustomButton type="main">Vender</CustomButton>
+          <a href={rootPaths.saleRoot} style={{ textDecoration: 'none' }}>
+            <CustomButton type="main">Vender</CustomButton>
+          </a>
           <PrimaryCustomButton>
             <img src={notificationIcon} alt="lenguaje" />
           </PrimaryCustomButton>

@@ -34,10 +34,10 @@ function CustomFooter() {
         </TextContainer>
 
         <div style={{ width: '100%', display: 'flex', gap: '12px' }}>
-          <CustomInputMail placeholder='Email'/>
+          <CustomInputMail placeholder='Correo electrónico'/>
           <PrimaryCustomButton>
             <img src={buttonIcon} alt="directbox" />
-            Suscribe
+            Suscribirse
           </PrimaryCustomButton>
         </div>
       </div>
