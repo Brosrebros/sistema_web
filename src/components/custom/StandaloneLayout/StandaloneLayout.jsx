@@ -7,17 +7,23 @@ import {
 import Footer from 'components/footer/Footer';
 import SecondaryCustomButton from '../CustomButtons/SecondaryCustomButton/SecondaryCustomButton';
 import arrowIcon from '../../../assets/img/icons/arrow-left.svg';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useNavigate } from 'react-router-dom';
 import Navbar from 'components/navbar/Navbar';
 
 function StandaloneLayout() {
+  const navigate = useNavigate();
+
   return (
     <>
       <Navbar type="auth" />
       <StandaloneLayoutStyled>
         <StandaloneContainer>
           <StandaloneNavigate>
-            <SecondaryCustomButton>
+            <SecondaryCustomButton
+              onClick={() => {
+                navigate(`/`);
+              }}
+            >
               <img src={arrowIcon} alt="arrow" />
             </SecondaryCustomButton>
           </StandaloneNavigate>

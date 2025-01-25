@@ -148,19 +148,16 @@ function Navbar({ type }) {
               </PrimaryCustomButton>
             </NavbarButtonsContainer>
 
-            <NavbarButtonsContainer>
-              <CustomButton
-                type="main"
-                onClick={() => {
-                  navigate(
-                    `/${rootPaths.authRoot}/${rootPaths.authSimpleRoot}/${rootPaths.loginRoot}`
-                  );
-                }}
-              >
-                Iniciar Sesión
-              </CustomButton>
-              <CustomButton type="secondary">Registrarse</CustomButton>
-            </NavbarButtonsContainer>
+            <CustomButton
+              type="main"
+              onClick={() => {
+                navigate(
+                  `/${rootPaths.authRoot}/${rootPaths.authSimpleRoot}/${rootPaths.loginRoot}`
+                );
+              }}
+            >
+              Iniciar Sesión
+            </CustomButton>
           </NavbarOptionsContainer>
         </>
       )}
