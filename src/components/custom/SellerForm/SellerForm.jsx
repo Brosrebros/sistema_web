@@ -5,7 +5,7 @@ import {
   Option,
 } from './SellerForm.styles';
 
-import CustomInputText from '../CustomFormUI/CustomInputText/CustomInputText';
+import CustomInputText from '../CustomFormUI/CustomInput/CustomInput';
 import CustomSelect from '../CustomSelect/CustomSelect';
 import PrimaryCustomButton from '../CustomButtons/PrimaryCustomButton/PrimaryCustomButton';
 import sortIcon from '../../../assets/img/icons/sort.svg';

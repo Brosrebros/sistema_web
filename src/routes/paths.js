@@ -40,6 +40,8 @@ export const rootPaths = {
   layoutRoot: 'layouts',
   sellerRoot: 'seller',
   saleRoot: 'sale',
+  loginRoot: 'login',
+  registerRoot: 'register',
 };
 
 export default {
@@ -53,11 +55,12 @@ export default {
   support: `/${rootPaths.supportRoot}`,
   sellerRoot: `/${rootPaths.sellerRoot}`,
   saleRoot: `/${rootPaths.saleRoot}`,
+  loginRoot: `/${rootPaths.authRoot}/${rootPaths.authSimpleRoot}/${rootPaths.loginRoot}`,
+  registerRoot: `/${rootPaths.authRoot}/${rootPaths.authSimpleRoot}/${rootPaths.registerRoot}`,
   /* -------------------------- */
   starter: `/${rootPaths.pagesRoot}/starter`,
   error404: `/${rootPaths.errorsRoot}/404`,
   error500: `/${rootPaths.errorsRoot}/500`,
-  simpleLogin: `/${rootPaths.authRoot}/${rootPaths.authSimpleRoot}/login`,
   simpleRegister: `/${rootPaths.authRoot}/${rootPaths.authSimpleRoot}/register`,
   simpleLogout: `/${rootPaths.authRoot}/${rootPaths.authSimpleRoot}/logout`,
   simpleForgotPassword: `/${rootPaths.authRoot}/${rootPaths.authSimpleRoot}/forgot-password`,

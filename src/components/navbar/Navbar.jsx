@@ -17,6 +17,7 @@ import PrimaryCustomButton from 'components/custom/CustomButtons/PrimaryCustomBu
 import { useMenu } from '../../menuContext';
 import styled from 'styled-components';
 import { rootPaths } from 'routes/paths';
+import { useNavigate } from 'react-router-dom';
 
 const CustomButton = styled.button`
   width: auto;
@@ -46,8 +47,9 @@ const CustomButton = styled.button`
   }
 `;
 
-function Navbar() {
+function Navbar({ type }) {
   const { toggleMenu } = useMenu();
+  const navigate = useNavigate();
 
   const idiomaOptions = [
     { value: 'Español', label: 'Español' },
@@ -75,58 +77,93 @@ function Navbar() {
 
   return (
     <NavbarContainer>
-      <NavbarMainDataContainer>
-        <NavbarLogoMenuContainer>
-          <PrimaryCustomButton onClick={toggleMenu}>
-            <img src={menuIcon} alt="menu" />
-          </PrimaryCustomButton>
-          <a href="/">
-            <img src={navbarLogo} alt="inmobiliaria sanchez" />
-          </a>
+      {type === 'auth' ? (
+        <NavbarLogoMenuContainer style={{ margin: '0 auto' }}>
+          <img
+            src={navbarLogo}
+            alt="inmobiliaria sanchez"
+            onClick={() => {
+              navigate(`/`);
+            }}
+            style={{ cursor: 'pointer' }}
+          />
         </NavbarLogoMenuContainer>
-        <CustomButton>Vendedores Inmobiliarios</CustomButton>
-      </NavbarMainDataContainer>
-      <NavbarOptionsContainer>
-        <NavbarButtonsContainer>
-          <CustomSelect
-            id="divisa"
-            name="divisa"
-            aria-label="Divisa"
-            value={filterForm.divisaOptions}
-            onChange={handleCustomChange}
-            placeholder="Divisa"
-            options={divisaOptions}
-            background="nav"
-          >
-            <img src={divisaIcon} alt="divisa" />
-          </CustomSelect>
-          <CustomSelect
-            id="lenguaje"
-            name="lenguaje"
-            aria-label="Lenguaje"
-            value={filterForm.idiomaOptions}
-            onChange={handleCustomChange}
-            placeholder="Lenguaje"
-            options={idiomaOptions}
-            background="nav"
-          >
-            <img src={languageIcon} alt="lenguaje" />
-          </CustomSelect>
-        </NavbarButtonsContainer>
-        <NavbarButtonsContainer>
-          <a href={rootPaths.saleRoot} style={{ textDecoration: 'none' }}>
-            <CustomButton type="main">Vender</CustomButton>
-          </a>
-          <PrimaryCustomButton>
-            <img src={notificationIcon} alt="lenguaje" />
-          </PrimaryCustomButton>
-        </NavbarButtonsContainer>
+      ) : (
+        <>
+          <NavbarMainDataContainer>
+            <NavbarLogoMenuContainer>
+              <PrimaryCustomButton onClick={toggleMenu}>
+                <img src={menuIcon} alt="menu" />
+              </PrimaryCustomButton>
 
-        <NavbarButtonsContainer>
-          <CustomButton type="main">Iniciar Sesión</CustomButton>
-          <CustomButton type="secondary">Registrarse</CustomButton>
-        </NavbarButtonsContainer>
-      </NavbarOptionsContainer>
+              <img
+                src={navbarLogo}
+                alt="inmobiliaria sanchez"
+                onClick={() => {
+                  navigate(`/`);
+                }}
+                style={{ cursor: 'pointer' }}
+              />
+            </NavbarLogoMenuContainer>
+            <CustomButton>Vendedores Inmobiliarios</CustomButton>
+          </NavbarMainDataContainer>
+          <NavbarOptionsContainer>
+            <NavbarButtonsContainer>
+              <CustomSelect
+                id="divisa"
+                name="divisa"
+                aria-label="Divisa"
+                value={filterForm.divisaOptions}
+                onChange={handleCustomChange}
+                placeholder="Divisa"
+                options={divisaOptions}
+                background="nav"
+              >
+                <img src={divisaIcon} alt="divisa" />
+              </CustomSelect>
+              <CustomSelect
+                id="lenguaje"
+                name="lenguaje"
+                aria-label="Lenguaje"
+                value={filterForm.idiomaOptions}
+                onChange={handleCustomChange}
+                placeholder="Lenguaje"
+                options={idiomaOptions}
+                background="nav"
+              >
+                <img src={languageIcon} alt="lenguaje" />
+              </CustomSelect>
+            </NavbarButtonsContainer>
+            <NavbarButtonsContainer>
+              <CustomButton
+                type="main"
+                onClick={() => {
+                  navigate(`/${rootPaths.saleRoot}`);
+                }}
+              >
+                Vender
+              </CustomButton>
+              <PrimaryCustomButton>
+                <img src={notificationIcon} alt="lenguaje" />
+              </PrimaryCustomButton>
+            </NavbarButtonsContainer>
+
+            <NavbarButtonsContainer>
+              <CustomButton
+                type="main"
+                onClick={() => {
+                  navigate(
+                    `/${rootPaths.authRoot}/${rootPaths.authSimpleRoot}/${rootPaths.loginRoot}`
+                  );
+                }}
+              >
+                Iniciar Sesión
+              </CustomButton>
+              <CustomButton type="secondary">Registrarse</CustomButton>
+            </NavbarButtonsContainer>
+          </NavbarOptionsContainer>
+        </>
+      )}
     </NavbarContainer>
   );
 }

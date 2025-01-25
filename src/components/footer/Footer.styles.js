@@ -7,7 +7,7 @@ export const MainFooter = styled.footer`
   justify-content: space-between;
   align-items: center;
   padding: 28px 48px;
-  background-color: #940000;
+  background-color: ${({ type }) => type === "main" ? "#940000" : "#ffffff"};
   border-radius: 12px;
 `;
 
@@ -16,12 +16,13 @@ export const FooterData = styled.div`
   justify-content: center;
   align-items: center;
   gap: 32px;
+  margin: ${({ type }) => type === "main" ? "0" : "0 auto"};
 
   p,
   a {
     font-size: 0.8125em;
     font-weight: normal;
-    color: white;
+    color: ${({ type }) => type === "main" ? "#ffffff" : "#424242"};
     margin: 0px;
   }
 

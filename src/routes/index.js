@@ -204,8 +204,11 @@ import SupportLayout from 'layouts/SupportLayout';
 import Propertypage from 'pages/Propertypage';
 import TermsPage from 'pages/SupportPages/Termspage';
 import TermsConditionsPage from 'pages/SupportPages/TermsConditionspage';
-import Sellerpage from "pages/Sellerpage"
-import Salepage from "pages/Salepage"
+import Sellerpage from 'pages/Sellerpage';
+import Salepage from 'pages/Salepage';
+import Loginpage from 'pages/Loginpage';
+import Registerpage from 'pages/Registerpage';
+import StandaloneLayout from 'components/custom/StandaloneLayout/StandaloneLayout';
 
 const routes = [
   {
@@ -234,68 +237,15 @@ const routes = [
         children: [
           {
             path: rootPaths.authSimpleRoot,
-            element: <AuthSimpleLayout />,
+            element: <StandaloneLayout />,
             children: [
               {
-                path: paths.simpleLogin,
-                element: <SimpleLogin />,
+                path: paths.registerRoot,
+                element: <Registerpage />,
               },
               {
-                path: paths.simpleRegister,
-                element: <SimpleRegistration />,
-              },
-              {
-                path: paths.simpleLogout,
-                element: <SimpleLogout />,
-              },
-              {
-                path: paths.simpleForgotPassword,
-                element: <SimpleForgetPassword />,
-              },
-              {
-                path: paths.simpleResetPassword,
-                element: <SimplePasswordReset />,
-              },
-              {
-                path: paths.simpleConfirmMail,
-                element: <SimpleConfirmMail />,
-              },
-              {
-                path: paths.simpleLockScreen,
-                element: <SimpleLockScreen />,
-              },
-            ],
-          },
-          {
-            path: rootPaths.authCardRoot,
-            children: [
-              {
-                path: paths.cardLogin,
-                element: <CardLogin />,
-              },
-              {
-                path: paths.cardRegister,
-                element: <CardRegistration />,
-              },
-              {
-                path: paths.cardLogout,
-                element: <CardLogout />,
-              },
-              {
-                path: paths.cardForgotPassword,
-                element: <CardForgetPassword />,
-              },
-              {
-                path: paths.cardResetPassword,
-                element: <CardPasswordReset />,
-              },
-              {
-                path: paths.cardConfirmMail,
-                element: <CardConfirmMail />,
-              },
-              {
-                path: paths.cardLockScreen,
-                element: <CardLockScreen />,
+                path: paths.loginRoot,
+                element: <Loginpage />,
               },
             ],
           },

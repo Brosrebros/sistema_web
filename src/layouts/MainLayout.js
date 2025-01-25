@@ -5,41 +5,18 @@ import Menu from 'components/menu/Menu';
 import Footer from 'components/footer/Footer';
 import ProductProvider from 'providers/ProductProvider';
 import CourseProvider from 'providers/CourseProvider';
-import ModalAuth from 'components/authentication/modal/ModalAuth';
 import PropertyProvider from 'providers/PropertyProvider';
 import CustomFooter from 'components/custom/CustomFooter/CustomFooter';
 import { useMenu } from 'menuContext';
 import styled from 'styled-components';
 
 const CustomPageContainer = styled.div`
-  /* max-width: ${({ isMenuOpen }) => (isMenuOpen ? '81.5vw' : '91.5vw')}; */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 24px;
   transition: all 0.2s ease;
-
-  /*   
-  @media (max-width: 1760px) {
-    max-width: ${({ isMenuOpen }) => (isMenuOpen ? '80vw' : '90.9vw')};
-  }
-
-  @media (max-width: 1550px) {
-    max-width: ${({ isMenuOpen }) => (isMenuOpen ? '77vw' : '90vw')};
-  }
-
-  @media (max-width: 1450px) {
-    max-width: ${({ isMenuOpen }) => (isMenuOpen ? '75.5vw' : '89.5vw')};
-  }
-
-  @media (max-width: 1380px) {
-    max-width: ${({ isMenuOpen }) => (isMenuOpen ? '74.5vw' : '89vw')};
-  }
-
-  @media (max-width: 1280px) {
-    max-width: ${({ isMenuOpen }) => (isMenuOpen ? '73vw' : '88.5vw')};
-  } */
 `;
 
 const MainLayout = () => {
@@ -83,13 +60,12 @@ const MainLayout = () => {
               <PropertyProvider>
                 <Outlet />
                 <CustomFooter />
-                <Footer />
+                <Footer type="main"/>
               </PropertyProvider>
             </CustomPageContainer>
           </div>
         </CourseProvider>
       </ProductProvider>
-      <ModalAuth />
     </main>
   );
 };

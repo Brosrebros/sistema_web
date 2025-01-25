@@ -9,16 +9,19 @@ import {
 } from './PropertyForm.styles';
 import PrimaryCustomButton from '../CustomButtons/PrimaryCustomButton/PrimaryCustomButton';
 import SecondaryCustomButton from '../CustomButtons/SecondaryCustomButton/SecondaryCustomButton';
-import CustomInputText from '../CustomFormUI/CustomInputText/CustomInputText';
+import CustomInputText from '../CustomFormUI/CustomInput/CustomInput';
 import CustomSelect from '../CustomSelect/CustomSelect';
 import mapaIcon from '../../../assets/img/icons/map.svg';
 import filterIcon from '../../../assets/img/icons/filter.svg';
-import lupaIcon from '../../../assets/img/icons/search-white.svg';
+import lupaIcon from '../../../assets/img/icons/search-normal.svg';
+import lupaIconWhite from '../../../assets/img/icons/search-white.svg';
 import tipoIcon from '../../../assets/icons/tipodepropiedad_gris.svg';
 import { rootPaths } from 'routes/paths';
+import { useNavigate } from 'react-router-dom';
 
 function PropertyForm() {
   const [activeButton, setActiveButton] = useState('venta');
+  const navigate = useNavigate();
 
   const propiedadOptions = [
     { value: 'Casa', label: 'Casa' },
@@ -113,12 +116,14 @@ function PropertyForm() {
           <img src={filterIcon} alt="filter" />
           Mas filtros
         </SecondaryCustomButton>
-        <a href={rootPaths.catalogRoot} style={{ textDecoration: 'none' }}>
-          <PrimaryCustomButton>
-            <img src={lupaIcon} alt="lupa" />
-            Buscar
-          </PrimaryCustomButton>
-        </a>
+        <PrimaryCustomButton
+          onClick={() => {
+            navigate(`/${rootPaths.catalogRoot}`);
+          }}
+        >
+          <img src={lupaIconWhite} alt="lupa" />
+          Buscar
+        </PrimaryCustomButton>
       </FormOptionsContainer>
     </PropertyFormContainer>
   );

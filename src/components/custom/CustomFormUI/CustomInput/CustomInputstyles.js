@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const CustomInputTextContainer = styled.div`
+export const CustomInputContainer = styled.div`
   height: 41px;
   display: flex;
   justify-content: flex-start;
@@ -8,6 +8,7 @@ export const CustomInputTextContainer = styled.div`
   gap: 8px;
   padding: 12px 16px;
   border-radius: 12px;
+  background-color: #ffffff;
   border: 1px solid #dbdbdb;
 
   img {
@@ -16,8 +17,9 @@ export const CustomInputTextContainer = styled.div`
   }
 `;
 
-export const InputText = styled.input`
+export const Input = styled.input`
   border: none;
+  background-color: transparent;
   outline: none;
   font-family: 'Aptos';
   
