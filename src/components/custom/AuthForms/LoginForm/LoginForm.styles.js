@@ -34,7 +34,7 @@ export const LoginInputContainer = styled.div`
 
   span {
     font-weight: 400;
-    font-size: 0.69rem;
+    font-size: 0.81rem;
     color: #940000;
   }
 `;

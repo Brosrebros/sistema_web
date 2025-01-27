@@ -1150,6 +1150,16 @@ const routes = [
           },
         ],
       },
+      // {
+      //   path: paths.premiumRoot,
+      //   element: <StandaloneLayout />,
+      //   children: [
+      //     {
+      //       index: true,
+      //       element: <Premiumpage />,
+      //     },
+      //   ],
+      // },
       {
         path: '/',
         element: <TopNavLayout />,

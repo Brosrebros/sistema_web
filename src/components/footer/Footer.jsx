@@ -1,12 +1,12 @@
 import React from 'react';
 import { MainFooter, FooterData, FooterLinks } from './Footer.styles';
-import footerLogo from '../../assets/img/icons/Logo comercial - blanco.svg';
+import footerLogo from '../../assets/img/Organización Sanchez Logo.svg';
 
 function Footer({ type }) {
   return (
     <MainFooter type={type}>
       {type === 'main' ? (
-        <FooterData>
+        <FooterData type={type}>
           <img src={footerLogo} alt="inmobiliaria sanchez" />
           <p>
             Organización Sánchez S.A.C. Todos los derechos reservados © 2025

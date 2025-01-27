@@ -15,7 +15,9 @@ import mapaIcon from '../../../assets/img/icons/map.svg';
 import filterIcon from '../../../assets/img/icons/filter.svg';
 import lupaIcon from '../../../assets/img/icons/search-normal.svg';
 import lupaIconWhite from '../../../assets/img/icons/search-white.svg';
-import tipoIcon from '../../../assets/icons/tipodepropiedad_gris.svg';
+import tipoIcon from '../../../assets/img/icons/signpost.svg';
+import budgetIcon from "../../../assets/img/icons/moneys.svg"
+import ordenIcon from "../../../assets/img/icons/sort.svg"
 import { rootPaths } from 'routes/paths';
 import { useNavigate } from 'react-router-dom';
 
@@ -82,7 +84,6 @@ function PropertyForm() {
         <CustomSelect
           id="tipoPropiedad"
           name="tipoPropiedad"
-          aria-label="Tipo"
           value="tipoPropiedad"
           placeholder="Tipo de propiedad"
           options={propiedadOptions}
@@ -91,26 +92,24 @@ function PropertyForm() {
           <img src={tipoIcon} width={'16px'} />
         </CustomSelect>
         <CustomSelect
-          id="tipoPropiedad"
-          name="tipoPropiedad"
-          aria-label="Tipo"
-          value="tipoPropiedad"
-          placeholder="Tipo de propiedad"
+          id="presupuesto"
+          name="presupuesto"
+          value="presupuesto"
+          placeholder="Presupuesto"
           options={presupuestoOptions}
           background="form"
         >
-          <img src={tipoIcon} width={'16px'} />
+          <img src={budgetIcon} width={'16px'} />
         </CustomSelect>
         <CustomSelect
-          id="tipoPropiedad"
-          name="tipoPropiedad"
-          aria-label="Tipo"
-          value="tipoPropiedad"
-          placeholder="Tipo de propiedad"
+          id="Ordenar por"
+          name="Ordenar por"
+          value="Ordenar por"
+          placeholder="Ordenar por"
           options={ordenarPorOptions}
           background="form"
         >
-          <img src={tipoIcon} alt="type" />
+          <img src={ordenIcon} alt="type" />
         </CustomSelect>
         <SecondaryCustomButton variant={'white'}>
           <img src={filterIcon} alt="filter" />

@@ -18,7 +18,7 @@ function LoginForm() {
         <LoginInputContainer>
           <CustomInput placeholder="Correo electrónico" type="email" />
           <CustomInput placeholder="Password" type="password" />
-          <span>¿Olvidaste tu contraseña?</span>
+          <a>¿Olvidaste tu contraseña?</a>
         </LoginInputContainer>
         <ButtonContainer>
           <PrimaryCustomButton

@@ -1,14 +1,14 @@
 import styled from 'styled-components';
 
 export const CustomSelectContainer = styled.div`
-  display: flex;
-  border-radius: 12px;
+  display: grid;
+  grid-template-columns: 20px auto;
   align-items: center;
-  justify-content: flex-start;
   background-color: ${({ background }) =>
     background === 'form' ? '#ffffff' : '#940000'};
-  border: 1px solid ${({ background }) =>
-    background === 'form' ? '#dbdbdb' : '#ffffff'};
+  border: 1px solid
+    ${({ background }) => (background === 'form' ? '#dbdbdb' : '#ffffff')};
+  border-radius: 12px;
   padding: 0 0 0 16px;
   gap: 8px;
   height: 41px;
@@ -25,13 +25,12 @@ export const CustomSelectContainer = styled.div`
 
   &:hover {
     background-color: ${({ background }) =>
-    background === 'form' ? '#c6c6c6' : '#760000'};
+      background === 'form' ? '#c6c6c6' : '#760000'};
   }
 `;
 
 export const CustomSelectStyled = styled.div`
   position: relative;
-  width: 100%;
   height: 100%;
   font-weight: lighter;
 `;
@@ -88,8 +87,7 @@ export const CustomSelectWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   gap: 8px;
-  color: ${({ background }) =>
-      background === 'form' ? '#424242' : '#ffffff'};;
+  color: ${({ background }) => (background === 'form' ? '#424242' : '#ffffff')};
   min-height: 35px;
   border-radius: 12px;
   padding-right: 16px;

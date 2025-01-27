@@ -20,11 +20,23 @@ function AuthFormContainer({ children, authType }) {
   return (
     <AuthFormContainerStyled>
       <TextContainer>
-        <h4>¡Bienvenido de vuelta a la Organización Sanchez!</h4>
-        <p>
-          Conéctate al futuro de los negocios. Gestiona, invierte y crece con
-          Organización Sánchez.
-        </p>
+        {authType === 'login' ? (
+          <>
+            <h4>¡Bienvenido de vuelta a la Organización Sanchez!</h4>
+            <p>
+              Conéctate al futuro de los negocios. Gestiona, invierte y crece
+              con Organización Sánchez.
+            </p>
+          </>
+        ) : (
+          <>
+            <h4>Construye tu futuro con la organización Sánchez</h4>
+            <p>
+              Regístrate y accede a un ecosistema de oportunidades. Todo lo que
+              necesitas para crecer está aquí.
+            </p>
+          </>
+        )}
       </TextContainer>
       <ButtonsContainer>
         <SecondaryCustomButton>

@@ -10,7 +10,7 @@ import PrimaryCustomButton from 'components/custom/CustomButtons/PrimaryCustomBu
 function RegisterForm() {
   return (
     <RegisterFormContainer>
-      <h3>Iniciar sesión</h3>
+      <h3>Crear usuario</h3>
       <div>
         <RegisterDataContainer>
           <h4>Datos personales</h4>

@@ -43,7 +43,7 @@ export const FormMainContainer = styled.div`
 export const FormOptionsContainer = styled.div`
   width: 100%;
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr auto auto;
+  grid-template-columns: 2fr 1.05fr 1.05fr 1.05fr auto auto;
   gap: 12px;
 
   @media (max-width: 1100px) {

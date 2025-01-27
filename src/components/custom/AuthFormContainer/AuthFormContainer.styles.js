@@ -20,7 +20,7 @@ export const TextContainer = styled.div`
 
   h4 {
     font-weight: 700;
-    font-size: 1.19rem;
+    font-size: 1.44rem;
     color: black;
     margin: 0px;
   }

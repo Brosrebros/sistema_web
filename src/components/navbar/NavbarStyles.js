@@ -6,20 +6,25 @@ export const NavbarContainer = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1em 2em;
-  background-color: #940000;
+  padding: 1em 24px;
+  background-color: #ffffff;
 `;
 
 export const NavbarMainDataContainer = styled.div`
   width: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 40px;
+  display: grid;
+  grid-template-columns: 270px auto;
+  gap: 24px;
 `;
 
-export const NavbarLogoMenuContainer = styled(NavbarMainDataContainer)`
-  gap: 20px;
+export const NavbarLogoMenuContainer = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 24px;
+  button {
+    border: none;
+  }
 
   & > img:last-child {
     width: 159px;
@@ -27,16 +32,24 @@ export const NavbarLogoMenuContainer = styled(NavbarMainDataContainer)`
   }
 `;
 
-export const NavbarOptionsContainer = styled(NavbarMainDataContainer)`
+export const NavbarOptionsContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   gap: 24px;
+
+  & > button:last-child {
+    color: #940000;
+  }
 `;
 
-export const NavbarButtonsContainer = styled(NavbarMainDataContainer)`
+export const NavbarButtonsContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   gap: 8px;
 
-  img {
-    width: 24px;
-    height: auto;
-    cursor: pointer;
+  & > button:last-child {
+    border: none;
   }
 `;

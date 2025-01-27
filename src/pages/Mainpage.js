@@ -12,10 +12,28 @@ import styled from 'styled-components';
 
 const ButtonContainer = styled.section`
   width: 100%;
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 16px;
   padding: 0px;
+
+  & > div {
+    & > div {
+      h4 {
+        max-width: 22ch;
+        max-height: 35px;
+        line-height: 115%;
+      }
+    }
+  }
+
+  & > div:last-child {
+    & > div {
+      h4 {
+        line-height: 12px;
+      }
+    }
+  }
 
   @media (max-width: 1200px) {
     gap: 12px;

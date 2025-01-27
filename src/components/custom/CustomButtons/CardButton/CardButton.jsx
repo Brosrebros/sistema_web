@@ -9,21 +9,21 @@ const cardOptions = {
     img: HomeOnSale,
     title: 'Propiedades que bajaron de precio',
     paragraph:
-      'Aprovecha las mejores ofertas en casas, departamentos y terrenos con precios recién reducidos',
+      'Aprovecha las mejores ofertas en propiedades con precios recién reducidos',
     alt: 'home sale',
   },
   option2: {
-    img: HomeComputer,
-    title: 'Propiedades que bajaron de precio',
+    img: HomeContract,
+    title: 'Proyectos con financiamiento directo',
     paragraph:
-      'Aprovecha las mejores ofertas en casas, departamentos y terrenos con precios recién reducidos',
+      'Descubre desarrollos inmobiliarios que ofrecen planes de pago sin intermediarios bancarios',
     alt: 'home computer',
   },
   option3: {
-    img: HomeContract,
-    title: 'Propiedades que bajaron de precio',
+    img: HomeComputer,
+    title: '¡Vende tu propiedad aquí!',
     paragraph:
-      'Aprovecha las mejores ofertas en casas, departamentos y terrenos con precios recién reducidos',
+      'Dale visibilidad a tu propiedad en nuestra plataforma y encuentra compradores o inquilinos rápidamente',
     alt: 'home contract',
   },
 };

@@ -132,7 +132,7 @@ const PropertyForm = ({
               padding: '13px',
               borderRadius: '10px',
             }}
-            onSubmit={handleSubmit} // Maneja el evento submit
+            onSubmit={handleSubmit}
           >
             <div className="row">
               <form
@@ -156,7 +156,7 @@ const PropertyForm = ({
                     userSelect: 'none',
                     padding: '0 4px',
                   }}
-                  onClick={() => setIsChecked(!isChecked)} // Cambiar entre "Venta" y "Alquiler"
+                  onClick={() => setIsChecked(!isChecked)}
                 >
                   {/* Barra deslizante */}
                   <SlidingIndicatorComponent isChecked={isChecked} />

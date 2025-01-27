@@ -35,7 +35,7 @@ export const CardButtonContainer = styled.div`
       font-family: 'Aptos_display';
       color: black;
       margin: 0px;
-      line-height: 110%;
+      line-height: 100%;
     }
 
     p {
@@ -44,7 +44,7 @@ export const CardButtonContainer = styled.div`
       font-family: 'Aptos_display';
       color: #424242;
       margin: 0px;
-      line-height: 110%;
+      line-height: 120%;
     }
   }
 `;

@@ -8,44 +8,16 @@ import {
 } from './NavbarStyles';
 import { useState } from 'react';
 import CustomSelect from 'components/custom/CustomSelect/CustomSelect';
-import navbarLogo from '../../assets/img/icons/Logo comercial - blanco.svg';
+import navbarLogo from '../../assets/img/Organización Sanchez Logo.svg';
 import divisaIcon from '../../assets/img/icons/money-change.svg';
 import languageIcon from '../../assets/img/icons/global.svg';
 import notificationIcon from '../../assets/img/icons/notification.svg';
 import menuIcon from '../../assets/img/icons/menu.svg';
 import PrimaryCustomButton from 'components/custom/CustomButtons/PrimaryCustomButton/PrimaryCustomButton';
 import { useMenu } from '../../menuContext';
-import styled from 'styled-components';
 import { rootPaths } from 'routes/paths';
 import { useNavigate } from 'react-router-dom';
-
-const CustomButton = styled.button`
-  width: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0.5rem;
-  border: 1px solid white;
-  outline: none;
-  background-color: ${({ type }) => (type === 'main' ? 'white' : '#940000')};
-  border-radius: 12px;
-  padding: 12px 16px;
-  transition: all 0.2s ease;
-  font-size: 1em;
-  font-weight: normal;
-  font-family: 'Aptos';
-  color: ${({ type }) => (type === 'main' ? '#424242' : 'white')};
-  line-height: 100%;
-
-  img {
-    height: 20px;
-    width: 20px;
-  }
-
-  &:hover {
-    filter: brightness(0.9);
-  }
-`;
+import SecondaryCustomButton from 'components/custom/CustomButtons/SecondaryCustomButton/SecondaryCustomButton';
 
 function Navbar({ type }) {
   const { toggleMenu } = useMenu();
@@ -92,9 +64,9 @@ function Navbar({ type }) {
         <>
           <NavbarMainDataContainer>
             <NavbarLogoMenuContainer>
-              <PrimaryCustomButton onClick={toggleMenu}>
+              <SecondaryCustomButton onClick={toggleMenu} variant="white">
                 <img src={menuIcon} alt="menu" />
-              </PrimaryCustomButton>
+              </SecondaryCustomButton>
 
               <img
                 src={navbarLogo}
@@ -105,7 +77,7 @@ function Navbar({ type }) {
                 style={{ cursor: 'pointer' }}
               />
             </NavbarLogoMenuContainer>
-            <CustomButton>Vendedores Inmobiliarios</CustomButton>
+            <SecondaryCustomButton variant="white">Vendedores Inmobiliarios</SecondaryCustomButton>
           </NavbarMainDataContainer>
           <NavbarOptionsContainer>
             <NavbarButtonsContainer>
@@ -117,7 +89,7 @@ function Navbar({ type }) {
                 onChange={handleCustomChange}
                 placeholder="Divisa"
                 options={divisaOptions}
-                background="nav"
+                background="form"
               >
                 <img src={divisaIcon} alt="divisa" />
               </CustomSelect>
@@ -129,26 +101,26 @@ function Navbar({ type }) {
                 onChange={handleCustomChange}
                 placeholder="Lenguaje"
                 options={idiomaOptions}
-                background="nav"
+                background="form"
               >
                 <img src={languageIcon} alt="lenguaje" />
               </CustomSelect>
             </NavbarButtonsContainer>
             <NavbarButtonsContainer>
-              <CustomButton
+              <PrimaryCustomButton
                 type="main"
                 onClick={() => {
                   navigate(`/${rootPaths.saleRoot}`);
                 }}
               >
                 Vender
-              </CustomButton>
-              <PrimaryCustomButton>
-                <img src={notificationIcon} alt="lenguaje" />
               </PrimaryCustomButton>
+              <SecondaryCustomButton variant="white">
+                <img src={notificationIcon} alt="lenguaje" />
+              </SecondaryCustomButton>
             </NavbarButtonsContainer>
 
-            <CustomButton
+            <PrimaryCustomButton
               type="main"
               onClick={() => {
                 navigate(
@@ -157,7 +129,17 @@ function Navbar({ type }) {
               }}
             >
               Iniciar Sesión
-            </CustomButton>
+            </PrimaryCustomButton>
+            <SecondaryCustomButton
+              variant="white"
+              onClick={() => {
+                navigate(
+                  `/${rootPaths.authRoot}/${rootPaths.authSimpleRoot}/${rootPaths.loginRoot}`
+                );
+              }}
+            >
+              Registrarse
+            </SecondaryCustomButton>
           </NavbarOptionsContainer>
         </>
       )}
