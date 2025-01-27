@@ -4,10 +4,11 @@ export const PremiumCardContainer = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   gap: 24px;
   padding: 28px;
-  background-color: #f2f2f2;
+  background-color: ${({ type }) =>
+    type === 'esencial' ? '#f2f2f2' : '#ffffff'};
   border-radius: 12px;
 
   h3 {
@@ -18,14 +19,42 @@ export const PremiumCardContainer = styled.div`
   }
 
   span {
-    font-weight: 400;
-    font-size: 1rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    gap: 10px;
     color: black;
+
+    p {
+      max-height: 24px;
+      font-weight: 400;
+      font-size: 1rem;
+      color: black;
+      margin: 0px;
+      line-height: 11px;
+    }
 
     b {
       font-weight: 700;
       font-size: 2.25rem;
       color: black;
+      line-height: 24px;
+    }
+  }
+
+  & > div:nth-child(3) {
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto auto;
+    align-items: center;
+    gap: 10px;
+
+    p {
+      font-weight: 400;
+      font-size: 1rem;
+      line-height: 122%;
+      color: #424242;
+      margin: 0px;
     }
   }
 
@@ -34,9 +63,14 @@ export const PremiumCardContainer = styled.div`
     flex-direction: column;
     align-items: flex-start;
     list-style: none;
+    padding: 0px;
+    margin: 0px;
 
     h4 {
-        
+      font-weight: 700;
+      font-size: 1.19rem;
+      color: black;
+      margin-bottom: 20px;
     }
 
     li {
@@ -53,6 +87,8 @@ export const PremiumCardContainer = styled.div`
   }
 
   button {
+    width: 100%;
+    background-color: #dbdbdb;
     cursor: none;
   }
 `;

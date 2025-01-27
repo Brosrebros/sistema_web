@@ -42,6 +42,7 @@ export const rootPaths = {
   saleRoot: 'sale',
   loginRoot: 'login',
   registerRoot: 'register',
+  premiumRoot: 'premium',
 };
 
 export default {
@@ -57,6 +58,7 @@ export default {
   saleRoot: `/${rootPaths.saleRoot}`,
   loginRoot: `/${rootPaths.authRoot}/${rootPaths.authSimpleRoot}/${rootPaths.loginRoot}`,
   registerRoot: `/${rootPaths.authRoot}/${rootPaths.authSimpleRoot}/${rootPaths.registerRoot}`,
+  premiumRoot: `/${rootPaths.premiumRoot}`,
   /* -------------------------- */
   starter: `/${rootPaths.pagesRoot}/starter`,
   error404: `/${rootPaths.errorsRoot}/404`,

@@ -19,9 +19,11 @@ import settingIcon from '../../assets/img/icons/setting-2.svg';
 import supportIcon from '../../assets/img/icons/24-support.svg';
 import exportIcon from '../../assets/img/icons/export.svg';
 import { useMenu } from '../../menuContext';
+import { useNavigate } from 'react-router-dom';
+import { rootPaths } from 'routes/paths';
 
 function Menu() {
-
+  const navigate = useNavigate();
   const { isMenuOpen } = useMenu();
 
   return (
@@ -41,10 +43,17 @@ function Menu() {
         <h6>Servicios</h6>
         <MenuOptionsContainer>
           <MenuOption isMenuOpen={isMenuOpen}>
-            <img src={buildingIcon} alt="inmobiliaria" /> <span>Inmobiliaria</span>
+            <img src={buildingIcon} alt="inmobiliaria" />{' '}
+            <span>Inmobiliaria</span>
           </MenuOption>
-          <MenuOption isMenuOpen={isMenuOpen}>
-            <img src={securityIcon} alt="premium" /> <span>Premium</span>
+          <MenuOption
+            isMenuOpen={isMenuOpen}
+            onClick={() => {
+              navigate(`/${rootPaths.premiumRoot}`);
+            }}
+          >
+            <img src={securityIcon} alt="premium" />
+            <span>Premium</span>
           </MenuOption>
         </MenuOptionsContainer>
       </MenuSection>

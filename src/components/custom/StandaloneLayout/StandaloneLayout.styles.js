@@ -33,3 +33,86 @@ export const StandaloneNavigate = styled.div`
     border: 0px;
   }
 `;
+
+export const TextContainer = styled.div`
+  width: 100%;
+  max-width: 634px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+
+  h3 {
+    font-weight: 700;
+    font-size: 1.44rem;
+    color: black;
+    margin: 0px;
+  }
+
+  p {
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 122%;
+    text-align: center;
+    color: #424242;
+    margin: 0px;
+  }
+`;
+
+export const CardContainer = styled.div`
+  width: 100%;
+  max-width: 808px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+`;
+
+export const DataCard = styled.div`
+  cursor: pointer;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  padding: 24px;
+  background-color: #ffffff;
+  border: 1px solid #dbdbdb;
+  border-radius: 12px;
+
+  & > div:first-child {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    h4 {
+      font-weight: 400;
+      font-size: 1.19rem;
+      color: black;
+      margin: 0px;
+    }
+
+    img {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  p {
+    transition: all 0.2s ease;
+    display: ${({isActive}) => isActive ? "block" : "none"};
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 122%;
+    color: #424242;
+    margin: 0px;
+  }
+
+  &:hover {
+    background-color: #f9f9f9;
+  }
+`;

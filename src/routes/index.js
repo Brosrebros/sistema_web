@@ -209,6 +209,7 @@ import Salepage from 'pages/Salepage';
 import Loginpage from 'pages/Loginpage';
 import Registerpage from 'pages/Registerpage';
 import StandaloneLayout from 'components/custom/StandaloneLayout/StandaloneLayout';
+import Premiumpage from 'pages/Premiumpage';
 
 const routes = [
   {
@@ -1150,16 +1151,16 @@ const routes = [
           },
         ],
       },
-      // {
-      //   path: paths.premiumRoot,
-      //   element: <StandaloneLayout />,
-      //   children: [
-      //     {
-      //       index: true,
-      //       element: <Premiumpage />,
-      //     },
-      //   ],
-      // },
+      {
+        path: paths.premiumRoot,
+        element: <StandaloneLayout type="premium" />,
+        children: [
+          {
+            index: true,
+            element: <Premiumpage />,
+          },
+        ],
+      },
       {
         path: '/',
         element: <TopNavLayout />,
