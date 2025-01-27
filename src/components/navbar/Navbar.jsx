@@ -134,7 +134,7 @@ function Navbar({ type }) {
               variant="white"
               onClick={() => {
                 navigate(
-                  `/${rootPaths.authRoot}/${rootPaths.authSimpleRoot}/${rootPaths.loginRoot}`
+                  `/${rootPaths.authRoot}/${rootPaths.authSimpleRoot}/${rootPaths.registerRoot}`
                 );
               }}
             >
