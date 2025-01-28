@@ -66,7 +66,7 @@ function StandaloneLayout({ type }) {
           <StandaloneNavigate>
             <SecondaryCustomButton
               onClick={() => {
-                navigate(`/`);
+                navigate(-1);
               }}
             >
               <img src={arrowIcon} alt="arrow" />

@@ -33,7 +33,7 @@ function PaymentForm() {
       <h3>Método de pago</h3>
       <InputLabelContainer>
         <h4>Información de la tarjeta</h4>
-        <CustomInput placeholder={'1234 1234 1234 1234'} />
+        <CustomInput placeholder={'1234 1234 1234 1234'} card={true} />
         <CustomInput placeholder={'MM/AA'} />
         <CustomInput placeholder={'CVC'} />
       </InputLabelContainer>

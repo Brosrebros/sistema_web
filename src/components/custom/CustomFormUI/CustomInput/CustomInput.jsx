@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { CustomInputContainer, Input } from './CustomInputstyles';
 import eyeIcon from '../../../../assets/img/icons/eye.svg';
+import visaIcon from '../../../../assets/img/icons/Payment Icons.svg';
+import masterIcon from '../../../../assets/img/icons/Payment Icons-1.svg';
 
-function CustomInput({ placeholder, icon, type = 'text' }) {
+function CustomInput({ placeholder, icon, type = 'text', card }) {
   const [showPassword, setShowPassword] = useState(false);
 
   const handleShowPassword = () => {
@@ -30,6 +32,28 @@ function CustomInput({ placeholder, icon, type = 'text' }) {
           />
         )
       )}
+      {card ? (
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            gap: '8px',
+            marginLeft: 'auto',
+          }}
+        >
+          <img
+            src={visaIcon}
+            alt="visa"
+            style={{ width: '20px', height: '20px' }}
+          />
+          <img
+            src={masterIcon}
+            alt="visa"
+            style={{ width: '20px', height: '20px' }}
+          />
+        </div>
+      ) : null}
     </CustomInputContainer>
   );
 }
