@@ -109,10 +109,4 @@ export const CustomSelectWrapper = styled.div`
 
 export const CustomHiddenInput = styled.input`
   display: none;
-
-  & + svg {
-    position: absolute;
-    right: 12px;
-    top: 10px;
-  }
 `;

@@ -9,7 +9,7 @@ import {
 } from './PropertyForm.styles';
 import PrimaryCustomButton from '../CustomButtons/PrimaryCustomButton/PrimaryCustomButton';
 import SecondaryCustomButton from '../CustomButtons/SecondaryCustomButton/SecondaryCustomButton';
-import CustomInputText from '../CustomFormUI/CustomInput/CustomInput';
+import CustomInput from '../CustomFormUI/CustomInput/CustomInput';
 import CustomSelect from '../CustomSelect/CustomSelect';
 import mapaIcon from '../../../assets/img/icons/map.svg';
 import filterIcon from '../../../assets/img/icons/filter.svg';
@@ -80,7 +80,7 @@ function PropertyForm() {
         </SecondaryCustomButton>
       </FormButtonsContainer>
       <FormOptionsContainer>
-        <CustomInputText placeholder={'¿En dónde lo buscas?'} icon={lupaIcon} />
+        <CustomInput placeholder={'¿En dónde lo buscas?'} icon={lupaIcon} />
         <CustomSelect
           id="tipoPropiedad"
           name="tipoPropiedad"

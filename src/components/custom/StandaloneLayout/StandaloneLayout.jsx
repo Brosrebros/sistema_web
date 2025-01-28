@@ -108,6 +108,8 @@ function StandaloneLayout({ type }) {
             </StandaloneContainer>
             <Footer />
           </>
+        ) : type === 'payment' ? (
+          <Footer />
         ) : null}
       </StandaloneLayoutStyled>
     </>

@@ -210,6 +210,7 @@ import Loginpage from 'pages/Loginpage';
 import Registerpage from 'pages/Registerpage';
 import StandaloneLayout from 'components/custom/StandaloneLayout/StandaloneLayout';
 import Premiumpage from 'pages/Premiumpage';
+import Paymentpage from 'pages/Paymentpage';
 
 const routes = [
   {
@@ -1158,6 +1159,16 @@ const routes = [
           {
             index: true,
             element: <Premiumpage />,
+          },
+        ],
+      },
+      {
+        path: paths.paymentRoot,
+        element: <StandaloneLayout type="payment" />,
+        children: [
+          {
+            index: true,
+            element: <Paymentpage />,
           },
         ],
       },

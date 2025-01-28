@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from 'react';
-import PropTypes from 'prop-types';
 import {
   CustomSelectContainer,
   CustomSelectStyled,
@@ -79,28 +78,6 @@ const CustomSelect = ({
       </CustomSelectStyled>
     </CustomSelectContainer>
   );
-};
-
-CustomSelect.propTypes = {
-  options: PropTypes.arrayOf(
-    PropTypes.shape({
-      value: PropTypes.string.isRequired,
-      label: PropTypes.string.isRequired,
-    })
-  ).isRequired,
-  placeholder: PropTypes.string,
-  name: PropTypes.string.isRequired,
-  value: PropTypes.string,
-  onChange: PropTypes.func.isRequired,
-  background: PropTypes.string,
-  children: PropTypes.node,
-};
-
-CustomSelect.defaultProps = {
-  placeholder: 'Select an option',
-  value: '',
-  background: 'white',
-  children: null,
 };
 
 export default CustomSelect;

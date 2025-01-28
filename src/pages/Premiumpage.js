@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import PremiumCard from 'components/custom/PremiumCard/PremiumCard';
 import styled from 'styled-components';
 import PrimaryCustomButton from 'components/custom/CustomButtons/PrimaryCustomButton/PrimaryCustomButton';
+import { rootPaths } from 'routes/paths';
+import { useNavigate } from 'react-router-dom';
 
 const TitleContainer = styled.div`
   width: 100%;
@@ -173,6 +175,7 @@ const DetailsContainer = styled.div`
 
 function Premiumpage() {
   const [isActive, setIsActive] = useState('anual');
+  const navigate = useNavigate();
 
   const handleActiveButton = button => {
     setIsActive(button);
@@ -232,7 +235,13 @@ function Premiumpage() {
           <p>Facturación anual</p>
         </div>
         <div>
-          <PrimaryCustomButton>Actualizar y pagar</PrimaryCustomButton>
+          <PrimaryCustomButton
+            onClick={() => {
+              navigate(`/${rootPaths.premiumRoot}/${rootPaths.paymentRoot}`);
+            }}
+          >
+            Actualizar y pagar
+          </PrimaryCustomButton>
           <div>
             <p>
               Si te suscribes, aceptas los{' '}
