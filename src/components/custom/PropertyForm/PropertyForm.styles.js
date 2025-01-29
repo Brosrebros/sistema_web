@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const PropertyFormContainer = styled.div`
+export const PropertyFormContainer = styled.form`
   width: 100%;
   display: flex;
   flex-direction: column;

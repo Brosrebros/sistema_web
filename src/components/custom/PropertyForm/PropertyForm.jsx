@@ -16,13 +16,17 @@ import filterIcon from '../../../assets/img/icons/filter.svg';
 import lupaIcon from '../../../assets/img/icons/search-normal.svg';
 import lupaIconWhite from '../../../assets/img/icons/search-white.svg';
 import tipoIcon from '../../../assets/img/icons/signpost.svg';
-import budgetIcon from "../../../assets/img/icons/moneys.svg"
-import ordenIcon from "../../../assets/img/icons/sort.svg"
+import budgetIcon from '../../../assets/img/icons/moneys.svg';
+import ordenIcon from '../../../assets/img/icons/sort.svg';
 import { rootPaths } from 'routes/paths';
 import { useNavigate } from 'react-router-dom';
 
 function PropertyForm() {
   const [activeButton, setActiveButton] = useState('venta');
+  const [searchValue, setSearchValue] = useState('');
+  const [propertyType, setPropertyType] = useState('');
+  const [budget, setBudget] = useState('');
+  const [orderBy, setOrderBy] = useState('');
   const navigate = useNavigate();
 
   const propiedadOptions = [
@@ -80,31 +84,41 @@ function PropertyForm() {
         </SecondaryCustomButton>
       </FormButtonsContainer>
       <FormOptionsContainer>
-        <CustomInput placeholder={'¿En dónde lo buscas?'} icon={lupaIcon} />
+        <CustomInput
+          placeholder={'¿En dónde lo buscas?'}
+          icon={lupaIcon}
+          value={searchValue}
+          onChange={e => setSearchValue(e.target.value)}
+        />
         <CustomSelect
           id="tipoPropiedad"
           name="tipoPropiedad"
-          value="tipoPropiedad"
+          value={propertyType}
+          onChange={e => setPropertyType(e.target.value)}
           placeholder="Tipo de propiedad"
           options={propiedadOptions}
           background="form"
         >
           <img src={tipoIcon} width={'16px'} />
         </CustomSelect>
+
         <CustomSelect
           id="presupuesto"
           name="presupuesto"
-          value="presupuesto"
+          value={budget}
+          onChange={e => setBudget(e.target.value)}
           placeholder="Presupuesto"
           options={presupuestoOptions}
           background="form"
         >
           <img src={budgetIcon} width={'16px'} />
         </CustomSelect>
+
         <CustomSelect
           id="Ordenar por"
           name="Ordenar por"
-          value="Ordenar por"
+          value={orderBy}
+          onChange={e => setOrderBy(e.target.value)}
           placeholder="Ordenar por"
           options={ordenarPorOptions}
           background="form"
@@ -116,8 +130,18 @@ function PropertyForm() {
           Mas filtros
         </SecondaryCustomButton>
         <PrimaryCustomButton
+          disabled={!searchValue.trim()}
           onClick={() => {
-            navigate(`/${rootPaths.catalogRoot}`);
+            if (searchValue.trim()) {
+              const queryParams = new URLSearchParams();
+              queryParams.append('search', searchValue);
+              if (propertyType)
+                queryParams.append('propertyType', propertyType);
+              if (budget) queryParams.append('budget', budget);
+              if (orderBy) queryParams.append('orderBy', orderBy);
+
+              navigate(`/${rootPaths.catalogRoot}?${queryParams.toString()}`);
+            }
           }}
         >
           <img src={lupaIconWhite} alt="lupa" />

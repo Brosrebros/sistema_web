@@ -32,6 +32,29 @@ const Properties = ({ filterForm, setFilterForm, properties, title }) => {
   } = useAppContext();
   const coursesNavbarVerticalCollapsed = useRef(isNavbarVerticalCollapsed);
 
+  const filteredProperties = properties.filter(property => {
+    const { search, propertyType, budget, orderBy } = filterForm;
+
+    const matchesSearch = search
+      ? property.title.toLowerCase().includes(search.toLowerCase())
+      : true;
+
+    const matchesType = propertyType ? property.type === propertyType : true;
+
+    const matchesBudget = budget
+      ? property.price <= parseInt(budget, 10)
+      : true;
+
+    return matchesSearch && matchesType && matchesBudget;
+  });
+
+  const sortedProperties = [...filteredProperties].sort((a, b) => {
+    const { orderBy } = filterForm;
+    if (orderBy === 'Precio ascendente') return a.price - b.price;
+    if (orderBy === 'Precio descendente') return b.price - a.price;
+    return 0;
+  });
+
   const {
     paginationState: {
       data: paginatedCourses,
@@ -46,7 +69,7 @@ const Properties = ({ filterForm, setFilterForm, properties, title }) => {
     prevPage,
     goToPage,
     setItemsPerPage,
-  } = usePagination(properties, coursePerPage);
+  } = usePagination(sortedProperties, coursePerPage);
 
   const isList = layout === 'list';
   const isGrid = layout === 'grid';
@@ -93,8 +116,8 @@ const Properties = ({ filterForm, setFilterForm, properties, title }) => {
             style={{
               display: 'flex',
               flexDirection: 'column',
-              justifyContent: 'center',
-              alignItems: 'flex-start',
+              justifyContent: 'flex-start',
+              alignItems: 'center',
               gap: '24px',
             }}
           >
@@ -111,7 +134,7 @@ const Properties = ({ filterForm, setFilterForm, properties, title }) => {
               {paginatedCourses.length > 0 ? (
                 paginatedCourses.map(course =>
                   layout === 'list' ? (
-                    <CatalogCard property={course} />
+                    <CatalogCard key={course.id} property={course} />
                   ) : (
                     <Col key={course.id} md={6} xxl={4}>
                       <PropertyGrid property={course} />

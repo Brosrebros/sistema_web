@@ -8,14 +8,13 @@ import PropertyForm from 'components/custom/PropertyForm/PropertyForm';
 const Catalogpage = () => {
   const [searchParams] = useSearchParams();
   const initialState = Object.fromEntries([...searchParams]);
+
   const [filterForm, setFilterForm] = useState({
-    tipoOperacion: initialState.tipoOperacion ? initialState.tipoOperacion : '',
-    direccionCompleta: initialState.direccionCompleta
-      ? initialState.direccionCompleta
-      : '',
-    tipoPropiedad: initialState.tipoPropiedad ? initialState.tipoPropiedad : '',
-    presupuesto: initialState.presupuesto ? initialState.presupuesto : '',
-    ordenarPor: initialState.ordenarPor ? initialState.ordenarPor : '',
+    tipoOperacion: initialState.tipoOperacion || '',
+    direccionCompleta: initialState.direccionCompleta || '',
+    tipoPropiedad: initialState.tipoPropiedad || '',
+    presupuesto: initialState.presupuesto || '',
+    ordenarPor: initialState.ordenarPor || '',
     superficie: '',
     banos: '',
     estacionamientos: '',
@@ -27,7 +26,7 @@ const Catalogpage = () => {
     servicios: [],
   });
 
-  const { propertyState, filterBasic, unFilter } = usePropertyContext();
+  const { propertyState, filterBasic } = usePropertyContext();
   const [title, setTitle] = useState('');
   const propertyList = propertyState.filtering
     ? propertyState.filteredProperties
@@ -39,11 +38,7 @@ const Catalogpage = () => {
     for (let filterItem in filterForm) {
       if (filterForm[filterItem].length > 0) {
         cont++;
-        if (cont === 1) {
-          res += ' en ' + filterForm[filterItem];
-        } else {
-          res += ', en ' + filterForm[filterItem];
-        }
+        res += cont === 1 ? ` en ${filterForm[filterItem]}` : `, en ${filterForm[filterItem]}`;
       }
     }
     setTitle(res);
@@ -60,7 +55,7 @@ const Catalogpage = () => {
 
   return (
     <CustomPageLayout>
-      <PropertyForm />
+      <PropertyForm filterForm={filterForm} setFilterForm={setFilterForm} />
       <Properties
         filterForm={filterForm}
         setFilterForm={setFilterForm}
@@ -70,17 +65,5 @@ const Catalogpage = () => {
     </CustomPageLayout>
   );
 };
-
-{
-  /* <div>
-Propiedades
-{filterForm.tipoOperacion ? ` en ${filterForm.tipoOperacion}` : ''}{' '}
-{filterForm.direccionCompleta
-  ? `, en ${filterForm.direccionCompleta}`
-  : ''}{' '}
-{filterForm.tipoPropiedad ? `, desde ${filterForm.tipoPropiedad}` : ''}{' '}
-{filterForm.presupuesto ? `${filterForm.presupuesto}` : ''}{' '}
-</div> */
-}
 
 export default Catalogpage;

@@ -3,8 +3,14 @@ import { CustomInputContainer, Input } from './CustomInputstyles';
 import eyeIcon from '../../../../assets/img/icons/eye.svg';
 import visaIcon from '../../../../assets/img/icons/Payment Icons.svg';
 import masterIcon from '../../../../assets/img/icons/Payment Icons-1.svg';
-
-function CustomInput({ placeholder, icon, type = 'text', card }) {
+function CustomInput({
+  placeholder,
+  icon,
+  type = 'text',
+  card,
+  value,
+  onChange,
+}) {
   const [showPassword, setShowPassword] = useState(false);
 
   const handleShowPassword = () => {
@@ -17,13 +23,17 @@ function CustomInput({ placeholder, icon, type = 'text', card }) {
     <CustomInputContainer>
       {icon && <img src={icon} alt="icon" />}
       {type === 'password-hidden' ? null : (
-        <Input placeholder={placeholder} type={inputType} />
+        <Input
+          placeholder={placeholder}
+          type={inputType}
+          value={value} 
+          onChange={onChange}
+        />
       )}
-
       {type === 'password-hidden' ? (
         <Input placeholder={placeholder} type="password" />
       ) : (
-        (type === type) === 'password' && (
+        type === 'password' && (
           <img
             src={eyeIcon}
             alt="toggle password visibility"
