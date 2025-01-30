@@ -7,6 +7,14 @@ import PropertySlider from '../PropertySlider';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useMenu } from 'menuContext';
 import PropertyData from 'components/custom/PropertyData/PropertyData';
+import styled from 'styled-components';
+
+const CustomLayout = styled.div`
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 24px;
+`;
 
 const PropertyDetail = () => {
   const { isMenuOpen } = useMenu();
@@ -32,19 +40,15 @@ const PropertyDetail = () => {
 
   return (
     <>
-      <div>
-        {propertyState.property && (
-          <Row className="g-3">
-            <Col xl={6} xs={12}>
-              <PropertyDetailAdvertiser property={propertyState.property} />
-            </Col>
-            <Col xl={6} xs={12}>
-              {/* <PropertyDetailDescription property={propertyState.property} /> */}
-              <PropertyData property={propertyState.property}/>
-            </Col>
-          </Row>
-        )}
-      </div>
+      {propertyState.property && (
+        <CustomLayout>
+          <div style={{maxWidth:"760px"}}>
+            <PropertyDetailAdvertiser property={propertyState.property} />
+          </div>
+          
+          <PropertyData property={propertyState.property} />
+        </CustomLayout>
+      )}
 
       <PropertySlider
         slidesToShow={isMenuOpen ? 5.5 : 6.1}

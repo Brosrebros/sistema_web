@@ -4,6 +4,7 @@ export const SellerFormContainer = styled.div`
   width: 100%;
   display: grid;
   grid-template-columns: auto 1fr 1fr 1fr auto;
+  align-items: center;
   gap: 16px;
   padding: 16px;
   background-color: #ffffff;

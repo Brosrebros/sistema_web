@@ -5,6 +5,7 @@ import {
   NavbarLogoMenuContainer,
   NavbarOptionsContainer,
   NavbarButtonsContainer,
+  NavbarExtraButtonsContainer,
 } from './NavbarStyles';
 import { useState } from 'react';
 import CustomSelect from 'components/custom/CustomSelect/CustomSelect';
@@ -77,7 +78,14 @@ function Navbar({ type }) {
                 style={{ cursor: 'pointer' }}
               />
             </NavbarLogoMenuContainer>
-            <SecondaryCustomButton variant="white">Vendedores Inmobiliarios</SecondaryCustomButton>
+            <SecondaryCustomButton
+              variant="white"
+              onClick={() => {
+                navigate(`/${rootPaths.sellerRoot}`);
+              }}
+            >
+              Vendedores Inmobiliarios
+            </SecondaryCustomButton>
           </NavbarMainDataContainer>
           <NavbarOptionsContainer>
             <NavbarButtonsContainer>
@@ -119,27 +127,28 @@ function Navbar({ type }) {
                 <img src={notificationIcon} alt="lenguaje" />
               </SecondaryCustomButton>
             </NavbarButtonsContainer>
-
-            <PrimaryCustomButton
-              type="main"
-              onClick={() => {
-                navigate(
-                  `/${rootPaths.authRoot}/${rootPaths.authSimpleRoot}/${rootPaths.loginRoot}`
-                );
-              }}
-            >
-              Iniciar Sesión
-            </PrimaryCustomButton>
-            <SecondaryCustomButton
-              variant="white"
-              onClick={() => {
-                navigate(
-                  `/${rootPaths.authRoot}/${rootPaths.authSimpleRoot}/${rootPaths.registerRoot}`
-                );
-              }}
-            >
-              Registrarse
-            </SecondaryCustomButton>
+            <NavbarExtraButtonsContainer>
+              <PrimaryCustomButton
+                type="main"
+                onClick={() => {
+                  navigate(
+                    `/${rootPaths.authRoot}/${rootPaths.authSimpleRoot}/${rootPaths.loginRoot}`
+                  );
+                }}
+              >
+                Iniciar Sesión
+              </PrimaryCustomButton>
+              <SecondaryCustomButton
+                variant="white"
+                onClick={() => {
+                  navigate(
+                    `/${rootPaths.authRoot}/${rootPaths.authSimpleRoot}/${rootPaths.registerRoot}`
+                  );
+                }}
+              >
+                Registrarse
+              </SecondaryCustomButton>
+            </NavbarExtraButtonsContainer>
           </NavbarOptionsContainer>
         </>
       )}

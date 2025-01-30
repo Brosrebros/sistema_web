@@ -28,9 +28,7 @@ const LikeButton = styled.button`
 `;
 
 const CustomContainer = styled.div`
-  div {
-    margin-right: 12px;
-  }
+  margin-top: 12px;
 `;
 
 const PropertyDetailMedia = ({ imagenes: files }) => {
@@ -76,15 +74,11 @@ const PropertyDetailMedia = ({ imagenes: files }) => {
     speed: 500,
     slidesToShow: 4,
     slidesToScroll: 1,
-    initialSlide: 0,
-    centerMode: false,
+    initialSlide: 1,
   };
 
   return (
-    <div
-      className="position-relative overflow-hidden"
-      style={{ width: '100%', position: 'relative' }}
-    >
+    <div style={{ width: '100%' }}>
       <>
         {files.length === 1 && (
           <Image
@@ -215,31 +209,19 @@ const PropertyDetailMedia = ({ imagenes: files }) => {
         </div>
         <CustomListSlider {...miniSliderSettings}>
           {files.map(img => (
-            <CustomContainer>
-              <div
-                className="cursor-pointer"
+            <CustomContainer key={img}>
+              <img
+                className="fit-cover"
                 style={{
-                  display: 'flex',
-                  justifyContent: 'flex-start',
+                  width: '180px',
+                  height: '136px',
                   borderRadius: '10px',
-                  overflow: 'hidden',
-                  marginTop: '12px',
+                  marginRight: '120px',
                 }}
-              >
-                <img
-                  className="fit-cover"
-                  height={'110px'}
-                  style={{
-                    width: '100%',
-                    height: '136px',
-                    margin: '0px',
-                    borderRadius: '10px',
-                  }}
-                  src={img}
-                  alt="product media"
-                  onClick={() => handleImageClick(img)}
-                />
-              </div>
+                src={img}
+                alt="product media"
+                onClick={() => handleImageClick(img)}
+              />
             </CustomContainer>
           ))}
         </CustomListSlider>

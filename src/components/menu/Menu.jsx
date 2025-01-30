@@ -27,7 +27,9 @@ function Menu() {
   const { isMenuOpen } = useMenu();
 
   return (
-    <MenuContainer isMenuOpen={isMenuOpen}>
+    <MenuContainer
+      isMenuOpen={isMenuOpen}
+    >
       <MenuSection isMenuOpen={isMenuOpen}>
         <h6>Principal</h6>
         <MenuOptionsContainer>

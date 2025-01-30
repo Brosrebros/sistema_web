@@ -64,14 +64,20 @@ function PropertyForm() {
           <FormTab>
             <TabButtonStyled
               isActive={activeButton === 'venta'}
-              onClick={() => setActiveButton('venta')}
+              onClick={e => {
+                e.preventDefault();
+                setActiveButton('venta');
+              }}
             >
               Venta
             </TabButtonStyled>
 
             <TabButtonStyled
               isActive={activeButton === 'alquiler'}
-              onClick={() => setActiveButton('alquiler')}
+              onClick={e => {
+                e.preventDefault();
+                setActiveButton('alquiler');
+              }}
             >
               Alquiler
             </TabButtonStyled>
@@ -135,6 +141,7 @@ function PropertyForm() {
             if (searchValue.trim()) {
               const queryParams = new URLSearchParams();
               queryParams.append('search', searchValue);
+              queryParams.append('transactionType', activeButton);
               if (propertyType)
                 queryParams.append('propertyType', propertyType);
               if (budget) queryParams.append('budget', budget);

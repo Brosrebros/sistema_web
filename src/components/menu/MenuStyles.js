@@ -10,9 +10,10 @@ export const MenuContainer = styled.div`
   background-color: white;
   border-radius: 12px;
   position: sticky;
-  max-height: 870px;
-  top: 24px;
+  max-height: calc(100vh - 73px - 48px);
+  top: calc(73px + 24px);
   transition: width 0.2s ease;
+  z-index: 998;
 
   & > div:last-child {
     margin-top: auto;
@@ -22,6 +23,11 @@ export const MenuContainer = styled.div`
   & > div:nth-child(3) {
     border: none;
   }
+
+  &:hover {
+    width: 270px;
+  }
+
 `;
 
 export const MenuSection = styled.div`
@@ -39,7 +45,7 @@ export const MenuSection = styled.div`
   }
 
   h6 {
-    font-family: 'Aptos_display';
+    font-family: 'Aptos';
     font-size: 0.6875em;
     font-weight: normal;
     color: #424242;
@@ -59,9 +65,10 @@ export const MenuOptionsContainer = styled.div`
 `;
 
 export const MenuOption = styled.div`
-  width:${({ isMenuOpen }) => (isMenuOpen ? '100%' : '41px')};
+  width: ${({ isMenuOpen }) => (isMenuOpen ? '100%' : '41px')};
+  height: ${({ isMenuOpen }) => (isMenuOpen ? 'auto' : '41px')};
   display: flex;
-  justify-content: flex-start;
+  justify-content: ${({ isMenuOpen }) => (isMenuOpen ? 'flex-start' : 'center')};
   align-items: center;
   gap: 8px;
   padding: 12px;

@@ -44,6 +44,7 @@ export const rootPaths = {
   registerRoot: 'register',
   premiumRoot: 'premium',
   paymentRoot: 'payment',
+  sellerProfileRoot: 'profile',
 };
 
 export default {
@@ -57,6 +58,7 @@ export default {
   support: `/${rootPaths.supportRoot}`,
   sellerRoot: `/${rootPaths.sellerRoot}`,
   saleRoot: `/${rootPaths.saleRoot}`,
+  sellerProfileRoot: `/${rootPaths.sellerProfileRoot}`,
   loginRoot: `/${rootPaths.authRoot}/${rootPaths.authSimpleRoot}/${rootPaths.loginRoot}`,
   registerRoot: `/${rootPaths.authRoot}/${rootPaths.authSimpleRoot}/${rootPaths.registerRoot}`,
   premiumRoot: `/${rootPaths.premiumRoot}`,

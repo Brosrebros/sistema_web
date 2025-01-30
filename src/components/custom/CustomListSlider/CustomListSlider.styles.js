@@ -8,6 +8,14 @@ export const CustomListSliderStyled = styled(Slider)`
     height: 100%;
   }
 
+  .slick-slide {
+  padding: 0 8px; /* Espaciado horizontal entre los slides */
+}
+
+.slick-list {
+  margin: 0 -8px; /* Ajusta el margen externo para compensar el padding */
+}
+
   .slick-prev,
   .slick-next {
     background-color: #ffffff !important;

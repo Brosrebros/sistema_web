@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
 export const NavbarContainer = styled.nav`
+  position: sticky;
+  top: 0;
   width: 100%;
   height: auto;
   display: flex;
@@ -8,6 +10,7 @@ export const NavbarContainer = styled.nav`
   align-items: center;
   padding: 1em 24px;
   background-color: #ffffff;
+  z-index: 999;
 `;
 
 export const NavbarMainDataContainer = styled.div`
@@ -37,10 +40,6 @@ export const NavbarOptionsContainer = styled.div`
   justify-content: center;
   align-items: center;
   gap: 24px;
-
-  & > button:last-child {
-    color: #940000;
-  }
 `;
 
 export const NavbarButtonsContainer = styled.div`
@@ -51,5 +50,16 @@ export const NavbarButtonsContainer = styled.div`
 
   & > button:last-child {
     border: none;
+  }
+`;
+
+export const NavbarExtraButtonsContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  & > button:last-child {
+    color: #940000;
   }
 `;

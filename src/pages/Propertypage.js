@@ -12,14 +12,15 @@ const Propertypage = () => {
   } = usePropertyContext();
 
   useEffect(() => {
-    findPropertyById(propertyId);
-  }, [propertyId, findPropertyById]);  // Agregar propertyId como dependencia
+    if (!property || property.id !== propertyId) {
+      findPropertyById(propertyId);
+    }
+  }, [propertyId, property, findPropertyById])
 
   console.log(property);
 
   return (
     <CustomPageLayout>
-      {/* Solo renderiza el detalle si hay una propiedad cargada */}
       {property ? <PropertyDetail /> : <p>Cargando propiedad...</p>}
     </CustomPageLayout>
   );

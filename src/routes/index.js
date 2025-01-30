@@ -211,6 +211,7 @@ import Registerpage from 'pages/Registerpage';
 import StandaloneLayout from 'components/custom/StandaloneLayout/StandaloneLayout';
 import Premiumpage from 'pages/Premiumpage';
 import Paymentpage from 'pages/Paymentpage';
+import SellerProfilepage from 'pages/SellerProfilepage';
 
 const routes = [
   {
@@ -351,6 +352,10 @@ const routes = [
           {
             path: paths.saleRoot,
             element: <Salepage />,
+          },
+          {
+            path: paths.sellerProfileRoot,
+            element: <SellerProfilepage/>
           },
           {
             path: rootPaths.dashboardRoot,
