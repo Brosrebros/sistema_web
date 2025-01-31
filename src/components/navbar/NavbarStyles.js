@@ -47,7 +47,7 @@ export const NavbarButtonsContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 8px;
+  gap: 16px;
 
   & > button:last-child {
     border: none;
@@ -58,7 +58,7 @@ export const NavbarExtraButtonsContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10px;
+  gap: 16px;
 
   & > button:last-child {
     color: #940000;

@@ -26,6 +26,8 @@ const Properties = ({ filterForm, setFilterForm, properties, title }) => {
   const { breakpoints } = useBreakpoints();
   const [layout, setLayout] = useState('list');
 
+  console.log(properties)
+
   const {
     config: { isNavbarVerticalCollapsed },
     setConfig,

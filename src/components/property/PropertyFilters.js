@@ -20,6 +20,7 @@ import resetIcon from '../../assets/img/icons/reiniciar_blanco.svg';
 import CustomBadge from 'components/custom/CustomBadge/CustomBadge';
 import closeIcon from '../../assets/img/icons/Close_MD.svg';
 import filterIcon from '../../assets/img/icons/filter.svg';
+import arrowIcon from '../../assets/img/icons/arrow-down.svg';
 
 const PropertyFilters = ({
   filterForm,
@@ -347,11 +348,15 @@ const SurfaceFilter = () => {
         }}
       >
         <CustomSelect
-          options={options}
+          id="metros cuadrados"
+          name="metros cuadrados"
+          value="metros cuadrados"
           placeholder="M²"
-          name="surfaceType"
+          options={options}
           background="form"
-        />
+        >
+          <img src={arrowIcon} alt="arrow" />
+        </CustomSelect>
         <CustomInputNumber id="from" type="number" placeholder="Desde" />
         <CustomInputNumber id="to" type="number" placeholder="Hasta" />
       </div>

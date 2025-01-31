@@ -17,7 +17,7 @@ const CustomPageContainer = styled.div`
   align-items: center;
   gap: 24px;
   transition: all 0.2s ease;
-  margin: 24px 0px 0px 0px;
+  margin: 24px 0px;
 `;
 
 const MainLayout = () => {
