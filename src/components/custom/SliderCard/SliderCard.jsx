@@ -81,7 +81,7 @@ function SliderCard({ property, type }) {
           <span>Precio</span>
           <h4>S/. {precio.pen.toLocaleString('en-US')}</h4>
         </div>
-        <img src={placeholderImage} alt="inmobiliaria" />
+        <img src="" alt="" />
       </DataContainer>
 
       <span>
@@ -95,7 +95,7 @@ function SliderCard({ property, type }) {
         {type === 'property' ? (
           <>
             <CustomBadge color="gray">5 Habitaciones</CustomBadge>
-            <CustomBadge color="gray">{banos} Baños</CustomBadge>
+            <CustomBadge color="gray">4 Baños</CustomBadge> 
           </>
         ) : (
           <CustomBadge color="gray">Financiamiento Directo</CustomBadge>

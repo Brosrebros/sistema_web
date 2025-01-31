@@ -8,10 +8,9 @@ export const MenuContainer = styled.div`
   align-items: center;
   padding: 8px 0px;
   background-color: white;
-  border-radius: 12px;
   position: sticky;
-  max-height: calc(100vh - 73px - 48px);
-  top: calc(73px + 24px);
+  max-height: calc(100vh - 73px);
+  top: 73px;
   transition: width 0.2s ease;
   z-index: 998;
 
@@ -37,7 +36,7 @@ export const MenuSection = styled.div`
   justify-content: center;
   align-items: flex-start;
   gap: 16px;
-  padding: 16px 20px;
+  padding: 16px 24px;
   border-bottom: 1px solid #f2f2f2;
 
   &:last-child {

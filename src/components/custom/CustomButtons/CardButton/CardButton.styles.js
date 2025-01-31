@@ -9,12 +9,16 @@ export const CardButtonContainer = styled.div`
   padding: 24px;
   background-color: #ffffff;
   border-radius: 12px;
-  transition: all 0.2s ease;
-  border: 1px solid #DBDBDB;
+  transition: all 0.1s ease;
+  border: 1px solid #dbdbdb;
   cursor: pointer;
 
   &:hover {
-    filter: brightness(0.9);
+    background-color: #f9f9f9;
+  }
+
+  &:active {
+    background-color: #ececec;
   }
 
   svg {

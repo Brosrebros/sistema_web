@@ -97,7 +97,7 @@ function CatalogCard({ property }) {
             justifyContent: 'center',
             alignItems: 'center',
             position: 'absolute',
-            opacity: '0',
+            opacity: '1',
             top: '12px',
             right: '12px',
             padding: '12px',
@@ -115,6 +115,8 @@ function CatalogCard({ property }) {
         </div>
         <div
           style={{
+            width: '100px',
+            height: '44px',
             position: 'absolute',
             opacity: '0',
             bottom: '12px',
@@ -127,6 +129,7 @@ function CatalogCard({ property }) {
             margin: '0px',
             backgroundColor: 'white',
             borderRadius: '8px',
+            transition: 'all 0.1s ease',
           }}
         >
           <img src={cameraIcon} style={{ height: '20px', width: '20px' }} />
@@ -182,7 +185,7 @@ function CatalogCard({ property }) {
         </DataDescription>
 
         <OptionsContainer>
-          <img src={placeholder} alt="inmobiliaria" />
+          <img src="#" alt="" />
 
           <TagContainer>
             <PrimaryCustomButton>

@@ -24,7 +24,7 @@ export const CustomListSliderStyled = styled(Slider)`
     height: 41px;
     z-index: 2;
     opacity: 0 !important;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.1s ease;
     border: 1px solid #dbdbdb;
   }
 
@@ -51,7 +51,7 @@ export const CustomListSliderStyled = styled(Slider)`
   &:hover + div,
   &:hover + div + div {
     opacity: 1 !important;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.1s ease;
   }
 
   & + div:hover {

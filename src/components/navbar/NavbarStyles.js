@@ -16,15 +16,16 @@ export const NavbarContainer = styled.nav`
 export const NavbarMainDataContainer = styled.div`
   width: auto;
   display: grid;
-  grid-template-columns: 270px auto;
+  grid-template-columns: 246px auto;
   gap: 24px;
 `;
 
 export const NavbarLogoMenuContainer = styled.div`
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
-  gap: 24px;
+  padding-right: 24px;
+
   button {
     border: none;
   }

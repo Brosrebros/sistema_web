@@ -26,7 +26,7 @@ function CustomFooter() {
         }}
       >
         <TextContainer>
-          <h3>Suscríbete a nuestro newsletter</h3>
+          <h3>Suscríbete a nuestro boletín informativo</h3>
           <p>
             Recibe actualizaciones y ofertas exclusivas directamente en tu
             correo

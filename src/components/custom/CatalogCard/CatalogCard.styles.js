@@ -3,13 +3,29 @@ import { PrimaryCustomButtonStyled } from '../CustomButtons/PrimaryCustomButton/
 
 export const CatalogCardContainer = styled.div`
   width: 100%;
+  cursor: pointer;
   display: grid;
   grid-template-columns: 354px auto;
   gap: 22px;
   padding: 16px;
-  background-color: white;
+  background-color: #ffffff;
   border-radius: 12px;
   border: 1px solid #dbdbdb;
+  transition: all 0.1s ease;
+
+  &:hover {
+    background-color: #f9f9f9;
+  }
+
+  &:active {
+    background-color: #ececec;
+  }
+
+  &:hover > div:first-child > div:first-child > .slick-prev,
+  &:hover > div:first-child > div:first-child > .slick-next,
+  &:hover > div:first-child > div:first-child + div + div {
+    opacity: 1 !important;
+  }
 `;
 
 export const CatalogDataContainer = styled.div`
@@ -110,8 +126,10 @@ export const OptionsContainer = styled.div`
   align-items: center;
 
   & > img:first-child {
-    width: 94px;
-    height: auto;
+    width: 50px;
+    height: 50px;
+    border-radius: 200px;
+    background-color: #dbdbdb;
   }
 
   div {

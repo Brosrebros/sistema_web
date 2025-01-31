@@ -17,6 +17,7 @@ const CustomPageContainer = styled.div`
   align-items: center;
   gap: 24px;
   transition: all 0.2s ease;
+  margin: 24px 0px 0px 0px;
 `;
 
 const MainLayout = () => {
@@ -50,7 +51,7 @@ const MainLayout = () => {
               display: 'grid',
               gridTemplateColumns: isMenuOpen ? '270px minmax(0, 1fr)' : '73px minmax(0, 1fr)',
               gap: '24px',
-              padding: '24px',
+              padding: '0px 24px 0px 0px',
               position: 'relative',
               transition:"all 0.2s ease"
             }}

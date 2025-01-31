@@ -1,7 +1,9 @@
 import styled from 'styled-components';
 
 export const SliderCardContainer = styled.div`
-  max-width: 282px;
+  width: 100%;
+  width: 290px;
+  cursor: pointer;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -11,19 +13,27 @@ export const SliderCardContainer = styled.div`
   background-color: #ffffff;
   border-radius: 12px;
   overflow: hidden;
-  cursor: pointer;
   border: 1px solid #dbdbdb;
+  transition: all 0.1s ease;
 
   img {
     width: 100%;
     height: 100%;
     object-fit: cover;
   }
+
+  &:hover {
+    background-color: #f9f9f9;
+  }
+
+  &:active {
+    background-color: #ececec;
+  }
 `;
 
 export const ImageContainer = styled.div`
   width: 100%;
-  height: 183px;
+  height: 200px;
   border-radius: 12px;
   background-color: #c6c6c6;
   overflow: hidden;
@@ -67,10 +77,10 @@ export const DataContainer = styled(TagContainer)`
   }
 
   img {
-    width: 100%;
-    max-width: 81px;
-    height: 36px;
-    border-radius: 12px;
+    width: 50px;
+    height: 50px;
+    border-radius: 200px;
+    background-color: #dbdbdb;
   }
 
   & + span {
@@ -89,8 +99,8 @@ export const DataContainer = styled(TagContainer)`
 `;
 
 export const LikeButton = styled.button`
-  width: 35px;
-  height: 35px;
+  width: 41px;
+  height: 41px;
   display: flex;
   justify-content: center;
   align-items: center;
