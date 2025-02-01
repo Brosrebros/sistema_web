@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { FaCheck } from 'react-icons/fa6';
+import checkIcon from '../../../../assets/img/icons/check.svg';
 
 export const CustomLabelStyled = styled.label`
   width: 100%;
@@ -7,7 +7,7 @@ export const CustomLabelStyled = styled.label`
   align-items: center;
   gap: 4px;
   text-align: start;
-  color: rgb(46, 46, 46);
+  color: #424242;
   white-space: nowrap;
   text-overflow: ellipsis;
 
@@ -41,12 +41,14 @@ export const CustomLabelStyled = styled.label`
       border: 1px solid #dbdbdb;
 
       &::before {
-        content: '✓';
-        font-size: 12px;
-        color: white;
-        display: flex;
+        content: '';
+        display: block;
         width: 100%;
-        justify-content: center;
+        height: 100%;
+        background-image: url(${checkIcon});
+        background-size: 74%;
+        background-repeat: no-repeat;
+        background-position: center;
       }
     }
   }

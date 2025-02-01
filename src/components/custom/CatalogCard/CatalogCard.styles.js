@@ -48,7 +48,7 @@ export const TagContainer = styled.div`
     align-items: center;
     gap: 16px;
 
-    font-size: 0.6875em;
+    font-size: 0.81rem;
     font-weight: normal;
     color: #424242;
     line-height: 7px;
@@ -91,6 +91,13 @@ export const MainDataContainer = styled(CatalogDataContainer)`
     width: 15px;
     height: 15px;
   }
+
+  & > div:last-child {
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 117%;
+    color: #424242;
+  }
 `;
 
 export const DataDescription = styled(CatalogDataContainer)`
@@ -109,7 +116,7 @@ export const DataDescription = styled(CatalogDataContainer)`
     font-weight: normal;
     color: #424242;
     line-height: 107%;
-    max-width: 90ch;
+    max-width: 68ch;
     margin: 0px;
     display: -webkit-box;
     -webkit-line-clamp: 3;

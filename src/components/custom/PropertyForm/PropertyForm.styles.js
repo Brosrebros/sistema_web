@@ -110,6 +110,10 @@ export const TabButtonStyled = styled.button`
   line-height: 70%;
 
   &:hover {
-    filter: brightness(0.9);
+    background-color: ${props => (props.isActive ? '#A10000' : '#f2f2f2')};
+  }
+
+  &:active {
+    background-color: ${props => (props.isActive ? '#850000' : '#f2f2f2')};
   }
 `;

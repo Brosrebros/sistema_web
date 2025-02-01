@@ -12,7 +12,8 @@ export const CustomSelectContainer = styled.div`
   padding: 0 0 0 16px;
   gap: 8px;
   height: 41px;
-  transition: all 0.2s ease;
+  transition: all 0.1s ease;
+  position: relative;
 
   @media (max-width: 968px) {
     display: ${({ background }) => (background === 'form' ? 'flex' : 'none')};
@@ -25,29 +26,32 @@ export const CustomSelectContainer = styled.div`
 
   &:hover {
     background-color: ${({ background }) =>
-      background === 'form' ? '#c6c6c6' : '#760000'};
+      background === 'form' ? '#F9F9F9' : '#A10000'};
+  }
+
+  &:active {
+    background-color: ${({ background }) =>
+      background === 'form' ? '#ECECEC' : '#850000'};
   }
 `;
 
 export const CustomSelectStyled = styled.div`
-  position: relative;
   height: 100%;
   font-weight: lighter;
 `;
 
 export const CustomDropdown = styled.div`
-  padding: 12px;
+  padding: 12px 8px;
   position: absolute;
-  top: 100%;
   left: 0;
+  top: calc(41px + 8px);
   width: 100%;
   border-radius: 16px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  z-index: 1000;
-  min-width: 100px;
-  max-height: 200px;
+  z-index: 500;
+  max-height: 300px;
   overflow-y: auto;
   background-color: rgb(255, 255, 255);
+  border: 1px solid #dbdbdb;
 
   p {
     font-size: 0.75em;
@@ -55,6 +59,44 @@ export const CustomDropdown = styled.div`
     font-weight: 600;
     display: block;
     margin-bottom: 12px;
+  }
+
+  /* ===== Scrollbar personalizado para WebKit (Chrome, Safari, Edge) ===== */
+  &::-webkit-scrollbar {
+    width: 8px; /* Ancho del scrollbar */
+    border-radius: 10px; /* Bordes redondeados generales */
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #c3c3c3; /* Color del fondo del scrollbar */
+    border-radius: 10px; /* Bordes redondeados en el track */
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #424242; /* Color del "thumb" (barra que se arrastra) */
+    border-radius: 10px; /* Bordes redondeados en el thumb */
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: #2c2c2c; /* Color cuando el usuario pasa el mouse */
+  }
+
+  /* Ocultar flechas del scrollbar en WebKit */
+  &::-webkit-scrollbar-button {
+    display: none;
+    width: 0;
+    height: 0;
+    background: transparent;
+  }
+
+  /* ===== Scrollbar personalizado para Firefox ===== */
+  scrollbar-width: thin; /* Hace que el scrollbar sea más delgado */
+  scrollbar-color: #424242 #c3c3c3; /* thumb (drag) y track (fondo) */
+
+  /* Firefox no permite border-radius directamente, pero este truco ayuda */
+  & {
+    scrollbar-arrow-color: transparent; /* En versiones antiguas */
+    scrollbar-width: thin;
   }
 `;
 

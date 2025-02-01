@@ -23,7 +23,11 @@ export const PrimaryCustomButtonStyled = styled.button`
   line-height: 100%;
 
   &:hover {
-    filter: brightness(70%);
+    background-color: #A10000;
+  }
+
+  &:active {
+    background-color: #850000;
   }
 
   img {

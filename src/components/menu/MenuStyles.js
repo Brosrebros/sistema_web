@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const MenuContainer = styled.div`
-  width: ${({ isMenuOpen }) => (isMenuOpen ? '270px' : '73px')};
+  width: ${({ isMenuOpen }) => (isMenuOpen ? '270px' : '100px')};
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -23,10 +23,6 @@ export const MenuContainer = styled.div`
     border: none;
   }
 
-  &:hover {
-    width: 270px;
-  }
-
 `;
 
 export const MenuSection = styled.div`
@@ -45,7 +41,7 @@ export const MenuSection = styled.div`
 
   h6 {
     font-family: 'Aptos';
-    font-size: 0.6875em;
+    font-size: 0.81rem;
     font-weight: normal;
     color: #424242;
     line-height: 64%;

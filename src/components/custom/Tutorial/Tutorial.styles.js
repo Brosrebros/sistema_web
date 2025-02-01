@@ -25,6 +25,7 @@ export const TutorialContainer = styled.div`
       color: black;
       margin: 0px;
       line-height: 70%;
+      font-family: 'Aptos';
     }
 
     p {
@@ -34,6 +35,7 @@ export const TutorialContainer = styled.div`
       color: #424242;
       margin: 0px;
       line-height: 110%;
+      font-family: 'Aptos';
     }
   }
 
@@ -73,6 +75,7 @@ export const TutorialContainer = styled.div`
           color: black;
           line-height: 70%;
           margin: 0px;
+          font-family: 'Aptos';
         }
 
         p {
@@ -82,6 +85,7 @@ export const TutorialContainer = styled.div`
           color: #424242;
           margin: 0px;
           line-height: 110%;
+          font-family: 'Aptos';
         }
       }
     }
@@ -115,7 +119,7 @@ export const Option = styled.button`
   width: 100%;
   height: 41px;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   background-color: ${props => (props.active ? '#940000' : '#f2f2f2')};
   border-radius: 12px;
@@ -123,6 +127,7 @@ export const Option = styled.button`
   outline: none;
   padding: 12px 16px;
 
+  font-family: 'Aptos';
   font-weight: bold;
   font-size: 1rem;
   color: ${props => (props.active ? '#ffffff' : '#424242')};
@@ -131,11 +136,16 @@ export const Option = styled.button`
   text-align: center;
 
   &:hover {
-    filter: brightness(0.9);
+    background-color: ${props => (props.active ? '#A10000' : '#F9F9F9')};
+  }
+
+  &:active {
+    background-color: ${props => (props.active ? '#850000' : '#ECECEC')};
   }
 `;
 
 export const OptionDot = styled(Option)`
+  justify-content: center;
   width: 41px;
   height: 41px;
   border-radius: 100px;

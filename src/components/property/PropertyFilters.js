@@ -1,13 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import SimpleBar from 'simplebar-react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Button, Card } from 'react-bootstrap';
-// import { slugifyText } from 'helpers/utils';
+import { Button } from 'react-bootstrap';
 import Flex from 'components/common/Flex';
-import SubtleBadge from 'components/common/SubtleBadge';
-// import { usePropertyContext } from 'providers/PropertyProvider';
-import { HiOutlineFilter } from 'react-icons/hi';
 import PrimaryCustomButton from 'components/custom/CustomButtons/PrimaryCustomButton/PrimaryCustomButton';
 import CustomSelect from 'components/custom/CustomSelect/CustomSelect';
 import addIcon from '../../assets/img/icons/add.svg';
@@ -16,11 +11,12 @@ import CustomLabel from 'components/custom/CustomFormUI/CustomLabel/CustomLabel'
 import CustomCounter from 'components/custom/CustomFormUI/CustomCounter/CustomCounter';
 import CustomFilter from 'components/custom/CustomFormUI/CustomFilter/CustomFilter';
 import CustomInputNumber from 'components/custom/CustomFormUI/CustomInputNumber/CustomInputNumber';
-import resetIcon from '../../assets/img/icons/reiniciar_blanco.svg';
+import resetIcon from '../../assets/img/icons/refresh-2.svg';
 import CustomBadge from 'components/custom/CustomBadge/CustomBadge';
 import closeIcon from '../../assets/img/icons/Close_MD.svg';
 import filterIcon from '../../assets/img/icons/filter.svg';
 import arrowIcon from '../../assets/img/icons/arrow-down.svg';
+import styled from 'styled-components';
 
 const PropertyFilters = ({
   filterForm,
@@ -310,6 +306,35 @@ PropertyFilters.propTypes = {
   isOffcanvas: PropTypes.bool,
 };
 
+const SurfaceContainer = styled.div`
+  width: 100%;
+  display: grid;
+  grid-template-columns: 83px auto auto;
+  margin-top: 0.6em;
+  gap: 12px;
+
+  & > div:first-child {
+    position: relative;
+    width: 83px !important;
+
+    img {
+      position: absolute;
+      right: 16px;
+      z-index: 1;
+    }
+
+    img + div {
+      width: 80%;
+      position: absolute;
+      left: 16px;
+      z-index: 2;
+    }
+
+    svg {
+      display: none;
+    }
+  }
+`;
 const SurfaceFilter = () => {
   const options = [
     { value: 'M2', label: 'M2' },
@@ -339,14 +364,7 @@ const SurfaceFilter = () => {
           Total
         </CustomLabel>
       </div>
-      <div
-        style={{
-          width: '100%',
-          display: 'flex',
-          marginTop: '.6em',
-          gap: '12px',
-        }}
-      >
+      <SurfaceContainer>
         <CustomSelect
           id="metros cuadrados"
           name="metros cuadrados"
@@ -359,7 +377,7 @@ const SurfaceFilter = () => {
         </CustomSelect>
         <CustomInputNumber id="from" type="number" placeholder="Desde" />
         <CustomInputNumber id="to" type="number" placeholder="Hasta" />
-      </div>
+      </SurfaceContainer>
     </div>
   );
 };

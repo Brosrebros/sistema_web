@@ -2,10 +2,11 @@ import styled from 'styled-components';
 
 export const CustomCounterStyled = styled.div`
   width: 100%;
+  height: 41px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-radius: 0.6rem;
+  border-radius: 12px;
   background-color: #f2f2f2;
   padding: 6px;
   gap: 12px;
@@ -21,6 +22,8 @@ export const CustomCounterStyled = styled.div`
     padding: 0px;
 
     img {
+      width: 24px;
+      height: 24px;
       transition: all 0.2s ease;
       &:hover {
         filter: brightness(0.9);

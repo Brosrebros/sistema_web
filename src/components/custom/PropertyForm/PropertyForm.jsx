@@ -18,6 +18,7 @@ import lupaIconWhite from '../../../assets/img/icons/search-white.svg';
 import tipoIcon from '../../../assets/img/icons/signpost.svg';
 import budgetIcon from '../../../assets/img/icons/moneys.svg';
 import ordenIcon from '../../../assets/img/icons/sort.svg';
+import pinIcon from '../../../assets/img/icons/location.svg';
 import { rootPaths } from 'routes/paths';
 import { useNavigate } from 'react-router-dom';
 
@@ -92,7 +93,7 @@ function PropertyForm() {
       <FormOptionsContainer>
         <CustomInput
           placeholder={'¿En dónde lo buscas?'}
-          icon={lupaIcon}
+          icon={pinIcon}
           value={searchValue}
           onChange={e => setSearchValue(e.target.value)}
         />

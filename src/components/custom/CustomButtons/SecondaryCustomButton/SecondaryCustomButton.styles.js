@@ -11,7 +11,11 @@ export const SecondaryCustomButtonStyled = styled.button`
   border: none;
   outline: none;
   background-color: ${({ variant }) =>
-    variant === 'white' ? '#ffffff' : variant === "gray" ? "#f2f2f2" : "#ffffff"};
+    variant === 'white'
+      ? '#ffffff'
+      : variant === 'gray'
+      ? '#f2f2f2'
+      : '#ffffff'};
   border-radius: 12px;
   padding: 12px 16px;
   transition: all 0.2s ease;
@@ -37,7 +41,21 @@ export const SecondaryCustomButtonStyled = styled.button`
   }
 
   &:hover {
-    filter: brightness(90%);
+    background-color: ${({ variant }) =>
+      variant === 'white'
+        ? '#F9F9F9'
+        : variant === 'gray'
+        ? '#f2f2f2'
+        : '#F9F9F9'};
+  }
+
+  &:active {
+    background-color: ${({ variant }) =>
+      variant === 'white'
+        ? '#ECECEC'
+        : variant === 'gray'
+        ? '#f2f2f2'
+        : '#ECECEC'};
   }
 
   img {

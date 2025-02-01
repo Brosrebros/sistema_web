@@ -8,7 +8,7 @@ export const PropertyAdvertiserContainer = styled.div`
   justify-content: center;
   align-items: flex-start;
   gap: 24px;
-  padding: 20px;
+  padding: 24px;
   background-color: white;
   border-radius: 12px;
 
@@ -33,7 +33,7 @@ export const AdvertiserOptions = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   gap: 12px;
 
   & > div:first-child {
@@ -56,7 +56,7 @@ export const AdvertiserOptions = styled.div`
       align-items: flex-start;
       gap: 12px;
 
-      h4 {
+      h3 {
         font-weight: 700;
         font-size: 1.44rem;
         color: black;
@@ -146,10 +146,11 @@ export const Option = styled.button`
   gap: 8px;
   border: none;
   outline: none;
-  background-color: ${({ isSelected }) => (isSelected ? '#940000' : '#f2f2f2')};
+  background-color: ${({ isSelected }) => (isSelected ? '#940000' : '#ffffff')};
   border-radius: 12px;
   padding: 12px 16px;
   transition: all 0.2s ease;
+  border: 1px solid ${({ isSelected }) => (isSelected ? '#940000' : '#C3C3C3')};
 
   /* Fuente */
   font-size: 1em;
@@ -159,7 +160,11 @@ export const Option = styled.button`
   line-height: 100%;
 
   &:hover {
-    filter: brightness(0.9);
+    background-color: ${({ isSelected }) => (isSelected ? '#A10000' : '#F9F9F9')};
+  }
+
+  &:active {
+    background-color: ${({ isSelected }) => (isSelected ? '#850000' : '#ECECEC')};
   }
 `;
 

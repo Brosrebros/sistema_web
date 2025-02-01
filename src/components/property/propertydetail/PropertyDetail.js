@@ -42,7 +42,7 @@ const PropertyDetail = () => {
     <>
       {propertyState.property && (
         <CustomLayout>
-          <div style={{maxWidth:"760px"}}>
+          <div style={{maxWidth:"770px"}}>
             <PropertyDetailAdvertiser property={propertyState.property} />
           </div>
           

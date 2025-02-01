@@ -22,7 +22,7 @@ function HomeBanner({ type }) {
             gap: '20px',
           }}
         >
-          <h1>HABILITACIÓN URBANA “SANTA MARIA”</h1>
+          <h2>HABILITACIÓN URBANA “SANTA MARIA”</h2>
 
           <p>
             Se encuentra estratégicamente ubicado en el corazón del circuito

@@ -35,7 +35,11 @@ const CustomSelect = ({
 
   useEffect(() => {
     const handleClickOutside = event => {
-      if (selectRef.current && !selectRef.current.contains(event.target)) {
+      if (
+        selectRef.current &&
+        !selectRef.current.contains(event.target) &&
+        !event.target.closest('.custom-dropdown') // Evita cerrar si el clic es en el dropdown
+      ) {
         setIsOpen(false);
       }
     };
@@ -57,25 +61,22 @@ const CustomSelect = ({
       <CustomSelectStyled ref={selectRef}>
         <CustomSelectWrapper onClick={toggleDropdown} background={background}>
           <span>{selectedLabel}</span>
-          <IoIosArrowDown background={background}/>
+          <IoIosArrowDown background={background} />
         </CustomSelectWrapper>
-
-        {isOpen && (
-          <CustomDropdown>
-            <p>{placeholder}</p>
-            {options.map(option => (
-              <CustomOption
-                key={option.value}
-                onClick={() => handleOptionSelect(option.value)}
-              >
-                <span background={background}>{option.label}</span>
-              </CustomOption>
-            ))}
-          </CustomDropdown>
-        )}
-
         <CustomHiddenInput type="hidden" name={name} value={selectedValue} />
       </CustomSelectStyled>
+      {isOpen && (
+        <CustomDropdown className="custom-dropdown">
+          {options.map(option => (
+            <CustomOption
+              key={option.value}
+              onClick={() => handleOptionSelect(option.value)}
+            >
+              <span background={background}>{option.label}</span>
+            </CustomOption>
+          ))}
+        </CustomDropdown>
+      )}
     </CustomSelectContainer>
   );
 };

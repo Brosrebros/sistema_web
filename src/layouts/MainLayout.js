@@ -49,7 +49,7 @@ const MainLayout = () => {
             style={{
               width: '100%',
               display: 'grid',
-              gridTemplateColumns: isMenuOpen ? '270px minmax(0, 1fr)' : '73px minmax(0, 1fr)',
+              gridTemplateColumns: isMenuOpen ? '270px minmax(0, 1fr)' : '100px minmax(0, 1fr)',
               gap: '24px',
               padding: '0px 24px 0px 0px',
               position: 'relative',

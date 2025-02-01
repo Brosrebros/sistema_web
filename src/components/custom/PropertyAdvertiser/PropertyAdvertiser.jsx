@@ -27,13 +27,15 @@ function PropertyAdvertiser() {
 
   return (
     <PropertyAdvertiserContainer>
+      <h4>Información del anunciante</h4>
+
       <AdvertiserDataContainer>
         <AdvertiserOptions>
           <div>
             <img src="#" alt="advertiser" />
 
             <div>
-              <h4>Sanchez Real State</h4>
+              <h3>Sanchez Real State</h3>
               <CustomBadge color="turquoise">Inmobiliaria</CustomBadge>
             </div>
           </div>

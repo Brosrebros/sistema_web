@@ -56,7 +56,7 @@ export const TagDateContainer = styled.div`
 
     h6 {
       font-weight: 400;
-      font-size: 0.69rem;
+      font-size: 0.81rem;
       color: #424242;
       margin: 0px;
 
@@ -105,8 +105,8 @@ export const MainDataContainer = styled.div`
   p {
     max-width: 80ch;
     font-weight: 400;
-    font-size: 0.8125rem;
-    color: black;
+    font-size: 1rem;
+    color: #424242;
     margin: 0px;
   }
 `;

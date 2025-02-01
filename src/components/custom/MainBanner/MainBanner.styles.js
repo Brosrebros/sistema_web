@@ -12,8 +12,8 @@ export const Banner = styled.div`
   background-color: #c6c6c6;
   border-radius: 12px;
 
-  h1 {
-    font-size: 1.4375em;
+  h2 {
+    font-size: 1.75rem;
     font-weight: bolder;
     font-family: 'Aptos_display';
     color: black;
@@ -26,7 +26,7 @@ export const Banner = styled.div`
     font-weight: normal;
     font-family: 'Aptos_display';
     color: #424242;
-    max-width: 320px;
+    max-width: 55ch;
     margin: 0px;
     line-height: 120%;
   }

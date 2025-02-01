@@ -3,6 +3,7 @@ import {
   FilterGroupContainer,
   FilterGroupTitle,
   FilterGroupOptions,
+  CustomSeeMoreButton,
 } from './CustomFilter.styles';
 import CustomLabel from '../CustomLabel/CustomLabel';
 import arrowUp from '../../../../assets/img/icons/arrow-up.svg';
@@ -50,34 +51,20 @@ function CustomFilter({
         ))}
       </FilterGroupOptions>
       {options.length > 6 && (
-        <p
-          style={{
-            color: '#424242',
-            fontSize: '1rem',
-            fontWeight: 'normal',
-            cursor: 'pointer',
-            display: 'flex',
-            justifyContent: 'flex-end',
-            alignItems: 'center',
-            gap: '8px',
-          }}
-          onClick={handleToggleVisibility}
-        >
+        <CustomSeeMoreButton onClick={handleToggleVisibility}>
           {isExpanded ? (
             <img
               src={arrowUp}
               alt="arrow-up"
-              style={{ width: '20px', height: '20px' }}
             />
           ) : (
             <img
               src={arrowDown}
               alt="arrow-down"
-              style={{ width: '20px', height: '20px' }}
             />
           )}
           {isExpanded ? 'Ver menos' : 'Ver todo'}
-        </p>
+        </CustomSeeMoreButton>
       )}
     </FilterGroupContainer>
   );

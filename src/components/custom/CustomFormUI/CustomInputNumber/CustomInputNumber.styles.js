@@ -31,6 +31,6 @@ export const CustomInputNumberStyled = styled.input`
   }
 
   &::placeholder {
-    color: #AAAAAA;
+    color: #424242;
   }
 `;

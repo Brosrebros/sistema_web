@@ -85,11 +85,12 @@ export const DataContainer = styled(TagContainer)`
 
   & + span {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     gap: 4px;
+    width: 300px;
 
-    font-size: 11px;
+    font-size: 0.81rem;
     font-weight: normal;
     font-family: 'Aptos';
     color: #424242;
