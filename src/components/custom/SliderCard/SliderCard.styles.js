@@ -41,17 +41,21 @@ export const ImageContainer = styled.div`
 `;
 
 export const TagContainer = styled.div`
-  width: 290px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  justify-content: space-between;
   align-items: center;
-  gap: 8px;
+  gap: 7px;
 
   font-size: 0.8125em;
   font-weight: normal;
   font-family: 'Aptos';
   color: #424242;
+
+  & + div {
+    display: flex;
+    justify-content: space-between;
+  }
 `;
 
 export const DataContainer = styled(TagContainer)`
@@ -93,7 +97,7 @@ export const DataContainer = styled(TagContainer)`
     font-size: 0.81rem;
     font-weight: normal;
     font-family: 'Aptos';
-    color: #424242;
+    color: #717171;
     margin: 0px;
     line-height: 70%;
   }

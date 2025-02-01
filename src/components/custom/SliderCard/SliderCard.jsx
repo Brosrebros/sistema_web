@@ -10,8 +10,8 @@ import {
 import CustomBadge from '../CustomBadge/CustomBadge';
 import { LuMapPin } from 'react-icons/lu';
 import { rootPaths } from 'routes/paths';
-import heartIcon from "../../../assets/img/icons/heart.svg"
-import heartIconBold from "../../../assets/img/icons/heart-bold.svg"
+import heartIcon from '../../../assets/img/icons/heart.svg';
+import heartIconBold from '../../../assets/img/icons/heart-bold.svg';
 import { useNavigate } from 'react-router-dom';
 import placeholderImage from '../../../assets/img/placeholder-image.png';
 
@@ -94,8 +94,8 @@ function SliderCard({ property, type }) {
 
         {type === 'property' ? (
           <>
-            <CustomBadge color="gray">5 Habitaciones</CustomBadge>
-            <CustomBadge color="gray">4 Baños</CustomBadge> 
+            <CustomBadge color="gray">4 Baños</CustomBadge>
+            <CustomBadge color="gray">5 Dormitorios</CustomBadge>
           </>
         ) : (
           <CustomBadge color="gray">Financiamiento Directo</CustomBadge>

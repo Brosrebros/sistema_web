@@ -6,7 +6,6 @@ import {
   MainDataContainer,
   DataDescription,
   OptionsContainer,
-  WtspButton,
 } from './CatalogCard.styles';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -14,12 +13,9 @@ import CustomListSlider from '../CustomListSlider/CustomListSlider';
 import CustomBadge from '../CustomBadge/CustomBadge';
 import pinIcon from '../../../assets/img/icons/location.svg';
 import cameraIcon from '../../../assets/img/icons/camera.svg';
-import placeholder from '../../../assets/img/placeholder-image.png';
 import { rootPaths } from 'routes/paths';
 import { useMenu } from 'menuContext';
 import callIcon from '../../../assets/img/icons/call.svg';
-import wtspIcon from '../../../assets/img/icons/whatsapp.svg';
-import smsIcon from '../../../assets/img/icons/sms.svg';
 import heartIcon from '../../../assets/img/icons/heart.svg';
 import heartIconBold from '../../../assets/img/icons/heart-bold.svg';
 import PrimaryCustomButton from '../CustomButtons/PrimaryCustomButton/PrimaryCustomButton';
@@ -64,7 +60,7 @@ function CatalogCard({ property }) {
       <div
         onClick={e => e.stopPropagation()}
         style={{
-          height: '282px',
+          height: '100%',
           borderRadius: '12px',
           overflow: 'hidden',
           position: 'relative',
@@ -187,19 +183,10 @@ function CatalogCard({ property }) {
         <OptionsContainer>
           <img src="#" alt="" />
 
-          <TagContainer>
-            <PrimaryCustomButton>
-              <img src={callIcon} alt="call" />
-            </PrimaryCustomButton>
-            <WtspButton>
-              <img src={wtspIcon} alt="whatsapp" />
-              Whatsapp
-            </WtspButton>
-            <PrimaryCustomButton>
-              <img src={smsIcon} alt="sms" />
-              Contactar
-            </PrimaryCustomButton>
-          </TagContainer>
+          <PrimaryCustomButton>
+            <img src={callIcon} alt="sms" />
+            Contactar
+          </PrimaryCustomButton>
         </OptionsContainer>
       </CatalogDataContainer>
     </CatalogCardContainer>

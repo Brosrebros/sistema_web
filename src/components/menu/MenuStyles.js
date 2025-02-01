@@ -16,13 +16,12 @@ export const MenuContainer = styled.div`
 
   & > div:last-child {
     margin-top: auto;
-    border-top: 1px solid #f2f2f2;
+    border-top: 1px solid #C3C3C3;
   }
 
   & > div:nth-child(3) {
     border: none;
   }
-
 `;
 
 export const MenuSection = styled.div`
@@ -33,7 +32,7 @@ export const MenuSection = styled.div`
   align-items: flex-start;
   gap: 16px;
   padding: 16px 24px;
-  border-bottom: 1px solid #f2f2f2;
+  border-bottom: 1px solid #C3C3C3;
 
   &:last-child {
     border: none;
@@ -43,7 +42,7 @@ export const MenuSection = styled.div`
     font-family: 'Aptos';
     font-size: 0.81rem;
     font-weight: normal;
-    color: #424242;
+    color: #717171;
     line-height: 64%;
     margin: 0px;
     display: ${({ isMenuOpen }) => (isMenuOpen ? 'block' : 'none')};
@@ -63,7 +62,8 @@ export const MenuOption = styled.div`
   width: ${({ isMenuOpen }) => (isMenuOpen ? '100%' : '41px')};
   height: ${({ isMenuOpen }) => (isMenuOpen ? 'auto' : '41px')};
   display: flex;
-  justify-content: ${({ isMenuOpen }) => (isMenuOpen ? 'flex-start' : 'center')};
+  justify-content: ${({ isMenuOpen }) =>
+    isMenuOpen ? 'flex-start' : 'center'};
   align-items: center;
   gap: 8px;
   padding: 12px;

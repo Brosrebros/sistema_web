@@ -16,7 +16,7 @@ import clockIcon from '../../../assets/img/icons/clock.svg';
 import checkedIcon from '../../../assets/img/icons/ph_seal-check-fill.svg';
 import heartIcon from '../../../assets/img/icons/heart.svg';
 import heartIconBold from '../../../assets/img/icons/heart-bold.svg';
-import smsIcon from '../../../assets/img/icons/sms.svg';
+import callIcon from '../../../assets/img/icons/call.svg';
 
 function SellerCard() {
 const [isFavourite, setIsFavourite] = useState(false);
@@ -87,7 +87,7 @@ const handleFavourite = () => {
           </CircleButton>
 
           <PrimaryCustomButton>
-            <img src={smsIcon} alt="sms" />
+            <img src={callIcon} alt="sms" />
             Contactar
           </PrimaryCustomButton>
         </div>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import SecondaryCustomButton from '../CustomButtons/SecondaryCustomButton/SecondaryCustomButton';
 import {
   PaginationContainer,
@@ -21,6 +21,14 @@ function Pagination({
   onPageChange,
   onItemsPerPageChange,
 }) {
+  const [selectedItemsPerPage, setSelectedItemsPerPage] = useState(
+    itemsPerPageOptions[0]
+  );
+
+  useEffect(() => {
+    onItemsPerPageChange(selectedItemsPerPage);
+  }, [selectedItemsPerPage, onItemsPerPageChange]);
+
   return (
     <PaginationContainer>
       {/* Selector de artículos por página */}
@@ -28,11 +36,10 @@ function Pagination({
         {itemsPerPageOptions.map(option => (
           <SecondaryCustomButton
             key={option}
-            variant={itemsPerPage === option ? 'white' : 'gray'}
-            onClick={() => onItemsPerPageChange(option)}
+            variant={selectedItemsPerPage === option ? 'white' : 'gray'}
+            onClick={() => setSelectedItemsPerPage(option)}
           >
-            {option} {' '}
-            {itemsPerPage === option ? 'Artículos' : null}
+            {option} {selectedItemsPerPage === option ? 'Artículos' : null}
           </SecondaryCustomButton>
         ))}
       </NumberSelector>

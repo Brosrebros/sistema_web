@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, useMemo } from 'react';
 import { Card, Col, Offcanvas } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import usePagination from 'hooks/usePagination';
@@ -26,36 +26,35 @@ const Properties = ({ filterForm, setFilterForm, properties, title }) => {
   const { breakpoints } = useBreakpoints();
   const [layout, setLayout] = useState('list');
 
-  console.log(properties)
-
   const {
     config: { isNavbarVerticalCollapsed },
     setConfig,
   } = useAppContext();
   const coursesNavbarVerticalCollapsed = useRef(isNavbarVerticalCollapsed);
 
-  const filteredProperties = properties.filter(property => {
-    const { search, propertyType, budget, orderBy } = filterForm;
+  const memoizedProperties = useMemo(() => properties, [properties]);
 
-    const matchesSearch = search
-      ? property.title.toLowerCase().includes(search.toLowerCase())
-      : true;
+  const filteredProperties = useMemo(() => {
+    return memoizedProperties.filter(property => {
+      const { search, propertyType, budget } = filterForm;
+      const matchesSearch = search
+        ? property.title.toLowerCase().includes(search.toLowerCase())
+        : true;
+      const matchesType = propertyType ? property.type === propertyType : true;
+      const matchesBudget = budget
+        ? property.price <= parseInt(budget, 10)
+        : true;
+      return matchesSearch && matchesType && matchesBudget;
+    });
+  }, [memoizedProperties, filterForm]);
 
-    const matchesType = propertyType ? property.type === propertyType : true;
-
-    const matchesBudget = budget
-      ? property.price <= parseInt(budget, 10)
-      : true;
-
-    return matchesSearch && matchesType && matchesBudget;
-  });
-
-  const sortedProperties = [...filteredProperties].sort((a, b) => {
-    const { orderBy } = filterForm;
-    if (orderBy === 'Precio ascendente') return a.price - b.price;
-    if (orderBy === 'Precio descendente') return b.price - a.price;
-    return 0;
-  });
+  const sortedProperties = useMemo(() => {
+    return [...filteredProperties].sort((a, b) => {
+      if (filterForm.orderBy === 'Precio ascendente') return a.price - b.price;
+      if (filterForm.orderBy === 'Precio descendente') return b.price - a.price;
+      return 0;
+    });
+  }, [filteredProperties, filterForm.orderBy]);
 
   const {
     paginationState: {
@@ -77,9 +76,13 @@ const Properties = ({ filterForm, setFilterForm, properties, title }) => {
   const isGrid = layout === 'grid';
 
   useEffect(() => {
-    isList || isGrid || navigate('/errors/404');
-    setLayout('list');
-  }, []);
+    if (!isList && !isGrid) {
+      navigate('/errors/404');
+    }
+    if (layout !== 'list') {
+      setLayout('list');
+    }
+  }, [layout]);
 
   useEffect(() => {
     setConfig('isNavbarVerticalCollapsed', true);

@@ -46,25 +46,6 @@ export const PropertyMainData = styled.div`
     line-height: 100%;
   }
 
-  & > div:nth-child(2) {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 4px;
-
-    img {
-      width: 15px;
-      height: 15px;
-    }
-
-    p {
-      font-weight: 400;
-      font-size: 0.81rem;
-      color: #424242;
-      margin: 0px;
-    }
-  }
-
   & > div:last-child {
     display: flex;
     justify-content: center;
@@ -232,10 +213,9 @@ export const FeaturesContainer = styled.div`
 
 export const MapTitleContainer = styled.div`
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-content: space-between;
   gap: 20px;
 
   h4 {
@@ -244,6 +224,31 @@ export const MapTitleContainer = styled.div`
     color: black;
     margin: 0px;
     line-height: 70%;
+  }
+
+  span {
+    width: auto;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 4px;
+
+    img {
+      width: 20px;
+      height: 20px;
+    }
+
+    p {
+      font-weight: 400;
+      font-size: 1rem;
+      color: #424242;
+      margin: 0px;
+    }
+  }
+
+  & > div:last-child {
+    grid-column: span 2;
+    height: 632px;
   }
 `;
 

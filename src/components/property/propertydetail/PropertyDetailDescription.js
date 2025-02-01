@@ -20,6 +20,7 @@ import alrededoresBlanco from 'assets/img/icons/alrededores_blanco.svg';
 import alrededoresGris from 'assets/img/icons/alrededores_gris.svg';
 import flechaAbajo from 'assets/img/icons/flechaabajopequeña_negro.svg';
 import flechaArriba from 'assets/img/icons/flechaarribapequeña_negro.svg';
+import locationIcon from 'assets/img/icons/location.svg';
 import styled from 'styled-components';
 
 const CustomContainer = styled.div`
@@ -529,6 +530,27 @@ const PropertyDetailDescription = ({ property }) => {
 
       <div className="py-3" style={{ borderTop: '0.5px solid #D6D6D6' }}>
         <TitleValdemarDes>Mapa de ubicación</TitleValdemarDes>
+        <span
+          style={{
+            marginLeft: 'auto',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            gap: '4px',
+          }}
+        >
+          <img src={locationIcon} style={{ width: '20px', height: '20px' }} />
+          <p
+            style={{
+              fontSize: '1rem',
+              fontWeight: '400',
+              color: '#424242',
+              margin: '0px',
+            }}
+          >
+            Jr. Salaverry N°475, Calleria, Ucayali, Perú
+          </p>
+        </span>
         <PropertyDetailLocation
           markers={{
             lat: coordinates.lat,

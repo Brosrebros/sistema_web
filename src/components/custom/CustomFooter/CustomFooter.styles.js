@@ -35,7 +35,7 @@ export const FooterContainerStyled = styled.footer`
       font-size: 1em;
       font-weight: normal;
       font-family: 'Aptos_display';
-      color: black;
+      color: #424242;
       line-height: 70%;
 
       &:hover {

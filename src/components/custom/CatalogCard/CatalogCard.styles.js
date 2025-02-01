@@ -3,6 +3,7 @@ import { PrimaryCustomButtonStyled } from '../CustomButtons/PrimaryCustomButton/
 
 export const CatalogCardContainer = styled.div`
   width: 100%;
+  height: 330px;
   cursor: pointer;
   display: grid;
   grid-template-columns: 354px auto;
@@ -147,6 +148,3 @@ export const OptionsContainer = styled.div`
   }
 `;
 
-export const WtspButton = styled(PrimaryCustomButtonStyled)`
-  background-color: #25d366;
-`;

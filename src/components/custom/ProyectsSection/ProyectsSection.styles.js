@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const SectionContainer = styled.section`
   width: 100%;
   display: grid;
-  grid-template-columns: 30% 65%;
+  grid-template-columns: 33% 65%;
   justify-content: space-between;
   align-items: center;
   padding: 0px;
@@ -41,7 +41,7 @@ export const TextButtonContainer = styled.div`
     gap: 20px;
 
     h3 {
-      max-width: 340px;
+      max-width: 50ch;
       font-size: 1.4375em;
       font-weight: bold;
       color: black;
@@ -50,6 +50,7 @@ export const TextButtonContainer = styled.div`
     }
 
     p {
+      max-width: 60ch;
       font-size: 1.1875em;
       font-weight: normal;
       color: #424242;

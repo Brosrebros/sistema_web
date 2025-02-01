@@ -33,7 +33,7 @@ import ambientIconWhite from '../../../assets/img/icons/coffee-white.svg';
 import buildsIconWhite from '../../../assets/img/icons/building-white.svg';
 
 function PropertyData({ property }) {
-  const [isActive, setIsActive] = useState('');
+  const [isActive, setIsActive] = useState('caracteristicas');
   const [coordinates, setCoordinates] = useState({ lat: 0, long: 0 });
 
   const handleActiveButton = button => {
@@ -77,10 +77,6 @@ function PropertyData({ property }) {
           <h3>
             Fantástica casa residencial de 200 m2 en Calleria, barrio seguro
           </h3>
-          <div>
-            <img src={pinIcon} alt="location" />
-            <p>Jr. Salaverry N°475, Calleria, Ucayali, Perú</p>
-          </div>
 
           <div>
             <IconDataContainer>
@@ -204,6 +200,10 @@ function PropertyData({ property }) {
         <Separator />
         <MapTitleContainer>
           <h4>Mapa de ubicación</h4>
+          <span>
+            <img src={pinIcon} alt="pin" />
+            <p>Jr. Salaverry N°475, Calleria, Ucayali, Perú</p>
+          </span>
           <PropertyDetailLocation
             markers={{
               lat: coordinates.lat,

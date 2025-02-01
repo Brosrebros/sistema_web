@@ -14,7 +14,7 @@ const ButtonContainer = styled.section`
   width: 100%;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
+  gap: 24px;
   padding: 0px;
 
   & > div {

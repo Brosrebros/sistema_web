@@ -14,8 +14,6 @@ import {
 import CustomBadge from '../CustomBadge/CustomBadge';
 import PrimaryCustomButton from '../CustomButtons/PrimaryCustomButton/PrimaryCustomButton';
 import callIcon from '../../../assets/img/icons/call.svg';
-import wtspIcon from '../../../assets/img/icons/whatsapp.svg';
-import smsIcon from '../../../assets/img/icons/sms.svg';
 import sendIcon from '../../../assets/img/icons/send.svg';
 
 function PropertyAdvertiser() {
@@ -41,14 +39,7 @@ function PropertyAdvertiser() {
           </div>
           <ButtonsContainer>
             <PrimaryCustomButton>
-              <img src={callIcon} alt="call" />
-            </PrimaryCustomButton>
-            <WtspButton>
-              <img src={wtspIcon} alt="whatsapp" />
-              Whatsapp
-            </WtspButton>
-            <PrimaryCustomButton>
-              <img src={smsIcon} alt="sms" />
+              <img src={callIcon} alt="sms" />
               Contactar
             </PrimaryCustomButton>
           </ButtonsContainer>
