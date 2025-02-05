@@ -18,7 +18,7 @@ export const PrimaryCustomButtonStyled = styled.button`
   /* Fuente */
   font-size: 1em;
   font-weight: normal;
-  font-family: 'Aptos';
+  font-family: 'Roboto';
   color: #ffffff;
   line-height: 100%;
 

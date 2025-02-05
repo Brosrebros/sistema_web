@@ -37,7 +37,7 @@ export const CustomSeeMoreButton = styled.button`
   font-size: 1rem;
   line-height: 117%;
   color: #424242;
-  font-family: 'Aptos';
+  font-family: 'Roboto';
 
   img {
     width: 20px;

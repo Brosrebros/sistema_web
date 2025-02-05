@@ -23,7 +23,7 @@ export const SecondaryCustomButtonStyled = styled.button`
   /* Fuente */
   font-size: 1em;
   font-weight: normal;
-  font-family: 'Aptos';
+  font-family: 'Roboto';
   color: #424242;
   line-height: 100%;
   border: ${({ variant }) =>
@@ -36,7 +36,7 @@ export const SecondaryCustomButtonStyled = styled.button`
   b {
     font-size: 0.875rem;
     font-weight: bold;
-    font-family: 'Aptos';
+    font-family: 'Roboto';
     color: #940000;
   }
 

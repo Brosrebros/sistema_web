@@ -41,6 +41,7 @@ export const ImageContainer = styled.div`
 `;
 
 export const TagContainer = styled.div`
+width: 262px;
   display: grid;
   grid-template-columns: repeat(3, auto);
   justify-content: space-between;

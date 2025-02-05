@@ -21,11 +21,11 @@ export const Input = styled.input`
   border: none;
   background-color: transparent;
   outline: none;
-  font-family: 'Aptos';
+  font-family: 'Roboto';
   
   &::placeholder {
     font-size: 1em;
     color: #424242;
-    font-family: 'Aptos';
+    font-family: 'Roboto';
   }
 `;

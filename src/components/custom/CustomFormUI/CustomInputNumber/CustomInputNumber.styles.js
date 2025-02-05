@@ -15,7 +15,7 @@ export const CustomInputNumberStyled = styled.input`
   appearance: none;
   -moz-appearance: textfield;
   -webkit-appearance: none;
-  font-family: "Aptos";
+  font-family: 'Roboto';
   border: 1px solid #c3c3c3;
 
   &:focus {

@@ -36,7 +36,7 @@ export const CardButtonContainer = styled.div`
     h4 {
       font-size: 1.1875em;
       font-weight: bold;
-      font-family: 'Aptos_display';
+      font-family: 'Roboto';
       color: black;
       margin: 0px;
       line-height: 100%;
@@ -45,7 +45,7 @@ export const CardButtonContainer = styled.div`
     p {
       font-size: 1em;
       font-weight: normal;
-      font-family: 'Aptos_display';
+      font-family: 'Roboto';
       color: #424242;
       margin: 0px;
       line-height: 120%;

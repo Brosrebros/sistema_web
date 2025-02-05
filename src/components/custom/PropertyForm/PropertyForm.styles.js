@@ -105,7 +105,7 @@ export const TabButtonStyled = styled.button`
   /* Fuente */
   font-size: 1rem;
   font-weight: normal;
-  font-family: 'Aptos';
+  font-family: 'Roboto';
   color: ${props => (props.isActive ? 'white' : '#424242')};
   line-height: 70%;
 
