@@ -256,7 +256,7 @@ export const MapTitleContainer = styled.div`
 
   & > div:last-child {
     grid-column: span 2;
-    height: 632px;
+    height: 100%;
   }
 `;
 

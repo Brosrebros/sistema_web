@@ -41,39 +41,42 @@ export const CustomSelectStyled = styled.div`
 `;
 
 export const CustomDropdown = styled.div`
+  width: 100%;
+  max-height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 8px;
   padding: 12px 8px;
+  background-color: #ffffff;
+  border: 1px solid #c3c3c3;
+  border-radius: 16px;
   position: absolute;
   left: 0;
   top: calc(41px + 8px);
-  width: 100%;
-  border-radius: 16px;
   z-index: 500;
-  max-height: 300px;
   overflow-y: auto;
-  background-color: rgb(255, 255, 255);
-  border: 1px solid #c3c3c3;
 
-  /* ===== Scrollbar personalizado para WebKit (Chrome, Safari, Edge) ===== */
   &::-webkit-scrollbar {
-    width: 8px; /* Ancho del scrollbar */
-    border-radius: 10px; /* Bordes redondeados generales */
+    width: 8px;
+    border-radius: 10px;
   }
 
   &::-webkit-scrollbar-track {
-    background: #c3c3c3; /* Color del fondo del scrollbar */
-    border-radius: 10px; /* Bordes redondeados en el track */
+    background: #c3c3c3;
+    border-radius: 10px;
   }
 
   &::-webkit-scrollbar-thumb {
-    background: #424242; /* Color del "thumb" (barra que se arrastra) */
-    border-radius: 10px; /* Bordes redondeados en el thumb */
+    background: #424242;
+    border-radius: 10px;
   }
 
   &::-webkit-scrollbar-thumb:hover {
-    background: #2c2c2c; /* Color cuando el usuario pasa el mouse */
+    background: #2c2c2c;
   }
 
-  /* Ocultar flechas del scrollbar en WebKit */
   &::-webkit-scrollbar-button {
     display: none;
     width: 0;
@@ -81,23 +84,25 @@ export const CustomDropdown = styled.div`
     background: transparent;
   }
 
-  /* ===== Scrollbar personalizado para Firefox ===== */
-  scrollbar-width: thin; /* Hace que el scrollbar sea más delgado */
-  scrollbar-color: #424242 #c3c3c3; /* thumb (drag) y track (fondo) */
+  scrollbar-width: thin;
+  scrollbar-color: #424242 #c3c3c3;
 
-  /* Firefox no permite border-radius directamente, pero este truco ayuda */
   & {
-    scrollbar-arrow-color: transparent; /* En versiones antiguas */
+    scrollbar-arrow-color: transparent;
     scrollbar-width: thin;
   }
 `;
 
 export const CustomOption = styled.div`
+  width: 100%;
+  height: 35px;
   cursor: pointer;
-  background-color: rgb(255, 255, 255);
-  padding: 4px 8px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 12px 16px;
   border-radius: 12px;
-  margin-bottom: 4px;
 
   span {
     display: block;
@@ -108,7 +113,7 @@ export const CustomOption = styled.div`
   }
 
   &:hover {
-    filter: brightness(90%);
+    background-color: #f2f2f2;
   }
 `;
 

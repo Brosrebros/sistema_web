@@ -55,7 +55,7 @@ const Catalogpage = () => {
 
   return (
     <CustomPageLayout>
-      <PropertyForm filterForm={filterForm} setFilterForm={setFilterForm} />
+      <PropertyForm filterForm={filterForm} setFilterForm={setFilterForm} page="catalog"/>
       <Properties
         filterForm={filterForm}
         setFilterForm={setFilterForm}

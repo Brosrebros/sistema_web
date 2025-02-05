@@ -19,7 +19,7 @@ function CustomFooter() {
       <div
         style={{
           width: '100%',
-          maxWidth: '480px',
+          maxWidth: '495px',
           display: 'flex',
           flexDirection: 'column',
           gap: '24px',

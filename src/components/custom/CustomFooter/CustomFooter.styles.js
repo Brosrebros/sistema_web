@@ -2,7 +2,8 @@ import styled from 'styled-components';
 
 export const FooterContainerStyled = styled.footer`
   width: 100%;
-  display: flex;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
   justify-content: space-between;
   align-items: flex-start;
   gap: 2rem;
@@ -46,8 +47,7 @@ export const FooterContainerStyled = styled.footer`
 `;
 
 export const TextContainer = styled.div`
-  width: auto;
-  max-width: 480px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;

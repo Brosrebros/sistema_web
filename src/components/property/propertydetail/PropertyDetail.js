@@ -42,7 +42,7 @@ const PropertyDetail = () => {
     <>
       {propertyState.property && (
         <CustomLayout>
-          <div style={{maxWidth:"770px"}}>
+          <div style={{maxWidth:"783px"}}>
             <PropertyDetailAdvertiser property={propertyState.property} />
           </div>
           
@@ -51,14 +51,14 @@ const PropertyDetail = () => {
       )}
 
       <PropertySlider
-        slidesToShow={isMenuOpen ? 5.5 : 6.1}
+        slidesToShow={isMenuOpen ? 5.2 : 5.8}
         data={propertyState.properties}
         title="Encuentra propiedades similares"
         onPropertyClick={handlePropertyClick}
       />
 
       <PropertySlider
-        slidesToShow={isMenuOpen ? 5.5 : 6.1}
+        slidesToShow={isMenuOpen ? 5.2 : 5.8}
         data={propertyState.properties}
         title="Propiedades recomendadas (24)"
         onPropertyClick={handlePropertyClick}

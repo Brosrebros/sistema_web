@@ -60,10 +60,10 @@ const Mainpage = () => {
           <CardButton option="option3" />
         </ButtonContainer>
 
-        <PropertyForm />
+        <PropertyForm page="main"/>
 
         <PropertySlider
-          slidesToShow={isMenuOpen ? 5.2 : 6.1}
+          slidesToShow={isMenuOpen ? 5.2 : 5.8}
           data={propertyState.properties}
           title="Descubre las propiedades recomendadas (24)"
         />

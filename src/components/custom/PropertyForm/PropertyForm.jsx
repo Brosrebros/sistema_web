@@ -21,7 +21,7 @@ import pinIcon from '../../../assets/img/icons/location.svg';
 import { rootPaths } from 'routes/paths';
 import { useNavigate } from 'react-router-dom';
 
-function PropertyForm() {
+function PropertyForm({page}) {
   const [activeButton, setActiveButton] = useState('venta');
   const [searchValue, setSearchValue] = useState('');
   const [propertyType, setPropertyType] = useState('');
@@ -131,10 +131,12 @@ function PropertyForm() {
         >
           <img src={ordenIcon} alt="type" />
         </CustomSelect>
-        <SecondaryCustomButton variant={'white'}>
-          <img src={filterIcon} alt="filter" />
-          Mas filtros
-        </SecondaryCustomButton>
+        {page === 'main' ? (
+          <SecondaryCustomButton variant={'white'}>
+            <img src={filterIcon} alt="filter" />
+            Mas filtros
+          </SecondaryCustomButton>
+        ) : null}
         <PrimaryCustomButton
           disabled={!searchValue.trim()}
           onClick={() => {
