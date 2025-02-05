@@ -81,7 +81,7 @@ export const FormTab = styled.div`
   padding: 6px;
   background-color: #f2f2f2;
   border-radius: 16px;
-  border: 1px solid #dbdbdb;
+  border: 1px solid #c3c3c3;
 
   @media (max-width: 1100px) {
     width: auto;

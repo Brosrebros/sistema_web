@@ -59,7 +59,7 @@ export const MenuOptionsContainer = styled.div`
 `;
 
 export const MenuOption = styled.div`
-  width: ${({ isMenuOpen }) => (isMenuOpen ? '100%' : '41px')};
+  width: ${({ isMenuOpen }) => (isMenuOpen ? '100%' : '52px')};
   height: ${({ isMenuOpen }) => (isMenuOpen ? 'auto' : '41px')};
   display: flex;
   justify-content: ${({ isMenuOpen }) =>

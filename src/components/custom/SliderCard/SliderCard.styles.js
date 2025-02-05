@@ -13,7 +13,7 @@ export const SliderCardContainer = styled.div`
   background-color: #ffffff;
   border-radius: 12px;
   overflow: hidden;
-  border: 1px solid #dbdbdb;
+  border: 1px solid #c3c3c3;
   transition: all 0.1s ease;
 
   img {
@@ -111,7 +111,7 @@ export const LikeButton = styled.button`
   align-items: center;
   background-color: #ffffff;
   border-radius: 40px;
-  border: none;
+  border: 1px solid #c3c3c3;
   outline: none;
   position: absolute;
   top: 12px;

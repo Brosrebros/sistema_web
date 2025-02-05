@@ -75,7 +75,7 @@ export const SaveInfoContainer = styled.div`
     background-color: #f2f2f2;
     cursor: pointer;
     transition: all 0.2s ease;
-    border: 1px solid #dbdbdb;
+    border: 1px solid #c3c3c3;
   }
 
   p {
@@ -107,7 +107,7 @@ export const SaveInfoContainer = styled.div`
       background-color: #f2f2f2;
       cursor: pointer;
       transition: all 0.2s ease;
-      border: 1px solid #dbdbdb;
+      border: 1px solid #c3c3c3;
     }
 
     p {

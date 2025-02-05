@@ -27,5 +27,5 @@ export const CustomBadgeStyled = styled.div`
       ? '#F2F2F2'
       : '#FFFFFF'};
   border: ${({ color }) =>
-    color === 'gray' || color === 'white' ? '1px solid #C6C6C6' : 'none'};
+    color === 'gray' || color === 'white' ? '1px solid #C3C3C3' : 'none'};
 `;

@@ -17,7 +17,7 @@ import callIcon from '../../../assets/img/icons/call.svg';
 import sendIcon from '../../../assets/img/icons/send.svg';
 
 function PropertyAdvertiser() {
-  const [selectedOption, setSelectedOption] = useState('option-2');
+  const [selectedOption, setSelectedOption] = useState('');
 
   const handleOptionClick = option => {
     setSelectedOption(option);

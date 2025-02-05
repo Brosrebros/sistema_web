@@ -10,6 +10,8 @@ export const CustomLabelStyled = styled.label`
   color: #424242;
   white-space: nowrap;
   text-overflow: ellipsis;
+  font-family: "Aptos";
+  font-size: 1rem;
 
   input[type='radio'] {
     appearance: none;
@@ -17,7 +19,7 @@ export const CustomLabelStyled = styled.label`
     height: 16px;
     border-radius: 50%;
     background-color: #f2f2f2;
-    border: 1px solid #dbdbdb;
+    border: 1px solid #c3c3c3;
     cursor: pointer;
     transition: all 0.2s ease;
 
@@ -38,7 +40,7 @@ export const CustomLabelStyled = styled.label`
 
     &:checked {
       background-color: #940000;
-      border: 1px solid #dbdbdb;
+      border: 1px solid #c3c3c3;
 
       &::before {
         content: '';

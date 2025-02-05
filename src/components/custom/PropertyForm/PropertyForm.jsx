@@ -13,7 +13,6 @@ import CustomInput from '../CustomFormUI/CustomInput/CustomInput';
 import CustomSelect from '../CustomSelect/CustomSelect';
 import mapaIcon from '../../../assets/img/icons/map.svg';
 import filterIcon from '../../../assets/img/icons/filter.svg';
-import lupaIcon from '../../../assets/img/icons/search-normal.svg';
 import lupaIconWhite from '../../../assets/img/icons/search-white.svg';
 import tipoIcon from '../../../assets/img/icons/signpost.svg';
 import budgetIcon from '../../../assets/img/icons/moneys.svg';

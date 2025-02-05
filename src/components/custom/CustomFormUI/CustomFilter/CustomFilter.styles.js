@@ -33,14 +33,11 @@ export const CustomSeeMoreButton = styled.button`
   background-color: white;
   border-radius: 12px;
   margin-left: auto;
-
-  p {
-    font-weight: 400;
-    font-size: 1rem;
-    line-height: 117%;
-    color: #424242;
-    margin: 0px;
-  }
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 117%;
+  color: #424242;
+  font-family: 'Aptos';
 
   img {
     width: 20px;
@@ -52,6 +49,6 @@ export const CustomSeeMoreButton = styled.button`
   }
 
   &:active {
-    background-color: #C3C3C3;
+    background-color: #c3c3c3;
   }
 `;

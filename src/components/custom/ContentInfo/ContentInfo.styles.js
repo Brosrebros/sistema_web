@@ -54,7 +54,7 @@ export const GridTextContainer = styled.div`
     font-size: 1.1875em;
     font-weight: normal;
     font-family: 'Aptos';
-    color: black;
+    color: #424242;
     line-height: 65%;
     margin: 0px;
   }

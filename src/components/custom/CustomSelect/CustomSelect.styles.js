@@ -7,7 +7,7 @@ export const CustomSelectContainer = styled.div`
   background-color: ${({ background }) =>
     background === 'form' ? '#ffffff' : '#940000'};
   border: 1px solid
-    ${({ background }) => (background === 'form' ? '#dbdbdb' : '#ffffff')};
+    ${({ background }) => (background === 'form' ? '#c3c3c3' : '#ffffff')};
   border-radius: 12px;
   padding: 0 0 0 16px;
   gap: 8px;
@@ -37,7 +37,7 @@ export const CustomSelectContainer = styled.div`
 
 export const CustomSelectStyled = styled.div`
   height: 100%;
-  font-weight: lighter;
+  font-weight: 400;
 `;
 
 export const CustomDropdown = styled.div`
@@ -51,15 +51,7 @@ export const CustomDropdown = styled.div`
   max-height: 300px;
   overflow-y: auto;
   background-color: rgb(255, 255, 255);
-  border: 1px solid #dbdbdb;
-
-  p {
-    font-size: 0.75em;
-    color: #424242;
-    font-weight: 600;
-    display: block;
-    margin-bottom: 12px;
-  }
+  border: 1px solid #c3c3c3;
 
   /* ===== Scrollbar personalizado para WebKit (Chrome, Safari, Edge) ===== */
   &::-webkit-scrollbar {
@@ -111,7 +103,7 @@ export const CustomOption = styled.div`
     display: block;
     color: #424242;
     font-size: 1em;
-    font-weight: lighter;
+    font-weight: 400;
     text-overflow: ellipsis;
   }
 
@@ -144,7 +136,7 @@ export const CustomSelectWrapper = styled.div`
     color: ${({ background }) =>
       background === 'form' ? '#424242' : '#ffffff'};
     font-size: 1rem;
-    font-weight: lighter;
+    font-weight: 400;
     text-overflow: ellipsis;
   }
 `;

@@ -80,7 +80,7 @@ export const DataCard = styled.div`
   gap: 24px;
   padding: 24px;
   background-color: #ffffff;
-  border: 1px solid #dbdbdb;
+  border: 1px solid #c3c3c3;
   border-radius: 12px;
 
   & > div:first-child {

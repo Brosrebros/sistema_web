@@ -25,7 +25,7 @@ export const TutorialContainer = styled.div`
       color: black;
       margin: 0px;
       line-height: 70%;
-      font-family: 'Aptos';
+      font-family: 'Roboto';
     }
 
     p {
@@ -35,7 +35,7 @@ export const TutorialContainer = styled.div`
       color: #424242;
       margin: 0px;
       line-height: 110%;
-      font-family: 'Aptos';
+      font-family: 'Roboto';
     }
   }
 
@@ -75,7 +75,7 @@ export const TutorialContainer = styled.div`
           color: black;
           line-height: 70%;
           margin: 0px;
-          font-family: 'Aptos';
+          font-family: 'Roboto';
         }
 
         p {
@@ -85,7 +85,7 @@ export const TutorialContainer = styled.div`
           color: #424242;
           margin: 0px;
           line-height: 110%;
-          font-family: 'Aptos';
+          font-family: 'Roboto';
         }
       }
     }
@@ -127,7 +127,7 @@ export const Option = styled.button`
   outline: none;
   padding: 12px 16px;
 
-  font-family: 'Aptos';
+  font-family: 'Roboto';
   font-weight: bold;
   font-size: 1rem;
   color: ${props => (props.active ? '#ffffff' : '#424242')};

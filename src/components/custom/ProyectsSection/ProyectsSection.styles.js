@@ -82,7 +82,7 @@ export const Options = styled.div`
   gap: 8px;
   padding: 6px;
   border-radius: 12px;
-  border: 1px solid #dbdbdb;
+  border: 1px solid #c3c3c3;
   background-color: #f2f2f2;
 `;
 

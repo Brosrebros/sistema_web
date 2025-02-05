@@ -76,7 +76,7 @@ const InfoBanner = styled.div`
     }
 
     p {
-      font-weight: lighter;
+      font-weight: 400;
       font-size: 1em;
       text-align: center;
       color: #ffffff;

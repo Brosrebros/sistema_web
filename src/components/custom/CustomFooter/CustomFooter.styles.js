@@ -92,7 +92,7 @@ export const CustomInputMail = styled.input`
   gap: 8px;
   padding: 12px 16px;
   border-radius: 12px;
-  border: 1px solid #c6c6c6;
+  border: 1px solid #c3c3c3;
   outline: none;
   font-family: 'Aptos';
 

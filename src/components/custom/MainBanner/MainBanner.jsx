@@ -22,7 +22,7 @@ function HomeBanner({ type }) {
             gap: '20px',
           }}
         >
-          <h2>HABILITACIÓN URBANA “SANTA MARIA”</h2>
+          <h1>HABILITACIÓN URBANA “SANTA MARIA”</h1>
 
           <p>
             Se encuentra estratégicamente ubicado en el corazón del circuito
@@ -40,7 +40,7 @@ function HomeBanner({ type }) {
             maxWidth: '365px',
           }}
         >
-          <h1>¡Vende tu propiedad rápidamente y sin complicaciones!</h1>
+          <h2>¡Vende tu propiedad rápidamente y sin complicaciones!</h2>
 
           <p>
             Únete a miles de usuarios que ya confían en Organización Sánchez.

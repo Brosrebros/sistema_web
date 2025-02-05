@@ -18,7 +18,7 @@ export const OptionsContainer = styled.div`
   gap: 8px;
   padding: 6px;
   background: #f2f2f2;
-  border: 1px solid #dbdbdb;
+  border: 1px solid #c3c3c3;
   border-radius: 1rem;
 `;
 

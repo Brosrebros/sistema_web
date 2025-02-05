@@ -11,7 +11,7 @@ export const CatalogCardContainer = styled.div`
   padding: 16px;
   background-color: #ffffff;
   border-radius: 12px;
-  border: 1px solid #dbdbdb;
+  border: 1px solid #c3c3c3;
   transition: all 0.1s ease;
 
   &:hover {
@@ -80,24 +80,24 @@ export const MainDataContainer = styled(CatalogDataContainer)`
     margin: 0px;
   }
 
-  p {
-    font-size: 0.8125em;
-    font-weight: normal;
-    color: #424242;
-    line-height: 9px;
-    width: 100%;
-  }
-
-  img {
-    width: 15px;
-    height: 15px;
-  }
-
   & > div:last-child {
-    font-weight: 400;
-    font-size: 1rem;
-    line-height: 117%;
-    color: #424242;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+
+    img {
+      width: 20px;
+      height: 20px;
+    }
+
+    p {
+      font-size: 1em;
+      font-weight: normal;
+      color: #717171;
+      line-height: 11px;
+      margin: 0px;
+    }
   }
 `;
 
@@ -147,4 +147,3 @@ export const OptionsContainer = styled.div`
     gap: 16px;
   }
 `;
-

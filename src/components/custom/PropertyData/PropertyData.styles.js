@@ -8,7 +8,7 @@ export const PropertyDataContainer = styled.div`
   align-items: center;
   justify-content: flex-start;
   gap: 24px;
-  padding: 20px;
+  padding: 24px;
   background-color: #ffffff;
   border-radius: 12px;
 
@@ -36,7 +36,7 @@ export const PropertyMainData = styled.div`
   align-items: flex-start;
   justify-content: flex-start;
   flex-direction: column;
-  gap: 12px;
+  gap: 24px;
 
   h3 {
     font-weight: 700;
@@ -89,7 +89,7 @@ export const TagPriceContainer = styled.div`
     gap: 16px;
 
     span {
-      font-size: 0.6875em;
+      font-size: 0.81rem;
       font-weight: normal;
       color: #424242;
       line-height: 7px;
@@ -136,24 +136,32 @@ export const DescriptionContainer = styled.div`
   }
 
   div {
+    height: 30px;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 8px;
+    padding: 12px 16px;
+    border-radius: 12px;
 
-    font-weight: 900;
+    font-weight: normal;
     font-size: 1rem;
     line-height: 0%;
     color: #424242;
+    transition: all 0.1s ease;
 
     img {
-      width: 17px;
-      height: 17px;
+      width: 20px;
+      height: 20px;
     }
 
     &:hover {
-      filter: brightness(0.9);
+      background-color: #F2F2F2;
+    }
+
+    &:active {
+      background-color: #C3C3C3;
     }
   }
 `;
@@ -271,7 +279,7 @@ export const CustomButton = styled.button`
   font-weight: normal;
   font-family: 'Aptos';
   color: ${({ isActive }) => (isActive ? '#ffffff' : '#424242')};
-  border: 1px solid ${({ isActive }) => (isActive ? '#940000' : ' #dbdbdb')};
+  border: 1px solid ${({ isActive }) => (isActive ? '#940000' : ' #c3c3c3')};
   line-height: 70%;
 
   &:hover {

@@ -169,9 +169,9 @@ function CatalogCard({ property }) {
         <MainDataContainer>
           <span>Precio</span>
           <h3>S/. {precio.pen.toLocaleString('en-US')}</h3>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+          <div>
             <img src={pinIcon} alt="location" />
-            {direccionCompleta}
+            <p>{direccionCompleta}</p>
           </div>
         </MainDataContainer>
 

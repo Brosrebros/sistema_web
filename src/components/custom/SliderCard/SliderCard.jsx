@@ -8,12 +8,11 @@ import {
   ProyectBanner,
 } from './SliderCard.styles';
 import CustomBadge from '../CustomBadge/CustomBadge';
-import { LuMapPin } from 'react-icons/lu';
 import { rootPaths } from 'routes/paths';
 import heartIcon from '../../../assets/img/icons/heart.svg';
 import heartIconBold from '../../../assets/img/icons/heart-bold.svg';
+import locationIcon from '../../../assets/img/icons/location.svg';
 import { useNavigate } from 'react-router-dom';
-import placeholderImage from '../../../assets/img/placeholder-image.png';
 
 function SliderCard({ property, type }) {
   const [isFavourite, setIsFavourite] = useState(false);
@@ -81,11 +80,15 @@ function SliderCard({ property, type }) {
           <span>Precio</span>
           <h4>S/. {precio.pen.toLocaleString('en-US')}</h4>
         </div>
-        <img src="" alt="" />
+        <img src="#" alt="" />
       </DataContainer>
 
       <span>
-        <LuMapPin />
+        <img
+          src={locationIcon}
+          alt=""
+          style={{ width: '15px', height: '15px' }}
+        />
         {calleNumero}, {departamento}, {provincia}
       </span>
 

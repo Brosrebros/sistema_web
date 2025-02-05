@@ -107,7 +107,7 @@ const Properties = ({ filterForm, setFilterForm, properties, title }) => {
       >
         <h4
           style={{
-            fontSize: '1em',
+            fontSize: '1.19rem',
             fontWeight: 'normal',
             color: '#424242',
             margin: '0px',

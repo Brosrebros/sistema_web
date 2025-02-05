@@ -125,7 +125,7 @@ export const ButtonOptionsContainer = styled.div`
       gap: 8px;
       padding: 12px 16px;
       border-radius: 12px;
-      border: 1px solid #c6c6c6;
+      border: 1px solid #c3c3c3;
       outline: none;
       font-family: 'Aptos';
 
@@ -177,6 +177,6 @@ export const ProblemContainer = styled.div`
 
 export const SecondaryOption = styled(Option)`
   background-color: #ffffff;
-  border: 1px solid #dbdbdb;
+  border: 1px solid #c3c3c3;
   color: #424242;
 `;

@@ -25,7 +25,7 @@ export const CustomListSliderStyled = styled(Slider)`
     z-index: 2;
     opacity: 0 !important;
     transition: opacity 0.1s ease;
-    border: 1px solid #dbdbdb;
+    border: 1px solid #c3c3c3;
   }
 
   .slick-prev {

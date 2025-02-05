@@ -7,7 +7,7 @@ export const SellerCardContainer = styled.div`
   gap: 24px;
   padding: 16px;
   background-color: #ffffff;
-  border: 1px solid #dbdbdb;
+  border: 1px solid #c3c3c3;
   border-radius: 12px;
   transition: all 0.2s ease;
 
@@ -27,11 +27,11 @@ export const SellerCardContainer = styled.div`
   }
 
   &:hover{ 
-    filter: brightness(0.95);
+    background-color: #F9F9F9;
   }
 
   &:active{ 
-    filter: brightness(0.9);
+    background-color: #ECECEC;
   }
 `;
 
@@ -57,12 +57,12 @@ export const TagDateContainer = styled.div`
     h6 {
       font-weight: 400;
       font-size: 0.81rem;
-      color: #424242;
+      color: #717171;
       margin: 0px;
 
       b {
         font-weight: bold;
-        color: #424242;
+        color: #717171;
         margin: 0px;
       }
     }

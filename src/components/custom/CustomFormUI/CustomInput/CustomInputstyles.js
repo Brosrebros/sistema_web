@@ -9,7 +9,7 @@ export const CustomInputContainer = styled.div`
   padding: 12px 16px;
   border-radius: 12px;
   background-color: #ffffff;
-  border: 1px solid #dbdbdb;
+  border: 1px solid #c3c3c3;
 
   img {
     width: 20px;

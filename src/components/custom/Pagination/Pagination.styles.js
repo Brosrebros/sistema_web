@@ -18,7 +18,13 @@ export const NumberSelector = styled.div`
   gap: 8px;
   padding: 6px;
   background-color: #f2f2f2;
-  border-radius: 12px;
+  border-radius: 16px;
+  border: 1px solid #c3c3c3;
+
+  button {
+    border: none;
+    line-height: 11px;
+  }
 `;
 
 export const SquareButton = styled.button`
@@ -39,7 +45,7 @@ export const SquareButton = styled.button`
   color: #424242;
   line-height: 100%;
   cursor: pointer;
-  border: 1px solid #dbdbdb;
+  border: 1px solid #c3c3c3;
 
   img {
     width: 24px;
@@ -47,7 +53,11 @@ export const SquareButton = styled.button`
   }
 
   &:hover {
-    filter: brightness(0.9);
+    background-color: #F9F9F9; 
+  }
+
+  &:active {
+    background-color: #ECECEC;
   }
 `;
 
@@ -62,5 +72,5 @@ export const CircleButton = styled(SecondaryCustomButtonStyled)`
   background-color: ${({ variant }) =>
     variant === 'white' ? '#ffffff' : '#f2f2f2'};
   border: ${({ variant }) =>
-    variant === 'white' ? '1px solid #dbdbdb' : 'none'};
+    variant === 'white' ? 'none' : 'none'};
 `;
