@@ -54,7 +54,7 @@ export const TextButtonContainer = styled.div`
       font-size: 1.1875em;
       font-weight: normal;
       color: #424242;
-      line-height: 102%;
+      line-height: 120% !important;
       margin: 0px;
     }
   }
@@ -70,7 +70,7 @@ export const OptionsContainer = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  padding: 16px;
+  padding: 24px;
   background-color: #ffffff;
   border-radius: 12px;
 `;
