@@ -7,7 +7,7 @@ export const PropertyFormContainer = styled.form`
   justify-content: center;
   align-items: center;
   gap: 16px;
-  padding: 16px;
+  padding: 24px;
   background-color: #ffffff;
   border-radius: 12px;
 

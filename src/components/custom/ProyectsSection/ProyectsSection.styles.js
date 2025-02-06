@@ -38,7 +38,7 @@ export const TextButtonContainer = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    gap: 20px;
+    gap: 10px;
 
     h3 {
       max-width: 50ch;
