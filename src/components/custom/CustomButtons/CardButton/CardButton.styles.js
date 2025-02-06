@@ -6,7 +6,7 @@ export const CardButtonContainer = styled.div`
   justify-content: flex-start;
   align-items: center;
   gap: 24px;
-  padding: 24px;
+  padding: 16px;
   background-color: #ffffff;
   border-radius: 12px;
   transition: all 0.1s ease;
