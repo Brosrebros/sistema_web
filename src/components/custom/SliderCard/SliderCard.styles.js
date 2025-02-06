@@ -112,7 +112,7 @@ export const LikeButton = styled.button`
   align-items: center;
   background-color: #ffffff;
   border-radius: 40px;
-  border: 1px solid #c3c3c3;
+  border: none;
   outline: none;
   position: absolute;
   top: 12px;
