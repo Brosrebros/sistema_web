@@ -63,7 +63,7 @@ export const TagContainer = styled.div`
 `;
 
 export const MainDataContainer = styled(CatalogDataContainer)`
-  gap: 12px;
+  gap: 2px;
 
   span {
     font-size: 1em;
@@ -102,7 +102,7 @@ export const MainDataContainer = styled(CatalogDataContainer)`
 `;
 
 export const DataDescription = styled(CatalogDataContainer)`
-  gap: 16px;
+  gap: 8px;
 
   h3 {
     font-size: 1.1875em;

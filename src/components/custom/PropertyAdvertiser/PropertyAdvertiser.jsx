@@ -46,12 +46,12 @@ function PropertyAdvertiser() {
         </AdvertiserOptions>
         <TextContainer>
           <p>
-            Sanchez Real State es una empresa inmobiliaria comprometida con
-            brindar soluciones integrales en el sector de bienes raíces. Nos
-            especializamos en la compra, venta y alquiler de propiedades
-            residenciales y comerciales, adecuamos las ofertas inmobiliarias
-            para tu mejor percepcion, realizamos estrategias de inversion
-            inmobilarias.
+          Inmobiliaria Los Robles es una empresa inmobiliaria comprometida 
+          con brindar soluciones integrales en el sector de bienes raíces. 
+          Nos especializamos en la compra, venta y alquiler de propiedades 
+          residenciales y comerciales, adecuamos las ofertas inmobiliarias 
+          para tu mejor percepción, realizamos estrategias de inversión 
+          inmobiliarias. 
           </p>
 
           <span>Código de anunciante: INM-001</span>

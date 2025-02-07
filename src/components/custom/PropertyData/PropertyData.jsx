@@ -108,7 +108,7 @@ function PropertyData({ property }) {
             <span>Casa</span>
           </div>
 
-          <span>Price</span>
+          <span>Precio</span>
 
           <h3>S/. 918,000</h3>
         </TagPriceContainer>
@@ -118,16 +118,13 @@ function PropertyData({ property }) {
         <DescriptionContainer>
           <h4>Descripción</h4>
           <p>
-            Linda casa de 200m2 ubicada dentro de un pasaje en el distrito de
-            Calleria.
-          </p>
-
-          <p>
-            En el pasaje encontramos 8 viviendas. La casa tiene ingreso directo
-            a través de unas escaleras, lo que hace ideal para parejas o familia
-            joven. La sala y comedor con excelente iluminación, cocina con
-            reposteros altos y bajo y espacio para comedor de diario. Cuatro
-            amplios dormitorios ...
+          Linda casa de 200m2 ubicada dentro de un pasaje en el distrito de 
+          Calleria. En el pasaje encontramos 8 viviendas. La casa tiene ingreso 
+          directo a través de unas escaleras, lo que hace ideal para parejas o 
+          familia joven. La sala y comedor con excelente iluminación, cocina con 
+          reposteros altos y bajo y espacio para comedor de diario. Cuatro amplios 
+          dormitorios con acabados de lujo y un diseño minimalista con tendencias 
+          contemporáneas estilizadas a la época...
           </p>
 
           <div>

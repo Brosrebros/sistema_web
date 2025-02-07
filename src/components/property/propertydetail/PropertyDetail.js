@@ -60,7 +60,7 @@ const PropertyDetail = () => {
       <PropertySlider
         slidesToShow={isMenuOpen ? 5.2 : 5.8}
         data={propertyState.properties}
-        title="Propiedades recomendadas (24)"
+        title="Propiedades recomendadas"
         onPropertyClick={handlePropertyClick}
       />
     </>
