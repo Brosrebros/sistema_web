@@ -43,8 +43,8 @@ export const AdvertiserOptions = styled.div`
     gap: 12px;
 
     img {
-      height: 70px;
-      width: 70px;
+      height: 75px;
+      width: 75px;
       background-color: #c6c6c6;
       border-radius: 100px;
     }
@@ -54,7 +54,7 @@ export const AdvertiserOptions = styled.div`
       flex-direction: column;
       justify-content: center;
       align-items: flex-start;
-      gap: 12px;
+      gap: 6px;
 
       h3 {
         font-weight: 700;

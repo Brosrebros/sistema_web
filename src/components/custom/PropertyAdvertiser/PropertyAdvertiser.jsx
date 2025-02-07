@@ -33,7 +33,7 @@ function PropertyAdvertiser() {
             <img src="#" alt="advertiser" />
 
             <div>
-              <h3>Sanchez Real State</h3>
+              <h3>Inmobiliaria los Robles</h3>
               <CustomBadge color="turquoise">Inmobiliaria</CustomBadge>
             </div>
           </div>

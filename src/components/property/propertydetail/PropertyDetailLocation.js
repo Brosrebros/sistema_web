@@ -8,7 +8,7 @@ const PropertyDetailLocation = ({ markers }) => {
       data={[{ ...markers, id: 0 }]}
       style={{
         width: '100%',
-        minHeight: '586px',
+        minHeight: '573px',
         borderRadius: '12px',
       }}
     />
