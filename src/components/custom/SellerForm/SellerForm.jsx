@@ -54,7 +54,7 @@ function SellerForm() {
         name="tipoPropiedad"
         aria-label="Tipo"
         value="tipoPropiedad"
-        placeholder="Tipo de propiedad"
+        placeholder="Ordenar por"
         options={ordenarPorOptions}
         background="form"
       >

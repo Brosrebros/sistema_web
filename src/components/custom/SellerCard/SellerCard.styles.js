@@ -56,7 +56,7 @@ export const TagDateContainer = styled.div`
 
     h6 {
       font-weight: 400;
-      font-size: 0.81rem;
+      font-size: 0.815rem;
       color: #717171;
       margin: 0px;
 
@@ -121,7 +121,7 @@ export const SecondaryDataContainer = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 48px;
+    gap: 0px;
   }
 
   & > div:last-child {
@@ -136,6 +136,7 @@ export const NumberDataContainer = styled.div`
   display: flex;
   align-items: flex-start;
   justify-content: center;
+  padding: 0px 48px 0px 0px;
   gap: 16px;
 
   h4 {
@@ -151,7 +152,7 @@ export const NumberDataContainer = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    gap: 4px;
+    gap: 8px;
 
     h5 {
       font-weight: 700;
