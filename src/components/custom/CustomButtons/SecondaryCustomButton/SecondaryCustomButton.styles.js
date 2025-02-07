@@ -18,7 +18,7 @@ export const SecondaryCustomButtonStyled = styled.button`
       : '#ffffff'};
   border-radius: 12px;
   padding: 12px 16px;
-  transition: all 0.2s ease;
+  transition: all 0.1s ease;
 
   /* Fuente */
   font-size: 1em;
@@ -31,7 +31,7 @@ export const SecondaryCustomButtonStyled = styled.button`
       ? '1px solid #c3c3c3'
       : variant === 'gray'
       ? 'none'
-      : '1px solid #dbdbdb'};
+      : '1px solid #c3c3c3'};
 
   b {
     font-size: 0.875rem;

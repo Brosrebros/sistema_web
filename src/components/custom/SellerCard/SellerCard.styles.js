@@ -9,7 +9,7 @@ export const SellerCardContainer = styled.div`
   background-color: #ffffff;
   border: 1px solid #c3c3c3;
   border-radius: 12px;
-  transition: all 0.2s ease;
+  transition: all 0.1s ease;
 
   & > img:first-child {
     width: 60px;
