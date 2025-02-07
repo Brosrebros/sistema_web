@@ -6,7 +6,7 @@ export const CardButtonContainer = styled.div`
   justify-content: flex-start;
   align-items: center;
   gap: 24px;
-  padding: 16px;
+  padding: 20px;
   background-color: #ffffff;
   border-radius: 12px;
   transition: all 0.1s ease;
@@ -31,15 +31,17 @@ export const CardButtonContainer = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    gap: 16px;
+    gap: 8px;
 
     h4 {
       font-size: 1.1875em;
       font-weight: bold;
       font-family: 'Roboto';
+      max-width: 30ch !important;
+      max-height: 45px !important;
       color: black;
       margin: 0px;
-      line-height: 100%;
+      line-height: 120% !important;
     }
 
     p {
