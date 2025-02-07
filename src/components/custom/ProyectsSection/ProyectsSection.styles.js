@@ -46,15 +46,15 @@ export const TextButtonContainer = styled.div`
       font-weight: bold;
       color: black;
       margin: 0px;
-      line-height: 103%;
+      line-height: 120%;
     }
 
     p {
       max-width: 60ch;
-      font-size: 1.1875em;
+      font-size: 1em;
       font-weight: normal;
       color: #424242;
-      line-height: 120% !important;
+      line-height: 140% !important;
       margin: 0px;
     }
   }

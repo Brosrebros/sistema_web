@@ -27,9 +27,9 @@ function ProyectsSection() {
             día a día
           </h3>
           <p>
-            Sé parte del crecimiento desde el inicio. Descubre proyectos en
-            construcción con precios preferenciales y asegura tu lugar en
-            futuras propiedades que prometen alta valorización.
+            Descubre proyectos en construcción con precios 
+            preferenciales y asegura tu lugar en futuras 
+            propiedades que prometen alta valorización.
           </p>
         </div>
         <PrimaryCustomButton>

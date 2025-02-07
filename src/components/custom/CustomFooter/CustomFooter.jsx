@@ -22,7 +22,7 @@ function CustomFooter() {
           maxWidth: '495px',
           display: 'flex',
           flexDirection: 'column',
-          gap: '24px',
+          gap: '20px',
         }}
       >
         <TextContainer>
@@ -33,7 +33,7 @@ function CustomFooter() {
           </p>
         </TextContainer>
 
-        <div style={{ width: '100%', display: 'flex', gap: '12px' }}>
+        <div style={{ width: '100%', display: 'flex', gap: '16px' }}>
           <CustomInputMail placeholder='Correo electrónico'/>
           <PrimaryCustomButton>
             <img src={buttonIcon} alt="directbox" />

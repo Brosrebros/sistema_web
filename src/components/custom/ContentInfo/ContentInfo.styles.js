@@ -39,19 +39,19 @@ export const GridTextContainer = styled.div`
   justify-content: center;
   align-items: flex-start;
   grid-column: span 2;
-  gap: 16px;
+  gap: 10px;
 
   h3 {
     font-size: 1.4375em;
     font-weight: bold;
     font-family: 'Aptos';
     color: black;
-    line-height: 65%;
+    line-height: 120%;
     margin: 0px;
   }
 
   h4 {
-    font-size: 1.1875em;
+    font-size: 1em;
     font-weight: normal;
     font-family: 'Aptos';
     color: #424242;
