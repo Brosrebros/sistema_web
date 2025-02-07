@@ -30,7 +30,7 @@ export const MenuSection = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  gap: 12px;
+  gap: 16px;
   padding: 16px 24px;
   border-bottom: 1px solid #C3C3C3;
 
@@ -64,9 +64,8 @@ export const MenuOption = styled.div`
   display: flex;
   justify-content: ${({ isMenuOpen }) =>
     isMenuOpen ? 'flex-start' : 'center'};
-  align-items: center;
   gap: 8px;
-  padding: 12px;
+  padding: 12px 16px;
   border-radius: 12px;
   transition: background 0.2s ease;
   cursor: pointer;
