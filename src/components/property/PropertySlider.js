@@ -84,8 +84,11 @@ const PropertySlider = ({ data, title, slidesToShow }) => {
           <a
             style={{
               marginLeft: 'auto',
+              display: 'grid',
+              placeItems: 'center',
               fontWeight: 'bold',
-              color: '#940000',
+              color: '#717171',
+              fontSize: '19px',
               cursor: 'pointer',
               lineHeight: '65%',
             }}
