@@ -28,7 +28,7 @@ export const SecondaryCustomButtonStyled = styled.button`
   line-height: 100%;
   border: ${({ variant }) =>
     variant === 'white'
-      ? '1px solid #dbdbdb'
+      ? '1px solid #c3c3c3'
       : variant === 'gray'
       ? 'none'
       : '1px solid #dbdbdb'};

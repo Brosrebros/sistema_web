@@ -30,7 +30,7 @@ export const MenuSection = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  gap: 16px;
+  gap: 12px;
   padding: 16px 24px;
   border-bottom: 1px solid #C3C3C3;
 

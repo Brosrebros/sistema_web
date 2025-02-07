@@ -7,7 +7,7 @@ export const PropertyDataContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  gap: 24px;
+  gap: 20px;
   padding: 24px;
   background-color: #ffffff;
   border-radius: 12px;
@@ -81,7 +81,7 @@ export const TagPriceContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  gap: 16px;
+  gap: 8px;
 
   div {
     display: flex;
@@ -107,7 +107,7 @@ export const TagPriceContainer = styled.div`
   h3 {
     font-weight: 700;
     font-size: 1.44em;
-    color: #940000;
+    color: #000000;
     margin: 0px;
   }
 `;
@@ -118,7 +118,7 @@ export const DescriptionContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  gap: 20px;
+  gap: 10px;
 
   h4 {
     font-weight: 700;

@@ -7,7 +7,7 @@ export const PropertyAdvertiserContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  gap: 24px;
+  gap: 20px;
   padding: 24px;
   background-color: white;
   border-radius: 12px;
@@ -26,7 +26,7 @@ export const AdvertiserDataContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 20px;
+  gap: 18px;
 `;
 
 export const AdvertiserOptions = styled.div`
@@ -83,7 +83,7 @@ export const TextContainer = styled.div`
   align-items: flex-start;
   justify-content: flex-start;
   flex-direction: column;
-  gap: 16px;
+  gap: 8px;
 
   h5 {
     font-weight: 700;

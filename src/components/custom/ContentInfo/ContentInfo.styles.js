@@ -39,7 +39,7 @@ export const GridTextContainer = styled.div`
   justify-content: center;
   align-items: flex-start;
   grid-column: span 2;
-  gap: 16px;
+  gap: 10px;
 
   h3 {
     font-size: 1.4375em;
@@ -86,7 +86,7 @@ export const CustomCard = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 16px;
+    gap: 8px;
 
     h4 {
       font-size: 1.1875em;

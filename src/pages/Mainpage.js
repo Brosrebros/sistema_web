@@ -65,7 +65,7 @@ const Mainpage = () => {
         <PropertySlider
           slidesToShow={isMenuOpen ? 5.2 : 5.8}
           data={propertyState.properties}
-          title="Descubre las propiedades recomendadas (24)"
+          title="Descubre las propiedades recomendadas"
         />
 
         <ContentInfo type="left" />

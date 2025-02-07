@@ -73,7 +73,7 @@ export const DataContainer = styled(TagContainer)`
   }
 
   h4 {
-    font-size: 1.4375em;
+    font-size: 1.78em;
     font-weight: bold;
     font-family: 'Aptos';
     color: black;
@@ -112,7 +112,7 @@ export const LikeButton = styled.button`
   align-items: center;
   background-color: #ffffff;
   border-radius: 40px;
-  border: 1px solid #c3c3c3;
+  border: none;
   outline: none;
   position: absolute;
   top: 12px;
@@ -131,7 +131,7 @@ export const ProyectBanner = styled.span`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 8px 12px;
+  padding: 4px 12px;
   border-radius: 0px 0px 12px 12px;
   background-color: #257573;
 
