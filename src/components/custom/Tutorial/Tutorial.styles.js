@@ -17,7 +17,7 @@ export const TutorialContainer = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    gap: 20px;
+    gap: 16px;
 
     h3 {
       font-weight: 700;
@@ -67,7 +67,7 @@ export const TutorialContainer = styled.div`
         flex-direction: column;
         justify-content: center;
         align-items: flex-start;
-        gap: 16px;
+        gap: 14px;
 
         h4 {
           font-weight: 700;
@@ -128,7 +128,6 @@ export const Option = styled.button`
   padding: 12px 16px;
 
   font-family: 'Roboto';
-  font-weight: bold;
   font-size: 1rem;
   color: ${props => (props.active ? '#ffffff' : '#424242')};
   margin: 0px;
@@ -149,7 +148,7 @@ export const OptionDot = styled(Option)`
   width: 41px;
   height: 41px;
   border-radius: 100px;
-  font-size: 1.4375em;
+  font-size: 1em;
 `;
 
 export const SpanBar = styled.span`

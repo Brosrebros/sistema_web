@@ -18,7 +18,7 @@ export const Banner = styled.div`
     font-family: 'Roboto';
     color: black;
     margin: 0px;
-    line-height: 110%;
+    line-height: 100%;
   }
 
   h2 {
@@ -27,7 +27,7 @@ export const Banner = styled.div`
     font-family: 'Roboto';
     color: black;
     margin: 0px;
-    line-height: 110%;
+    line-height: 120%;
   }
 
   p {

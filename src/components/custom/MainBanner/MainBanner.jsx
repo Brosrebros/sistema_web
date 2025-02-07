@@ -20,6 +20,7 @@ function HomeBanner({ type }) {
             flexDirection: 'column',
             alignItems: 'flex-start',
             gap: '10px',
+            maxWidth: '521px',
           }}
         >
           <h1>HABILITACIÓN URBANA “SANTA MARIA”</h1>
@@ -37,7 +38,7 @@ function HomeBanner({ type }) {
             flexDirection: 'column',
             alignItems: 'flex-start',
             gap: '10px',
-            maxWidth: '365px',
+            maxWidth: '521px',
           }}
         >
           <h2>¡Vende tu propiedad rápidamente y sin complicaciones!</h2>
