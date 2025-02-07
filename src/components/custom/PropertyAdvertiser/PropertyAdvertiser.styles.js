@@ -54,7 +54,7 @@ export const AdvertiserOptions = styled.div`
       flex-direction: column;
       justify-content: center;
       align-items: flex-start;
-      gap: 6px;
+      gap: 12px;
 
       h3 {
         font-weight: 700;
@@ -83,7 +83,7 @@ export const TextContainer = styled.div`
   align-items: flex-start;
   justify-content: flex-start;
   flex-direction: column;
-  gap: 8px;
+  gap: 16px;
 
   h5 {
     font-weight: 700;

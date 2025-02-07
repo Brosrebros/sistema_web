@@ -43,7 +43,7 @@ export const PropertyMainData = styled.div`
     font-size: 1.44rem;
     color: black;
     margin: 0px;
-    line-height: 100%;
+    line-height: 120%;
   }
 
   & > div:last-child {
@@ -118,7 +118,7 @@ export const DescriptionContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  gap: 10px;
+  gap: 16px;
 
   h4 {
     font-weight: 700;
