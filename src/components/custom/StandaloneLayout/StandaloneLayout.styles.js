@@ -7,7 +7,7 @@ export const StandaloneLayoutStyled = styled.div`
   justify-content: center;
   align-items: center;
   gap: 24px;
-  padding: 24px;
+  padding: ${({ type }) => (type === 'process' ? '0px' : '24px')};
 `;
 
 export const StandaloneContainer = styled.div`
@@ -104,7 +104,7 @@ export const DataCard = styled.div`
 
   p {
     transition: all 0.2s ease;
-    display: ${({isActive}) => isActive ? "block" : "none"};
+    display: ${({ isActive }) => (isActive ? 'block' : 'none')};
     font-weight: 400;
     font-size: 1rem;
     line-height: 122%;

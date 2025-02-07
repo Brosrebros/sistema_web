@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Card, Col, Row } from 'react-bootstrap';
 import PropertyDetailAdvertiser from './PropertyDetailAdvertiser';
-import PropertyDetailDescription from './PropertyDetailDescription';
 import { usePropertyContext } from 'providers/PropertyProvider';
 import PropertySlider from '../PropertySlider';
 import { useNavigate, useParams } from 'react-router-dom';
@@ -22,7 +20,6 @@ const PropertyDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
 
-  // Estado para forzar el refresco
   const [refreshKey, setRefreshKey] = useState(0);
 
   useEffect(() => {
@@ -31,11 +28,10 @@ const PropertyDetail = () => {
     }
   }, [id, fetchPropertyById]);
 
-  // Forzar refresco y actualización de propiedad
   const handlePropertyClick = propertyId => {
     navigate(`/properties/${propertyId}`);
     fetchPropertyById(propertyId);
-    setRefreshKey(prevKey => prevKey + 1); // Cambiar la clave fuerza el re-render
+    setRefreshKey(prevKey => prevKey + 1);
   };
 
   return (
