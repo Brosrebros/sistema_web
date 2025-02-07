@@ -49,14 +49,14 @@ const InfoBanner = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 24px;
+    gap: 16px;
 
     span {
       font-weight: 700;
       font-size: 2.5rem;
       text-transform: uppercase;
       color: #ffffff;
-      line-height: 26px;
+      line-height: 100% !important;
     }
 
     h3 {
@@ -65,7 +65,7 @@ const InfoBanner = styled.div`
       text-align: center;
       color: #ffffff;
       margin: 0px;
-      line-height: 70%;
+      line-height: 100%;
     }
 
     h4 {
@@ -74,7 +74,7 @@ const InfoBanner = styled.div`
       text-align: center;
       color: #ffffff;
       margin: 0px;
-      line-height: 70%;
+      line-height: 100%;
     }
 
     p {
@@ -91,7 +91,7 @@ const InfoBanner = styled.div`
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
     }
   }
 `;
