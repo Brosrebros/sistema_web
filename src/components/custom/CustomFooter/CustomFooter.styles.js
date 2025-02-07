@@ -52,7 +52,7 @@ export const TextContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  gap: 8px;
+  gap: 12px;
 
   h3 {
     font-size: 1.1875em;
