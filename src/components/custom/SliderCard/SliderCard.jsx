@@ -74,7 +74,7 @@ function SliderCard({ property, type }) {
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'flex-start',
-            gap: '2px',
+            gap: '4px',
           }}
         >
           <span>Precio</span>
