@@ -212,6 +212,7 @@ import StandaloneLayout from 'components/custom/StandaloneLayout/StandaloneLayou
 import Premiumpage from 'pages/Premiumpage';
 import Paymentpage from 'pages/Paymentpage';
 import SellerProfilepage from 'pages/SellerProfilepage';
+import SellProcesspage from 'pages/SellProcesspage';
 
 const routes = [
   {
@@ -330,8 +331,18 @@ const routes = [
         ],
       },
       {
+        path: `/${rootPaths.processRoot}`,
+        element: <MainLayout type="process" />,
+        children: [
+          {
+            index: true,
+            element: <SellProcesspage />,
+          },
+        ],
+      },
+      {
         path: '/',
-        element: <MainLayout />,
+        element: <MainLayout type="main" />,
         children: [
           {
             index: true,
@@ -355,7 +366,7 @@ const routes = [
           },
           {
             path: paths.sellerProfileRoot,
-            element: <SellerProfilepage/>
+            element: <SellerProfilepage />,
           },
           {
             path: rootPaths.dashboardRoot,

@@ -3,6 +3,8 @@ import MainBanner from 'components/custom/MainBanner/MainBanner';
 import ContentInfo from 'components/custom/ContentInfo/ContentInfo';
 import Tutorial from 'components/custom/Tutorial/Tutorial';
 import styled from 'styled-components';
+import { useNavigate } from 'react-router-dom';
+import { rootPaths } from 'routes/paths';
 
 const CustomButton = styled.button`
   width: auto;
@@ -95,6 +97,9 @@ const InfoBanner = styled.div`
 `;
 
 const Salepage = () => {
+
+  const navigate = useNavigate()
+
   return (
     <CustomPageLayout>
       <MainBanner type="sale" />
@@ -140,7 +145,7 @@ const Salepage = () => {
             Publica tu propiedad ahora y conéctate con miles de compradores
             interesados. Es fácil, rápido. ¡Hazlo realidad hoy mismo!
           </p>
-          <CustomButton type="secondary">Vende tu inmueble ahora</CustomButton>
+          <CustomButton type="secondary" onClick={() => navigate(`/${rootPaths.processRoot}`)}>Vende tu inmueble ahora</CustomButton>
         </div>
       </InfoBanner>
     </CustomPageLayout>

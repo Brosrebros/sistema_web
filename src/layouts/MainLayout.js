@@ -20,7 +20,7 @@ const CustomPageContainer = styled.div`
   margin: 24px 0px;
 `;
 
-const MainLayout = () => {
+const MainLayout = ({ type }) => {
   const { isMenuOpen } = useMenu();
   const { hash, pathname } = useLocation();
 
@@ -49,19 +49,25 @@ const MainLayout = () => {
             style={{
               width: '100%',
               display: 'grid',
-              gridTemplateColumns: isMenuOpen ? '270px minmax(0, 1fr)' : '100px minmax(0, 1fr)',
+              gridTemplateColumns: isMenuOpen
+                ? '270px minmax(0, 1fr)'
+                : '100px minmax(0, 1fr)',
               gap: '24px',
               padding: '0px 24px 0px 0px',
               position: 'relative',
-              transition:"all 0.2s ease"
+              transition: 'all 0.2s ease',
             }}
           >
             <Menu />
             <CustomPageContainer isMenuOpen={isMenuOpen}>
               <PropertyProvider>
                 <Outlet />
-                <CustomFooter />
-                <Footer type="main"/>
+                {type === 'main' ? (
+                  <>
+                    <CustomFooter />
+                    <Footer type="main" />
+                  </>
+                ) : null}
               </PropertyProvider>
             </CustomPageContainer>
           </div>

@@ -15,7 +15,7 @@ import { Outlet, useNavigate } from 'react-router-dom';
 import Footer from 'components/footer/Footer';
 import { useState } from 'react';
 
-function StandaloneLayout({ type }) {
+function StandaloneLayout({ type, children }) {
   const cardContents = [
     {
       id: 'option-1',
@@ -61,7 +61,7 @@ function StandaloneLayout({ type }) {
 
   return (
     <>
-      <StandaloneLayoutStyled>
+      <StandaloneLayoutStyled type={type}>
         <StandaloneContainer>
           <StandaloneNavigate>
             <SecondaryCustomButton
@@ -73,6 +73,7 @@ function StandaloneLayout({ type }) {
             </SecondaryCustomButton>
           </StandaloneNavigate>
           <Outlet />
+          {children}
         </StandaloneContainer>
 
         {type === 'premium' ? (
