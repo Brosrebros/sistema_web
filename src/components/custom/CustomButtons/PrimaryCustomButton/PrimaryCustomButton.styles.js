@@ -13,7 +13,7 @@ export const PrimaryCustomButtonStyled = styled.button`
   background-color: #940000;
   border-radius: 12px;
   padding: 12px 16px;
-  transition: all 0.2s ease;
+  transition: all 0.1s ease;
 
   /* Fuente */
   font-size: 1em;

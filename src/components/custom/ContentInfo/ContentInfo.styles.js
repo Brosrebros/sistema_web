@@ -66,7 +66,7 @@ export const CustomCard = styled.div`
   justify-content: center;
   align-items: center;
   gap: 24px;
-  padding: 32px;
+  padding: 24px;
   background-color: #f2f2f2;
   border-radius: 12px;
 

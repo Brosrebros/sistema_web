@@ -67,7 +67,7 @@ export const MenuOption = styled.div`
   gap: 8px;
   padding: 12px 16px;
   border-radius: 12px;
-  transition: background 0.2s ease;
+  transition: all 0.1s ease;
   cursor: pointer;
 
   span {

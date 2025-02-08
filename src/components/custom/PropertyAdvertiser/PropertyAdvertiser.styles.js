@@ -149,7 +149,7 @@ export const Option = styled.button`
   background-color: ${({ isSelected }) => (isSelected ? '#940000' : '#ffffff')};
   border-radius: 12px;
   padding: 12px 16px;
-  transition: all 0.2s ease;
+  transition: all 0.1s ease;
   border: 1px solid ${({ isSelected }) => (isSelected ? '#940000' : '#C3C3C3')};
 
   /* Fuente */

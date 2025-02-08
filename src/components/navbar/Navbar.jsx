@@ -84,7 +84,7 @@ function Navbar({ type }) {
                 navigate(`/${rootPaths.sellerRoot}`);
               }}
             >
-              Vendedores Inmobiliarios
+              Vendedores inmobiliarios
             </SecondaryCustomButton>
           </NavbarMainDataContainer>
           <NavbarOptionsContainer>
@@ -136,7 +136,7 @@ function Navbar({ type }) {
                   );
                 }}
               >
-                Iniciar Sesión
+                Iniciar sesión
               </PrimaryCustomButton>
               <SecondaryCustomButton
                 variant="white"

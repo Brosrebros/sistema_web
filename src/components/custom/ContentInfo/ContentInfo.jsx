@@ -39,10 +39,10 @@ function ContentInfo({ type }) {
         <CustomCard>
           <img src={icon2} alt="house" />
           <div>
-            <h4>Amplia variedad de opciones</h4>
+            <h4>Busqueda clara y rápida</h4>
             <p>
-              Desde casas y departamentos hasta terrenos y proyectos nuevos,
-              tenemos la propiedad que se adapta a tus necesidades.
+              Nuestros filtros inteligentes y mapas interactivos están diseñados  
+              para que encuentres lo que buscas sin complicaciones.
             </p>
           </div>
         </CustomCard>
@@ -50,10 +50,10 @@ function ContentInfo({ type }) {
         <CustomCard>
           <img src={icon3} alt="house" />
           <div>
-            <h4>Amplia variedad de opciones</h4>
+            <h4>Información confiable y detallada</h4>
             <p>
-              Desde casas y departamentos hasta terrenos y proyectos nuevos,
-              tenemos la propiedad que se adapta a tus necesidades.
+              Publicamos datos precisos, fotos de calidad y toda la información  
+              que necesitas para tomar una decisión informada.
             </p>
           </div>
         </CustomCard>
@@ -61,10 +61,10 @@ function ContentInfo({ type }) {
         <CustomCard>
           <img src={icon4} alt="house" />
           <div>
-            <h4>Amplia variedad de opciones</h4>
+            <h4>Soporte a tu alcance</h4>
             <p>
-              Desde casas y departamentos hasta terrenos y proyectos nuevos,
-              tenemos la propiedad que se adapta a tus necesidades.
+              Nuestro equipo está siempre disponible para ayudarte y responder 
+              tus consultas en cada etapa de tu búsqueda.
             </p>
           </div>
         </CustomCard>

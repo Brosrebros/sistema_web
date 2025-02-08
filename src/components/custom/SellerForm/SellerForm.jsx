@@ -47,7 +47,7 @@ function SellerForm() {
           Dueño directo
         </Option>
       </OptionsContainer>
-      <CustomInputText placeholder="Buscar" icon={lupaIconGray} />
+      <CustomInputText placeholder="Buscar vendedor" icon={lupaIconGray} />
       <CustomInputText placeholder="¿En dónde lo buscas?" icon={locationIcon} />
       <CustomSelect
         id="tipoPropiedad"

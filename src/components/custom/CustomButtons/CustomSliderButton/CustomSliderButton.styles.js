@@ -17,7 +17,7 @@ export const CustomSliderButtonStyled = styled(Slider)`
     height: 40px;
     z-index: 2;
     opacity: 0 !important;
-    transition: opacity 0.3s ease;
+    transition: all 0.1s ease;
   }
 
   .slick-prev::after,
