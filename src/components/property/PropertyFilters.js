@@ -293,19 +293,6 @@ const PropertyFilters = ({
   );
 };
 
-PropertyFilters.propTypes = {
-  filterForm: PropTypes.shape({
-    tipoOperacion: PropTypes.string,
-    direccionCompleta: PropTypes.string,
-    tipoPropiedad: PropTypes.string,
-    presupuesto: PropTypes.string,
-    ordenarPor: PropTypes.string,
-  }),
-  setFilterForm: PropTypes.func,
-  setShow: PropTypes.func,
-  isOffcanvas: PropTypes.bool,
-};
-
 const SurfaceContainer = styled.div`
   width: 100%;
   display: grid;
@@ -335,6 +322,7 @@ const SurfaceContainer = styled.div`
     }
   }
 `;
+
 const SurfaceFilter = () => {
   const options = [
     { value: 'M2', label: 'M2' },
@@ -380,18 +368,6 @@ const SurfaceFilter = () => {
       </SurfaceContainer>
     </div>
   );
-};
-
-CustomFilter.propTypes = {
-  title: PropTypes.string.isRequired,
-  options: PropTypes.arrayOf(
-    PropTypes.shape({
-      value: PropTypes.string.isRequired,
-      label: PropTypes.string.isRequired,
-    })
-  ).isRequired,
-  inputType: PropTypes.oneOf(['radio', 'checkbox']).isRequired,
-  name: PropTypes.string.isRequired,
 };
 
 const NumberFeaturesFilter = ({ onChange }) => {
@@ -472,6 +448,31 @@ const NumberFeatureContainer = ({ title, value, onValueChange }) => {
       </CustomCounter>
     </div>
   );
+};
+
+PropertyFilters.propTypes = {
+  filterForm: PropTypes.shape({
+    tipoOperacion: PropTypes.string,
+    direccionCompleta: PropTypes.string,
+    tipoPropiedad: PropTypes.string,
+    presupuesto: PropTypes.string,
+    ordenarPor: PropTypes.string,
+  }),
+  setFilterForm: PropTypes.func,
+  setShow: PropTypes.func,
+  isOffcanvas: PropTypes.bool,
+};
+
+CustomFilter.propTypes = {
+  title: PropTypes.string.isRequired,
+  options: PropTypes.arrayOf(
+    PropTypes.shape({
+      value: PropTypes.string.isRequired,
+      label: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+  inputType: PropTypes.oneOf(['radio', 'checkbox']).isRequired,
+  name: PropTypes.string.isRequired,
 };
 
 export default PropertyFilters;
