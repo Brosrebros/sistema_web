@@ -141,23 +141,6 @@ function StepTwo() {
       </DataContainer>
 
       <DataContainer>
-        <h4>Precio del inmueble</h4>
-        <PriceContainer>
-          <CustomInputNumber id="soles" type="number" placeholder="En soles" />
-          <CustomInputNumber
-            id="dolares"
-            type="number"
-            placeholder="En dólares"
-          />
-          <CustomInputNumber
-            id="mantenimiento"
-            type="number"
-            placeholder="Mantenimiento (Opcional)"
-          />
-        </PriceContainer>
-      </DataContainer>
-
-      <DataContainer>
         <h4>Descripción el inmueble</h4>
         <DescriptionContainer>
           <CustomInput placeholder="Titulo del anuncio" />
