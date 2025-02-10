@@ -16,9 +16,11 @@ import cameraIcon from '../../../assets/img/icons/camera.svg';
 import { rootPaths } from 'routes/paths';
 import { useMenu } from 'menuContext';
 import callIcon from '../../../assets/img/icons/call.svg';
-import heartIcon from '../../../assets/img/icons/heart.svg';
-import heartIconBold from '../../../assets/img/icons/heart-bold.svg';
+import heartIcon from '../../../assets/img/icons/archive-add.svg';
+import heartIconBold from '../../../assets/img/icons/archive-tick.svg';
+import premiumIcon from 'assets/img/icons/ph_seal-check-fill.svg';
 import PrimaryCustomButton from '../CustomButtons/PrimaryCustomButton/PrimaryCustomButton';
+import SecondaryCustomButton from '../CustomButtons/SecondaryCustomButton/SecondaryCustomButton';
 
 function CatalogCard({ property }) {
   const { isMenuOpen } = useMenu();
@@ -26,7 +28,8 @@ function CatalogCard({ property }) {
   const [isFavourite, setIsFavourite] = useState(false);
   const navigate = useNavigate();
 
-  const handleFavourite = () => {
+  const handleFavourite = e => {
+    e.stopPropagation();
     setIsFavourite(prev => !prev);
   };
 
@@ -87,28 +90,7 @@ function CatalogCard({ property }) {
             : null}
         </CustomListSlider>
 
-        <div
-          style={{
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            position: 'absolute',
-            opacity: '1',
-            top: '12px',
-            right: '12px',
-            padding: '12px',
-            borderRadius: '100px',
-            backgroundColor: '#ffffff',
-            cursor: 'pointer',
-          }}
-          onClick={handleFavourite}
-        >
-          <img
-            src={isFavourite ? heartIconBold : heartIcon}
-            alt="heart"
-            style={{ height: '20px', width: '20px' }}
-          />
-        </div>
+        <div></div>
         <div
           style={{
             width: '100px',
@@ -166,27 +148,47 @@ function CatalogCard({ property }) {
           </div>
         </TagContainer>
 
-        <MainDataContainer>
-          <span>Precio</span>
-          <h3>S/. {precio.pen.toLocaleString('en-US')}</h3>
-          <div>
-            <img src={pinIcon} alt="location" />
-            <p>{direccionCompleta}</p>
-          </div>
-        </MainDataContainer>
-
         <DataDescription>
-          <h3>{titulo}</h3>
+          <div>
+            <h3>{titulo}</h3>
+            <div>
+              <img src={pinIcon} alt="pin" />
+              {direccionCompleta}
+            </div>
+          </div>
+
           <p>{detalle}</p>
         </DataDescription>
 
-        <OptionsContainer>
-          <img src="#" alt="" />
+        <MainDataContainer>
+          <span>Precio</span>
+          <h3>S/. {precio.pen.toLocaleString('en-US')}</h3>
+        </MainDataContainer>
+        <OptionsContainer fav={isFavourite}>
+          <div>
+            <img src="#" alt="#" />
 
-          <PrimaryCustomButton>
-            <img src={callIcon} alt="sms" />
-            Contactar
-          </PrimaryCustomButton>
+            <div>
+              <h5>
+                Inmobiliaria Los Robles <img src={premiumIcon} alt="#" />
+              </h5>
+              <CustomBadge color="turquoise">Inmobiliaria</CustomBadge>
+            </div>
+          </div>
+          <div>
+            <SecondaryCustomButton onClick={handleFavourite}>
+              <img
+                src={isFavourite ? heartIconBold : heartIcon}
+                alt="heart"
+                style={{ height: '20px', width: '20px' }}
+              />
+              {isFavourite ? 'Guardado' : 'Guardar'}
+            </SecondaryCustomButton>
+            <PrimaryCustomButton onClick={handleFavourite}>
+              <img src={callIcon} alt="sms" />
+              Contactar
+            </PrimaryCustomButton>
+          </div>
         </OptionsContainer>
       </CatalogDataContainer>
     </CatalogCardContainer>

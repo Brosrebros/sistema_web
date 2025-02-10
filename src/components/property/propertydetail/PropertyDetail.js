@@ -38,7 +38,7 @@ const PropertyDetail = () => {
     <>
       {propertyState.property && (
         <CustomLayout>
-          <div style={{maxWidth:"783px"}}>
+          <div style={{maxWidth:"785px"}}>
             <PropertyDetailAdvertiser property={propertyState.property} />
           </div>
           

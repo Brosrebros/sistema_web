@@ -1,9 +1,8 @@
 import styled from 'styled-components';
-import { PrimaryCustomButtonStyled } from '../CustomButtons/PrimaryCustomButton/PrimaryCustomButton.styles';
 
 export const CatalogCardContainer = styled.div`
   width: 100%;
-  height: 330px;
+  height: 335px;
   cursor: pointer;
   display: grid;
   grid-template-columns: 354px auto;
@@ -79,37 +78,45 @@ export const MainDataContainer = styled(CatalogDataContainer)`
     line-height: 15px;
     margin: 0px;
   }
-
-  & > div:last-child {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 4px;
-
-    img {
-      width: 20px;
-      height: 20px;
-    }
-
-    p {
-      font-size: 1em;
-      font-weight: normal;
-      color: #717171;
-      line-height: 11px;
-      margin: 0px;
-    }
-  }
 `;
 
 export const DataDescription = styled(CatalogDataContainer)`
   gap: 16px;
 
-  h3 {
-    font-size: 1.1875em;
-    font-weight: bold;
-    color: black;
-    line-height: 12px;
-    margin: 0px;
+  & > div:first-child {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 12px;
+
+    h3 {
+      font-size: 1.1875em;
+      font-weight: bold;
+      color: black;
+      line-height: 12px;
+      margin: 0px;
+    }
+
+    & > div:nth-child(2) {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 4px;
+
+      img {
+        width: 20px;
+        height: 20px;
+      }
+
+      p {
+        font-size: 1em;
+        font-weight: normal;
+        color: #717171;
+        line-height: 11px;
+        margin: 0px;
+      }
+    }
   }
 
   p {
@@ -132,18 +139,58 @@ export const OptionsContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 16px;
 
-  & > img:first-child {
-    width: 50px;
-    height: 50px;
-    border-radius: 200px;
-    background-color: #dbdbdb;
+  & > div:first-child {
+    display: grid;
+    grid-template-columns: 50px auto;
+    align-items: center;
+    gap: 12px;
+
+    & > img:first-child {
+      width: 50px;
+      height: 50px;
+      border-radius: 200px;
+      background-color: #dbdbdb;
+    }
+
+    div {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 8px;
+
+      h5 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+
+        font-family: 'Roboto';
+        font-weight: 400;
+        font-size: 1rem;
+        line-height: 137%;
+        color: black;
+        margin: 0px;
+
+        img {
+          width: 17px;
+          height: 17px;
+        }
+      }
+    }
   }
 
-  div {
+  & > div:last-child {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 16px;
+
+    & > button:first-child {
+      color: #940000;
+      border: 1px solid ${({ fav }) => (fav ? '#940000' : '#c3c3c3')};
+    }
   }
 `;

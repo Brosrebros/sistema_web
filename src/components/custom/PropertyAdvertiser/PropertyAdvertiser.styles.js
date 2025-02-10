@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { PrimaryCustomButtonStyled } from '../CustomButtons/PrimaryCustomButton/PrimaryCustomButton.styles';
 
 export const PropertyAdvertiserContainer = styled.div`
   width: 100%;
@@ -72,10 +71,11 @@ export const ButtonsContainer = styled.div`
   justify-content: center;
   align-items: center;
   gap: 16px;
-`;
 
-export const WtspButton = styled(PrimaryCustomButtonStyled)`
-  background-color: #25d366;
+  & > button:nth-child(2) {
+    color: #940000;
+    border: 1px solid ${({ fav }) => (fav ? '#940000' : '#c3c3c3')};
+  }
 `;
 
 export const TextContainer = styled.div`
@@ -110,31 +110,12 @@ export const ButtonOptionsContainer = styled.div`
   align-items: center;
   gap: 12px;
 
-  div {
+  & > div:last-child {
     width: 100%;
     display: grid;
     grid-template-columns: 1fr auto;
     align-items: center;
     gap: 12px;
-
-    input {
-      height: 41px;
-      display: flex;
-      justify-content: flex-start;
-      align-items: center;
-      gap: 8px;
-      padding: 12px 16px;
-      border-radius: 12px;
-      border: 1px solid #c3c3c3;
-      outline: none;
-      font-family: 'Aptos';
-
-      &::placeholder {
-        color: #424242;
-        font-weight: normal;
-        font-family: 'Aptos';
-      }
-    }
   }
 `;
 
@@ -160,17 +141,19 @@ export const Option = styled.button`
   line-height: 100%;
 
   &:hover {
-    background-color: ${({ isSelected }) => (isSelected ? '#A10000' : '#F9F9F9')};
+    background-color: ${({ isSelected }) =>
+      isSelected ? '#A10000' : '#F9F9F9'};
   }
 
   &:active {
-    background-color: ${({ isSelected }) => (isSelected ? '#850000' : '#ECECEC')};
+    background-color: ${({ isSelected }) =>
+      isSelected ? '#850000' : '#ECECEC'};
   }
 `;
 
 export const ProblemContainer = styled.div`
   width: 100%;
-  padding: 20px;
+  padding: 24px;
   background-color: #f2f2f2;
   border-radius: 12px;
 `;

@@ -9,8 +9,8 @@ import {
 } from './SliderCard.styles';
 import CustomBadge from '../CustomBadge/CustomBadge';
 import { rootPaths } from 'routes/paths';
-import heartIcon from '../../../assets/img/icons/heart.svg';
-import heartIconBold from '../../../assets/img/icons/heart-bold.svg';
+import heartIcon from '../../../assets/img/icons/archive-add.svg';
+import heartIconBold from '../../../assets/img/icons/archive-tick.svg';
 import locationIcon from '../../../assets/img/icons/location.svg';
 import { useNavigate } from 'react-router-dom';
 

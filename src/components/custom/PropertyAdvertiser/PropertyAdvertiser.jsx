@@ -4,7 +4,6 @@ import {
   AdvertiserOptions,
   PropertyAdvertiserContainer,
   ButtonsContainer,
-  WtspButton,
   TextContainer,
   ButtonOptionsContainer,
   Option,
@@ -15,9 +14,19 @@ import CustomBadge from '../CustomBadge/CustomBadge';
 import PrimaryCustomButton from '../CustomButtons/PrimaryCustomButton/PrimaryCustomButton';
 import callIcon from '../../../assets/img/icons/call.svg';
 import sendIcon from '../../../assets/img/icons/send.svg';
+import shareIcon from 'assets/img/icons/share.svg';
+import saveIcon from 'assets/img/icons/archive-add.svg';
+import saveIconBold from 'assets/img/icons/archive-tick.svg';
+import SecondaryCustomButton from '../CustomButtons/SecondaryCustomButton/SecondaryCustomButton';
+import CustomInput from '../CustomFormUI/CustomInput/CustomInput';
 
 function PropertyAdvertiser() {
   const [selectedOption, setSelectedOption] = useState('');
+  const [isFavourite, setIsFavourite] = useState(false);
+
+  const handleFavourite = () => {
+    setIsFavourite(prev => !prev);
+  };
 
   const handleOptionClick = option => {
     setSelectedOption(option);
@@ -30,14 +39,23 @@ function PropertyAdvertiser() {
       <AdvertiserDataContainer>
         <AdvertiserOptions>
           <div>
-            <img src="#" alt="advertiser" />
+            <img src="#" alt="" />
 
             <div>
               <h3>Inmobiliaria los Robles</h3>
               <CustomBadge color="turquoise">Inmobiliaria</CustomBadge>
             </div>
           </div>
-          <ButtonsContainer>
+          <ButtonsContainer fav={isFavourite}>
+            <SecondaryCustomButton>
+              <img src={shareIcon} alt="heart" />
+            </SecondaryCustomButton>
+
+            <SecondaryCustomButton onClick={handleFavourite}>
+              <img src={isFavourite ? saveIconBold : saveIcon} alt="save" />
+              {isFavourite ? 'Guardado' : 'Guardar'}
+            </SecondaryCustomButton>
+
             <PrimaryCustomButton>
               <img src={callIcon} alt="sms" />
               Contactar
@@ -46,12 +64,12 @@ function PropertyAdvertiser() {
         </AdvertiserOptions>
         <TextContainer>
           <p>
-          Inmobiliaria Los Robles es una empresa inmobiliaria comprometida 
-          con brindar soluciones integrales en el sector de bienes raíces. 
-          Nos especializamos en la compra, venta y alquiler de propiedades 
-          residenciales y comerciales, adecuamos las ofertas inmobiliarias 
-          para tu mejor percepción, realizamos estrategias de inversión 
-          inmobiliarias. 
+            Inmobiliaria Los Robles es una empresa inmobiliaria comprometida con
+            brindar soluciones integrales en el sector de bienes raíces. Nos
+            especializamos en la compra, venta y alquiler de propiedades
+            residenciales y comerciales, adecuamos las ofertas inmobiliarias
+            para tu mejor percepción, realizamos estrategias de inversión
+            inmobiliarias.
           </p>
 
           <span>Código de anunciante: INM-001</span>
@@ -82,7 +100,7 @@ function PropertyAdvertiser() {
           ¿Cuando puedo hacer una visita?
         </Option>
         <div>
-          <input type="text" placeholder="Escribe aquí" />
+          <CustomInput type="text" placeholder="Escribe aquí" />
           <PrimaryCustomButton>
             <img src={sendIcon} alt="send" />
             Enviar

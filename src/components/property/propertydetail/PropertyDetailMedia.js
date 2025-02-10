@@ -4,31 +4,10 @@ import PropTypes from 'prop-types';
 import cameraIcon from '../../../assets/img/icons/camera.svg';
 import barcodeIcon from '../../../assets/img/icons/barcode.svg';
 import CustomListSlider from 'components/custom/CustomListSlider/CustomListSlider';
-import heartIcon from '../../../assets/img/icons/heart.svg';
-import heartIconBold from '../../../assets/img/icons/heart-bold.svg';
-import shareIcon from '../../../assets/img/icons/share.svg';
 import styled from 'styled-components';
 
-const LikeButton = styled.button`
-  width: 41px;
-  height: 41px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #ffffff;
-  border-radius: 40px;
-  border: none;
-  outline: none;
-  color: #940000;
-  transition: all 0.2s ease;
-
-  &:hover {
-    filter: brightness(0.9);
-  }
-`;
-
 const CustomContainer = styled.div`
-  margin-top: 12px;
+  margin-top: 16px;
 `;
 
 const PropertyDetailMedia = ({ imagenes: files }) => {
@@ -128,26 +107,7 @@ const PropertyDetailMedia = ({ imagenes: files }) => {
             ))}
           </CustomListSlider>
 
-          <div
-            style={{
-              opacity: '0',
-              display: 'flex',
-              justifyContent: 'center',
-              alignContent: 'center',
-              gap: '10px',
-              position: 'absolute',
-              top: '12px',
-              right: '12px',
-            }}
-          >
-            <LikeButton onClick={handleFavourite}>
-              <img src={isFavourite ? heartIconBold : heartIcon} alt="heart" />
-            </LikeButton>
-
-            <LikeButton>
-              <img src={shareIcon} alt="heart" />
-            </LikeButton>
-          </div>
+          <div></div>
           <div
             style={{
               width: 'calc(100% - 20px)',
