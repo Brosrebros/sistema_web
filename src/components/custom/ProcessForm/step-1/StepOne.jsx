@@ -341,7 +341,7 @@ function StepOne({ part }) {
   );
 }
 
-const NumberFeatureContainer = ({ title, value, onValueChange, onChange }) => {
+const NumberFeatureContainer = ({ title, value, onValueChange }) => {
   const increment = () => onValueChange(value + 1);
   const decrement = () => onValueChange(Math.max(0, value - 1));
 

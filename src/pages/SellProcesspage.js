@@ -3,6 +3,7 @@ import StandaloneLayout from 'components/custom/StandaloneLayout/StandaloneLayou
 import ProcessBar from 'components/custom/ProcessBar/ProcessBar';
 import ProcessResume from 'components/custom/ProcessResume/ProcessResume';
 import ProcessForm from 'components/custom/ProcessForm/ProcessForm';
+import { ProcessProvider } from 'processContext';
 import styled from 'styled-components';
 
 const ProcessContainer = styled.div`
@@ -22,14 +23,16 @@ const ProcessContainer = styled.div`
 
 function SellProcesspage() {
   return (
-    <StandaloneLayout type="process">
-      <ProcessBar />
-      <ProcessContainer>
-        <ProcessResume />
-        <span></span>
-        <ProcessForm/>
-      </ProcessContainer>
-    </StandaloneLayout>
+    <ProcessProvider>
+      <StandaloneLayout type="process">
+        <ProcessBar />
+        <ProcessContainer>
+          <ProcessResume />
+          <span></span>
+          <ProcessForm />
+        </ProcessContainer>
+      </StandaloneLayout>
+    </ProcessProvider>
   );
 }
 

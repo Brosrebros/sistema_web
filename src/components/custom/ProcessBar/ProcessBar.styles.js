@@ -28,7 +28,7 @@ export const ProcessBarContainer = styled.div`
 export const ProgressBarStepStyled = styled.span`
   width: 100%;
   display: block;
-  background-color: #f2e4e4;
+  background-color: ${({ isActive }) => (isActive ? '#940000' : '#F2E4E4')};
 `;
 
 export const StepTitleContainer = styled.div`
@@ -46,14 +46,15 @@ export const StepTitleContainer = styled.div`
     justify-content: center;
     align-items: center;
     border-radius: 100px;
-    border: 1px solid #940000;
+    background: ${({ type }) => (type === "todo" ? '#ffffff' : type === "do" ? '#940000' : "#ffffff")};
+    border: 1px solid ${({ type }) => (type === "todo" ? '#c3c3c3' : type === "do" ? '#940000' : "#940000")};
 
     font-family: 'Roboto';
     font-weight: 700;
     font-size: 1.44rem;
     line-height: 122%;
     text-align: center;
-    color: #940000;
+    color: ${({ type }) => (type === "todo" ? '#c3c3c3' : type === "do" ? '#ffffff' : "#940000")};
   }
 
   span {
@@ -63,6 +64,6 @@ export const StepTitleContainer = styled.div`
     font-size: 1.44rem;
     line-height: 122%;
     text-align: center;
-    color: black;
+    color: ${({ type }) => (type === "todo" ? '#c3c3c3' : type === "do" ? 'black' : "black")};
   }
 `;

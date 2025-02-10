@@ -18,11 +18,12 @@ export const CustomInputContainer = styled.div`
 `;
 
 export const Input = styled.input`
+  width: 80%;
   border: none;
   background-color: transparent;
   outline: none;
   font-family: 'Roboto';
-  
+
   &::placeholder {
     font-size: 1em;
     color: #424242;

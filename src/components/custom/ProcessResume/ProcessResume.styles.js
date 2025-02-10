@@ -57,14 +57,14 @@ export const ProcessStep = styled.div`
     display: flex;
     justify-content: flex-start;
     padding: 12px 16px;
-    background-color: #940000;
+    background-color: ${({ isActive }) => (isActive ? '#940000' : '#f2f2f2')};
     border-radius: 12px;
 
     font-family: 'Roboto';
     font-weight: 400;
     font-size: 1rem;
     line-height: 110% !important;
-    color: #ffffff;
+    color: ${({ isActive }) => (isActive ? '#ffffff' : '#424242')};
   }
 
   img {
@@ -118,8 +118,8 @@ export const ProcessWarning = styled.div`
   grid-template-columns: 24px auto;
   align-items: center;
   gap: 20px;
-  padding: 16px;
-  background-color: #257573;
+  padding: 24px;
+  background-color: #233F75;
   border-radius: 12px;
 
   font-family: 'Roboto';
