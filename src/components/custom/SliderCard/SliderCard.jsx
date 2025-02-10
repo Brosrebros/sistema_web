@@ -89,7 +89,7 @@ function SliderCard({ property, type }) {
           alt=""
           style={{ width: '15px', height: '15px' }}
         />
-        {calleNumero}, {departamento}, {provincia}
+        {calleNumero}, Lima, Perú
       </span>
 
       <TagContainer>
