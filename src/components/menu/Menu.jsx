@@ -22,21 +22,19 @@ import { useMenu } from '../../menuContext';
 import { useNavigate } from 'react-router-dom';
 import { rootPaths } from 'routes/paths';
 
-function Menu() {
+function Menu({ active }) {
   const navigate = useNavigate();
   const { isMenuOpen } = useMenu();
 
   return (
-    <MenuContainer
-      isMenuOpen={isMenuOpen}
-    >
+    <MenuContainer isMenuOpen={isMenuOpen}>
       <MenuSection isMenuOpen={isMenuOpen}>
         <h6>Principal</h6>
         <MenuOptionsContainer>
-          <MenuOption isMenuOpen={isMenuOpen}>
+          <MenuOption isMenuOpen={isMenuOpen} active={active === 'Inicio'}>
             <img src={homeIcon} alt="home" /> <span>Inicio</span>
           </MenuOption>
-          <MenuOption isMenuOpen={isMenuOpen}>
+          <MenuOption isMenuOpen={isMenuOpen} active={active === 'nosotros'}>
             <img src={peopleIcon} alt="people" /> <span>Nosotros</span>
           </MenuOption>
         </MenuOptionsContainer>
@@ -44,7 +42,10 @@ function Menu() {
       <MenuSection isMenuOpen={isMenuOpen}>
         <h6>Servicios</h6>
         <MenuOptionsContainer>
-          <MenuOption isMenuOpen={isMenuOpen}>
+          <MenuOption
+            isMenuOpen={isMenuOpen}
+            active={active === 'inmobiliaria'}
+          >
             <img src={buildingIcon} alt="inmobiliaria" />{' '}
             <span>Inmobiliaria</span>
           </MenuOption>
@@ -84,7 +85,11 @@ function Menu() {
             <span>Configuración</span>
           </MenuOption>
           <MenuOption isMenuOpen={isMenuOpen}>
-            <img src={supportIcon} alt="soporte" />
+            <img
+              src={supportIcon}
+              alt="soporte"
+              active={active === 'soporte'}
+            />
             <span>Soporte</span>
             <MarginIcon isMenuOpen={isMenuOpen}>
               <img src={exportIcon} alt="exportar" />
