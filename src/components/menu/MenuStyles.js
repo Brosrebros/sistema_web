@@ -16,7 +16,7 @@ export const MenuContainer = styled.div`
 
   & > div:last-child {
     margin-top: auto;
-    border-top: 1px solid #C3C3C3;
+    border-top: 1px solid #c3c3c3;
   }
 
   & > div:nth-child(3) {
@@ -32,7 +32,7 @@ export const MenuSection = styled.div`
   align-items: flex-start;
   gap: 16px;
   padding: 16px 24px;
-  border-bottom: 1px solid #C3C3C3;
+  border-bottom: 1px solid #c3c3c3;
 
   &:last-child {
     border: none;
@@ -64,9 +64,12 @@ export const MenuOption = styled.div`
   display: flex;
   justify-content: ${({ isMenuOpen }) =>
     isMenuOpen ? 'flex-start' : 'center'};
+  align-items: center;
   gap: 8px;
   padding: 12px 16px;
   border-radius: 12px;
+  background-color: ${({ active }) => (active ? '#F2F2F2' : '#ffffff')};
+  border: ${({ active }) => (active ? '1px solid #c3c3c3' : '')};
   transition: all 0.1s ease;
   cursor: pointer;
 
@@ -80,6 +83,10 @@ export const MenuOption = styled.div`
 
   &:hover {
     background-color: #f2f2f2;
+  }
+
+  &:active {
+    background-color: #e4e4e4;
   }
 
   img {

@@ -31,7 +31,7 @@ function Menu({ active }) {
       <MenuSection isMenuOpen={isMenuOpen}>
         <h6>Principal</h6>
         <MenuOptionsContainer>
-          <MenuOption isMenuOpen={isMenuOpen} active={active === 'Inicio'}>
+          <MenuOption isMenuOpen={isMenuOpen} active={active === 'inicio'}>
             <img src={homeIcon} alt="home" /> <span>Inicio</span>
           </MenuOption>
           <MenuOption isMenuOpen={isMenuOpen} active={active === 'nosotros'}>
@@ -45,6 +45,9 @@ function Menu({ active }) {
           <MenuOption
             isMenuOpen={isMenuOpen}
             active={active === 'inmobiliaria'}
+            onClick={() => {
+              navigate(`/`);
+            }}
           >
             <img src={buildingIcon} alt="inmobiliaria" />{' '}
             <span>Inmobiliaria</span>
@@ -84,16 +87,19 @@ function Menu({ active }) {
             <img src={settingIcon} alt="configuraciones" />
             <span>Configuración</span>
           </MenuOption>
-          <MenuOption isMenuOpen={isMenuOpen}>
+          <MenuOption
+            isMenuOpen={isMenuOpen}
+            active={active === 'soporte'}
+            onClick={() => {
+              navigate(`/${rootPaths.supportRoot}`);
+            }}
+          >
             <img
               src={supportIcon}
               alt="soporte"
               active={active === 'soporte'}
             />
             <span>Soporte</span>
-            <MarginIcon isMenuOpen={isMenuOpen}>
-              <img src={exportIcon} alt="exportar" />
-            </MarginIcon>
           </MenuOption>
         </MenuOptionsContainer>
       </MenuSection>

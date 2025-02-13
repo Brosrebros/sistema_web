@@ -56,7 +56,7 @@ export default {
   catalog: `/${rootPaths.catalog}`,
   propertyDetail: propertyId =>
     `/${rootPaths.propertyDetailRoot}${propertyId ? `/${propertyId}` : ''}`,
-  support: `/${rootPaths.supportRoot}`,
+  supportRoot: `/${rootPaths.supportRoot}`,
   sellerRoot: `/${rootPaths.sellerRoot}`,
   saleRoot: `/${rootPaths.saleRoot}`,
   sellerProfileRoot: `/${rootPaths.sellerProfileRoot}`,

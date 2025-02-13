@@ -202,7 +202,6 @@ import Catalogpage from 'pages/Catalogpage';
 import Supportpage from 'pages/Supportpage';
 import SupportLayout from 'layouts/SupportLayout';
 import Propertypage from 'pages/Propertypage';
-import TermsPage from 'pages/SupportPages/Termspage';
 import TermsConditionsPage from 'pages/SupportPages/TermsConditionspage';
 import Sellerpage from 'pages/Sellerpage';
 import Salepage from 'pages/Salepage';
@@ -213,6 +212,8 @@ import Premiumpage from 'pages/Premiumpage';
 import Paymentpage from 'pages/Paymentpage';
 import SellerProfilepage from 'pages/SellerProfilepage';
 import SellProcesspage from 'pages/SellProcesspage';
+import TermsPage from 'pages/TermsPage';
+import Updatepage from 'pages/Updatepage';
 
 const routes = [
   {
@@ -294,17 +295,7 @@ const routes = [
       },
       {
         path: `/${rootPaths.supportRoot}`,
-        element: <SupportLayout />,
-        children: [
-          {
-            index: true,
-            element: <Supportpage />,
-          },
-        ],
-      },
-      {
-        path: `/${rootPaths.supportRoot}`,
-        element: <SupportLayout />,
+        element: <MainLayout type="main" active="soporte" />,
         children: [
           {
             index: true,
@@ -314,19 +305,9 @@ const routes = [
             path: 'terms',
             element: <TermsPage />,
           },
-        ],
-      },
-      {
-        path: `/${rootPaths.supportRoot}`,
-        element: <SupportLayout />,
-        children: [
           {
-            index: true,
-            element: <Supportpage />,
-          },
-          {
-            path: 'termsconditions',
-            element: <TermsConditionsPage />,
+            path: 'updates',
+            element: <Updatepage />,
           },
         ],
       },
@@ -342,7 +323,7 @@ const routes = [
       },
       {
         path: '/',
-        element: <MainLayout type="main" />,
+        element: <MainLayout type="main" active="inmobiliaria"/>,
         children: [
           {
             index: true,

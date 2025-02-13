@@ -20,7 +20,7 @@ const CustomPageContainer = styled.div`
   margin: 24px 0px;
 `;
 
-const MainLayout = ({ type }) => {
+const MainLayout = ({ type, active }) => {
   const { isMenuOpen } = useMenu();
   const { hash, pathname } = useLocation();
 
@@ -58,7 +58,7 @@ const MainLayout = ({ type }) => {
               transition: 'all 0.2s ease',
             }}
           >
-            <Menu />
+            <Menu active={active}/>
             <CustomPageContainer isMenuOpen={isMenuOpen}>
               <PropertyProvider>
                 <Outlet />

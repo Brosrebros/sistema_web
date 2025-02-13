@@ -1,8 +1,11 @@
 import React from 'react';
 import { CardButtonContainer } from './CardButton.styles';
-import HomeOnSale from '../../../../assets/img/icons/Home on Sale Illustration.svg';
-import HomeComputer from '../../../../assets/img/icons/House Computer.svg';
-import HomeContract from '../../../../assets/img/icons/House Contract.svg';
+import HomeOnSale from 'assets/img/icons/Home on Sale Illustration.svg';
+import HomeComputer from 'assets/img/icons/House Computer.svg';
+import HomeContract from 'assets/img/icons/House Contract.svg';
+import SpreadSheet from 'assets/img/icons/SpreadSheet.svg';
+import Comments from 'assets/img/icons/Comments.svg';
+import Document from 'assets/img/icons/Document.svg';
 
 const cardOptions = {
   option1: {
@@ -25,6 +28,27 @@ const cardOptions = {
     paragraph:
       'Dale visibilidad a tu propiedad en nuestra plataforma y vende rápidamente.',
     alt: 'home contract',
+  },
+  option4: {
+    img: SpreadSheet,
+    title: 'Términos legales',
+    paragraph:
+      'Información esencial sobre los acuerdos y positivas que rigen el uso de nuestros servicios.',
+    alt: 'spreadsheet',
+  },
+  option5: {
+    img: Comments,
+    title: 'Guías y Preguntas Frecuentes (FAQs)',
+    paragraph:
+      'Respuestas a las preguntas más comunes y guías paso a paso para resolver problemas técnicos.',
+    alt: 'comments',
+  },
+  option6: {
+    img: Document,
+    title: 'Actualizaciones y Mantenimiento',
+    paragraph:
+      'Información sobre las últimas actualizaciones y mejoras en nuestros servicios.',
+    alt: 'contract',
   },
 };
 

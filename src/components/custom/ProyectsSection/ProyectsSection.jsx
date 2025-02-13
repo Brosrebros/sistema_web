@@ -62,7 +62,7 @@ function ProyectsSection() {
           </Options>
         </OptionsContainer>
         <PropertySliderValdemar
-          slidesToShow={isMenuOpen ? 3.35 : 4}
+          slidesToShow={isMenuOpen ? 3.4 : 3.75}
           data={propertyState.properties}
           type="proyect"
         />

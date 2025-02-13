@@ -1,155 +1,204 @@
 import React from 'react';
-import { Form, Card, Col, Row } from 'react-bootstrap';
-import { Title } from 'components/mainpage/Title';
-import Icon from 'components/common/icon/Icon';
-import PropTypes from 'prop-types';
-import actualizacionesYMantenimientoImg from 'assets/icons/soporte-actualizacionesymantenimiento.svg';
-import guiasYPreguntasFrecuentesImg from 'assets/icons/soporte-guiasypreguntasfrecuentes.svg';
-import soportePersonalizadoImg from 'assets/icons/soporte-soportepersonalizado.svg';
-import terminosLegalesImg from 'assets/icons/soporte-terminoslegales.svg';
-import locationIcon from 'assets/icons/simplenavbar-endondelabuscas.svg';
-import CustomCardLayout from 'components/custom/CustomCardLayout/CustomCardLayout';
-import CustomTitle from 'components/custom/CustomText/CustomTitle/CustomTitle';
+import styled from 'styled-components';
+import CustomInput from 'components/custom/CustomFormUI/CustomInput/CustomInput';
+import CardButton from 'components/custom/CustomButtons/CardButton/CardButton';
+import wtspIcon from 'assets/img/icons/whatsapp.svg';
 import { rootPaths } from 'routes/paths';
+import { useNavigate } from 'react-router-dom';
 
-const SupportOptions = [
-  {
-    id: 0,
-    icon: terminosLegalesImg,
-    title: 'Términos legales',
-    description:
-      ' Este apartado contiene información esencial sobre los acuerdos y políticas que rigen el uso de nuestros servicios. Te invitamos a leer detenidamente estos documentos para garantizar una experiencia transparente y confiable.',
-  },
-  {
-    id: 1,
-    icon: guiasYPreguntasFrecuentesImg,
-    title: 'Guías y Preguntas Frecuentes (FAQs)',
-    description:
-      ' Aquí encontrarás respuestas a las preguntas más comunes y guías paso a paso para resolver problemas técnicos y aprender a utilizar nuestros servicios de manera efectiva.',
-  },
-  {
-    id: 2,
-    icon: soportePersonalizadoImg,
-    title: 'Soporte Personalizado',
-    description:
-      ' Si necesitas asistencia específica, nuestro equipo de soporte está aquí para ayudarte. Utiliza cualquiera de los siguientes métodos para ponerte en contacto con nosotros.',
-  },
-  {
-    id: 3,
-    icon: actualizacionesYMantenimientoImg,
-    title: 'Actualizaciones y Mantenimiento',
-    description:
-      'Mantente informado sobre las últimas actualizaciones, interrupciones planificadas y mejoras en nuestros servicios.',
-  },
-];
+const SupportBanner = styled.div`
+  width: 100%;
+  height: 444px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+  background-color: #940000;
+  border-radius: 12px;
 
-const TagCard = ({ item }) => {
-  return (
-    <Col>
-      <Card
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          textAlign: 'center',
-          padding: '10px',
-          alignItems: 'center',
-          height: '100%',
-          boxShadow: 'none',
-        }}
-      >
-        <a
-          href={`/${rootPaths.supportRoot}/terms`}
-          style={{
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            flexDirection: 'column',
-            padding: '10px',
-            textAlign: 'center',
-            height: '100%',
-            textDecoration: 'none',
-          }}
-        >
-          <Icon src={item.icon} width="85px" height="105px" />
-          <Title>{item.title}</Title>
-          <p
-            style={{
-              color: '#424242',
-            }}
-          >
-            {item.description}
-          </p>
-        </a>
-      </Card>
-    </Col>
-  );
-};
+  & > div:first-child {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
 
-const Supportpage = () => {
+    h2 {
+      max-width: 39ch;
+      font-family: 'Roboto';
+      font-weight: 700;
+      font-size: 1.75rem;
+      line-height: 114%;
+      text-align: center;
+      color: #ffffff;
+      margin: 0px;
+    }
+
+    p {
+      max-width: 70ch;
+      font-family: 'Roboto';
+      font-weight: 400;
+      font-size: 1rem;
+      line-height: 137%;
+      text-align: center;
+      color: #ffffff;
+      margin: 0px;
+    }
+  }
+
+  & > div:last-child {
+    width: 100%;
+    max-width: 621px;
+    display: grid;
+    grid-template-columns: 500px auto;
+    gap: 8px;
+  }
+`;
+
+const CustomButton = styled.button`
+  width: auto;
+  max-height: 41px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid #ffffff;
+  outline: none;
+  background-color: rgba(148, 0, 0, 0);
+  border-radius: 12px;
+  padding: 12px 16px;
+  transition: all 0.1sease;
+  font-size: 1em;
+  font-weight: normal;
+  font-family: 'Roboto';
+  color: #ffffff;
+  line-height: 100%;
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.05);
+  }
+
+  &:active {
+    background: rgba(0, 0, 0, 0.1);
+  }
+
+  img {
+    width: 20px;
+    height: 20px;
+  }
+`;
+
+const ButtonContainer = styled.section`
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  padding: 0px;
+
+  @media (max-width: 1200px) {
+    gap: 12px;
+  }
+
+  @media (max-width: 968px) {
+    flex-direction: column;
+    gap: 20px;
+  }
+`;
+
+const WhatsappBanner = styled.div`
+  width: 100%;
+  height: 188px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 24px;
+  background-color: #233f75;
+  border-radius: 12px;
+  padding: 40px 24px;
+
+  & > div:first-child {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 16px;
+
+    h3 {
+      font-family: 'Roboto';
+      font-weight: 700;
+      font-size: 1.44rem;
+      line-height: 114%;
+      text-align: center;
+      color: #ffffff;
+      margin: 0px;
+    }
+
+    p {
+      font-family: 'Roboto';
+      font-weight: 400;
+      font-size: 1rem;
+      line-height: 137%;
+      text-align: center;
+      color: #ffffff;
+      margin: 0px;
+    }
+  }
+`;
+
+function Supportpage() {
+  const navigate = useNavigate();
+
   return (
     <>
-      <Row className=" m-2 justify-content-center mx-auto" style={{ maxWidth: '1620px', margin: '0 auto' }}>
-        <Col xs={12} lg={8} xxl={6}>
-          <Row>
-            <Col xs={6}>
-              <Title>Hola, ¿en qué podemos ayudarte?</Title>
-            </Col>
+      <SupportBanner>
+        <div>
+          <h2>
+            Te damos la bienvenida al servicio de soporte de la organización
+            Sanchez
+          </h2>
+          <p>
+            ¿Con qué te gustaría recibir ayuda hoy? Puedes encargarte
+            rápidamente de la mayoría de las cosas aquí, o conectarte con
+            nosotros.
+          </p>
+        </div>
 
-            <Col
-              xs={6}
-              // lg={3} md={6} xs={12}
-              className="px-2 pb-5"
-            >
-              <div
-                style={{
-                  display: 'flex',
-                  borderRadius: '0.6rem',
-                  alignItems: 'center',
-                  backgroundColor: '#fff',
-                  padding: '0 8px',
-                  width: '100%',
-                  height: '36px',
-                }}
-              >
-                <img src={locationIcon} width="16px" />
-                <Form.Control
-                  type="text"
-                  id="direccionCompleta"
-                  name="direccionCompleta"
-                  aria-describedby="Buscar palabras clave"
-                  placeholder="Buscar palabras clave"
-                  style={{
-                    fontSize: '14px',
-                    border: 'none',
-                    height: '100%',
-                    boxShadow: 'none',
-                    fontFamily: 'Aptos !important',
-                  }}
-                />
-              </div>
-            </Col>
-          </Row>
-          <CustomTitle>
-            Resolvemos dudas y potenciamos tu experiencia
-          </CustomTitle>
-          <CustomCardLayout>
-            {SupportOptions.map(item => (
-              <TagCard item={item} key={item.id} />
-            ))}
-          </CustomCardLayout>
-        </Col>
-      </Row>
+        <div>
+          <CustomInput placeholder="Escribe aquí" />
+          <CustomButton>Buscar</CustomButton>
+        </div>
+      </SupportBanner>
+
+      <ButtonContainer>
+        <CardButton
+          option="option4"
+          onClick={() => {
+            navigate(`/${rootPaths.supportRoot}/terms`);
+          }}
+        />
+        <CardButton option="option5" />
+        <CardButton
+          option="option6"
+          onClick={() => {
+            navigate(`/${rootPaths.supportRoot}/updates`);
+          }}
+        />
+      </ButtonContainer>
+
+      <WhatsappBanner>
+        <div>
+          <h3>¿No encontraste lo que buscabas?</h3>
+          <p>Escríbenos directamente y nuestro equipo se pondrá en contacto.</p>
+        </div>
+        <CustomButton>
+          <img src={wtspIcon} alt="whatsapp" />
+          WhatsApp
+        </CustomButton>
+      </WhatsappBanner>
     </>
   );
-};
-
-TagCard.propTypes = {
-  item: PropTypes.shape({
-    id: PropTypes.number,
-    icon: PropTypes.string,
-    title: PropTypes.string,
-    description: PropTypes.string,
-  }),
-};
+}
 
 export default Supportpage;
