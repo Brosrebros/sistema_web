@@ -69,9 +69,10 @@ export const MenuOption = styled.div`
   padding: 12px 16px;
   border-radius: 12px;
   background-color: ${({ active }) => (active ? '#F2F2F2' : '#ffffff')};
-  border: ${({ active }) => (active ? '1px solid #c3c3c3' : '')};
+  border: ${({ active }) => (active ? '1px solid #c3c3c3' : '1px solid #ffffff')};
   transition: all 0.1s ease;
   cursor: pointer;
+  box-sizing: border-box;
 
   span {
     font-size: 1em;
