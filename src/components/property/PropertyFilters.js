@@ -80,7 +80,7 @@ const PropertyFilters = ({
   return (
     <div
       style={{
-        width: '359px',
+        width: '100%',
         position: 'relative',
       }}
     >
@@ -302,7 +302,7 @@ const SurfaceContainer = styled.div`
 
   & > div:first-child {
     position: relative;
-    width: 83px !important;
+    min-width: 83px !important;
 
     img {
       position: absolute;
@@ -340,7 +340,7 @@ const SurfaceFilter = () => {
           display: 'grid',
           gridTemplateColumns: 'repeat(2,1fr)',
           marginTop: '1em',
-          gap: '8px',
+          gap: '16px',
         }}
       >
         <CustomLabel>

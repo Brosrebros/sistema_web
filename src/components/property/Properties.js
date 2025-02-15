@@ -15,7 +15,7 @@ import styled from 'styled-components';
 const CustomLayout = styled.div`
   width: 100%;
   display: grid;
-  grid-template-columns: auto 359px;
+  grid-template-columns: auto 402px;
   gap: 24px;
 `;
 

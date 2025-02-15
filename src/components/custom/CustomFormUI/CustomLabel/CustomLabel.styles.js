@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import checkIcon from '../../../../assets/img/icons/check.svg';
 
 export const CustomLabelStyled = styled.label`
-  width: 100%;
+  width: 160px;
   display: flex;
   align-items: center;
   gap: 4px;
@@ -10,9 +10,12 @@ export const CustomLabelStyled = styled.label`
   font-weight: normal !important;
   color: #424242;
   white-space: nowrap;
+  overflow: visible;
   text-overflow: ellipsis;
   font-family: "Roboto";
   font-size: 1rem;
+  margin: 0px;
+  padding: 0px;
 
   input[type='radio'] {
     appearance: none;

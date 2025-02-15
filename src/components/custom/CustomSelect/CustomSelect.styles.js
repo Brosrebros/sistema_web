@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const CustomSelectContainer = styled.div`
+  min-width: 145px;
   display: grid;
   grid-template-columns: 20px auto;
   align-items: center;

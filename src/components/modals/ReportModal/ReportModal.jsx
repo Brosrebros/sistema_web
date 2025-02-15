@@ -16,7 +16,7 @@ function ReportModal() {
   if (!modals.reportModal) return null;
   return (
     <ModalContainer>
-      <ReportModalContainer onClick={(e) => e.stopPropagation()}>
+      <ReportModalContainer onClick={e => e.stopPropagation()}>
         <CloseButton onClick={() => closeModal('reportModal')}>
           <img src={closeIcon} alt="close" />
         </CloseButton>
@@ -65,7 +65,7 @@ function ReportModal() {
                   Reportar
                 </PrimaryCustomButton>
                 <span>
-                  Al continuar, aceptas las <u>Condiciones de uso</u> y el
+                  Al continuar, aceptas las <u>Condiciones de uso</u> y el{' '}
                   <u>Aviso de privacidad</u> de Organización Sanchez
                 </span>
               </div>

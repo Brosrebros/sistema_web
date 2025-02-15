@@ -272,16 +272,37 @@ export const CustomButton = styled.button`
   background-color: #ffffff;
   padding: 12px 16px;
   transition: all 0.1s ease;
+  border-radius: 12px;
+  position: relative;
 
   /* Fuente */
   font-size: 1rem;
   font-weight: normal;
   font-family: 'Aptos';
   color: #424242;
-  border-bottom: ${({ isActive }) => (isActive ? '4px solid #940000' : '4px solid #ffffff')};
   line-height: 70%;
 
   &:hover {
-    filter: brightness(0.9);
+    background-color: ${({isActive}) => isActive ? "#ffffff" : "#f2f2f2"};
   }
+
+  &:active {
+    background-color:${({isActive}) => isActive ? "#ffffff" : "#e4e4e4"};
+  }
+
+  /* Línea roja debajo si isActive es true */
+  ${({ isActive }) =>
+    isActive &&
+    `
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: -4px; /* Asegura que la línea esté justo debajo */
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background-color: #940000;
+      border-radius: 10px;
+    }
+  `}
 `;

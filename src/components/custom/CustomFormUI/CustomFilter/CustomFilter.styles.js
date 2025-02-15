@@ -17,7 +17,8 @@ export const FilterGroupOptions = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   margin-top: 1em;
-  gap: 4px;
+  gap: 16px;
+  overflow: visible;
 `;
 
 export const CustomSeeMoreButton = styled.button`

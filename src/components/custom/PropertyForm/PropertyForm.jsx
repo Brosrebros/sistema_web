@@ -21,7 +21,7 @@ import pinIcon from '../../../assets/img/icons/location.svg';
 import { rootPaths } from 'routes/paths';
 import { useNavigate } from 'react-router-dom';
 
-function PropertyForm({page}) {
+function PropertyForm({ page }) {
   const [activeButton, setActiveButton] = useState('venta');
   const [searchValue, setSearchValue] = useState('');
   const [propertyType, setPropertyType] = useState('');
@@ -102,7 +102,10 @@ function PropertyForm({page}) {
           value={propertyType}
           onChange={e => setPropertyType(e.target.value)}
           placeholder="Tipo de propiedad"
-          options={propiedadOptions}
+          options={[
+            { value: '', label: 'Tipo de propiedad', disabled: true }, // Placeholder como opción
+            ...propiedadOptions,
+          ]}
           background="form"
         >
           <img src={tipoIcon} width={'16px'} />
@@ -114,7 +117,10 @@ function PropertyForm({page}) {
           value={budget}
           onChange={e => setBudget(e.target.value)}
           placeholder="Presupuesto"
-          options={presupuestoOptions}
+          options={[
+            { value: '', label: 'Presupuesto', disabled: true }, // Placeholder como opción
+            ...presupuestoOptions,
+          ]}
           background="form"
         >
           <img src={budgetIcon} width={'16px'} />
@@ -126,7 +132,10 @@ function PropertyForm({page}) {
           value={orderBy}
           onChange={e => setOrderBy(e.target.value)}
           placeholder="Ordenar por"
-          options={ordenarPorOptions}
+          options={[
+            { value: '', label: 'Ordenar por', disabled: true }, // Placeholder como opción
+            ...ordenarPorOptions,
+          ]}
           background="form"
         >
           <img src={ordenIcon} alt="type" />

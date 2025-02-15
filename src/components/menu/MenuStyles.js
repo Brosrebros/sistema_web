@@ -12,7 +12,7 @@ export const MenuContainer = styled.div`
   max-height: calc(100vh - 73px);
   top: 73px;
   transition: width 0.2s ease;
-  z-index: 998;
+  z-index: 1000;
 
   & > div:last-child {
     margin-top: auto;

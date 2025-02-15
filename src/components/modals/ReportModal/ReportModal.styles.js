@@ -146,20 +146,23 @@ export const DetailsContainer = styled.div`
       padding: 12px 16px;
       border-radius: 12px;
       background-color: #ffffff;
-      border: 1px solid #c3c3c3;
+      outline: 1px solid #c3c3c3;
       resize: none;
 
       font-family: 'Roboto';
       font-weight: 400;
       font-size: 1rem;
       line-height: 137%;
-      outline: 2px solid #940000;
       color: black;
 
       &::placeholder {
         font-family: 'Roboto';
         font-weight: 400;
         color: #424242;
+      }
+
+      &:focus-visible {
+        outline: 1px solid #940000;
       }
     }
 
