@@ -23,7 +23,7 @@ function HomeBanner({ type }) {
             maxWidth: '521px',
           }}
         >
-          <h1>HABILITACIÓN URBANA “SANTA MARIA”</h1>
+          <h1>Habilitación urbana “Santa Maria”</h1>
 
           <p>
             Se encuentra estratégicamente ubicado en el corazón del circuito
@@ -53,7 +53,7 @@ function HomeBanner({ type }) {
       {type === 'home' ? (
         <PrimaryCustomButton>Deseo conocer más</PrimaryCustomButton>
       ) : (
-        <PrimaryCustomButton>Vende tu inmueble</PrimaryCustomButton>
+        <PrimaryCustomButton>Vende tu inmueble ahora</PrimaryCustomButton>
       )}
 
       {type === 'home' ? (
