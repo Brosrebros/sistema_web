@@ -22,7 +22,7 @@ export const Banner = styled.div`
   }
 
   h2 {
-    font-size: 1.44rem;
+    font-size: 1.75rem;
     font-weight: bolder;
     font-family: 'Roboto';
     color: black;
