@@ -23,6 +23,7 @@ export const TextContainer = styled.div`
     font-size: 1.44rem;
     color: black;
     margin: 0px;
+    line-height: 16px;
   }
 
   p {
@@ -58,6 +59,8 @@ export const Separator = styled(ButtonsContainer)`
     font-size: 1rem;
     color: black;
     margin: 0px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
   }
 `;
 

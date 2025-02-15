@@ -19,9 +19,11 @@ import saveIcon from 'assets/img/icons/archive-add.svg';
 import saveIconBold from 'assets/img/icons/archive-tick.svg';
 import SecondaryCustomButton from '../CustomButtons/SecondaryCustomButton/SecondaryCustomButton';
 import CustomInput from '../CustomFormUI/CustomInput/CustomInput';
+import { useModal } from 'modalContext';
 
 function PropertyAdvertiser() {
   const [selectedOption, setSelectedOption] = useState('');
+  const { openModal, closeModal } = useModal();
   const [isFavourite, setIsFavourite] = useState(false);
 
   const handleFavourite = () => {
@@ -47,13 +49,13 @@ function PropertyAdvertiser() {
             </div>
           </div>
           <ButtonsContainer fav={isFavourite}>
-            <SecondaryCustomButton>
+            <SecondaryCustomButton onClick={() => openModal('shareModal')}>
               <img src={shareIcon} alt="heart" />
             </SecondaryCustomButton>
 
-            <SecondaryCustomButton onClick={handleFavourite}>
-              <img src={isFavourite ? saveIconBold : saveIcon} alt="save" />
-              {isFavourite ? 'Guardado' : 'Guardar'}
+            <SecondaryCustomButton onClick={() => openModal('loginModal')}>
+              <img src={saveIcon} alt="save" />
+              Guardar
             </SecondaryCustomButton>
 
             <PrimaryCustomButton>
@@ -112,16 +114,18 @@ function PropertyAdvertiser() {
         <TextContainer>
           <h5>¿Encontraste algún problema con este anuncio?</h5>
           <ButtonOptionsContainer>
-            <SecondaryOption>
+            <SecondaryOption onClick={() => openModal('reportModal')}>
               No puedo contactar con el anunciante
             </SecondaryOption>
-            <SecondaryOption>
+            <SecondaryOption onClick={() => openModal('reportModal')}>
               El inmueble esta vendido o reservado
             </SecondaryOption>
-            <SecondaryOption>
+            <SecondaryOption onClick={() => openModal('reportModal')}>
               La descripción del inmueble no es correcta
             </SecondaryOption>
-            <SecondaryOption>Información engañosa</SecondaryOption>
+            <SecondaryOption onClick={() => openModal('reportModal')}>
+              Información engañosa
+            </SecondaryOption>
 
             <PrimaryCustomButton>Otros motivos</PrimaryCustomButton>
           </ButtonOptionsContainer>

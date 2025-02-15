@@ -52,7 +52,7 @@ const Mainpage = () => {
   return (
     <>
       <CustomPageLayout>
-        <MainBanner type="home"/>
+        <MainBanner type="home" />
 
         <ButtonContainer>
           <CardButton option="option1" />
@@ -60,7 +60,7 @@ const Mainpage = () => {
           <CardButton option="option3" />
         </ButtonContainer>
 
-        <PropertyForm page="main"/>
+        <PropertyForm page="main" />
 
         <PropertySlider
           slidesToShow={isMenuOpen ? 5.2 : 5.8}

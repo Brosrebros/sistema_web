@@ -93,7 +93,7 @@ const PropertyFilters = ({
           gap: '16px',
           borderRadius: '12px',
           backgroundColor: 'white',
-          padding: '20px',
+          padding: '24px',
           position: 'sticky',
           top: '20px',
           height: 'calc(100vh - 40px)',

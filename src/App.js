@@ -10,6 +10,7 @@ import { useAppContext } from 'providers/AppProvider';
 import 'react-datepicker/dist/react-datepicker.css';
 import 'react-toastify/dist/ReactToastify.css';
 import { MenuProvider } from './menuContext';
+import { ModalProvider } from 'modalContext';
 
 ChartJS.register(...registerables);
 
@@ -44,7 +45,9 @@ const App = () => {
   return (
     <>
       <MenuProvider>
-        <Outlet />
+        <ModalProvider>
+          <Outlet />
+        </ModalProvider>
       </MenuProvider>
 
       {/* <SettingsToggle />

@@ -21,16 +21,18 @@ import heartIconBold from '../../../assets/img/icons/archive-tick.svg';
 import premiumIcon from 'assets/img/icons/ph_seal-check-fill.svg';
 import PrimaryCustomButton from '../CustomButtons/PrimaryCustomButton/PrimaryCustomButton';
 import SecondaryCustomButton from '../CustomButtons/SecondaryCustomButton/SecondaryCustomButton';
+import { useModal } from 'modalContext';
 
 function CatalogCard({ property }) {
   const { isMenuOpen } = useMenu();
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isFavourite, setIsFavourite] = useState(false);
+  const { openModal, closeModal } = useModal();
   const navigate = useNavigate();
 
   const handleFavourite = e => {
     e.stopPropagation();
-    setIsFavourite(prev => !prev);
+    openModal('loginModal');
   };
 
   const sliderSettings = {
@@ -164,7 +166,7 @@ function CatalogCard({ property }) {
           <span>Precio</span>
           <h3>S/. {precio.pen.toLocaleString('en-US')}</h3>
         </MainDataContainer>
-        <OptionsContainer fav={isFavourite}>
+        <OptionsContainer>
           <div>
             <img src="#" alt="#" />
 
@@ -178,11 +180,11 @@ function CatalogCard({ property }) {
           <div>
             <SecondaryCustomButton onClick={handleFavourite}>
               <img
-                src={isFavourite ? heartIconBold : heartIcon}
+                src={heartIcon}
                 alt="heart"
                 style={{ height: '20px', width: '20px' }}
               />
-              {isFavourite ? 'Guardado' : 'Guardar'}
+              Guardar
             </SecondaryCustomButton>
             <PrimaryCustomButton onClick={handleFavourite}>
               <img src={callIcon} alt="sms" />

@@ -3,17 +3,19 @@ import {
   FooterContainerStyled,
   TextContainer,
   ButtonsContainer,
-  CustomInputMail
+  CustomInputMail,
 } from './CustomFooter.styles';
 import PrimaryCustomButton from '../CustomButtons/PrimaryCustomButton/PrimaryCustomButton';
 import buttonIcon from '../../../assets/img/icons/directbox-default.svg';
-import instagramIcon from "../../../assets/img/icons/mdi_instagram.svg"
-import twitterIcon from "../../../assets/img/icons/devicon_twitter.svg"
-import facebookIcon from "../../../assets/img/icons/ic_baseline-facebook.svg"
-import youtubeIcon from "../../../assets/img/icons/mdi_youtube.svg"
-import linkedinIcon from "../../../assets/img/icons/mdi_linkedin.svg"
+import instagramIcon from '../../../assets/img/icons/mdi_instagram.svg';
+import twitterIcon from '../../../assets/img/icons/devicon_twitter.svg';
+import facebookIcon from '../../../assets/img/icons/ic_baseline-facebook.svg';
+import youtubeIcon from '../../../assets/img/icons/mdi_youtube.svg';
+import linkedinIcon from '../../../assets/img/icons/mdi_linkedin.svg';
+import { useModal } from 'modalContext';
 
 function CustomFooter() {
+  const { openModal } = useModal();
   return (
     <FooterContainerStyled>
       <div
@@ -34,8 +36,8 @@ function CustomFooter() {
         </TextContainer>
 
         <div style={{ width: '100%', display: 'flex', gap: '16px' }}>
-          <CustomInputMail placeholder='Correo electrónico'/>
-          <PrimaryCustomButton>
+          <CustomInputMail placeholder="Correo electrónico" />
+          <PrimaryCustomButton onClick={() => openModal('successModal')}>
             <img src={buttonIcon} alt="directbox" />
             Suscribirse
           </PrimaryCustomButton>
@@ -61,7 +63,7 @@ function CustomFooter() {
       <ul>
         <li>Síguenos y mantente informado:</li>
         <ButtonsContainer>
-          <img src={instagramIcon} alt="instagram"/>
+          <img src={instagramIcon} alt="instagram" />
           <img src={twitterIcon} alt="twitter" />
           <img src={facebookIcon} alt="facebook" />
           <img src={youtubeIcon} alt="youtube" />

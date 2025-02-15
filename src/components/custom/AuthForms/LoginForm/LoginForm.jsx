@@ -17,6 +17,10 @@ function LoginForm() {
           <CustomInput placeholder="Password" type="password" />
           <span>¿Olvidaste tu contraseña?</span>
         </LoginInputContainer>
+        <div>
+          <input type="checkbox" />
+          Recordarme
+        </div>
         <ButtonContainer>
           <PrimaryCustomButton>Iniciar sesión</PrimaryCustomButton>
           <p>

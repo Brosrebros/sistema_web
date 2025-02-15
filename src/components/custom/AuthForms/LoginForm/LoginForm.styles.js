@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import checkIcon from 'assets/img/icons/check.svg';
 
 export const LoginFormContainer = styled.form`
   width: 100%;
@@ -23,6 +24,47 @@ export const LoginFormContainer = styled.form`
     display: flex;
     flex-direction: column;
     gap: 20px;
+
+    & > div:nth-child(2) {
+      width: 100%;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 8px;
+
+      font-family: 'Roboto';
+      font-weight: 400;
+      font-size: 1rem;
+      line-height: 137%;
+      color: #424242;
+
+      input[type='checkbox'] {
+        appearance: none;
+        min-width: 16px;
+        height: 16px;
+        border-radius: 4px;
+        background-color: #f2f2f2;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        border: 1px solid #dbdbdb;
+
+        &:checked {
+          background-color: #940000;
+          border: 1px solid #c3c3c3;
+
+          &::before {
+            content: '';
+            display: block;
+            width: 100%;
+            height: 100%;
+            background-image: url(${checkIcon});
+            background-size: 76%;
+            background-repeat: no-repeat;
+            background-position: center;
+          }
+        }
+      }
+    }
   }
 `;
 
@@ -42,7 +84,7 @@ export const LoginInputContainer = styled.div`
 export const ButtonContainer = styled(LoginInputContainer)`
   p {
     font-weight: 400;
-    font-size: 0.69rem;
+    font-size: 0.81rem;
     color: black;
     margin: 0px;
   }

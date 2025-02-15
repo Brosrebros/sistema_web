@@ -9,6 +9,11 @@ import PropertyProvider from 'providers/PropertyProvider';
 import CustomFooter from 'components/custom/CustomFooter/CustomFooter';
 import { useMenu } from 'menuContext';
 import styled from 'styled-components';
+import LoginModal from 'components/modals/LoginModal/LoginModal';
+import ShareModal from 'components/modals/ShareModal/ShareModal';
+import ReportModal from 'components/modals/ReportModal/ReportModal';
+import { SendModal } from 'components/modals/CustomModal/CustomModal';
+import { SuccessModal } from 'components/modals/CustomModal/CustomModal';
 
 const CustomPageContainer = styled.div`
   display: flex;
@@ -58,7 +63,7 @@ const MainLayout = ({ type, active }) => {
               transition: 'all 0.2s ease',
             }}
           >
-            <Menu active={active}/>
+            <Menu active={active} />
             <CustomPageContainer isMenuOpen={isMenuOpen}>
               <PropertyProvider>
                 <Outlet />
@@ -71,6 +76,11 @@ const MainLayout = ({ type, active }) => {
               </PropertyProvider>
             </CustomPageContainer>
           </div>
+          <LoginModal />
+          <ShareModal />
+          <ReportModal />
+          <SendModal />
+          <SuccessModal />
         </CourseProvider>
       </ProductProvider>
     </main>

@@ -7,10 +7,11 @@ export const CustomLabelStyled = styled.label`
   align-items: center;
   gap: 4px;
   text-align: start;
+  font-weight: normal !important;
   color: #424242;
   white-space: nowrap;
   text-overflow: ellipsis;
-  font-family: "Aptos";
+  font-family: "Roboto";
   font-size: 1rem;
 
   input[type='radio'] {

@@ -4,7 +4,6 @@ import {
   MenuSection,
   MenuOptionsContainer,
   MenuOption,
-  MarginIcon,
 } from './MenuStyles';
 
 import homeIcon from '../../assets/img/icons/home.svg';
@@ -17,13 +16,14 @@ import calendarIcon from '../../assets/img/icons/calendar-2.svg';
 import diagramIcon from '../../assets/img/icons/diagram.svg';
 import settingIcon from '../../assets/img/icons/setting-2.svg';
 import supportIcon from '../../assets/img/icons/24-support.svg';
-import exportIcon from '../../assets/img/icons/export.svg';
 import { useMenu } from '../../menuContext';
 import { useNavigate } from 'react-router-dom';
 import { rootPaths } from 'routes/paths';
+import { useModal } from 'modalContext';
 
 function Menu({ active }) {
   const navigate = useNavigate();
+    const { openModal, closeModal } = useModal();
   const { isMenuOpen } = useMenu();
 
   return (
