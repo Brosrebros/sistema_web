@@ -12,7 +12,7 @@ function LoginModal() {
 
   return (
     <ModalContainer>
-      <LoginModalContainer>
+      <LoginModalContainer onClick={(e) => e.stopPropagation()}>
         <CloseButton onClick={() => closeModal('loginModal')}>
           <img src={closeIcon} alt="close" />
         </CloseButton>

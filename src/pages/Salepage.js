@@ -41,7 +41,7 @@ const InfoBanner = styled.div`
   align-items: flex-start;
   gap: 60px;
   padding: 32px 8px;
-  background-color: #940000;
+  background-color: #233F75;
   border-radius: 12px;
 
   div {

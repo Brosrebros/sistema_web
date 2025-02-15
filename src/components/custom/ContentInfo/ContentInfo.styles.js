@@ -61,6 +61,7 @@ export const GridTextContainer = styled.div`
 `;
 
 export const CustomCard = styled.div`
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -99,6 +100,7 @@ export const CustomCard = styled.div`
     }
 
     p {
+      max-width: 42ch;
       font-size: 1em;
       font-weight: normal;
       font-family: 'Aptos';

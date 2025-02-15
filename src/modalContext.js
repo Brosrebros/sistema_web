@@ -9,6 +9,7 @@ export const ModalProvider = ({ children }) => {
     reportModal: false,
     sendModal: false,
     successModal: false,
+    settingsModal: false,
   });
 
   const openModal = modalName => {
@@ -18,6 +19,8 @@ export const ModalProvider = ({ children }) => {
       reportModal: false,
       sendModal: false,
       successModal: false,
+      settingsModal: false,
+
       [modalName]: true,
     });
   };
@@ -29,6 +32,7 @@ export const ModalProvider = ({ children }) => {
       reportModal: false,
       sendModal: false,
       successModal: false,
+      settingsModal: false,
     });
   };
 

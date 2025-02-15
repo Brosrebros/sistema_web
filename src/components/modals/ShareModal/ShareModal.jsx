@@ -17,7 +17,7 @@ function ShareModal() {
 
   return (
     <ModalContainer>
-      <ShareModalContainer>
+      <ShareModalContainer onClick={(e) => e.stopPropagation()}>
         <CloseButton onClick={() => closeModal('shareModal')}>
           <img src={closeIcon} alt="close" />
         </CloseButton>

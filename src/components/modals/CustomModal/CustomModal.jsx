@@ -9,7 +9,7 @@ function SuccessModal() {
 
   return (
     <ModalContainer>
-      <CustomModalContainer>
+      <CustomModalContainer onClick={(e) => e.stopPropagation()}>
         <div>
           <h3>¡Suscripción exitosa!</h3>
           <p>

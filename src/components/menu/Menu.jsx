@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   MenuContainer,
   MenuSection,
@@ -23,7 +23,7 @@ import { useModal } from 'modalContext';
 
 function Menu({ active }) {
   const navigate = useNavigate();
-    const { openModal, closeModal } = useModal();
+  const { openModal, closeModal } = useModal();
   const { isMenuOpen } = useMenu();
 
   return (
@@ -83,7 +83,7 @@ function Menu({ active }) {
       <MenuSection isMenuOpen={isMenuOpen}>
         <h6>Otros</h6>
         <MenuOptionsContainer>
-          <MenuOption isMenuOpen={isMenuOpen}>
+          <MenuOption isMenuOpen={isMenuOpen} onClick={() => openModal("settingsModal")}>
             <img src={settingIcon} alt="configuraciones" />
             <span>Configuración</span>
           </MenuOption>

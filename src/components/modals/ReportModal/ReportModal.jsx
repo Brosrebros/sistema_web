@@ -16,7 +16,7 @@ function ReportModal() {
   if (!modals.reportModal) return null;
   return (
     <ModalContainer>
-      <ReportModalContainer>
+      <ReportModalContainer onClick={(e) => e.stopPropagation()}>
         <CloseButton onClick={() => closeModal('reportModal')}>
           <img src={closeIcon} alt="close" />
         </CloseButton>

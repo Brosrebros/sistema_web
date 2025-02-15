@@ -22,6 +22,24 @@ export const MenuContainer = styled.div`
   & > div:nth-child(3) {
     border: none;
   }
+
+  &:hover {
+    width: 270px;
+  }
+
+  &:hover > div > h6 {
+    display: flex;
+  }
+
+  &:hover > div > div > div {
+    width: 100%;
+    height: auto;
+    justify-content: flex-start;
+    
+    & > span {
+      display: flex;
+    }
+  }
 `;
 
 export const MenuSection = styled.div`
@@ -69,7 +87,8 @@ export const MenuOption = styled.div`
   padding: 12px 16px;
   border-radius: 12px;
   background-color: ${({ active }) => (active ? '#F2F2F2' : '#ffffff')};
-  border: ${({ active }) => (active ? '1px solid #c3c3c3' : '1px solid #ffffff')};
+  outline: ${({ active }) =>
+    active ? '1px solid #c3c3c3' : '1px solid #ffffff'};
   transition: all 0.1s ease;
   cursor: pointer;
   box-sizing: border-box;

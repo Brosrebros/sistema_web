@@ -14,6 +14,7 @@ import ShareModal from 'components/modals/ShareModal/ShareModal';
 import ReportModal from 'components/modals/ReportModal/ReportModal';
 import { SendModal } from 'components/modals/CustomModal/CustomModal';
 import { SuccessModal } from 'components/modals/CustomModal/CustomModal';
+import SettingsModal from 'components/modals/SettingsModal/SettingsModal';
 
 const CustomPageContainer = styled.div`
   display: flex;
@@ -81,6 +82,7 @@ const MainLayout = ({ type, active }) => {
           <ReportModal />
           <SendModal />
           <SuccessModal />
+          <SettingsModal />
         </CourseProvider>
       </ProductProvider>
     </main>
