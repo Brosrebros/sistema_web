@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import cameraIcon from '../../../assets/img/icons/camera.svg';
 import barcodeIcon from '../../../assets/img/icons/barcode.svg';
 import CustomListSlider from 'components/custom/CustomListSlider/CustomListSlider';
+import importIcon from 'assets/img/icons/import-gray.svg';
 import styled from 'styled-components';
 
 const CustomContainer = styled.div`
@@ -188,16 +189,109 @@ const PropertyDetailMedia = ({ imagenes: files }) => {
       </>
 
       {/* Modal */}
-      <Modal show={showModal} onHide={handleCloseModal} centered>
-        <Modal.Body>
-          {selectedImage && (
-            <img
-              src={selectedImage}
-              alt="Selected product media"
-              style={{ width: '100%', height: 'auto', borderRadius: '10px' }}
-            />
-          )}
-        </Modal.Body>
+      <Modal
+        show={showModal}
+        onHide={handleCloseModal}
+        centered
+        style={{
+          width: '80vw',
+          overflow: 'hidden',
+          justifyContent: 'center',
+          alignItems: 'center',
+          scale: '0.8',
+        }}
+      >
+        <CustomListSlider
+          {...sliderSettings}
+          asNavFor={nav2}
+          ref={slider => (slider1 = slider)}
+          className="slick-slider-arrow-inner"
+          style={{ width: '945px', height: '800px' }}
+        >
+          {files.map(item => (
+            <div
+              key={item}
+              style={{
+                width: '100%',
+                display: 'flex',
+                justifyContent: 'center',
+                backgroundColor: '#D6D6D6',
+                overflow: 'hidden',
+                borderRadius: '10px',
+              }}
+            >
+              <img
+                src={item}
+                alt="product media"
+                style={{
+                  height: '100%',
+                  maxWidth: '100%',
+                  objectFit: 'cover',
+                  borderRadius: '10px',
+                  width: '100%',
+                }}
+                onClick={() => handleImageClick(item)}
+                className="cursor-pointer"
+              />
+            </div>
+          ))}
+        </CustomListSlider>
+        <div></div>
+        <div
+          style={{
+            width: '900px',
+
+            display: 'flex',
+            justifyContent: 'space-between',
+            position: 'absolute',
+            left: '24px',
+            bottom: '24px',
+            opacity: '0',
+          }}
+        >
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              gap: '8px',
+              padding: '12px 16px',
+              margin: '0px',
+              backgroundColor: 'white',
+              borderRadius: '8px',
+              height: '41px',
+            }}
+          >
+            <img src={cameraIcon} style={{ height: '20px', width: '20px' }} />
+            <p
+              style={{
+                color: '#424242',
+                fontSize: '1rem',
+                margin: '0px',
+                lineHeight: '75%',
+              }}
+            >
+              {`${currentSlide + 1}/${files.length}`}
+            </p>
+          </div>
+          <div
+            style={{
+              height: '41px',
+              marginLeft: 'auto',
+              color: '#424242',
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              backgroundColor: '#F2F2F2',
+              gap: '8px',
+              padding: '12px 16px',
+              borderRadius: '12px',
+            }}
+          >
+            <img src={importIcon} style={{ width: '20px', height: '20px' }} />
+            <p style={{ margin: '0px' }}>Descargar imagen</p>
+          </div>
+        </div>
       </Modal>
     </div>
   );

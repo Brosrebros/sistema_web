@@ -157,11 +157,11 @@ export const DescriptionContainer = styled.div`
     }
 
     &:hover {
-      background-color: #F2F2F2;
+      background-color: #f2f2f2;
     }
 
     &:active {
-      background-color: #C3C3C3;
+      background-color: #c3c3c3;
     }
   }
 `;
@@ -269,8 +269,7 @@ export const CustomButton = styled.button`
   gap: 0.5rem;
   border: none;
   outline: none;
-  background-color: ${({ isActive }) => (isActive ? '#940000' : '#ffffff')};
-  border-radius: 12px;
+  background-color: #ffffff;
   padding: 12px 16px;
   transition: all 0.1s ease;
 
@@ -278,8 +277,8 @@ export const CustomButton = styled.button`
   font-size: 1rem;
   font-weight: normal;
   font-family: 'Aptos';
-  color: ${({ isActive }) => (isActive ? '#ffffff' : '#424242')};
-  border: 1px solid ${({ isActive }) => (isActive ? '#940000' : ' #c3c3c3')};
+  color: #424242;
+  border-bottom: ${({ isActive }) => (isActive ? '4px solid #940000' : '4px solid #ffffff')};
   line-height: 70%;
 
   &:hover {

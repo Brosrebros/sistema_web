@@ -118,13 +118,14 @@ function PropertyData({ property }) {
         <DescriptionContainer>
           <h4>Descripción</h4>
           <p>
-          Linda casa de 200m2 ubicada dentro de un pasaje en el distrito de 
-          Calleria. En el pasaje encontramos 8 viviendas. La casa tiene ingreso 
-          directo a través de unas escaleras, lo que hace ideal para parejas o 
-          familia joven. La sala y comedor con excelente iluminación, cocina con 
-          reposteros altos y bajo y espacio para comedor de diario. Cuatro amplios 
-          dormitorios con acabados de lujo y un diseño minimalista con tendencias 
-          contemporáneas estilizadas a la época...
+            Linda casa de 200m2 ubicada dentro de un pasaje en el distrito de
+            Calleria. En el pasaje encontramos 8 viviendas. La casa tiene
+            ingreso directo a través de unas escaleras, lo que hace ideal para
+            parejas o familia joven. La sala y comedor con excelente
+            iluminación, cocina con reposteros altos y bajo y espacio para
+            comedor de diario. Cuatro amplios dormitorios con acabados de lujo y
+            un diseño minimalista con tendencias contemporáneas estilizadas a la
+            época...
           </p>
 
           <div>
@@ -140,40 +141,28 @@ function PropertyData({ property }) {
               onClick={() => handleActiveButton('caracteristicas')}
               isActive={isActive === 'caracteristicas'}
             >
-              <img
-                src={isActive === 'caracteristicas' ? taskIconWhite : taskIcon}
-                alt="task"
-              />
+              <img src={taskIcon} alt="task" />
               Caracteristicas generales
             </CustomButton>
             <CustomButton
               onClick={() => handleActiveButton('servicios')}
               isActive={isActive === 'servicios'}
             >
-              <img
-                src={isActive === 'servicios' ? serviceIconWhite : serviceIcon}
-                alt="service"
-              />
+              <img src={serviceIcon} alt="service" />
               Servicios
             </CustomButton>
             <CustomButton
               onClick={() => handleActiveButton('ambientes')}
               isActive={isActive === 'ambientes'}
             >
-              <img
-                src={isActive === 'ambientes' ? ambientIconWhite : ambientIcon}
-                alt="ambient"
-              />
+              <img src={ambientIcon} alt="ambient" />
               Ambientes
             </CustomButton>
             <CustomButton
               onClick={() => handleActiveButton('alrededores')}
               isActive={isActive === 'alrededores'}
             >
-              <img
-                src={isActive === 'alrededores' ? buildsIconWhite : buildsIcon}
-                alt="builds"
-              />
+              <img src={buildsIcon} alt="builds" />
               Alrededores
             </CustomButton>
           </div>
