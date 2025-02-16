@@ -84,7 +84,7 @@ export const MenuOption = styled.div`
     isMenuOpen ? 'flex-start' : 'center'};
   align-items: center;
   gap: 8px;
-  padding: 12px 16px;
+  padding: 10px 16px;
   border-radius: 12px;
   background-color: ${({ active }) => (active ? '#F2F2F2' : '#ffffff')};
   outline: ${({ active }) => (active ? '1px solid #c3c3c3' : 'none')};
