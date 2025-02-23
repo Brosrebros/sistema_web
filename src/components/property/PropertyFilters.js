@@ -95,8 +95,8 @@ const PropertyFilters = ({
           backgroundColor: 'white',
           padding: '24px',
           position: 'sticky',
-          top: '20px',
-          height: 'calc(100vh - 40px)',
+          top: '95px',
+          height: 'calc(100vh - 120px)',
           overflow: 'hidden',
         }}
       >

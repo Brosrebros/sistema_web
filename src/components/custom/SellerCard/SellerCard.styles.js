@@ -26,12 +26,12 @@ export const SellerCardContainer = styled.div`
     gap: 24px;
   }
 
-  &:hover{ 
-    background-color: #F9F9F9;
+  &:hover {
+    background-color: #f9f9f9;
   }
 
-  &:active{ 
-    background-color: #ECECEC;
+  &:active {
+    background-color: #ececec;
   }
 `;
 
@@ -129,6 +129,10 @@ export const SecondaryDataContainer = styled.div`
     align-items: center;
     justify-content: center;
     gap: 16px;
+
+    & > button:nth-child(1) {
+      color: #940000;
+    }
   }
 `;
 
@@ -177,25 +181,4 @@ export const VerticalBar = styled.span`
   width: 1px;
   display: block;
   background-color: #dbdbdb;
-`;
-
-export const CircleButton = styled.button`
-  border: none;
-  outline: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 12px;
-  background-color: #ffffff;
-  border-radius: 1000px;
-  transition: all 0.2s ease;
-
-  img {
-    width: 20px;
-    height: 20px;
-  }
-
-  &:hover {
-    filter: brightness(0.9);
-  }
 `;

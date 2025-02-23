@@ -6,12 +6,14 @@ import barcodeIcon from '../../../assets/img/icons/barcode.svg';
 import CustomListSlider from 'components/custom/CustomListSlider/CustomListSlider';
 import importIcon from 'assets/img/icons/import-gray.svg';
 import styled from 'styled-components';
+import { useMenu } from 'menuContext';
 
 const CustomContainer = styled.div`
   margin-top: 16px;
 `;
 
 const PropertyDetailMedia = ({ imagenes: files }) => {
+  const { isMenuOpen } = useMenu();
   let slider1;
   let slider2;
   const [nav1, setNav1] = useState(null);
@@ -174,7 +176,7 @@ const PropertyDetailMedia = ({ imagenes: files }) => {
               <img
                 className="fit-cover"
                 style={{
-                  width: '180px',
+                  width: isMenuOpen ? '180px' : "200px", 
                   height: '136px',
                   borderRadius: '10px',
                   marginRight: '120px',

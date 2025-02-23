@@ -138,7 +138,7 @@ const Salepage = () => {
       </InfoBanner>
       <ContentInfo type="right" />
       <Tutorial />
-      <InfoBanner>
+      <InfoBanner style={{background:"#940000"}}>
         <div style={{ width: '100%', maxWidth: '560px' }}>
           <h3>¡Tu éxito comienza aquí!</h3>
           <p>

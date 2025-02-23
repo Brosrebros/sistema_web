@@ -6,7 +6,6 @@ import {
   SecondaryDataContainer,
   NumberDataContainer,
   VerticalBar,
-  CircleButton,
 } from './SellerCard.styles';
 
 import PrimaryCustomButton from '../CustomButtons/PrimaryCustomButton/PrimaryCustomButton';
@@ -14,17 +13,11 @@ import PrimaryCustomButton from '../CustomButtons/PrimaryCustomButton/PrimaryCus
 import CustomBadge from '../CustomBadge/CustomBadge';
 import clockIcon from '../../../assets/img/icons/clock.svg';
 import checkedIcon from '../../../assets/img/icons/ph_seal-check-fill.svg';
-import heartIcon from '../../../assets/img/icons/heart.svg';
-import heartIconBold from '../../../assets/img/icons/heart-bold.svg';
+import likeIcon from '../../../assets/img/icons/like.svg';
 import callIcon from '../../../assets/img/icons/call.svg';
+import SecondaryCustomButton from '../CustomButtons/SecondaryCustomButton/SecondaryCustomButton';
 
 function SellerCard() {
-const [isFavourite, setIsFavourite] = useState(false);
-
-const handleFavourite = () => {
-    setIsFavourite(prev => !prev)
-}
-
   return (
     <SellerCardContainer>
       <img src="#" alt="#" />
@@ -82,9 +75,10 @@ const handleFavourite = () => {
           </NumberDataContainer>
         </div>
         <div>
-          <CircleButton onClick={handleFavourite}>
-            <img src={isFavourite ? heartIconBold : heartIcon} alt="heart" />
-          </CircleButton>
+          <SecondaryCustomButton>
+            <img src={likeIcon} alt="like" />
+            Recomendar
+          </SecondaryCustomButton>
 
           <PrimaryCustomButton>
             <img src={callIcon} alt="sms" />
@@ -93,7 +87,6 @@ const handleFavourite = () => {
         </div>
       </SecondaryDataContainer>
       </div>
-      
     </SellerCardContainer>
   );
 }

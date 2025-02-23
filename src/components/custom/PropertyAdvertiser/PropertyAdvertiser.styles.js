@@ -110,7 +110,7 @@ export const ButtonOptionsContainer = styled.div`
   align-items: center;
   gap: 12px;
 
-  & > div:last-child {
+  & > div:first-child {
     width: 100%;
     display: grid;
     grid-template-columns: 1fr auto;

@@ -5,7 +5,7 @@ import PropertyAdvertiser from 'components/custom/PropertyAdvertiser/PropertyAdv
 
 const PropertyDetailAdvertiser = ({ property }) => {
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '19px' }}>
         {property && (
           <PropertyDetailMedia imagenes={property.multimedia.imagenes} />
         )}

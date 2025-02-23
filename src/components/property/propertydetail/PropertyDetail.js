@@ -19,7 +19,6 @@ const PropertyDetail = () => {
   const { propertyState, fetchPropertyById } = usePropertyContext();
   const { id } = useParams();
   const navigate = useNavigate();
-
   const [refreshKey, setRefreshKey] = useState(0);
 
   useEffect(() => {
@@ -38,10 +37,10 @@ const PropertyDetail = () => {
     <>
       {propertyState.property && (
         <CustomLayout>
-          <div style={{maxWidth:"785px"}}>
+          <div style={{ maxWidth: isMenuOpen ? '785px' : "865px" }}>
             <PropertyDetailAdvertiser property={propertyState.property} />
           </div>
-          
+
           <PropertyData property={propertyState.property} />
         </CustomLayout>
       )}

@@ -234,7 +234,7 @@ export const MapTitleContainer = styled.div`
     line-height: 70%;
   }
 
-  span {
+  & > span:nth-child(2) {
     width: auto;
     display: flex;
     justify-content: flex-end;

@@ -83,6 +83,13 @@ function PropertyAdvertiser() {
       </TextContainer>
 
       <ButtonOptionsContainer>
+        <div>
+          <CustomInput type="text" placeholder="Escribe aquí" />
+          <PrimaryCustomButton>
+            <img src={sendIcon} alt="send" />
+            Enviar
+          </PrimaryCustomButton>
+        </div>
         <Option
           isSelected={selectedOption === 'option-1'}
           onClick={() => handleOptionClick('option-1')}
@@ -101,13 +108,6 @@ function PropertyAdvertiser() {
         >
           ¿Cuando puedo hacer una visita?
         </Option>
-        <div>
-          <CustomInput type="text" placeholder="Escribe aquí" />
-          <PrimaryCustomButton>
-            <img src={sendIcon} alt="send" />
-            Enviar
-          </PrimaryCustomButton>
-        </div>
       </ButtonOptionsContainer>
 
       <ProblemContainer>
@@ -127,7 +127,7 @@ function PropertyAdvertiser() {
               Información engañosa
             </SecondaryOption>
 
-            <PrimaryCustomButton>Otros motivos</PrimaryCustomButton>
+            <PrimaryCustomButton onClick={() => openModal('reportModal')}>Otros motivos</PrimaryCustomButton>
           </ButtonOptionsContainer>
         </TextContainer>
       </ProblemContainer>

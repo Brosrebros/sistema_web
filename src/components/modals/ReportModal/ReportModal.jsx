@@ -31,28 +31,30 @@ function ReportModal() {
           <h4>¿Qué deseas reportar?</h4>
           <div>
             <LabelContainer>
-              <input type="checkbox" />
-              No puedo contactar con el vendedor
+              <input type="checkbox" id="1" />
+              <label htmlFor="1">No puedo contactar con el vendedor</label>
             </LabelContainer>
             <LabelContainer>
-              <input type="checkbox" />
-              El inmueble está vendido o reservado
+              <input type="checkbox" id="2" />
+              <label htmlFor="2">El inmueble está vendido o reservado</label>
             </LabelContainer>
             <LabelContainer>
-              <input type="checkbox" />
-              La descripción del inmueble no es correcta
+              <input type="checkbox" id="3" />
+              <label htmlFor="3">
+                La descripción del inmueble no es correcta
+              </label>
             </LabelContainer>
             <LabelContainer>
-              <input type="checkbox" />
-              Información falsa o engañosa
+              <input type="checkbox" id="4" />
+              <label htmlFor="4">Información falsa o engañosa</label>
             </LabelContainer>
             <LabelContainer>
-              <input type="checkbox" />
-              Contenido ofensivo o inapropiado
+              <input type="checkbox" id="5" />
+              <label htmlFor="5">Contenido ofensivo o inapropiado</label>
             </LabelContainer>
             <LabelContainer>
-              <input type="checkbox" />
-              Otros motivos
+              <input type="checkbox" id="6" />
+              <label htmlFor="6">Otros motivos</label>
             </LabelContainer>
           </div>
           <DetailsContainer>

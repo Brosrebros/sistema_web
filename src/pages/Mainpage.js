@@ -9,6 +9,8 @@ import { usePropertyContext } from 'providers/PropertyProvider';
 import CustomPageLayout from 'components/custom/CustomPageLayout/CustomPageLayout';
 import { useMenu } from 'menuContext';
 import styled from 'styled-components';
+import { rootPaths } from 'routes/paths';
+import { useNavigate } from 'react-router-dom';
 
 const ButtonContainer = styled.section`
   width: 100%;
@@ -48,6 +50,7 @@ const ButtonContainer = styled.section`
 const Mainpage = () => {
   const { isMenuOpen } = useMenu();
   const { propertyState } = usePropertyContext();
+  const navigate = useNavigate();
 
   return (
     <>
@@ -57,7 +60,12 @@ const Mainpage = () => {
         <ButtonContainer>
           <CardButton option="option1" />
           <CardButton option="option2" />
-          <CardButton option="option3" />
+          <CardButton
+            option="option3"
+            onClick={() => {
+              navigate(`/${rootPaths.saleRoot}`);
+            }}
+          />
         </ButtonContainer>
 
         <PropertyForm page="main" />

@@ -22,8 +22,10 @@ const CustomPageContainer = styled.div`
   justify-content: center;
   align-items: center;
   gap: 24px;
+  padding: 24px;
   transition: all 0.2s ease;
-  margin: 24px 0px;
+  background-color: #f2f2f2;
+  border-radius: 12px 0px 0px 0px;
 `;
 
 const MainLayout = ({ type, active }) => {
@@ -58,8 +60,6 @@ const MainLayout = ({ type, active }) => {
               gridTemplateColumns: isMenuOpen
                 ? '270px minmax(0, 1fr)'
                 : '100px minmax(0, 1fr)',
-              gap: '24px',
-              padding: '0px 24px 0px 0px',
               position: 'relative',
               transition: 'all 0.2s ease',
             }}

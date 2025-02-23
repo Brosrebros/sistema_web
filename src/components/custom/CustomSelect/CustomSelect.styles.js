@@ -65,17 +65,17 @@ export const CustomDropdown = styled.div`
   }
 
   &::-webkit-scrollbar-track {
-    background: #c3c3c3;
+    background:rgb(228, 228, 228);
     border-radius: 10px;
   }
 
   &::-webkit-scrollbar-thumb {
-    background: #424242;
+    background:rgb(201, 201, 201);
     border-radius: 10px;
   }
 
   &::-webkit-scrollbar-thumb:hover {
-    background: #2c2c2c;
+    background:rgb(204, 204, 204);
   }
 
   &::-webkit-scrollbar-button {
@@ -86,7 +86,7 @@ export const CustomDropdown = styled.div`
   }
 
   scrollbar-width: thin;
-  scrollbar-color: #424242 #c3c3c3;
+  scrollbar-color: #C3C3C3 #F2F2F2;
 
   & {
     scrollbar-arrow-color: transparent;

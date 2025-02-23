@@ -76,11 +76,14 @@ export const LabelContainer = styled.div`
   align-items: center;
   gap: 8px;
 
-  font-family: 'Roboto';
-  font-weight: 400;
-  font-size: 1rem;
-  line-height: 137%;
-  color: #424242;
+  label {
+    font-family: 'Roboto';
+    font-weight: 400 !important;
+    font-size: 1rem;
+    line-height: 137%;
+    color: #424242;
+    margin: 0px;
+  }
 
   input[type='checkbox'] {
     appearance: none;
@@ -145,6 +148,7 @@ export const DetailsContainer = styled.div`
       display: flex;
       padding: 12px 16px;
       border-radius: 12px;
+      border: none;
       background-color: #ffffff;
       outline: 1px solid #c3c3c3;
       resize: none;
@@ -162,7 +166,7 @@ export const DetailsContainer = styled.div`
       }
 
       &:focus-visible {
-        outline: 1px solid #940000;
+        outline: 2px solid #940000;
       }
     }
 
