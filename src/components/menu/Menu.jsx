@@ -4,6 +4,7 @@ import {
   MenuSection,
   MenuOptionsContainer,
   MenuOption,
+  CustomCorner,
 } from './MenuStyles';
 
 import homeIcon from '../../assets/img/icons/home.svg';
@@ -23,11 +24,26 @@ import { useModal } from 'modalContext';
 
 function Menu({ active }) {
   const navigate = useNavigate();
-  const { openModal, closeModal } = useModal();
   const { isMenuOpen } = useMenu();
 
   return (
     <MenuContainer isMenuOpen={isMenuOpen}>
+      <CustomCorner>
+        <svg
+          width="12"
+          height="12"
+          viewBox="0 0 12 12"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M12 0H0V12C0 5.37258 5.37258 0 12 0Z"
+            fill="white"
+          />
+        </svg>
+      </CustomCorner>
       <MenuSection isMenuOpen={isMenuOpen}>
         <h6>Principal</h6>
         <MenuOptionsContainer>
@@ -83,7 +99,10 @@ function Menu({ active }) {
       <MenuSection isMenuOpen={isMenuOpen}>
         <h6>Otros</h6>
         <MenuOptionsContainer>
-          <MenuOption isMenuOpen={isMenuOpen} onClick={() => openModal("settingsModal")}>
+          <MenuOption
+            isMenuOpen={isMenuOpen}
+            onClick={() => navigate(`/${rootPaths.settingsRoot}`)}
+          >
             <img src={settingIcon} alt="configuraciones" />
             <span>Configuración</span>
           </MenuOption>

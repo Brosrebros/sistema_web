@@ -48,7 +48,7 @@ export const CustomDropdown = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  gap: 8px;
+  gap: 6px;
   padding: 12px 8px;
   background-color: #ffffff;
   border: 1px solid #c3c3c3;
@@ -59,23 +59,36 @@ export const CustomDropdown = styled.div`
   z-index: 500;
   overflow-y: auto;
 
+  label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 6px 16px;
+    height: 21px;
+    margin: 0px;
+
+    font-weight: 700;
+    font-size: 0.81rem;
+    color: #424242;
+  }
+
   &::-webkit-scrollbar {
     width: 8px;
     border-radius: 10px;
   }
 
   &::-webkit-scrollbar-track {
-    background:rgb(228, 228, 228);
+    background: rgb(228, 228, 228);
     border-radius: 10px;
   }
 
   &::-webkit-scrollbar-thumb {
-    background:rgb(201, 201, 201);
+    background: rgb(201, 201, 201);
     border-radius: 10px;
   }
 
   &::-webkit-scrollbar-thumb:hover {
-    background:rgb(204, 204, 204);
+    background: rgb(204, 204, 204);
   }
 
   &::-webkit-scrollbar-button {
@@ -86,7 +99,7 @@ export const CustomDropdown = styled.div`
   }
 
   scrollbar-width: thin;
-  scrollbar-color: #C3C3C3 #F2F2F2;
+  scrollbar-color: #c3c3c3 #f2f2f2;
 
   & {
     scrollbar-arrow-color: transparent;

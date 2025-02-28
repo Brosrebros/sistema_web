@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import {
   TutorialContainer,
@@ -10,12 +10,45 @@ import {
   SpanBar,
 } from './Tutorial.styles';
 
+const options = ['¿En dónde está?', '¿Cómo es?', '¡Muéstrala!', '¡Véndela!'];
+
+const textOptions = [
+  {
+    title: 'Indica dónde se ubica tu propiedad',
+    paragraph:
+      'Introduce la ubicación exacta de tu propiedad. Esto ayudará a los interesados a encontrarla fácilmente y entender su contexto en el mercado local.',
+  },
+  {
+    title: 'Destaca lo que hace especial a tu propiedad',
+    paragraph:
+      'Proporciona detalles importantes como el tamaño, el número de habitaciones, baños, antigüedad y cualquier característica única que aumente su valor, como una piscina o jardín.',
+  },
+  {
+    title: 'Haz que los compradores se enamoren de tu propiedad',
+    paragraph:
+      'Sube fotos de alta calidad y videos que muestren cada rincón de tu propiedad. Esto generará mayor interés y confianza en los compradores.',
+  },
+  {
+    title: 'Tu anuncio estará listo con un solo ¡clic!',
+    paragraph:
+      'Una vez que completes los detalles, haz clic en “Vender” para que tu propiedad esté disponible en nuestra plataforma. ¡Puede ser completamente gratis y siempre sin complicaciones!',
+  },
+];
+
 function Tutorial() {
   const [activeIndex, setActiveIndex] = useState(1);
 
-  const handleClick = index => {
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveIndex(prevIndex => (prevIndex % textOptions.length) + 1);
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const handleIndexChange = index => {
     setActiveIndex(index);
-  };
+  }
 
   return (
     <TutorialContainer>
@@ -33,47 +66,26 @@ function Tutorial() {
       <div>
         <div>
           <OptionsContainer>
-            {['¿En dónde está?', '¿Cómo es?', '¡Muéstrala!', '¡Véndela!'].map(
-              (text, index) => (
-                <Option
-                  key={index}
-                  active={index + 1 <= activeIndex} // Activo si el índice es menor o igual al clickeado
-                  onClick={() => handleClick(index + 1)} // Actualiza el índice al clickeado
-                >
-                  {text}
-                </Option>
-              )
-            )}
+            {options.map((text, index) => (
+              <Option key={index} active={index + 1 <= activeIndex} onClick={() => handleIndexChange(index + 1)}>
+                {text}
+              </Option>
+            ))}
           </OptionsContainer>
           <OptionsDotContainer>
             {[1, 2, 3, 4].map(num => (
               <React.Fragment key={num}>
-                <OptionDot
-                  active={num <= activeIndex} // Activo si el índice es menor o igual al clickeado
-                  onClick={() => handleClick(num)} // Controlador de clic
-                >
-                  {num}
-                </OptionDot>
-                {num < 4 && (
-                  <SpanBar
-                    active={num < activeIndex} // Activa barra si está antes del botón activo
-                  />
-                )}
+                <OptionDot active={num <= activeIndex}>{num}</OptionDot>
+                {num < 4 && <SpanBar active={num < activeIndex} />}
               </React.Fragment>
             ))}
           </OptionsDotContainer>
-
-          {/* Botones de texto sincronizados */}
         </div>
         <div>
           <TutorialBanner />
           <div>
-            <h4>Indica dónde se ubica tu propiedad</h4>
-            <p>
-              Introduce la ubicación exacta de tu propiedad. Esto ayudurá a los
-              interasados a encontrarla fácilmente y enteder su contexto en el
-              mercado local.
-            </p>
+            <h4>{textOptions[activeIndex - 1].title}</h4>
+            <p>{textOptions[activeIndex - 1].paragraph}</p>
           </div>
         </div>
       </div>

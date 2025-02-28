@@ -12,16 +12,21 @@ import {
 } from './PropertyAdvertiser.styles';
 import CustomBadge from '../CustomBadge/CustomBadge';
 import PrimaryCustomButton from '../CustomButtons/PrimaryCustomButton/PrimaryCustomButton';
-import callIcon from '../../../assets/img/icons/call.svg';
-import sendIcon from '../../../assets/img/icons/send.svg';
+import callIcon from 'assets/img/icons/call.svg';
+import sendIcon from 'assets/img/icons/send.svg';
 import shareIcon from 'assets/img/icons/share.svg';
 import saveIcon from 'assets/img/icons/archive-add.svg';
 import saveIconBold from 'assets/img/icons/archive-tick.svg';
 import SecondaryCustomButton from '../CustomButtons/SecondaryCustomButton/SecondaryCustomButton';
 import CustomInput from '../CustomFormUI/CustomInput/CustomInput';
 import { useModal } from 'modalContext';
+import placeholderIcon from 'assets/img/Main-Icon.jpg';
+import premiumIcon from 'assets/img/icons/ph_seal-check-fill.svg';
+import { rootPaths } from 'routes/paths';
+import { useNavigate } from 'react-router-dom';
 
 function PropertyAdvertiser() {
+  const navigate = useNavigate();
   const [selectedOption, setSelectedOption] = useState('');
   const { openModal, closeModal } = useModal();
   const [isFavourite, setIsFavourite] = useState(false);
@@ -40,11 +45,12 @@ function PropertyAdvertiser() {
 
       <AdvertiserDataContainer>
         <AdvertiserOptions>
-          <div>
-            <img src="#" alt="" />
-
+          <div onClick={() => navigate(`/${rootPaths.sellerProfileRoot}`)}>
+            <img src={placeholderIcon} alt="Sanchez Real Estate" />
             <div>
-              <h3>Inmobiliaria los Robles</h3>
+              <h3>
+                Sanchez Real Estate <img src={premiumIcon} alt="#" />
+              </h3>
               <CustomBadge color="turquoise">Inmobiliaria</CustomBadge>
             </div>
           </div>
@@ -127,7 +133,9 @@ function PropertyAdvertiser() {
               Información engañosa
             </SecondaryOption>
 
-            <PrimaryCustomButton onClick={() => openModal('reportModal')}>Otros motivos</PrimaryCustomButton>
+            <PrimaryCustomButton onClick={() => openModal('reportModal')}>
+              Otros motivos
+            </PrimaryCustomButton>
           </ButtonOptionsContainer>
         </TextContainer>
       </ProblemContainer>

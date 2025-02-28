@@ -58,8 +58,18 @@ const Mainpage = () => {
         <MainBanner type="home" />
 
         <ButtonContainer>
-          <CardButton option="option1" />
-          <CardButton option="option2" />
+          <CardButton
+            option="option1"
+            onClick={() => {
+              navigate(`/${rootPaths.offersRoot}`);
+            }}
+          />
+          <CardButton
+            option="option2"
+            onClick={() => {
+              navigate(`/${rootPaths.proyectsRoot}`);
+            }}
+          />
           <CardButton
             option="option3"
             onClick={() => {

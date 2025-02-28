@@ -39,8 +39,4 @@ export const Option = styled.button`
   font-family: 'Aptos';
   color: ${({isActive}) => isActive ? "#ffffff" : "#424242"};
   line-height: 70%;
-
-  &:hover {
-    filter: brightness(0.9);
-  }
 `;

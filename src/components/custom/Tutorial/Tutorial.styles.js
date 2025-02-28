@@ -2,9 +2,10 @@ import styled from 'styled-components';
 
 export const TutorialContainer = styled.div`
   width: 100%;
+  height: 602px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   gap: 24px;
   padding: 40px 120px;
@@ -42,15 +43,15 @@ export const TutorialContainer = styled.div`
   & > div:last-child {
     width: 100%;
     display: grid;
-    grid-template-columns: 1fr 3.5fr;
+    grid-template-columns: 1fr 3.35fr;
     justify-content: space-between;
     gap: 60px;
-    padding: 24px 0px;
+    padding-top: 24px;
 
     & > div:first-child {
       width: 100%;
       display: grid;
-      grid-template-columns: 3fr 1fr;
+      grid-template-columns: 3fr auto;
       align-items: flex-start;
       gap: 12px;
     }
@@ -79,7 +80,7 @@ export const TutorialContainer = styled.div`
         }
 
         p {
-          max-width: 66ch;
+          max-width: 61ch;
           font-weight: normal;
           font-size: 1rem;
           color: #424242;

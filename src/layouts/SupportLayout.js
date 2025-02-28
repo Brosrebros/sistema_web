@@ -6,7 +6,6 @@ const SupportLayout = () => {
   return (
     <div>
       <CustomSupportBanner />
-
       <Outlet />
     </div>
   );

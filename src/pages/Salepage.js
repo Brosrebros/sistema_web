@@ -5,6 +5,7 @@ import Tutorial from 'components/custom/Tutorial/Tutorial';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 import { rootPaths } from 'routes/paths';
+import { useModal } from 'modalContext';
 
 const CustomButton = styled.button`
   width: auto;
@@ -41,7 +42,7 @@ const InfoBanner = styled.div`
   align-items: flex-start;
   gap: 60px;
   padding: 32px 8px;
-  background-color: #233F75;
+  background-color: #233f75;
   border-radius: 12px;
 
   div {
@@ -97,8 +98,8 @@ const InfoBanner = styled.div`
 `;
 
 const Salepage = () => {
-
-  const navigate = useNavigate()
+  const { openModal } = useModal();
+  const navigate = useNavigate();
 
   return (
     <CustomPageLayout>
@@ -138,14 +139,19 @@ const Salepage = () => {
       </InfoBanner>
       <ContentInfo type="right" />
       <Tutorial />
-      <InfoBanner style={{background:"#940000"}}>
+      <InfoBanner style={{ background: '#940000' }}>
         <div style={{ width: '100%', maxWidth: '560px' }}>
           <h3>¡Tu éxito comienza aquí!</h3>
           <p>
             Publica tu propiedad ahora y conéctate con miles de compradores
             interesados. Es fácil, rápido. ¡Hazlo realidad hoy mismo!
           </p>
-          <CustomButton type="secondary" onClick={() => navigate(`/${rootPaths.processRoot}`)}>Vende tu inmueble ahora</CustomButton>
+          <CustomButton
+            type="secondary"
+            onClick={() => openModal("loginModal")}
+          >
+            Vende tu inmueble ahora
+          </CustomButton>
         </div>
       </InfoBanner>
     </CustomPageLayout>

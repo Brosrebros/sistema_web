@@ -11,10 +11,12 @@ import PropertySliderValdemar from '../../../PropertySliderValdemar';
 import { usePropertyContext } from '../../../providers/PropertyProvider';
 import icon from '../../../assets/img/icons/conocetodoslosdesarrollos_blanco.svg';
 import { useMenu } from 'menuContext';
+import { useNavigate } from 'react-router-dom';
+import { rootPaths } from 'routes/paths';
 
 function ProyectsSection() {
   const { isMenuOpen } = useMenu();
-
+  const navigate = useNavigate()
   const [activeButton, setActiveButton] = useState('en construccion');
   const { propertyState } = usePropertyContext();
 
@@ -32,7 +34,7 @@ function ProyectsSection() {
             propiedades que prometen alta valorización.
           </p>
         </div>
-        <PrimaryCustomButton>
+        <PrimaryCustomButton onClick={() => navigate(`/${rootPaths.proyectsRoot}`)}>
           <img src={icon} alt="conoce nuestros desarrollos" />
           Descubre todos los proyectos inmobiliarios
         </PrimaryCustomButton>

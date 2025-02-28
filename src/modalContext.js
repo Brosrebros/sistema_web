@@ -10,6 +10,7 @@ export const ModalProvider = ({ children }) => {
     sendModal: false,
     successModal: false,
     settingsModal: false,
+    contactModal: false,
   });
 
   const openModal = modalName => {
@@ -20,6 +21,7 @@ export const ModalProvider = ({ children }) => {
       sendModal: false,
       successModal: false,
       settingsModal: false,
+      contactModal: false,
 
       [modalName]: true,
     });
@@ -33,6 +35,7 @@ export const ModalProvider = ({ children }) => {
       sendModal: false,
       successModal: false,
       settingsModal: false,
+      contactModal: false,
     });
   };
 

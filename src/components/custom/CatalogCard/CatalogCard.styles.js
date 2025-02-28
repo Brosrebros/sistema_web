@@ -14,11 +14,9 @@ export const CatalogCardContainer = styled.div`
   transition: all 0.1s ease;
 
   &:hover {
-    background-color: #f9f9f9;
-  }
-
-  &:active {
-    background-color: #ececec;
+    box-shadow: 0 3px 7px 0 rgba(84, 84, 84, 0.1),
+      0 13px 13px 0 rgba(84, 84, 84, 0.09), 0 29px 17px 0 rgba(84, 84, 84, 0.05),
+      0 51px 20px 0 rgba(84, 84, 84, 0.01), 0 79px 22px 0 rgba(84, 84, 84, 0);
   }
 
   &:hover > div:first-child > div:first-child > .slick-prev,
@@ -72,6 +70,11 @@ export const MainDataContainer = styled(CatalogDataContainer)`
   }
 
   h3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+
     font-size: 1.4375em;
     font-weight: bold;
     color: black;
@@ -170,7 +173,7 @@ export const OptionsContainer = styled.div`
         font-family: 'Roboto';
         font-weight: 400;
         font-size: 1rem;
-        line-height: 137%;
+        line-height: 11px;
         color: black;
         margin: 0px;
 

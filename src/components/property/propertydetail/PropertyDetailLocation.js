@@ -2,13 +2,13 @@ import LeafletMap from 'components/dashboards/project-management/project-locatio
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const PropertyDetailLocation = ({ markers }) => {
+const PropertyDetailLocation = ({ markers, type }) => {
   return (
     <LeafletMap
       data={[{ ...markers, id: 0 }]}
       style={{
         width: '100%',
-        minHeight: '573px',
+        minHeight: type === "proyect" ? "220px" : "523px",
         borderRadius: '12px',
       }}
     />

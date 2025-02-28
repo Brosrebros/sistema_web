@@ -4,7 +4,7 @@ export const CustomBadgeStyled = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 8px;
+  gap: 2px;
   padding: 8px 12px;
   border-radius: 80px;
   max-height: 25px;
@@ -24,7 +24,9 @@ export const CustomBadgeStyled = styled.div`
       : color === 'green'
       ? '#127C00'
       : color === 'gray'
-      ? '#F2F2F2'
+      ? '#F2F2F2' : 
+      color === 'light-green' ?
+      "#03A71B"
       : '#FFFFFF'};
   border: ${({ color }) =>
     color === 'gray' || color === 'white' ? '1px solid #C3C3C3' : 'none'};

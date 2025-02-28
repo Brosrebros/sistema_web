@@ -14,9 +14,12 @@ import heartIconBold from '../../../assets/img/icons/archive-tick.svg';
 import locationIcon from '../../../assets/img/icons/location.svg';
 import { useNavigate } from 'react-router-dom';
 import { useModal } from 'modalContext';
+import placeholderIcon from "assets/img/Main-Icon.jpg"
+import { useProperty } from 'propertyContext';
 
 function SliderCard({ property, type }) {
   const { openModal, closeModal } = useModal();
+  const {  propertyType, setPropertyType } = useProperty();
   const navigate = useNavigate();
 
   const {
@@ -33,6 +36,7 @@ function SliderCard({ property, type }) {
       <SliderCardContainer
         onClick={() => {
           navigate(`/${rootPaths.propertyDetailRoot}/${property.id}`);
+          setPropertyType(type === "proyect" ? "proyect" : "property");
         }}
       >
         <ImageContainer>
@@ -82,7 +86,7 @@ function SliderCard({ property, type }) {
             <span>Precio</span>
             <h4>S/. {precio.pen.toLocaleString('en-US')}</h4>
           </div>
-          <img src="#" alt="" />
+          <img src={placeholderIcon} alt="icon" />
         </DataContainer>
 
         <span>

@@ -21,14 +21,17 @@ function CustomInput({
 
   return (
     <CustomInputContainer>
-      {icon && <img src={icon} alt="icon" />}
       {type === 'password-hidden' ? null : (
-        <Input
-          placeholder={placeholder}
-          type={inputType}
-          value={value} 
-          onChange={onChange}
-        />
+        <>
+          {icon && <img src={icon} alt="icon" />}
+          <Input
+            placeholder={placeholder}
+            type={inputType}
+            value={value}
+            onChange={onChange}
+            size={icon}
+          />
+        </>
       )}
       {type === 'password-hidden' ? (
         <Input placeholder={placeholder} type="password" />

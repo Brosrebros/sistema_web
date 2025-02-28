@@ -118,7 +118,7 @@ function Navbar({ type }) {
                 aria-label="Lenguaje"
                 value={filterForm.idiomaOptions}
                 onChange={handleCustomChange}
-                placeholder="Lenguaje"
+                placeholder="Idioma"
                 options={idiomaOptions}
                 background="form"
               >

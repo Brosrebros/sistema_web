@@ -83,22 +83,9 @@ export const ButtonsContainer = styled.div`
   }
 `;
 
-export const CustomInputMail = styled.input`
+export const EmailContainer = styled.div`
   width: 100%;
-  height: 41px;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 8px;
-  padding: 12px 16px;
-  border-radius: 12px;
-  border: 1px solid #c3c3c3;
-  outline: none;
-  font-family: 'Roboto';
-
-  &::placeholder {
-    color: #424242;
-    font-weight: normal;
-    font-family: 'Roboto';
-  }
+  display: grid;
+  grid-template-columns: 2fr auto;
+  gap: 16px;
 `;

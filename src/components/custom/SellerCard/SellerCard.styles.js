@@ -27,11 +27,7 @@ export const SellerCardContainer = styled.div`
   }
 
   &:hover {
-    background-color: #f9f9f9;
-  }
-
-  &:active {
-    background-color: #ececec;
+    box-shadow: 0 3px 7px 0 rgba(84, 84, 84, 0.1), 0 13px 13px 0 rgba(84, 84, 84, 0.09), 0 29px 17px 0 rgba(84, 84, 84, 0.05), 0 51px 20px 0 rgba(84, 84, 84, 0.01), 0 79px 22px 0 rgba(84, 84, 84, 0);
   }
 `;
 
@@ -94,6 +90,7 @@ export const MainDataContainer = styled.div`
       font-size: 1.19rem;
       color: black;
       margin: 0px;
+      line-height: 12px;
     }
 
     img {

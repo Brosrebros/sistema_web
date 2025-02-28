@@ -214,6 +214,8 @@ import SellerProfilepage from 'pages/SellerProfilepage';
 import SellProcesspage from 'pages/SellProcesspage';
 import TermsPage from 'pages/TermsPage';
 import Updatepage from 'pages/Updatepage';
+import { useProperty } from 'propertyContext';
+import Settingspage from 'pages/Settingspage';
 
 const routes = [
   {
@@ -323,7 +325,7 @@ const routes = [
       },
       {
         path: '/',
-        element: <MainLayout type="main" active="inmobiliaria"/>,
+        element: <MainLayout type="main" active="inmobiliaria" />,
         children: [
           {
             index: true,
@@ -332,6 +334,14 @@ const routes = [
           {
             path: rootPaths.catalogRoot,
             element: <Catalogpage />,
+          },
+          {
+            path: rootPaths.proyectsRoot,
+            element: <Catalogpage type="proyects" />,
+          },
+          {
+            path: rootPaths.offersRoot,
+            element: <Catalogpage type="offers" />,
           },
           {
             path: paths.propertyDetail(':propertyId'),
@@ -348,6 +358,10 @@ const routes = [
           {
             path: paths.sellerProfileRoot,
             element: <SellerProfilepage />,
+          },
+          {
+            path: rootPaths.settingsRoot,
+            element: <Settingspage />,
           },
           {
             path: rootPaths.dashboardRoot,

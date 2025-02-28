@@ -46,6 +46,9 @@ export const rootPaths = {
   paymentRoot: 'payment',
   sellerProfileRoot: 'profile',
   processRoot: 'process',
+  proyectsRoot: 'proyectos',
+  offersRoot: 'ofertas',
+  settingsRoot: 'settings',
 };
 
 export default {
@@ -53,7 +56,9 @@ export default {
   widgets: '/widgets',
   landing: '/landing',
   /* ----- Nuevas páginas ----- */
-  catalog: `/${rootPaths.catalog}`,
+  catalogRoot: `/${rootPaths.catalogRoot}`,
+  proyectsRoot: `/${rootPaths.proyectsRoot}`,
+  offersRoot: `/${rootPaths.offersRoot}`,
   propertyDetail: propertyId =>
     `/${rootPaths.propertyDetailRoot}${propertyId ? `/${propertyId}` : ''}`,
   supportRoot: `/${rootPaths.supportRoot}`,
@@ -64,7 +69,8 @@ export default {
   registerRoot: `/${rootPaths.authRoot}/${rootPaths.authSimpleRoot}/${rootPaths.registerRoot}`,
   premiumRoot: `/${rootPaths.premiumRoot}`,
   paymentRoot: `/${rootPaths.premiumRoot}/${rootPaths.paymentRoot}`,
-  processRoot: `/${rootPaths.processRoot}`, 
+  processRoot: `/${rootPaths.processRoot}`,
+  settingsRoot: `/${rootPaths.settingsRoot}`,
   /* -------------------------- */
   starter: `/${rootPaths.pagesRoot}/starter`,
   error404: `/${rootPaths.errorsRoot}/404`,

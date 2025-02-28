@@ -1,9 +1,12 @@
 import React from 'react';
-import { Banner, Advertising } from './MainBanner.styles';
+import { Banner } from './MainBanner.styles';
 import CustomBadge from '../CustomBadge/CustomBadge';
 import PrimaryCustomButton from '../CustomButtons/PrimaryCustomButton/PrimaryCustomButton';
+import Advertising from '../Advertising/Advertising';
+import { useNavigate } from 'react-router-dom';
 
 function HomeBanner({ type }) {
+  const navigate = useNavigate();
   return (
     <Banner type={type}>
       {type === 'home' ? (
@@ -51,7 +54,11 @@ function HomeBanner({ type }) {
       )}
 
       {type === 'home' ? (
-        <PrimaryCustomButton>Deseo conocer más</PrimaryCustomButton>
+        <PrimaryCustomButton
+          onClick={() => navigate(`/inmuebles/676a364f3592cc2e8247f214`)}
+        >
+          Deseo conocer más
+        </PrimaryCustomButton>
       ) : (
         <PrimaryCustomButton>Vende tu inmueble ahora</PrimaryCustomButton>
       )}

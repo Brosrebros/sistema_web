@@ -5,7 +5,7 @@ import { usePropertyContext } from 'providers/PropertyProvider';
 import CustomPageLayout from 'components/custom/CustomPageLayout/CustomPageLayout';
 import PropertyForm from 'components/custom/PropertyForm/PropertyForm';
 
-const Catalogpage = () => {
+const Catalogpage = ({ type }) => {
   const [searchParams] = useSearchParams();
   const initialState = Object.fromEntries([...searchParams]);
 
@@ -26,6 +26,8 @@ const Catalogpage = () => {
     servicios: [],
   });
 
+  console.log(type)
+
   const { propertyState, filterBasic } = usePropertyContext();
   const [title, setTitle] = useState('');
   const propertyList = propertyState.filtering
@@ -38,7 +40,10 @@ const Catalogpage = () => {
     for (let filterItem in filterForm) {
       if (filterForm[filterItem].length > 0) {
         cont++;
-        res += cont === 1 ? ` en ${filterForm[filterItem]}` : `, en ${filterForm[filterItem]}`;
+        res +=
+          cont === 1
+            ? ` en ${filterForm[filterItem]}`
+            : `, en ${filterForm[filterItem]}`;
       }
     }
     setTitle(res);
@@ -55,12 +60,17 @@ const Catalogpage = () => {
 
   return (
     <CustomPageLayout>
-      <PropertyForm filterForm={filterForm} setFilterForm={setFilterForm} page="catalog"/>
+      <PropertyForm
+        filterForm={filterForm}
+        setFilterForm={setFilterForm}
+        page="catalog"
+      />
       <Properties
         filterForm={filterForm}
         setFilterForm={setFilterForm}
         properties={propertyList}
         title={title}
+        type={type}
       />
     </CustomPageLayout>
   );

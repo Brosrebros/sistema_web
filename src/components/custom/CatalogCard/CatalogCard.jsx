@@ -22,8 +22,10 @@ import premiumIcon from 'assets/img/icons/ph_seal-check-fill.svg';
 import PrimaryCustomButton from '../CustomButtons/PrimaryCustomButton/PrimaryCustomButton';
 import SecondaryCustomButton from '../CustomButtons/SecondaryCustomButton/SecondaryCustomButton';
 import { useModal } from 'modalContext';
+import placeholderIcon from 'assets/img/Main-Icon.jpg';
+import lineDownIcon from 'assets/img/icons/Line arrow-down.svg';
 
-function CatalogCard({ property }) {
+function CatalogCard({ property, type }) {
   const { isMenuOpen } = useMenu();
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isFavourite, setIsFavourite] = useState(false);
@@ -92,14 +94,32 @@ function CatalogCard({ property }) {
             : null}
         </CustomListSlider>
 
-        <div></div>
+        {type === 'offers' ? (
+          <div
+            style={{
+              width: '100%',
+              position: 'absolute',
+              opacity: '0',
+              top: '12px',
+              left: '12px',
+              display: 'flex',
+              justifyContent: 'flex-start',
+              alignItems: 'center',
+              transition: 'all 0.1s ease',
+            }}
+          >
+            <CustomBadge color="light-green">Bajó de precio</CustomBadge>
+          </div>
+        ) : (
+          <div></div>
+        )}
         <div
           style={{
             width: '100px',
             height: '44px',
             position: 'absolute',
             opacity: '0',
-            bottom: '12px',
+            bottom: type === 'proyects' ? '39px' : '12px',
             left: '12px',
             display: 'flex',
             justifyContent: 'center',
@@ -124,28 +144,76 @@ function CatalogCard({ property }) {
             {`${currentSlide + 1}/${imagenes.length}`}
           </p>
         </div>
+        {type === 'proyects' ? (
+          <div
+            style={{
+              width: '100%',
+              height: '27px',
+              position: 'absolute',
+              bottom: '0px',
+              left: '0px',
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              padding: '0px 12px',
+              margin: '0px',
+              backgroundColor: '#257573',
+              borderRadius: '0px 0px 12px 12px',
+            }}
+          >
+            <p
+              style={{
+                color: '#ffffff',
+                fontSize: '1rem',
+                margin: '0px',
+                lineHeight: '65%',
+              }}
+            >
+              En construcción
+            </p>
+            <p
+              style={{
+                color: '#ffffff',
+                fontSize: '1rem',
+                margin: '0px',
+                lineHeight: '65%',
+              }}
+            >
+              Entrega en junio 2026
+            </p>
+          </div>
+        ) : null}
       </div>
 
       <CatalogDataContainer>
         <TagContainer>
           <div>
-            <CustomBadge
-              color={
-                tipoOperacion === 'Alquiler'
-                  ? 'green'
-                  : tipoOperacion === 'Venta'
-                  ? 'red'
-                  : 'gray'
-              }
-            >
-              {tipoOperacion}
-            </CustomBadge>
+            {type === 'proyects' ? (
+              <CustomBadge color="turquoise">Proyecto</CustomBadge>
+            ) : (
+              <CustomBadge
+                color={
+                  tipoOperacion === 'Alquiler'
+                    ? 'green'
+                    : tipoOperacion === 'Venta'
+                    ? 'red'
+                    : 'gray'
+                }
+              >
+                {tipoOperacion}
+              </CustomBadge>
+            )}
+
             {tipoPropiedad}
           </div>
 
           <div>
             <CustomBadge color="gray">{areaTotal} m2</CustomBadge>
-            <CustomBadge color="gray">5 Habitaciones</CustomBadge>
+            {type === 'proyects' ? (
+              <CustomBadge color="gray">Financiamiento directo</CustomBadge>
+            ) : (
+              <CustomBadge color="gray">5 habitaciones</CustomBadge>
+            )}
             <CustomBadge color="gray">{banos} Baños</CustomBadge>
           </div>
         </TagContainer>
@@ -164,15 +232,23 @@ function CatalogCard({ property }) {
 
         <MainDataContainer>
           <span>Precio</span>
-          <h3>S/. {precio.pen.toLocaleString('en-US')}</h3>
+          <h3>
+            S/. {precio.pen.toLocaleString('en-US')}
+            {type === 'offers' ? (
+              <CustomBadge color="light-green">
+                <img src={lineDownIcon} alt="line" />
+                %15
+              </CustomBadge>
+            ) : null}
+          </h3>
         </MainDataContainer>
         <OptionsContainer>
           <div>
-            <img src="#" alt="#" />
+            <img src={placeholderIcon} alt="Sanchez Real Estate" />
 
             <div>
               <h5>
-                Inmobiliaria Los Robles <img src={premiumIcon} alt="#" />
+                Sanchez Real Estate <img src={premiumIcon} alt="#" />
               </h5>
               <CustomBadge color="turquoise">Inmobiliaria</CustomBadge>
             </div>

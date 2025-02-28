@@ -36,11 +36,10 @@ export const StandaloneNavigate = styled.div`
 
 export const TextContainer = styled.div`
   width: 100%;
-  max-width: 634px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   gap: 24px;
 
   h3 {
@@ -54,7 +53,6 @@ export const TextContainer = styled.div`
     font-weight: 400;
     font-size: 1rem;
     line-height: 122%;
-    text-align: center;
     color: #424242;
     margin: 0px;
   }
@@ -62,7 +60,6 @@ export const TextContainer = styled.div`
 
 export const CardContainer = styled.div`
   width: 100%;
-  max-width: 808px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -79,6 +76,8 @@ export const DataCard = styled.div`
   align-items: center;
   gap: 24px;
   padding: 24px;
+  padding-top: 16px;
+  padding-bottom: 20px;
   background-color: #ffffff;
   border: 1px solid #c3c3c3;
   border-radius: 12px;
@@ -90,7 +89,7 @@ export const DataCard = styled.div`
     align-items: center;
 
     h4 {
-      font-weight: 400;
+      font-weight: 700;
       font-size: 1.19rem;
       color: black;
       margin: 0px;
@@ -115,4 +114,37 @@ export const DataCard = styled.div`
   &:hover {
     background-color: #f9f9f9;
   }
+`;
+
+export const SideDataContainer = styled.div`
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: flex-start;
+  gap: 24px;
+  padding: 40px 120px;
+  background-color: #f2f2f2;
+  border-radius: 12px;
+
+  & > div:first-child {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    height: 100%;
+  }
+`;
+
+export const TextBanner = styled.div`
+  width: 100%;
+  height: 100%;
+  min-height: 732px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: #c3c3c3;
+  border-radius: 12px;
+  padding: 40px;
 `;

@@ -35,7 +35,7 @@ export const MenuContainer = styled.div`
     width: 100%;
     height: auto;
     justify-content: flex-start;
-    
+
     & > span {
       display: flex;
     }
@@ -119,4 +119,16 @@ export const MarginIcon = styled.div`
   width: auto;
   margin-left: auto;
   display: ${({ isMenuOpen }) => (isMenuOpen ? 'block' : 'none')};
+`;
+
+export const CustomCorner = styled.div`
+  width: 12px;
+  height: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  right: -12px;
+  z-index: 1000;
 `;

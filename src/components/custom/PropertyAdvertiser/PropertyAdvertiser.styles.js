@@ -41,7 +41,7 @@ export const AdvertiserOptions = styled.div`
     align-items: center;
     gap: 12px;
 
-    img {
+    & > img:first-child {
       height: 75px;
       width: 75px;
       background-color: #c6c6c6;
@@ -56,11 +56,21 @@ export const AdvertiserOptions = styled.div`
       gap: 12px;
 
       h3 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+
         font-weight: 700;
         font-size: 1.44rem;
         color: black;
         margin: 0px;
         line-height: 15px;
+
+        img {
+          width: 17px;
+          height: 17px;
+        }
       }
     }
   }

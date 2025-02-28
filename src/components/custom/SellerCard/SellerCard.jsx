@@ -16,11 +16,12 @@ import checkedIcon from '../../../assets/img/icons/ph_seal-check-fill.svg';
 import likeIcon from '../../../assets/img/icons/like.svg';
 import callIcon from '../../../assets/img/icons/call.svg';
 import SecondaryCustomButton from '../CustomButtons/SecondaryCustomButton/SecondaryCustomButton';
+import placeholderIcon from "assets/img/Main-Icon.jpg"
 
 function SellerCard() {
   return (
     <SellerCardContainer>
-      <img src="#" alt="#" />
+      <img src={placeholderIcon} alt="Sanchez Real Estate" />
       <div>
         <TagDateContainer>
           <div>
@@ -39,7 +40,7 @@ function SellerCard() {
         </TagDateContainer>
         <MainDataContainer>
         <div>
-          <h4>Inmobiliaria Los Robles</h4>
+          <h4>Sanchez Real Estate</h4>
           <img src={checkedIcon} alt="checked" />
         </div>
         <p>

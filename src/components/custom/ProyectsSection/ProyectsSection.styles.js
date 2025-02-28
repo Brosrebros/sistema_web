@@ -106,8 +106,4 @@ export const CustomButton = styled.button`
   font-family: 'Aptos';
   color: ${props => (props.isActive ? 'white' : '#424242')};
   line-height: 70%;
-
-  &:hover {
-    filter: brightness(0.9);
-  }
 `;

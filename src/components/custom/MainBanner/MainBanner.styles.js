@@ -40,19 +40,3 @@ export const Banner = styled.div`
     line-height: 140%;
   }
 `;
-
-export const Advertising = styled.div`
-  width: 100%;
-  height: 87px;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  padding: 24px;
-  background-color: #E3E3E3;
-  border-radius: 12px;
-
-  font-size: 1em;
-  font-weight: normal;
-  font-family: 'Roboto';
-  color: #424242;
-`;

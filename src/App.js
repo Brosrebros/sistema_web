@@ -11,6 +11,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 import 'react-toastify/dist/ReactToastify.css';
 import { MenuProvider } from './menuContext';
 import { ModalProvider } from 'modalContext';
+import { PropertyProvider } from './propertyContext';
 
 ChartJS.register(...registerables);
 
@@ -44,11 +45,13 @@ const App = () => {
 
   return (
     <>
-      <MenuProvider>
-        <ModalProvider>
-          <Outlet />
-        </ModalProvider>
-      </MenuProvider>
+      <PropertyProvider>
+        <MenuProvider>
+          <ModalProvider>
+            <Outlet />
+          </ModalProvider>
+        </MenuProvider>
+      </PropertyProvider>
 
       {/* <SettingsToggle />
       <SettingsPanel />

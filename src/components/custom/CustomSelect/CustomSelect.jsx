@@ -67,6 +67,7 @@ const CustomSelect = ({
       </CustomSelectStyled>
       {isOpen && (
         <CustomDropdown className="custom-dropdown">
+          <label>{placeholder}</label>
           {options.map(option => (
             <CustomOption
               key={option.value}

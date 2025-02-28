@@ -11,6 +11,7 @@ import CatalogCard from 'components/custom/CatalogCard/CatalogCard';
 import PropertyFilters from './PropertyFilters';
 import Pagination from 'components/custom/Pagination/Pagination';
 import styled from 'styled-components';
+import Advertising from 'components/custom/Advertising/Advertising';
 
 const CustomLayout = styled.div`
   width: 100%;
@@ -19,7 +20,7 @@ const CustomLayout = styled.div`
   gap: 24px;
 `;
 
-const Properties = ({ filterForm, setFilterForm, properties, title }) => {
+const Properties = ({ filterForm, setFilterForm, properties, title, type }) => {
   const [showFilterOffcanvas, setShowFilterOffcanvas] = useState(false);
   const [coursePerPage, setCoursePerPage] = useState(6);
   const navigate = useNavigate();
@@ -137,9 +138,12 @@ const Properties = ({ filterForm, setFilterForm, properties, title }) => {
               }}
             >
               {paginatedCourses.length > 0 ? (
-                paginatedCourses.map(course =>
+                paginatedCourses.map((course, index) =>
                   layout === 'list' ? (
-                    <CatalogCard key={course.id} property={course} />
+                    <>
+                      <CatalogCard key={course.id} property={course} type={type}/>
+                      {(index + 1) % 2 === 0 && <Advertising />}
+                    </>
                   ) : (
                     <Col key={course.id} md={6} xxl={4}>
                       <PropertyGrid property={course} />

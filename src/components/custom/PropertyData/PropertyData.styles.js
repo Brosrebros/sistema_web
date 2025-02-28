@@ -11,6 +11,7 @@ export const PropertyDataContainer = styled.div`
   padding: 24px;
   background-color: #ffffff;
   border-radius: 12px;
+  overflow: hidden;
 
   & > div:first-child {
     width: 100%;
@@ -55,11 +56,13 @@ export const PropertyMainData = styled.div`
 `;
 
 export const IconDataContainer = styled.div`
+  max-width: 70px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 4px;
+  overflow: visible;
 
   img {
     width: 48px;
@@ -73,6 +76,12 @@ export const IconDataContainer = styled.div`
     color: #424242;
     margin: 0px;
     line-height: 65%;
+    white-space: nowrap;
+    overflow: visible;
+
+    b {
+      font-weight: 700;
+    }
   }
 `;
 
@@ -81,19 +90,21 @@ export const TagPriceContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  gap: 8px;
+  gap: 16px;
 
-  div {
+  & > div {
+    max-width: 160px;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
-    gap: 16px;
+    gap: 8px;
 
     span {
       font-size: 0.81rem;
       font-weight: normal;
       color: #424242;
-      line-height: 7px;
       margin: 0px;
+      margin-bottom: 6px;
     }
   }
 
@@ -101,6 +112,7 @@ export const TagPriceContainer = styled.div`
     font-weight: 400;
     font-size: 1.19em;
     color: #424242;
+    height: 14px;
     margin: 0px;
   }
 
@@ -283,11 +295,11 @@ export const CustomButton = styled.button`
   line-height: 70%;
 
   &:hover {
-    background-color: ${({isActive}) => isActive ? "#ffffff" : "#f2f2f2"};
+    background-color: ${({ isActive }) => (isActive ? '#ffffff' : '#f2f2f2')};
   }
 
   &:active {
-    background-color:${({isActive}) => isActive ? "#ffffff" : "#e4e4e4"};
+    background-color: ${({ isActive }) => (isActive ? '#ffffff' : '#e4e4e4')};
   }
 
   /* Línea roja debajo si isActive es true */
@@ -305,4 +317,84 @@ export const CustomButton = styled.button`
       border-radius: 10px;
     }
   `}
+`;
+
+export const SliderContainer = styled.div`
+  width: 100%;
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+
+  h4 {
+    font-weight: 700;
+    font-size: 1.19rem;
+    line-height: 116%;
+    color: black;
+    margin: 0px;
+  }
+
+  & > div:last-child {
+    width: 100%;
+  }
+`;
+
+export const ProyectCard = styled.div`
+  display: flex !important;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px;
+  background-color: #f2f2f2;
+  border-radius: 12px;
+
+  & > img:first-child {
+    width: 100%;
+    height: 139px;
+    background-color: #c3c3c3;
+    border-radius: 12px;
+  }
+
+  & > span:nth-child(2) {
+    font-weight: 400;
+    font-size: 0.81rem;
+    line-height: 154%;
+    color: #424242;
+    height: 9px;
+  }
+
+  & > div:nth-child(3) {
+    display: flex;
+    gap: 8px;
+  }
+
+  & > div:nth-child(4) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 10px;
+
+    span {
+      font-weight: 400;
+      font-size: 1em;
+      color: #424242;
+      height: 14px;
+      margin: 0px;
+    }
+
+    h3 {
+      font-weight: 700;
+      font-size: 1.44em;
+      color: #000000;
+      margin: 0px;
+    }
+  }
+
+  & > button:last-child {
+    width: 100%;
+  }
 `;

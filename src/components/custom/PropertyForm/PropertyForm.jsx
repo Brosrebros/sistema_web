@@ -82,7 +82,11 @@ function PropertyForm({ page }) {
               Alquiler
             </TabButtonStyled>
           </FormTab>
-          <PrimaryCustomButton>Proyectos</PrimaryCustomButton>
+          <PrimaryCustomButton
+            onClick={() => navigate(`/${rootPaths.proyectsRoot}`)}
+          >
+            Proyectos
+          </PrimaryCustomButton>
         </FormMainContainer>
         <SecondaryCustomButton variant={'white'}>
           <img src={mapaIcon} />

@@ -5,14 +5,15 @@ import {
   StandaloneNavigate,
   TextContainer,
   CardContainer,
+  TextBanner,
   DataCard,
+  SideDataContainer,
 } from './StandaloneLayout.styles';
 import SecondaryCustomButton from '../CustomButtons/SecondaryCustomButton/SecondaryCustomButton';
 import arrowIcon from '../../../assets/img/icons/arrow-left.svg';
 import arrowDownIcon from '../../../assets/img/icons/arrow-down.svg';
 import arrowUpIcon from '../../../assets/img/icons/arrow-up.svg';
 import { Outlet, useNavigate } from 'react-router-dom';
-import Footer from 'components/footer/Footer';
 import { useState } from 'react';
 
 function StandaloneLayout({ type, children }) {
@@ -51,12 +52,21 @@ function StandaloneLayout({ type, children }) {
         'No, la gestión de proyectos inmobiliarios es una función exclusiva del plan Premium. Con este plan, puedes publicar y administrar desarrollos completos, incluyendo múltiples unidades y fases del proyecto. Además, el plan Premium te permite crear un perfil de vendedor como agente inmobiliario, inmobiliaria o constructora, brindando mayor credibilidad y alcance a tus publicaciones.',
     },
   ];
-
-  const [isActive, setIsActive] = useState(false);
+  const [activeCards, setActiveCards] = useState(
+    new Set(cardContents.map(card => card.id))
+  );
   const navigate = useNavigate();
 
-  const handleActiveButton = id => () => {
-    setIsActive(prevActive => (prevActive === id ? null : id));
+  const handleActiveButton = id => {
+    setActiveCards(prev => {
+      const newSet = new Set(prev);
+      if (newSet.has(id)) {
+        newSet.delete(id);
+      } else {
+        newSet.add(id);
+      }
+      return newSet;
+    });
   };
 
   return (
@@ -78,39 +88,57 @@ function StandaloneLayout({ type, children }) {
 
         {type === 'premium' ? (
           <>
-            <StandaloneContainer>
-              <TextContainer>
-                <h3>Resuelve tus dudas y elige el plan perfecto para ti</h3>
-                <p>
-                  Descubre todo lo que necesitas saber sobre nuestros planes
-                  Esencial y Premium. Conoce las diferencias, beneficios y cómo
-                  aprovechar al máximo cada uno para impulsar tus publicaciones
-                  y ventas.
-                </p>
-              </TextContainer>
+            <SideDataContainer>
+              <div>
+                <TextContainer>
+                  <h3>Resuelve tus dudas y elige el plan perfecto para ti</h3>
+                  <p>
+                    Descubre todo lo que necesitas saber sobre nuestros planes
+                    Esencial y Premium. Conoce las diferencias, beneficios y
+                    cómo aprovechar al máximo cada uno para impulsar tus
+                    publicaciones y ventas.
+                  </p>
+                </TextContainer>
+
+                <TextBanner>
+                  <TextContainer>
+                    <h3>Resuelve tus dudas y elige el plan perfecto para ti</h3>
+                    <p>
+                      Descubre todo lo que necesitas saber sobre nuestros planes
+                      Esencial y Premium. Conoce las diferencias, beneficios y
+                      cómo aprovechar al máximo cada uno para impulsar tus
+                      publicaciones y ventas.
+                    </p>
+                  </TextContainer>
+                </TextBanner>
+              </div>
+
               <CardContainer>
                 {cardContents.map(card => (
                   <DataCard
                     key={card.id}
-                    isActive={isActive === card.id}
-                    onClick={handleActiveButton(card.id)}
+                    isActive={activeCards.has(card.id)}
+                    onClick={() => handleActiveButton(card.id)}
                   >
                     <div>
                       <h4>{card.title}</h4>
                       <img
-                        src={isActive === card.id ? arrowUpIcon : arrowDownIcon}
-                        alt={isActive === card.id ? 'arrow up' : 'arrow down'}
+                        src={
+                          activeCards.has(card.id) ? arrowUpIcon : arrowDownIcon
+                        }
+                        alt={
+                          activeCards.has(card.id) ? 'arrow up' : 'arrow down'
+                        }
                       />
                     </div>
                     <p>{card.description}</p>
                   </DataCard>
                 ))}
               </CardContainer>
-            </StandaloneContainer>
-            <Footer />
+            </SideDataContainer>
           </>
         ) : type === 'payment' ? (
-          <Footer />
+          <></>
         ) : null}
       </StandaloneLayoutStyled>
     </>

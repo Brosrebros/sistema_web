@@ -6,6 +6,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { useMenu } from 'menuContext';
 import PropertyData from 'components/custom/PropertyData/PropertyData';
 import styled from 'styled-components';
+import { useProperty } from 'propertyContext';
 
 const CustomLayout = styled.div`
   width: 100%;
@@ -14,7 +15,7 @@ const CustomLayout = styled.div`
   gap: 24px;
 `;
 
-const PropertyDetail = () => {
+const PropertyDetail = ({type}) => {
   const { isMenuOpen } = useMenu();
   const { propertyState, fetchPropertyById } = usePropertyContext();
   const { id } = useParams();
@@ -37,11 +38,11 @@ const PropertyDetail = () => {
     <>
       {propertyState.property && (
         <CustomLayout>
-          <div style={{ maxWidth: isMenuOpen ? '785px' : "865px" }}>
+          <div style={{ maxWidth: isMenuOpen ? '785px' : '865px' }}>
             <PropertyDetailAdvertiser property={propertyState.property} />
           </div>
 
-          <PropertyData property={propertyState.property} />
+          <PropertyData property={propertyState.property} type={type} />
         </CustomLayout>
       )}
 
