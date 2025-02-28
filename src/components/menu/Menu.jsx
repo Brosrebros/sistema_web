@@ -25,7 +25,7 @@ import { useModal } from 'modalContext';
 function Menu({ active }) {
   const navigate = useNavigate();
   const { isMenuOpen } = useMenu();
-
+  console.log(active)
   return (
     <MenuContainer isMenuOpen={isMenuOpen}>
       <CustomCorner>
@@ -102,6 +102,7 @@ function Menu({ active }) {
           <MenuOption
             isMenuOpen={isMenuOpen}
             onClick={() => navigate(`/${rootPaths.settingsRoot}`)}
+            active={active === 'settings'}
           >
             <img src={settingIcon} alt="configuraciones" />
             <span>Configuración</span>

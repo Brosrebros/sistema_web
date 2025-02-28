@@ -214,7 +214,6 @@ import SellerProfilepage from 'pages/SellerProfilepage';
 import SellProcesspage from 'pages/SellProcesspage';
 import TermsPage from 'pages/TermsPage';
 import Updatepage from 'pages/Updatepage';
-import { useProperty } from 'propertyContext';
 import Settingspage from 'pages/Settingspage';
 
 const routes = [
@@ -314,6 +313,16 @@ const routes = [
         ],
       },
       {
+        path: `/${rootPaths.settingsRoot}`,
+        element: <MainLayout type="main" active="settings" />,
+        children: [
+          {
+            index: true,
+            element: <Settingspage />,
+          },
+        ],
+      },
+      {
         path: `/${rootPaths.processRoot}`,
         element: <MainLayout type="process" />,
         children: [
@@ -358,10 +367,6 @@ const routes = [
           {
             path: paths.sellerProfileRoot,
             element: <SellerProfilepage />,
-          },
-          {
-            path: rootPaths.settingsRoot,
-            element: <Settingspage />,
           },
           {
             path: rootPaths.dashboardRoot,
