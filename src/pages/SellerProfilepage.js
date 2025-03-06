@@ -192,11 +192,13 @@ const CustomButton = styled.button`
   line-height: 70%;
 
   &:hover {
-    background-color: ${({ activeSection }) => (activeSection ? '#ffffff' : '#f2f2f2')};
+    background-color: ${({ activeSection }) =>
+      activeSection ? '#ffffff' : '#f2f2f2'};
   }
 
   &:active {
-    background-color: ${({ activeSection }) => (activeSection ? '#ffffff' : '#e4e4e4')};
+    background-color: ${({ activeSection }) =>
+      activeSection ? '#ffffff' : '#e4e4e4'};
   }
 
   ${({ activeSection }) =>
@@ -299,13 +301,45 @@ const Certifications = styled.div`
   }
 
   & > div:last-child {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    padding-right: 12px;
+
+    &::-webkit-scrollbar {
+      width: 8px;
+      border-radius: 10px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: #f2f2f2;
+      border-radius: 10px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: #c3c3c3;
+      border-radius: 10px;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+      background: rgb(204, 204, 204);
+    }
+
+    &::-webkit-scrollbar-button {
+      display: none;
+      width: 0;
+      height: 0;
+      background: transparent;
+    }
+  }
+
+  & > div:last-child > div {
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
     gap: 20px;
-    overflow-y: auto;
 
     p {
       font-weight: 400;
@@ -492,13 +526,10 @@ const Reviews = styled.div`
     }
 
     & > div:last-child {
-      max-height: 837px;
       justify-content: flex-start;
-      overflow-y: auto;
 
       & > div:first-child {
         display: flex;
-        height: 50px;
         margin-left: auto;
 
         & > div:first-child {
@@ -506,6 +537,50 @@ const Reviews = styled.div`
         }
       }
     }
+  }
+`;
+
+const ScrollContainer = styled.div`
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  overflow-y: auto;
+  padding-right: 12px;
+  max-height: 837px;
+
+  &::-webkit-scrollbar {
+    width: 8px;
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #f2f2f2;
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #c3c3c3;
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: rgb(204, 204, 204);
+  }
+
+  &::-webkit-scrollbar-button {
+    display: none;
+    width: 0;
+    height: 0;
+    background: transparent;
+  }
+
+  & > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 16px;
   }
 `;
 
@@ -914,7 +989,20 @@ const SellerProfilepage = () => {
   const { isMenuOpen } = useMenu();
   const { propertyState } = usePropertyContext();
   const [activeSection, setActiveSection] = useState('profile');
+
   const navigate = useNavigate();
+
+  const [filterForm, setFilterForm] = useState({
+    tipoPropiedad: '',
+  });
+
+  const handleCustomChange = e => {
+    const { name, value } = e.target;
+    setFilterForm(prev => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
 
   const handleActiveSection = section => {
     setActiveSection(section);
@@ -1008,34 +1096,36 @@ const SellerProfilepage = () => {
                   Certificaciones <b>(2)</b>
                 </h3>
                 <div>
-                  <Certificate>
-                    <img src="" />
-                    <div>
-                      <h4>Verificación del anunciante</h4>
-                      <p>
-                        Informe realizado por terceros para la verificación de
-                        identidad del anunciante
-                      </p>
-                      <PrimaryCustomButton>Previsualizar</PrimaryCustomButton>
-                    </div>
-                  </Certificate>
-                  <p>
-                    La verificación confirma que la identidad del vendedor
-                    coincide con la información anunciada. Este proceso es
-                    realizado por terceros, asegurando mayor confianza y
-                    transparencia.
-                  </p>
-                  <Certificate>
-                    <img src="" />
-                    <div>
-                      <h4>Verificación del anunciante</h4>
-                      <p>
-                        Informe realizado por terceros para la verificación de
-                        identidad del anunciante
-                      </p>
-                      <PrimaryCustomButton>Previsualizar</PrimaryCustomButton>
-                    </div>
-                  </Certificate>
+                  <div>
+                    <Certificate>
+                      <img src="" />
+                      <div>
+                        <h4>Verificación del anunciante</h4>
+                        <p>
+                          Informe realizado por terceros para la verificación de
+                          identidad del anunciante
+                        </p>
+                        <PrimaryCustomButton>Previsualizar</PrimaryCustomButton>
+                      </div>
+                    </Certificate>
+                    <p>
+                      La verificación confirma que la identidad del vendedor
+                      coincide con la información anunciada. Este proceso es
+                      realizado por terceros, asegurando mayor confianza y
+                      transparencia.
+                    </p>
+                    <Certificate>
+                      <img src="" />
+                      <div>
+                        <h4>Verificación del anunciante</h4>
+                        <p>
+                          Informe realizado por terceros para la verificación de
+                          identidad del anunciante
+                        </p>
+                        <PrimaryCustomButton>Previsualizar</PrimaryCustomButton>
+                      </div>
+                    </Certificate>
+                  </div>
                 </div>
               </Certifications>
             </SectionOne>
@@ -1163,115 +1253,123 @@ const SellerProfilepage = () => {
                 </div>
                 <div>
                   <CustomSelect
-                    id="relevancia"
-                    name="relevancia"
-                    aria-label="Relevancia"
-                    value={idiomaOptions}
-                    placeholder="Más relevantes"
+                    id="orden"
+                    name="orden"
+                    aria-label="Orden"
+                    value={filterForm.idiomaOptions}
+                    onChange={handleCustomChange}
+                    placeholder="Ordenar por"
                     options={idiomaOptions}
                     background="form"
                   />
-                  <ReviewCard>
+                  <ScrollContainer>
                     <div>
-                      <div>
-                        <img src={userIcon} />
-                        <h4>Bross J. Sanchez</h4>
-                        <p>15 de enero de 2025</p>
-                      </div>
+                      <ReviewCard>
+                        <div>
+                          <div>
+                            <img src={userIcon} />
+                            <h4>Bross J. Sanchez</h4>
+                            <p>15 de enero de 2025</p>
+                          </div>
 
-                      <span>
-                        <img src={star} />
-                        5/5
-                      </span>
+                          <span>
+                            <img src={star} />
+                            5/5
+                          </span>
+                        </div>
+
+                        <p>
+                          Tuve una experiencia muy positiva trabajando con este
+                          vendedor durante la búsqueda de mi casa. La
+                          comunicación fue constante y profesional a través de
+                          la plataforma, respondiendo siempre dentro de las 24
+                          horas...
+                        </p>
+
+                        <ResponseCard>
+                          <div>
+                            <img src={placeholderIcon} />
+                            <h4>
+                              Sanchez Real Estate <img src={checkIcon} />
+                            </h4>
+                            <p>15 de enero de 2025</p>
+                          </div>
+                          <p>¡Muchas gracias!</p>
+                        </ResponseCard>
+
+                        <SecondaryCustomButton
+                          onClick={() => {
+                            openModal('loginModal');
+                          }}
+                        >
+                          <img src={medalIcon} />
+                          Marcar como útil
+                        </SecondaryCustomButton>
+                      </ReviewCard>
+                      <ReviewCard>
+                        <div>
+                          <div>
+                            <img src={userIcon} />
+                            <h4>Bross J. Sanchez</h4>
+                            <p>15 de enero de 2025</p>
+                          </div>
+
+                          <span>
+                            <img src={star} />
+                            5/5
+                          </span>
+                        </div>
+
+                        <p>
+                          Tuve una experiencia muy positiva trabajando con este
+                          vendedor durante la búsqueda de mi casa. La
+                          comunicación fue constante y profesional a través de
+                          la plataforma, respondiendo siempre dentro de las 24
+                          horas...
+                        </p>
+
+                        <SecondaryCustomButton
+                          onClick={() => {
+                            openModal('loginModal');
+                          }}
+                        >
+                          <img src={medalIcon} />
+                          Marcar como útil
+                        </SecondaryCustomButton>
+                      </ReviewCard>
+                      <ReviewCard>
+                        <div>
+                          <div>
+                            <img src={userIcon} />
+                            <h4>Bross J. Sanchez</h4>
+                            <p>15 de enero de 2025</p>
+                          </div>
+
+                          <span>
+                            <img src={star} />
+                            5/5
+                          </span>
+                        </div>
+
+                        <p>
+                          Tuve una experiencia muy positiva trabajando con este
+                          vendedor durante la búsqueda de mi casa. La
+                          comunicación fue constante y profesional a través de
+                          la plataforma, respondiendo siempre dentro de las 24
+                          horas...
+                        </p>
+
+                        <SecondaryCustomButton
+                          onClick={() => {
+                            openModal('loginModal');
+                          }}
+                        >
+                          <img src={medalIcon} />
+                          Marcar como útil
+                        </SecondaryCustomButton>
+                      </ReviewCard>
                     </div>
-
-                    <p>
-                      Tuve una experiencia muy positiva trabajando con este
-                      vendedor durante la búsqueda de mi casa. La comunicación
-                      fue constante y profesional a través de la plataforma,
-                      respondiendo siempre dentro de las 24 horas...
-                    </p>
-
-                    <ResponseCard>
-                      <div>
-                        <img src={placeholderIcon} />
-                        <h4>
-                          Sanchez Real Estate <img src={checkIcon} />
-                        </h4>
-                        <p>15 de enero de 2025</p>
-                      </div>
-                      <p>¡Muchas gracias!</p>
-                    </ResponseCard>
-
-                    <SecondaryCustomButton
-                      onClick={() => {
-                        openModal('loginModal');
-                      }}
-                    >
-                      <img src={medalIcon} />
-                      Marcar como útil
-                    </SecondaryCustomButton>
-                  </ReviewCard>
-                  <ReviewCard>
-                    <div>
-                      <div>
-                        <img src={userIcon} />
-                        <h4>Bross J. Sanchez</h4>
-                        <p>15 de enero de 2025</p>
-                      </div>
-
-                      <span>
-                        <img src={star} />
-                        5/5
-                      </span>
-                    </div>
-
-                    <p>
-                      Tuve una experiencia muy positiva trabajando con este
-                      vendedor durante la búsqueda de mi casa. La comunicación
-                      fue constante y profesional a través de la plataforma,
-                      respondiendo siempre dentro de las 24 horas...
-                    </p>
-
-                    <SecondaryCustomButton
-                      onClick={() => {
-                        openModal('loginModal');
-                      }}
-                    >
-                      <img src={medalIcon} />
-                      Marcar como útil
-                    </SecondaryCustomButton>
-                  </ReviewCard>
-                  <ReviewCard>
-                    <div>
-                      <div>
-                        <img src={userIcon} />
-                        <h4>Bross J. Sanchez</h4>
-                        <p>15 de enero de 2025</p>
-                      </div>
-
-                      <span>
-                        <img src={star} />
-                        5/5
-                      </span>
-                    </div>
-
-                    <p>
-                      Tuve una experiencia muy positiva trabajando con este
-                      vendedor durante la búsqueda de mi casa. La comunicación
-                      fue constante y profesional a través de la plataforma,
-                      respondiendo siempre dentro de las 24 horas...
-                    </p>
-
-                    <SecondaryCustomButton
-                      onClick={() => {
-                        openModal('loginModal');
-                      }}
-                    >
-                      <img src={medalIcon} />
-                      Marcar como útil
-                    </SecondaryCustomButton>
-                  </ReviewCard>
+                  </ScrollContainer>
                 </div>
               </div>
             </Reviews>
@@ -1330,7 +1428,11 @@ const SellerProfilepage = () => {
                       />
                       Guardar
                     </SecondaryCustomButton>
-                    <PrimaryCustomButton onClick={() => navigate(`/inmuebles/676a364f3592cc2e8247f214`)}>
+                    <PrimaryCustomButton
+                      onClick={() =>
+                        navigate(`/inmuebles/676a364f3592cc2e8247f214`)
+                      }
+                    >
                       Ver más detalles
                     </PrimaryCustomButton>
                   </OptionsContainer>

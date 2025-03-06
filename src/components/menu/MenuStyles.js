@@ -16,7 +16,10 @@ export const MenuContainer = styled.div`
 
   & > div:last-child {
     margin-top: auto;
-    border-top: 1px solid #c3c3c3;
+  }
+
+  & > div:nth-child(2) {
+    height: 100%;
   }
 
   & > div:nth-child(4) {
@@ -40,17 +43,24 @@ export const MenuContainer = styled.div`
       display: flex;
     }
   }
+
+  &:hover > div:nth-child(2) > div:last-child {
+    display: flex;
+  }
+
+  &:hover > div:nth-child(2) > div:last-child > div {
+    width: 182px;
+  }
 `;
 
 export const MenuSection = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: flex-start;
   gap: 16px;
   padding: 16px 24px;
-  border-bottom: 1px solid #c3c3c3;
 
   &:last-child {
     border: none;
@@ -131,4 +141,48 @@ export const CustomCorner = styled.div`
   top: 0;
   right: -12px;
   z-index: 1000;
+`;
+
+export const PremiumPack = styled.div`
+  width: 100%;
+  display: ${({ isMenuOpen }) => (isMenuOpen ? 'flex' : 'none')};
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  padding: 20px;
+  background-color: #f2f2f2;
+  border-radius: 12px;
+  margin-top: auto;
+  transition: all 0.1s ease;
+
+  & > div {
+    width: 182px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+
+    h4 {
+      font-weight: 700;
+      font-size: 1.19rem;
+      line-height: 16px;
+      color: black;
+      margin: 0px;
+    }
+
+    p {
+      font-weight: 400;
+      font-size: 1rem;
+      line-height: 137%;
+      color: black;
+      margin: 0px;
+    }
+  }
+
+  & > button {
+    width: 182px;
+    font-size: 0.98em;
+  }
 `;

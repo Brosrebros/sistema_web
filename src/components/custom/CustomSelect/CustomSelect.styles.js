@@ -41,22 +41,31 @@ export const CustomSelectStyled = styled.div`
   font-weight: 400;
 `;
 
-export const CustomDropdown = styled.div`
+export const DropdownContainer = styled.div`
   width: 100%;
   max-height: 300px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  gap: 6px;
   padding: 12px 8px;
   background-color: #ffffff;
   border: 1px solid #c3c3c3;
   border-radius: 16px;
   position: absolute;
   left: 0;
-  top: calc(41px + 8px);
+  top: calc(48px + 8px);
   z-index: 500;
+  padding-right: 10px;
+`;
+
+export const CustomDropdown = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 6px;
   overflow-y: auto;
 
   label {
@@ -73,17 +82,17 @@ export const CustomDropdown = styled.div`
   }
 
   &::-webkit-scrollbar {
-    width: 8px;
+    width: 4px;
     border-radius: 10px;
   }
 
   &::-webkit-scrollbar-track {
-    background: rgb(228, 228, 228);
+    background: #f2f2f2;
     border-radius: 10px;
   }
 
   &::-webkit-scrollbar-thumb {
-    background: rgb(201, 201, 201);
+    background: #c3c3c3;
     border-radius: 10px;
   }
 
@@ -97,18 +106,10 @@ export const CustomDropdown = styled.div`
     height: 0;
     background: transparent;
   }
-
-  scrollbar-width: thin;
-  scrollbar-color: #c3c3c3 #f2f2f2;
-
-  & {
-    scrollbar-arrow-color: transparent;
-    scrollbar-width: thin;
-  }
 `;
 
 export const CustomOption = styled.div`
-  width: 100%;
+  width: 95%;
   height: 35px;
   cursor: pointer;
   display: flex;

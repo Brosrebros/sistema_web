@@ -46,7 +46,7 @@ export const CustomSliderButtonStyled = styled(Slider)`
 
     &::after {
       display: none;
-    } 
+    }
   }
 
   .slick-next {
@@ -64,7 +64,7 @@ export const CustomSliderButtonStyled = styled(Slider)`
 
     &::after {
       display: none;
-    } 
+    }   
   }
 
   .slick-prev::after,

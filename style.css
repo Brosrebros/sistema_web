@@ -4,6 +4,14 @@ body {
   margin: 0%;
 }
 
+.custom-dots li button:before {
+  color: black !important;
+}
+
+.custom-dots li.slick-active button:before {
+  color: red !important;
+}
+
 #app {
   width: auto;
   height: auto;

@@ -73,7 +73,10 @@ function ContactModal() {
               </SecondaryCustomButton>
               <PrimaryCustomButton
                 onClick={() => {
-                  navigate(`/${rootPaths.sellerProfileRoot}`);
+                  {
+                    navigate(`/${rootPaths.sellerProfileRoot}`);
+                    closeModal('contactModal');
+                  }
                 }}
               >
                 <img src={userIcon} alt="clock" />

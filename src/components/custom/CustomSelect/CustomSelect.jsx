@@ -6,6 +6,7 @@ import {
   CustomDropdown,
   CustomSelectWrapper,
   CustomHiddenInput,
+  DropdownContainer,
 } from './CustomSelect.styles';
 import { IoIosArrowDown } from 'react-icons/io';
 
@@ -67,17 +68,19 @@ const CustomSelect = ({
         <CustomHiddenInput type="hidden" name={name} value={selectedValue} />
       </CustomSelectStyled>
       {isOpen && (
-        <CustomDropdown className="custom-dropdown">
-          <label>{placeholder}</label>
-          {options.map(option => (
-            <CustomOption
-              key={option.value}
-              onClick={() => handleOptionSelect(option.value)}
-            >
-              <span background={background}>{option.label}</span>
-            </CustomOption>
-          ))}
-        </CustomDropdown>
+        <DropdownContainer>
+          <CustomDropdown>
+            <label>{placeholder}</label>
+            {options.map(option => (
+              <CustomOption
+                key={option.value}
+                onClick={() => handleOptionSelect(option.value)}
+              >
+                <span background={background}>{option.label}</span>
+              </CustomOption>
+            ))}
+          </CustomDropdown>
+        </DropdownContainer>
       )}
     </CustomSelectContainer>
   );

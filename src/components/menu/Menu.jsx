@@ -5,6 +5,7 @@ import {
   MenuOptionsContainer,
   MenuOption,
   CustomCorner,
+  PremiumPack,
 } from './MenuStyles';
 
 import homeIcon from '../../assets/img/icons/home.svg';
@@ -21,11 +22,12 @@ import { useMenu } from '../../menuContext';
 import { useNavigate } from 'react-router-dom';
 import { rootPaths } from 'routes/paths';
 import { useModal } from 'modalContext';
+import PrimaryCustomButton from 'components/custom/CustomButtons/PrimaryCustomButton/PrimaryCustomButton';
 
 function Menu({ active }) {
   const navigate = useNavigate();
   const { isMenuOpen } = useMenu();
-  console.log(active)
+  console.log(active);
   return (
     <MenuContainer isMenuOpen={isMenuOpen}>
       <CustomCorner>
@@ -47,15 +49,33 @@ function Menu({ active }) {
       <MenuSection isMenuOpen={isMenuOpen}>
         <h6>Principal</h6>
         <MenuOptionsContainer>
-          <MenuOption isMenuOpen={isMenuOpen} active={active === 'inicio'}>
+          <MenuOption
+            isMenuOpen={isMenuOpen}
+            active={active === 'inmobiliaria'}
+            onClick={() => {
+              navigate(`/`);
+            }}
+          >
+            <img src={buildingIcon} alt="inmobiliaria" />{' '}
+            <span>Inmobiliaria</span>
+          </MenuOption>
+          {/* <MenuOption isMenuOpen={isMenuOpen} active={active === 'inicio'}>
             <img src={homeIcon} alt="home" /> <span>Inicio</span>
           </MenuOption>
           <MenuOption isMenuOpen={isMenuOpen} active={active === 'nosotros'}>
             <img src={peopleIcon} alt="people" /> <span>Nosotros</span>
-          </MenuOption>
+          </MenuOption> */}
         </MenuOptionsContainer>
+
+        <PremiumPack isMenuOpen={isMenuOpen}>
+          <div>
+            <h4>Premiun</h4>
+            <p>Destaca tus anuncios y maximiza tus ventas con un solo clic.</p>
+          </div>
+          <PrimaryCustomButton>Actualizar a Premium</PrimaryCustomButton>
+        </PremiumPack>
       </MenuSection>
-      <MenuSection isMenuOpen={isMenuOpen}>
+      {/* <MenuSection isMenuOpen={isMenuOpen}>
         <h6>Servicios</h6>
         <MenuOptionsContainer>
           <MenuOption
@@ -95,7 +115,8 @@ function Menu({ active }) {
             <img src={diagramIcon} alt="tendencias" /> <span>Tendencias</span>
           </MenuOption>
         </MenuOptionsContainer>
-      </MenuSection>
+      </MenuSection> */}
+
       <MenuSection isMenuOpen={isMenuOpen}>
         <h6>Otros</h6>
         <MenuOptionsContainer>

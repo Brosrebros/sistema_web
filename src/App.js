@@ -12,6 +12,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { MenuProvider } from './menuContext';
 import { ModalProvider } from 'modalContext';
 import { PropertyProvider } from './propertyContext';
+import { SearchProvider } from 'searchContext';
 
 ChartJS.register(...registerables);
 
@@ -45,14 +46,15 @@ const App = () => {
 
   return (
     <>
-      <PropertyProvider>
-        <MenuProvider>
-          <ModalProvider>
-            <Outlet />
-          </ModalProvider>
-        </MenuProvider>
-      </PropertyProvider>
-
+      <SearchProvider>
+        <PropertyProvider>
+          <MenuProvider>
+            <ModalProvider>
+              <Outlet />
+            </ModalProvider>
+          </MenuProvider>
+        </PropertyProvider>
+      </SearchProvider>
       {/* <SettingsToggle />
       <SettingsPanel />
       <ToastContainer

@@ -17,15 +17,9 @@ import pinIcon from '../../../assets/img/icons/location.svg';
 import { rootPaths } from 'routes/paths';
 import { useNavigate } from 'react-router-dom';
 import { useModal } from 'modalContext';
+import { useSearch } from 'searchContext';
 
 function PropertyForm({ page }) {
-  const { openModal } = useModal();
-  const [activeButton, setActiveButton] = useState('venta');
-  const [searchValue, setSearchValue] = useState('');
-  const [propertyType, setPropertyType] = useState('');
-  const [budget, setBudget] = useState('');
-  const [orderBy, setOrderBy] = useState('');
-  const navigate = useNavigate();
 
   const propiedadOptions = [
     { value: 'Casa', label: 'Casa' },
@@ -42,6 +36,35 @@ function PropertyForm({ page }) {
     { value: 'Dúplex', label: 'Dúplex' },
     { value: 'Chalet', label: 'Chalet' },
   ];
+
+
+  const { openModal } = useModal();
+  const [activeButton, setActiveButton] = useState('venta');
+  const [activeStep, setActiveStep] = useState(1);
+  const { searchValue, setSearchValue, propertyType, setPropertyType } =
+    useSearch();
+  const navigate = useNavigate();
+
+  const handleSearchClick = e => {
+    e.preventDefault();
+
+    // Lógica para determinar el paso activo en el modal
+    if (searchValue && !propertyType) {
+      // Hay valor en CustomInput pero no en CustomSelect
+      setActiveStep(2); // Paso 2 activo
+    } else if (!searchValue && propertyType) {
+      // Hay valor en CustomSelect pero no en CustomInput
+      setActiveStep(1); // Paso 1 activo
+    } else if (!searchValue && !propertyType) {
+      // No hay valor en ninguno, todos los pasos activos
+      setActiveStep(1);
+    } else {
+      // Hay valor en ambos, ir directo al paso 3
+      setActiveStep(3);
+    }
+
+    openModal('searchModal'); // Abre el modal
+  };
 
   return (
     <PropertyFormContainer>
@@ -79,12 +102,11 @@ function PropertyForm({ page }) {
           onChange={e => setSearchValue(e.target.value)}
         />
         <CustomSelect
-          id="tipoPropiedad"
           name="tipoPropiedad"
           value={propertyType}
           onChange={e => setPropertyType(e.target.value)}
           placeholder="Tipo de propiedad"
-          options={[...propiedadOptions]}
+          options={propiedadOptions}
           background="form"
         >
           <img src={tipoIcon} width={'16px'} />
@@ -99,12 +121,7 @@ function PropertyForm({ page }) {
             Mas filtros
           </SecondaryCustomButton>
         ) : null}
-        <PrimaryCustomButton
-          onClick={e => {
-            e.preventDefault();
-            openModal('searchModal');
-          }}
-        >
+        <PrimaryCustomButton onClick={handleSearchClick}>
           <img src={lupaIconWhite} alt="lupa" />
           Buscar
         </PrimaryCustomButton>

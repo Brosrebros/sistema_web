@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { useModal } from 'modalContext';
 import { motion } from 'framer-motion';
@@ -19,21 +19,9 @@ import closeIcon from 'assets/img/icons/close.svg';
 import arrowRight from 'assets/img/icons/arrow-right-red.svg';
 import tipoIcon from 'assets/img/icons/signpost.svg';
 import arrowLeft from 'assets/img/icons/arrow-left.svg';
+import { useSearch } from 'searchContext';
 
 function SearchModal() {
-  const { modals, closeModal } = useModal();
-  if (!modals.searchModal) return null;
-
-  const navigate = useNavigate();
-
-  const [propertyType, setPropertyType] = useState('');
-  const [searchValue, setSearchValue] = useState('');
-  const [activeStep, setActiveStep] = useState(1);
-
-  const handleActiveStep = () => {
-    setActiveStep(prev => prev + 1);
-  };
-
   const propiedadOptions = [
     { value: 'Casa', label: 'Casa' },
     { value: 'Departamento', label: 'Departamento' },
@@ -49,6 +37,22 @@ function SearchModal() {
     { value: 'Dúplex', label: 'Dúplex' },
     { value: 'Chalet', label: 'Chalet' },
   ];
+  const { modals, closeModal } = useModal();
+  if (!modals.searchModal) return null;
+  const navigate = useNavigate();
+
+  const {
+    searchValue,
+    setSearchValue,
+    propertyType,
+    setPropertyType,
+    activeStep,
+    setActiveStep,
+  } = useSearch();
+
+  const handleContinueClick = () => {
+    setActiveStep(prevStep => Math.min(prevStep + 1, 3));
+  };
 
   return (
     <ModalContainer>
@@ -63,13 +67,16 @@ function SearchModal() {
             <CloseButton
               onClick={() => {
                 closeModal('settingsModal');
-                setActiveStep(1);
               }}
             >
               <img src={closeIcon} alt="close" />
             </CloseButton>
           ) : (
-            <CloseButton onClick={() => setActiveStep(activeStep - 1)}>
+            <CloseButton
+              onClick={() => {
+                setActiveStep(activeStep - 1);
+              }}
+            >
               <img src={arrowLeft} alt="close" />
             </CloseButton>
           )}
@@ -82,16 +89,16 @@ function SearchModal() {
             <h3>Añade algún filtro adicional</h3>
           ) : null}
           <div>
-            {activeStep === 1 ? (
+            {activeStep === 1 && (
               <CustomInput
                 placeholder={'¿En dónde lo buscas?'}
                 icon={pinIcon}
                 value={searchValue}
                 onChange={e => setSearchValue(e.target.value)}
               />
-            ) : activeStep === 2 ? (
+            )}
+            {activeStep === 2 && (
               <CustomSelect
-                id="tipoPropiedad"
                 name="tipoPropiedad"
                 value={propertyType}
                 onChange={e => setPropertyType(e.target.value)}
@@ -101,7 +108,8 @@ function SearchModal() {
               >
                 <img src={tipoIcon} width={'16px'} />
               </CustomSelect>
-            ) : (
+            )}
+            {activeStep === 3 && (
               <div
                 style={{
                   width: '100%',
@@ -143,12 +151,9 @@ function SearchModal() {
                 />
               </div>
             )}
-
             <div>
-              {activeStep === 3 ? (
-                <></>
-              ) : (
-                <PrimaryCustomButton onClick={() => handleActiveStep()}>
+              {activeStep !== 3 && (
+                <PrimaryCustomButton onClick={handleContinueClick}>
                   Continuar
                 </PrimaryCustomButton>
               )}

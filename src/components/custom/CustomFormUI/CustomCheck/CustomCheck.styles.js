@@ -13,6 +13,7 @@ export const CustomCheckContainer = styled.div`
   border: 1px solid #c3c3c3;
 
   label {
+    width: 90%;
     font-family: 'Roboto';
     font-weight: 400 !important;
     font-size: 1rem;
@@ -21,6 +22,7 @@ export const CustomCheckContainer = styled.div`
     margin: 0px;
     white-space: nowrap;
     text-overflow: ellipsis;
+    cursor: pointer;
   }
 
   input[type='radio'] {
