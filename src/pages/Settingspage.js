@@ -220,7 +220,7 @@ function Settingspage() {
             </span>
             <img src={arrowRight} alt="arrow" />
           </AltButton>
-          <AltButton
+          {/* <AltButton
             isActive={isActive === 'resources'}
             onClick={() => handleActive('resources')}
           >
@@ -229,7 +229,7 @@ function Settingspage() {
               Recursos adicionales
             </span>
             <img src={arrowRight} alt="arrow" />
-          </AltButton>
+          </AltButton> */}
         </AltButtonContainer>
       </div>
       <span></span>

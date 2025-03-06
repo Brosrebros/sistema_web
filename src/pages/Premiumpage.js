@@ -87,10 +87,26 @@ const TabButtonStyled = styled.button`
   font-family: 'Aptos';
   color: ${props => (props.isActive ? 'white' : '#424242')};
   line-height: 70%;
+`;
 
-  &:hover {
-    filter: brightness(0.9);
-  }
+const AnualButtonStyled = styled.button`
+  width: auto;
+  max-height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border: none;
+  outline: none;
+  background-color: #00000000;
+  border-radius: 12px;
+  padding: 12px 16px;
+
+  font-size: 1rem;
+  font-weight: normal;
+  font-family: 'Aptos';
+  color: ${props => (props.isActive ? 'white' : '#424242')};
+  line-height: 70%;
 `;
 
 const CardContainer = styled.div`
@@ -192,14 +208,14 @@ function Premiumpage() {
         </p>
         <ButtonsContainer isActive={isActive === 'anual'}>
           <div>
-            <TabButtonStyled
-              isActive={isActive === 'anual'}
+            <AnualButtonStyled
               onClick={() => {
                 handleActiveButton('anual');
               }}
+              isActive={isActive === 'anual'}
             >
               Anual
-            </TabButtonStyled>
+            </AnualButtonStyled>
             <span>Mejor precio</span>
           </div>
           <TabButtonStyled

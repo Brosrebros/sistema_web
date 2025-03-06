@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import checkIcon from 'assets/img/icons/check.svg';
 
 export const PaymentFormContainer = styled.div`
   width: 100%;
@@ -76,6 +77,32 @@ export const SaveInfoContainer = styled.div`
     cursor: pointer;
     transition: all 0.2s ease;
     border: 1px solid #c3c3c3;
+
+    &:checked {
+      background-color: #940000;
+      border: 1px solid #c3c3c3;
+
+      &::before {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 100%;
+        background-image: url(${checkIcon});
+        background-size: 78%;
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+    }
+  }
+
+  label {
+    margin: 0px;
+    font-weight: 700;
+    font-size: 1rem;
+    color: black;
+    margin: -2px;
+    margin-bottom: 0px;
+    cursor: pointer;
   }
 
   p {
@@ -108,6 +135,31 @@ export const SaveInfoContainer = styled.div`
       cursor: pointer;
       transition: all 0.2s ease;
       border: 1px solid #c3c3c3;
+
+      &:checked {
+        background-color: #940000;
+        border: 1px solid #c3c3c3;
+
+        &::before {
+          content: '';
+          display: block;
+          width: 100%;
+          height: 100%;
+          background-image: url(${checkIcon});
+          background-size: 78%;
+          background-repeat: no-repeat;
+          background-position: center;
+        }
+      }
+    }
+
+    label {
+      margin: 0px;
+      font-weight: 700;
+      font-size: 1rem;
+      color: black;
+      margin-bottom: 0px;
+      cursor: pointer;
     }
 
     p {
@@ -148,4 +200,3 @@ export const TextButtonContainer = styled.div`
     margin: 0px;
   }
 `;
-

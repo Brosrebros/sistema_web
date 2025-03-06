@@ -16,6 +16,7 @@ import { SendModal } from 'components/modals/CustomModal/CustomModal';
 import { SuccessModal } from 'components/modals/CustomModal/CustomModal';
 import SettingsModal from 'components/modals/SettingsModal/SettingsModal';
 import ContactModal from 'components/modals/ContactModal/ContactModal';
+import SearchModal from 'components/modals/SearchModal/SearchModal';
 
 const CustomPageContainer = styled.div`
   display: flex;
@@ -85,6 +86,7 @@ const MainLayout = ({ type, active }) => {
           <SuccessModal />
           <SettingsModal />
           <ContactModal />
+          <SearchModal/>
         </CourseProvider>
       </ProductProvider>
     </main>

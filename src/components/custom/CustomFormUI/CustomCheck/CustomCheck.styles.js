@@ -3,7 +3,7 @@ import checkIcon from 'assets/img/icons/check.svg';
 
 export const CustomCheckContainer = styled.div`
   width: 100%;
-  max-height: 41px;
+  height: 48px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -14,7 +14,7 @@ export const CustomCheckContainer = styled.div`
 
   label {
     font-family: 'Roboto';
-    font-weight: normal;
+    font-weight: 400 !important;
     font-size: 1rem;
     line-height: 137%;
     color: #424242;

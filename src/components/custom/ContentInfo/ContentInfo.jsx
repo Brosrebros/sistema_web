@@ -72,7 +72,7 @@ function ContentInfo({ type }) {
   const data = type === 'left' ? leftData : rightData;
 
   return (
-    <ContentInfoContainer>
+    <ContentInfoContainer type={type}>
       {type === 'left' ? <img src={mesa1} alt="mesa de trabajo" /> : null}
 
       <CardContainer>

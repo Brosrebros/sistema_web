@@ -94,7 +94,7 @@ const Sellerpage = () => {
           margin: '0px',
         }}
       >
-        <b>365</b>
+        <b>365 </b>
         vendedores inmobiliarios encontrados
       </p>
       <div

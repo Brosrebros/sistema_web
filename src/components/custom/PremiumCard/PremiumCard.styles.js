@@ -16,6 +16,7 @@ export const PremiumCardContainer = styled.div`
     font-size: 1.44rem;
     color: black;
     margin: 0px;
+    height: 16px;
   }
 
   span {
@@ -65,6 +66,14 @@ export const PremiumCardContainer = styled.div`
     list-style: none;
     padding: 0px;
     margin: 0px;
+
+    & + button {
+      background-color: #c3c3c3;
+
+      &:hover {
+        background-color: #c3c3c3;
+      }
+    }
 
     h4 {
       font-weight: 700;

@@ -19,9 +19,11 @@ import { useMenu } from '../../menuContext';
 import { rootPaths } from 'routes/paths';
 import { useNavigate } from 'react-router-dom';
 import SecondaryCustomButton from 'components/custom/CustomButtons/SecondaryCustomButton/SecondaryCustomButton';
+import Notifications from 'components/custom/Notifications/Notifications';
 
 function Navbar({ type }) {
   const { toggleMenu } = useMenu();
+  const [isActive, setIsActive] = useState();
   const navigate = useNavigate();
 
   const idiomaOptions = [
@@ -39,6 +41,10 @@ function Navbar({ type }) {
   const [filterForm, setFilterForm] = useState({
     tipoPropiedad: '',
   });
+
+  const handleActive = () => {
+    setIsActive(prev => !prev);
+  };
 
   const handleCustomChange = e => {
     const { name, value } = e.target;
@@ -134,7 +140,11 @@ function Navbar({ type }) {
               >
                 Vender
               </PrimaryCustomButton>
-              <SecondaryCustomButton variant="white">
+              <SecondaryCustomButton
+                variant="white"
+                onClick={() => handleActive()}
+              >
+                <Notifications isActive={isActive} />
                 <img src={notificationIcon} alt="lenguaje" />
               </SecondaryCustomButton>
             </NavbarButtonsContainer>

@@ -45,7 +45,10 @@ function PropertyAdvertiser() {
 
       <AdvertiserDataContainer>
         <AdvertiserOptions>
-          <div onClick={() => navigate(`/${rootPaths.sellerProfileRoot}`)}>
+          <div
+            onClick={() => navigate(`/${rootPaths.sellerProfileRoot}`)}
+            style={{ cursor: 'pointer' }}
+          >
             <img src={placeholderIcon} alt="Sanchez Real Estate" />
             <div>
               <h3>
@@ -64,8 +67,11 @@ function PropertyAdvertiser() {
               Guardar
             </SecondaryCustomButton>
 
-            <PrimaryCustomButton>
-              <img src={callIcon} alt="sms" />
+            <PrimaryCustomButton onClick={() => openModal('contactModal')}>
+              <img
+                src={callIcon}
+                alt="sms"
+              />
               Contactar
             </PrimaryCustomButton>
           </ButtonsContainer>

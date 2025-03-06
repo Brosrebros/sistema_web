@@ -11,6 +11,7 @@ export const ModalProvider = ({ children }) => {
     successModal: false,
     settingsModal: false,
     contactModal: false,
+    searchModal: false,
   });
 
   const openModal = modalName => {
@@ -22,6 +23,7 @@ export const ModalProvider = ({ children }) => {
       successModal: false,
       settingsModal: false,
       contactModal: false,
+      searchModal: false,
 
       [modalName]: true,
     });
@@ -36,6 +38,7 @@ export const ModalProvider = ({ children }) => {
       successModal: false,
       settingsModal: false,
       contactModal: false,
+      searchModal: false,
     });
   };
 

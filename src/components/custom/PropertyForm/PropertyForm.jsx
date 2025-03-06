@@ -1,8 +1,6 @@
 import { React, useState } from 'react';
 import {
   PropertyFormContainer,
-  FormButtonsContainer,
-  FormMainContainer,
   FormOptionsContainer,
   FormTab,
   TabButtonStyled,
@@ -15,13 +13,13 @@ import mapaIcon from '../../../assets/img/icons/map.svg';
 import filterIcon from '../../../assets/img/icons/filter.svg';
 import lupaIconWhite from '../../../assets/img/icons/search-white.svg';
 import tipoIcon from '../../../assets/img/icons/signpost.svg';
-import budgetIcon from '../../../assets/img/icons/moneys.svg';
-import ordenIcon from '../../../assets/img/icons/sort.svg';
 import pinIcon from '../../../assets/img/icons/location.svg';
 import { rootPaths } from 'routes/paths';
 import { useNavigate } from 'react-router-dom';
+import { useModal } from 'modalContext';
 
 function PropertyForm({ page }) {
+  const { openModal } = useModal();
   const [activeButton, setActiveButton] = useState('venta');
   const [searchValue, setSearchValue] = useState('');
   const [propertyType, setPropertyType] = useState('');
@@ -45,55 +43,35 @@ function PropertyForm({ page }) {
     { value: 'Chalet', label: 'Chalet' },
   ];
 
-  const presupuestoOptions = [
-    { value: '50000-100000', label: '50 000 hasta 100 000' },
-    { value: '100000-150000', label: '100 000 hasta 150 000' },
-    { value: '150000-200000', label: '150 000 hasta 200 000' },
-    { value: '250000-300000', label: '250 000 hasta 300 000' },
-  ];
-
-  const ordenarPorOptions = [
-    { value: 'Mayor a menor precio', label: 'Mayor a menor precio' },
-    { value: 'Menor a mayor precio', label: 'Menor a mayor precio' },
-  ];
-
   return (
     <PropertyFormContainer>
-      <FormButtonsContainer>
-        <FormMainContainer>
-          <FormTab>
-            <TabButtonStyled
-              isActive={activeButton === 'venta'}
-              onClick={e => {
-                e.preventDefault();
-                setActiveButton('venta');
-              }}
-            >
-              Venta
-            </TabButtonStyled>
-
-            <TabButtonStyled
-              isActive={activeButton === 'alquiler'}
-              onClick={e => {
-                e.preventDefault();
-                setActiveButton('alquiler');
-              }}
-            >
-              Alquiler
-            </TabButtonStyled>
-          </FormTab>
-          <PrimaryCustomButton
-            onClick={() => navigate(`/${rootPaths.proyectsRoot}`)}
-          >
-            Proyectos
-          </PrimaryCustomButton>
-        </FormMainContainer>
-        <SecondaryCustomButton variant={'white'}>
-          <img src={mapaIcon} />
-          Ver mapa
-        </SecondaryCustomButton>
-      </FormButtonsContainer>
       <FormOptionsContainer>
+        <FormTab>
+          <TabButtonStyled
+            isActive={activeButton === 'venta'}
+            onClick={e => {
+              e.preventDefault();
+              setActiveButton('venta');
+            }}
+          >
+            Venta
+          </TabButtonStyled>
+
+          <TabButtonStyled
+            isActive={activeButton === 'alquiler'}
+            onClick={e => {
+              e.preventDefault();
+              setActiveButton('alquiler');
+            }}
+          >
+            Alquiler
+          </TabButtonStyled>
+        </FormTab>
+        <PrimaryCustomButton
+          onClick={() => navigate(`/${rootPaths.proyectsRoot}`)}
+        >
+          Proyectos
+        </PrimaryCustomButton>
         <CustomInput
           placeholder={'¿En dónde lo buscas?'}
           icon={pinIcon}
@@ -106,44 +84,15 @@ function PropertyForm({ page }) {
           value={propertyType}
           onChange={e => setPropertyType(e.target.value)}
           placeholder="Tipo de propiedad"
-          options={[
-            { value: '', label: 'Tipo de propiedad', disabled: true }, // Placeholder como opción
-            ...propiedadOptions,
-          ]}
+          options={[...propiedadOptions]}
           background="form"
         >
           <img src={tipoIcon} width={'16px'} />
         </CustomSelect>
-
-        <CustomSelect
-          id="presupuesto"
-          name="presupuesto"
-          value={budget}
-          onChange={e => setBudget(e.target.value)}
-          placeholder="Presupuesto"
-          options={[
-            { value: '', label: 'Presupuesto', disabled: true }, // Placeholder como opción
-            ...presupuestoOptions,
-          ]}
-          background="form"
-        >
-          <img src={budgetIcon} width={'16px'} />
-        </CustomSelect>
-
-        <CustomSelect
-          id="Ordenar por"
-          name="Ordenar por"
-          value={orderBy}
-          onChange={e => setOrderBy(e.target.value)}
-          placeholder="Ordenar por"
-          options={[
-            { value: '', label: 'Ordenar por', disabled: true }, // Placeholder como opción
-            ...ordenarPorOptions,
-          ]}
-          background="form"
-        >
-          <img src={ordenIcon} alt="type" />
-        </CustomSelect>
+        <SecondaryCustomButton variant={'white'}>
+          <img src={mapaIcon} />
+          Ver mapa
+        </SecondaryCustomButton>
         {page === 'main' ? (
           <SecondaryCustomButton variant={'white'}>
             <img src={filterIcon} alt="filter" />
@@ -151,19 +100,9 @@ function PropertyForm({ page }) {
           </SecondaryCustomButton>
         ) : null}
         <PrimaryCustomButton
-          disabled={!searchValue.trim()}
-          onClick={() => {
-            if (searchValue.trim()) {
-              const queryParams = new URLSearchParams();
-              queryParams.append('search', searchValue);
-              queryParams.append('transactionType', activeButton);
-              if (propertyType)
-                queryParams.append('propertyType', propertyType);
-              if (budget) queryParams.append('budget', budget);
-              if (orderBy) queryParams.append('orderBy', orderBy);
-
-              navigate(`/${rootPaths.catalogRoot}?${queryParams.toString()}`);
-            }
+          onClick={e => {
+            e.preventDefault();
+            openModal('searchModal');
           }}
         >
           <img src={lupaIconWhite} alt="lupa" />

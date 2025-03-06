@@ -16,6 +16,7 @@ export const CustomLabelStyled = styled.label`
   font-size: 1rem;
   margin: 0px;
   padding: 0px;
+  cursor: pointer;
 
   input[type='radio'] {
     appearance: none;

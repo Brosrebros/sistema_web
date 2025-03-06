@@ -127,6 +127,7 @@ export const Option = styled.button`
   border: none;
   outline: none;
   padding: 12px 16px;
+  cursor: none;
 
   font-family: 'Roboto';
   font-size: 1rem;
@@ -134,14 +135,6 @@ export const Option = styled.button`
   margin: 0px;
   line-height: 65%;
   text-align: center;
-
-  &:hover {
-    background-color: ${props => (props.active ? '#A10000' : '#F9F9F9')};
-  }
-
-  &:active {
-    background-color: ${props => (props.active ? '#850000' : '#ECECEC')};
-  }
 `;
 
 export const OptionDot = styled(Option)`

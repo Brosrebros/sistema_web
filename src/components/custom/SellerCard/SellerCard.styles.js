@@ -10,6 +10,7 @@ export const SellerCardContainer = styled.div`
   border: 1px solid #c3c3c3;
   border-radius: 12px;
   transition: all 0.1s ease;
+  cursor: pointer;
 
   & > img:first-child {
     width: 60px;

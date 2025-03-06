@@ -20,9 +20,7 @@ const CustomSelect = ({
   size,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedValue, setSelectedValue] = useState(
-    value || options[0]?.value || ''
-  );
+  const [selectedValue, setSelectedValue] = useState(value || ''); // Inicia vacío
   const selectRef = useRef(null);
 
   const toggleDropdown = () => setIsOpen(prevState => !prevState);
@@ -33,12 +31,13 @@ const CustomSelect = ({
     setIsOpen(false);
   };
 
+  // Cierra el dropdown si se hace clic fuera
   useEffect(() => {
     const handleClickOutside = event => {
       if (
         selectRef.current &&
         !selectRef.current.contains(event.target) &&
-        !event.target.closest('.custom-dropdown') // Evita cerrar si el clic es en el dropdown
+        !event.target.closest('.custom-dropdown')
       ) {
         setIsOpen(false);
       }
@@ -50,9 +49,11 @@ const CustomSelect = ({
     };
   }, []);
 
+  // Muestra el placeholder si no hay una opción seleccionada
   const selectedLabel =
-    options.find(option => option.value === selectedValue)?.label ||
-    placeholder;
+    selectedValue === ''
+      ? placeholder
+      : options.find(option => option.value === selectedValue)?.label;
 
   return (
     <CustomSelectContainer background={background} size={size}>

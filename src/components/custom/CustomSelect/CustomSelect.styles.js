@@ -12,7 +12,7 @@ export const CustomSelectContainer = styled.div`
   border-radius: 12px;
   padding: 0 0 0 16px;
   gap: 8px;
-  height: 41px;
+  height: 48px;
   transition: all 0.1s ease;
   position: relative;
 

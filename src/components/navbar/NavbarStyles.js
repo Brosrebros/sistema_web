@@ -56,6 +56,7 @@ export const NavbarButtonsContainer = styled.div`
 
   & > button:last-child {
     border: none;
+    position: relative;
   }
 `;
 

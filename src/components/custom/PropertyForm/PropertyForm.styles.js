@@ -16,34 +16,10 @@ export const PropertyFormContainer = styled.form`
   }
 `;
 
-export const FormButtonsContainer = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  @media (max-width: 1100px) {
-    & > button:last-child {
-      display: none;
-    }
-  }
-`;
-
-export const FormMainContainer = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 12px;
-
-  @media (max-width: 1100px) {
-    width: 100%;
-    justify-content: space-between;
-  }
-`;
-
 export const FormOptionsContainer = styled.div`
   width: 100%;
   display: grid;
-  grid-template-columns: 2fr 1.05fr 1.05fr 1.05fr auto auto;
+  grid-template-columns: auto auto 2.2fr 0.8fr auto auto auto;
   gap: 12px;
 
   @media (max-width: 1100px) {
@@ -74,6 +50,7 @@ export const FormOptionsContainer = styled.div`
 
 export const FormTab = styled.div`
   width: 100%;
+  max-height: 48px;
   display: flex;
   justify-content: center;
   align-items: center;

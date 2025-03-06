@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const SecondaryCustomButtonStyled = styled.button`
   /* Botón */
   width: auto;
-  max-height: 41px;
+  height: 48px;
   display: flex;
   justify-content: center;
   align-items: center;

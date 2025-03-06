@@ -254,7 +254,12 @@ function CatalogCard({ property, type }) {
             </div>
           </div>
           <div>
-            <SecondaryCustomButton onClick={handleFavourite}>
+            <SecondaryCustomButton
+              onClick={e => {
+                e.stopPropagation();
+                openModal('loginModal');
+              }}
+            >
               <img
                 src={heartIcon}
                 alt="heart"
@@ -262,7 +267,12 @@ function CatalogCard({ property, type }) {
               />
               Guardar
             </SecondaryCustomButton>
-            <PrimaryCustomButton onClick={handleFavourite}>
+            <PrimaryCustomButton
+              onClick={e => {
+                e.stopPropagation();
+                openModal('contactModal');
+              }}
+            >
               <img src={callIcon} alt="sms" />
               Contactar
             </PrimaryCustomButton>

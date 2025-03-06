@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const CustomInputContainer = styled.div`
-  height: 41px;
+  height: 48px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -34,8 +34,7 @@ export const Input = styled.input`
   border-radius: 12px;
   background-color: #ffffff;
   outline: 1px solid #c3c3c3;
-  padding-left: ${({size}) => size ? "calc(16px + 20px + 8px)" : "16px"};
-  transition: all 0.2s ease;
+  padding-left: ${({ size }) => (size ? 'calc(16px + 20px + 8px)' : '16px')};
 
   &::placeholder {
     font-size: 1em;
@@ -44,12 +43,13 @@ export const Input = styled.input`
   }
 
   &:hover {
-    background-color: #F2F2F2;
-    outline: 1px solid #BABABA;
+    background-color: #f2f2f2;
+    outline: 1px solid #bababa;
   }
 
   &:focus {
     outline: 2px solid #940000;
+    background-color: #ffffff;
 
     &::placeholder {
       color: #c3c3c3;

@@ -181,7 +181,7 @@ const PropertyFilters = ({
             )}
           </div>
         </div>
-        <SimpleBar style={{ width: '100%', height: 'calc(100vh - 160px)' }}>
+        <SimpleBar style={{ width: '100%', height: 'calc(100vh - 260px)' }}>
           <form
             style={{ overflow: 'hidden' }}
             onSubmit={e => {
@@ -296,13 +296,13 @@ const PropertyFilters = ({
 const SurfaceContainer = styled.div`
   width: 100%;
   display: grid;
-  grid-template-columns: 83px auto auto;
+  grid-template-columns: auto auto auto;
   margin-top: 0.6em;
   gap: 12px;
 
   & > div:first-child {
     position: relative;
-    min-width: 83px !important;
+    min-width: 125px !important;
 
     img {
       position: absolute;
@@ -323,7 +323,18 @@ const SurfaceContainer = styled.div`
   }
 `;
 
-const SurfaceFilter = () => {
+const SurfaceFilter = ({ onChange }) => {
+  const [selectedValue, setSelectedValue] = useState('');
+  const [surfaceType, setSurfaceType] = useState('');
+
+  const handleSurfaceChange = event => {
+    setSurfaceType(event.target.value);
+  };
+
+  const handleChange = event => {
+    setSelectedValue(event.target.value);
+  };
+
   const options = [
     { value: 'M2', label: 'M2' },
     { value: 'Ha', label: 'Ha' },
@@ -344,11 +355,23 @@ const SurfaceFilter = () => {
         }}
       >
         <CustomLabel>
-          <input type="radio" name="surfaceType" value="Techada" />
+          <input
+            type="radio"
+            name="surfaceType"
+            value="Techada"
+            checked={surfaceType === 'Techada'}
+            onChange={handleSurfaceChange}
+          />
           Techada
         </CustomLabel>
         <CustomLabel>
-          <input type="radio" name="surfaceType" value="Total" />
+          <input
+            type="radio"
+            name="surfaceType"
+            value="Total"
+            checked={surfaceType === 'Total'}
+            onChange={handleSurfaceChange}
+          />
           Total
         </CustomLabel>
       </div>
@@ -356,15 +379,27 @@ const SurfaceFilter = () => {
         <CustomSelect
           id="metros cuadrados"
           name="metros cuadrados"
-          value="metros cuadrados"
-          placeholder="M²"
+          value={selectedValue}
+          placeholder="Medidas"
+          onChange={handleChange}
           options={options}
           background="form"
         >
           <img src={arrowIcon} alt="arrow" />
         </CustomSelect>
-        <CustomInputNumber id="from" type="number" placeholder="Desde" />
-        <CustomInputNumber id="to" type="number" placeholder="Hasta" />
+
+        <CustomInputNumber
+          id="from"
+          name="from"
+          type="number"
+          placeholder="Desde"
+        />
+        <CustomInputNumber
+          id="to"
+          name="to"
+          type="number"
+          placeholder="Hasta"
+        />
       </SurfaceContainer>
     </div>
   );
@@ -381,13 +416,13 @@ const NumberFeaturesFilter = ({ onChange }) => {
   const handleFeatureChange = (key, value) => {
     setFeatures(prev => {
       const newFeatures = { ...prev, [key]: value };
-      onChange(newFeatures); // Llamamos a onChange para notificar al componente padre
+      onChange(newFeatures);
       return newFeatures;
     });
   };
 
   const handleChange = e => {
-    onChange(e); // Llama a la función onChange pasada como prop
+    onChange(e);
   };
 
   return (

@@ -9,8 +9,8 @@ export const MenuContainer = styled.div`
   padding: 8px 0px;
   background-color: white;
   position: sticky;
-  max-height: calc(100vh - 73px);
-  top: 73px;
+  max-height: calc(100vh - 80px);
+  top: 80px;
   transition: width 0.2s ease;
   z-index: 1000;
 
@@ -19,7 +19,7 @@ export const MenuContainer = styled.div`
     border-top: 1px solid #c3c3c3;
   }
 
-  & > div:nth-child(3) {
+  & > div:nth-child(4) {
     border: none;
   }
 

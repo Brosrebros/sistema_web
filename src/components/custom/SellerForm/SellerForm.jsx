@@ -48,7 +48,6 @@ function SellerForm() {
         </Option>
       </OptionsContainer>
       <CustomInputText placeholder="Buscar vendedor" icon={lupaIconGray} />
-      <CustomInputText placeholder="¿En dónde lo buscas?" icon={locationIcon} />
       <CustomSelect
         id="tipoPropiedad"
         name="tipoPropiedad"

@@ -12,7 +12,6 @@ export const SliderCardContainer = styled.div`
   padding: 16px;
   background-color: #ffffff;
   border-radius: 12px;
-  overflow: hidden;
   border: 1px solid #c3c3c3;
   transition: all 0.1s ease;
 

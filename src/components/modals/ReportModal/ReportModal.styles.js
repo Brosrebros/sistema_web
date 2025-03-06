@@ -83,6 +83,7 @@ export const LabelContainer = styled.div`
     line-height: 137%;
     color: #424242;
     margin: 0px;
+    cursor: pointer;
   }
 
   input[type='checkbox'] {

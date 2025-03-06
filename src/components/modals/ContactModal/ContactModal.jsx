@@ -21,10 +21,18 @@ import callIcon from 'assets/img/icons/call-gray.png';
 import smsIcon from 'assets/img/icons/sms-gray.svg';
 import SecondaryCustomButton from 'components/custom/CustomButtons/SecondaryCustomButton/SecondaryCustomButton';
 import PrimaryCustomButton from 'components/custom/CustomButtons/PrimaryCustomButton/PrimaryCustomButton';
+import { rootPaths } from 'routes/paths';
+import { useNavigate } from 'react-router-dom';
 
 function ContactModal() {
   const { modals, closeModal, openModal } = useModal();
   if (!modals.contactModal) return null;
+
+  const navigate = useNavigate();
+
+  const handleCopy = text => {
+    navigator.clipboard.writeText(text);
+  };
 
   return (
     <ModalContainer>
@@ -63,7 +71,11 @@ function ContactModal() {
                 <img src={likeIcon} alt="clock" />
                 Recomendar
               </SecondaryCustomButton>
-              <PrimaryCustomButton>
+              <PrimaryCustomButton
+                onClick={() => {
+                  navigate(`/${rootPaths.sellerProfileRoot}`);
+                }}
+              >
                 <img src={userIcon} alt="clock" />
                 Ver perfil
               </PrimaryCustomButton>
@@ -73,11 +85,15 @@ function ContactModal() {
             <div>
               <h4>Teléfono</h4>
               <div>
-                <SecondaryCustomButton>
+                <SecondaryCustomButton
+                  onClick={() => handleCopy('+51 972 107 644')}
+                >
                   <img src={whatsappIcon} alt="wtsp" />
                   +51 972 107 644
                 </SecondaryCustomButton>
-                <SecondaryCustomButton>
+                <SecondaryCustomButton
+                  onClick={() => handleCopy('+51 061 634162')}
+                >
                   <img src={callIcon} alt="wtsp" />
                   +51 061 634162
                 </SecondaryCustomButton>
@@ -85,7 +101,11 @@ function ContactModal() {
             </div>
             <div>
               <h4>Correo electrónico</h4>
-              <SecondaryCustomButton>
+              <SecondaryCustomButton
+                onClick={() =>
+                  handleCopy('sanchezrealestate@organizacionsanchez.com')
+                }
+              >
                 <img src={smsIcon} alt="wtsp" />
                 sanchezrealestate@organizacionsanchez.com
               </SecondaryCustomButton>

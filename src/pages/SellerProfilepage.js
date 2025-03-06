@@ -182,6 +182,7 @@ const CustomButton = styled.button`
   border-radius: 12px;
   position: relative;
   margin-bottom: 4px;
+  height: 41px;
 
   /* Fuente */
   font-size: 1rem;
@@ -191,11 +192,11 @@ const CustomButton = styled.button`
   line-height: 70%;
 
   &:hover {
-    background-color: ${({ isActive }) => (isActive ? '#ffffff' : '#f2f2f2')};
+    background-color: ${({ activeSection }) => (activeSection ? '#ffffff' : '#f2f2f2')};
   }
 
   &:active {
-    background-color: ${({ isActive }) => (isActive ? '#ffffff' : '#e4e4e4')};
+    background-color: ${({ activeSection }) => (activeSection ? '#ffffff' : '#e4e4e4')};
   }
 
   ${({ activeSection }) =>

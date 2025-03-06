@@ -6,7 +6,6 @@ import React from 'react';
 import PropertyForm from 'components/custom/PropertyForm/PropertyForm';
 import PropertySlider from 'components/property/PropertySlider';
 import { usePropertyContext } from 'providers/PropertyProvider';
-import CustomPageLayout from 'components/custom/CustomPageLayout/CustomPageLayout';
 import { useMenu } from 'menuContext';
 import styled from 'styled-components';
 import { rootPaths } from 'routes/paths';
@@ -47,6 +46,20 @@ const ButtonContainer = styled.section`
   }
 `;
 
+const CustomPageLayout = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+  font-family: 'Aptos_display';
+  transition: all 0.15s linear;
+  margin: 0 auto;
+
+  & + footer {
+    margin-top: -100px;
+  }
+`;
+
 const Mainpage = () => {
   const { isMenuOpen } = useMenu();
   const { propertyState } = usePropertyContext();
@@ -55,8 +68,8 @@ const Mainpage = () => {
   return (
     <>
       <CustomPageLayout>
+        <PropertyForm page="main" />
         <MainBanner type="home" />
-
         <ButtonContainer>
           <CardButton
             option="option1"
@@ -77,17 +90,12 @@ const Mainpage = () => {
             }}
           />
         </ButtonContainer>
-
-        <PropertyForm page="main" />
-
         <PropertySlider
           slidesToShow={isMenuOpen ? 5.2 : 5.8}
           data={propertyState.properties}
           title="Descubre las propiedades recomendadas"
         />
-
-        <ContentInfo type="left" />
-
+        <ContentInfo type="left"/>
         <ProyectsSection />
       </CustomPageLayout>
     </>

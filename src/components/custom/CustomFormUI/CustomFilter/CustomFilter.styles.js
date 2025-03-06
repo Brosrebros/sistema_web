@@ -23,7 +23,7 @@ export const FilterGroupOptions = styled.div`
 
 export const CustomSeeMoreButton = styled.button`
   width: auto;
-  height: 30px;
+  height: 48px;
   border: none;
   outline: none;
   display: flex;
@@ -33,6 +33,7 @@ export const CustomSeeMoreButton = styled.button`
   padding: 12px 16px;
   background-color: white;
   border-radius: 12px;
+  margin-top: 16px;
   margin-left: auto;
   font-weight: 400;
   font-size: 1rem;

@@ -12,6 +12,7 @@ export const CustomCounterStyled = styled.div`
   gap: 12px;
   outline: none;
   border: none;
+  color: #424242;
 
   button {
     border: none;
@@ -25,9 +26,6 @@ export const CustomCounterStyled = styled.div`
       width: 24px;
       height: 24px;
       transition: all 0.2s ease;
-      &:hover {
-        filter: brightness(0.9);
-      }
     }
   }
 `;

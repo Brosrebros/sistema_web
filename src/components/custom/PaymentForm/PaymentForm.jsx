@@ -58,17 +58,17 @@ function PaymentForm() {
         <CustomInput placeholder={'¿En dónde lo buscas?'} />
       </InputLabelContainer>
       <SaveInfoContainer>
-        <input type="checkbox" />
-        <p>
+        <input type="checkbox" name="save" id="save" />
+        <label htmlFor="save">
           <b>Guardar mi información mediante un proceso de compra seguro</b>
           <p>Paga con mayor rapidez en la organización Sanchez</p>
-        </p>
+        </label>
       </SaveInfoContainer>
       <div>
-        <input type="checkbox" />
-        <p>
+        <input type="checkbox" name="buy" id="buy" />
+        <label htmlFor="buy">
           <b>Estoy comprando en calidad de empresa</b>
-        </p>
+        </label>
       </div>
       <TextButtonContainer>
         <p>

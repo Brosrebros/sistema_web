@@ -9,6 +9,7 @@ export const ContentInfoContainer = styled.div`
   padding: 40px 120px;
   background-color: #ffffff;
   border-radius: 12px;
+  margin-top: ${({ type }) => (type === 'left' ? '-100px' : 'auto')};
 
   @media (max-width: 1440px) {
     padding: 40px;

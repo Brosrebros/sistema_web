@@ -67,7 +67,7 @@ function Tutorial() {
         <div>
           <OptionsContainer>
             {options.map((text, index) => (
-              <Option key={index} active={index + 1 <= activeIndex} onClick={() => handleIndexChange(index + 1)}>
+              <Option key={index} active={index + 1 <= activeIndex}>
                 {text}
               </Option>
             ))}
