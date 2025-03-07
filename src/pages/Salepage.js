@@ -9,6 +9,7 @@ import { useModal } from 'modalContext';
 
 const CustomButton = styled.button`
   width: auto;
+  height: 48px;
   display: flex;
   justify-content: center;
   align-items: center;

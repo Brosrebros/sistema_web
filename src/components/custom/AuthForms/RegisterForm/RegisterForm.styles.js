@@ -30,6 +30,15 @@ export const RegisterFormContainer = styled.form`
         flex-direction: column;
       }
     }
+
+    & > p {
+      font-weight: 400;
+      font-size: 0.81rem;
+      line-height: 154%;
+      color: black;
+      margin: 0px;
+      margin-top: -12px;
+    }
   }
 `;
 

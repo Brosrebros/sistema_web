@@ -11,8 +11,7 @@ export const NotificationsContainer = styled.div`
   border: 1px solid #c3c3c3;
   border-radius: 12px;
   position: absolute;
-  top: calc(48px + 16px);
-  right: 0;
+  top: calc(48px + 8px);
   cursor: default;
 
   & > div {

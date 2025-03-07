@@ -1,6 +1,7 @@
 import React from 'react';
 import { PremiumCardContainer } from './PremiumCard.styles';
 import checkIcon from '../../../assets/img/icons/Circle.svg';
+import alertIcon from 'assets/img/icons/info-circle.svg';
 import CustomBadge from '../CustomBadge/CustomBadge';
 import SecondaryCustomButton from '../CustomButtons/SecondaryCustomButton/SecondaryCustomButton';
 
@@ -13,12 +14,13 @@ function PremiumCard({ title, type, time, price }) {
   ];
 
   const premiumFeatures = [
-    'Publicaciones ilimitadas',
-    'Nivel de visibilidad alta',
-    'Soporte prioritario 24/7',
-    'Análisis detallado de interacciones',
-    'Acceso a herramientas de marketing',
-    'Integraciones avanzadas con CRM',
+    'Sin límite de publicaciones activas',
+    'Publicación y gestión de proyectos inmobiliarios',
+    'Nivel de visibilidad alto',
+    'Sin anuncios',
+    'Marca de verificación',
+    'Creación de grupos',
+    'Panel del control avanzado',
   ];
 
   const features = type === 'esencial' ? essentialFeatures : premiumFeatures;
@@ -27,7 +29,7 @@ function PremiumCard({ title, type, time, price }) {
     <PremiumCardContainer type={type}>
       <h3>{title}</h3>
       <span>
-        <b>{price}</b> <p>/ {type === "esencial" ? "siempre" : "mes"}</p>
+        <b>{price}</b> <p>/ {type === 'esencial' ? 'siempre' : 'mes'}</p>
       </span>
       {type !== 'esencial' && (
         <div>
@@ -49,6 +51,9 @@ function PremiumCard({ title, type, time, price }) {
           <li key={index}>
             <img src={checkIcon} alt="check" />
             {feature}
+            {type === 'premium' && index === 4 && (
+              <img src={alertIcon} alt="alert" />
+            )}
           </li>
         ))}
       </ul>

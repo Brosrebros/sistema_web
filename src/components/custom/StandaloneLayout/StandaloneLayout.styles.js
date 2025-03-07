@@ -118,6 +118,7 @@ export const DataCard = styled.div`
 
 export const SideDataContainer = styled.div`
   width: 100%;
+  min-height: min-content;
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: flex-start;
@@ -138,8 +139,7 @@ export const SideDataContainer = styled.div`
 
 export const TextBanner = styled.div`
   width: 100%;
-  height: 100%;
-  min-height: 732px;
+  height: 800px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;

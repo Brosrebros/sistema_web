@@ -36,4 +36,8 @@ export const CloseButton = styled.button`
   &:active {
     background-color: #e4e4e4;
   }
+
+  & + div {
+    gap: 24px;
+  }
 `;

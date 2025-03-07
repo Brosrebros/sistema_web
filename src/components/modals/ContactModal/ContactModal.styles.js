@@ -145,3 +145,24 @@ export const CloseButton = styled.button`
     background-color: #e4e4e4;
   }
 `;
+
+export const CustomButton = styled.div`
+  width: auto;
+  height: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  border: none;
+  outline: none;
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 12px 16px;
+  transition: all 0.1s ease;
+  font-size: 1em;
+  font-weight: normal;
+  font-family: 'Roboto';
+  color: #424242;
+  line-height: 100%;
+  border: 1px solid #c3c3c3;
+`;

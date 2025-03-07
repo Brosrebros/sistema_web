@@ -21,7 +21,7 @@ const CustomSelect = ({
   size,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedValue, setSelectedValue] = useState(value || ''); // Inicia vacío
+  const [selectedValue, setSelectedValue] = useState(value || '');
   const selectRef = useRef(null);
 
   const toggleDropdown = () => setIsOpen(prevState => !prevState);
@@ -34,7 +34,11 @@ const CustomSelect = ({
 
   useEffect(() => {
     const handleClickOutside = event => {
-      if (selectRef.current && !selectRef.current.contains(event.target)) {
+      if (
+        selectRef.current &&
+        !selectRef.current.contains(event.target) &&
+        !event.target.closest('.dropdown-container')
+      ) {
         setIsOpen(false);
       }
     };
@@ -62,7 +66,7 @@ const CustomSelect = ({
         <CustomHiddenInput type="hidden" name={name} value={selectedValue} />
       </CustomSelectStyled>
       {isOpen && (
-        <DropdownContainer>
+        <DropdownContainer className="dropdown-container">
           <CustomDropdown>
             <label>{placeholder}</label>
             {options.map(option => (

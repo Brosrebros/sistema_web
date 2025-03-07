@@ -238,7 +238,7 @@ function Premiumpage() {
         <PremiumCard
           type="premium"
           title="Premium"
-          price={isActive === 'anual' ? 'S/ . 36.00' : 'S/ . 45.00'}
+          price={isActive === 'anual' ? 'S/. 36.00' : 'S/. 45.00'}
           time={isActive === 'anual' ? 'año' : 'mes'}
         />
       </CardContainer>
@@ -246,7 +246,7 @@ function Premiumpage() {
         <div>
           <h3>Premium</h3>
           <span>
-            <b>S/.432.00</b> / año
+            <b>S/. 432.00</b> / año
           </span>
           <p>Facturación anual</p>
         </div>

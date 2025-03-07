@@ -11,13 +11,18 @@ import PrimaryCustomButton from '../CustomButtons/PrimaryCustomButton/PrimaryCus
 import sortIcon from '../../../assets/img/icons/sort.svg';
 import lupaIcon from '../../../assets/img/icons/search-white.svg';
 import lupaIconGray from '../../../assets/img/icons/search-normal.svg';
-import locationIcon from "../../../assets/img/icons/location.svg"
+import locationIcon from '../../../assets/img/icons/location.svg';
 
 function SellerForm() {
   const [isActive, setIsActive] = useState('opcion-1');
+  const [ordenSeleccionado, setOrdenSeleccionado] = useState('');
 
   const handleActiveButton = button => {
     setIsActive(button);
+  };
+
+  const handleOrdenChange = event => {
+    setOrdenSeleccionado(event.target.value);
   };
 
   const ordenarPorOptions = [
@@ -49,15 +54,13 @@ function SellerForm() {
       </OptionsContainer>
       <CustomInputText placeholder="Buscar vendedor" icon={lupaIconGray} />
       <CustomSelect
-        id="tipoPropiedad"
-        name="tipoPropiedad"
-        aria-label="Tipo"
-        value="tipoPropiedad"
+        name="orden"
+        onChange={handleOrdenChange}
         placeholder="Ordenar por"
         options={ordenarPorOptions}
         background="form"
       >
-        <img src={sortIcon} alt="type" />
+        <img src={sortIcon} />
       </CustomSelect>
       <PrimaryCustomButton>
         <img src={lupaIcon} alt="search" />

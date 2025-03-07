@@ -17,6 +17,7 @@ import closeIcon from '../../assets/img/icons/Close_MD.svg';
 import filterIcon from '../../assets/img/icons/filter.svg';
 import arrowIcon from '../../assets/img/icons/arrow-down.svg';
 import styled from 'styled-components';
+import CustomInput from 'components/custom/CustomFormUI/CustomInput/CustomInput';
 
 const PropertyFilters = ({
   filterForm,
@@ -303,6 +304,7 @@ const SurfaceContainer = styled.div`
   grid-template-columns: auto auto auto;
   margin-top: 0.6em;
   gap: 12px;
+  padding-right: 2px;
 
   & > div:first-child {
     position: relative;
@@ -392,18 +394,9 @@ const SurfaceFilter = ({ onChange }) => {
           <img src={arrowIcon} alt="arrow" />
         </CustomSelect>
 
-        <CustomInputNumber
-          id="from"
-          name="from"
-          type="number"
-          placeholder="Desde"
-        />
-        <CustomInputNumber
-          id="to"
-          name="to"
-          type="number"
-          placeholder="Hasta"
-        />
+        <CustomInput placeholder="Desde" type="text" />
+        <CustomInput placeholder="Hasta" type="text" />
+
       </SurfaceContainer>
     </div>
   );

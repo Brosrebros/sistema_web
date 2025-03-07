@@ -53,6 +53,8 @@ function CustomInput({
             alignItems: 'center',
             gap: '8px',
             marginLeft: 'auto',
+            position: 'absolute',
+            right: '12px',
           }}
         >
           <img

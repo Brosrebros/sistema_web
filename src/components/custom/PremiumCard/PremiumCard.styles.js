@@ -32,7 +32,7 @@ export const PremiumCardContainer = styled.div`
       font-size: 1rem;
       color: black;
       margin: 0px;
-      line-height: 11px;
+      line-height: 11px !important;
     }
 
     b {
@@ -68,6 +68,7 @@ export const PremiumCardContainer = styled.div`
     margin: 0px;
 
     & + button {
+      cursor: default !important;
       background-color: #c3c3c3;
 
       &:hover {
@@ -83,6 +84,11 @@ export const PremiumCardContainer = styled.div`
     }
 
     li {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 8px;
+
       font-weight: 400;
       font-size: 1rem;
       color: #424242;

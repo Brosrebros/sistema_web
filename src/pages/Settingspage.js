@@ -79,7 +79,7 @@ const SettingsModalContainer = styled.div`
 
 const AltButton = styled.div`
   width: 100%;
-  height: 60px;
+  height: 48px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -183,23 +183,32 @@ const OptionContainer = styled.div`
     }
   }
 `;
+const temaOptions = [
+  { value: 'Sistema', label: 'Sistema' },
+  { value: 'Oscuro', label: 'Oscuro' },
+  { value: 'Claro', label: 'Claro' },
+];
+
+const regionOptions = [
+  { value: 'Perú', label: 'Perú' },
+  { value: 'Argentina', label: 'Argentina' },
+];
 
 function Settingspage() {
   const [isActive, setIsActive] = useState('access');
+  const [selecciones, setSelecciones] = useState({
+    tema: temaOptions.length > 0 ? temaOptions[0].value : '',
+    idioma: regionOptions.length > 0 ? regionOptions[0].value : '',
+  });
+
+  const handleChange = event => {
+    const { name, value } = event.target;
+    setSelecciones(prev => ({ ...prev, [name]: value }));
+  };
 
   const handleActive = button => {
     setIsActive(button);
   };
-
-  const temaOptions = [
-    { value: 'Oscuro', label: 'Oscuro' },
-    { value: 'Claro', label: 'Claro' },
-  ];
-
-  const regionOptions = [
-    { value: 'Perú', label: 'Perú' },
-    { value: 'Argentina', label: 'Argentina' },
-  ];
 
   return (
     <SettingsModalContainer>
@@ -247,10 +256,10 @@ function Settingspage() {
               momento del día.
             </p>
             <CustomSelect
-              id="tema"
               name="tema"
-              value="Sistema"
-              placeholder="Sistema"
+              value={selecciones.tema}
+              onChange={handleChange}
+              placeholder="Tema"
               options={temaOptions}
               background="form"
             >
@@ -266,11 +275,12 @@ function Settingspage() {
               permitirá recibir resultados más relevantes y ofertas locales
               adaptadas a tu ubicación.
             </p>
+
             <CustomSelect
-              id="tema"
-              name="tema"
-              value="Sistema"
-              placeholder="Perú"
+              name="idioma"
+              value={selecciones.idioma}
+              onChange={handleChange}
+              placeholder="Región"
               options={regionOptions}
               background="form"
             >

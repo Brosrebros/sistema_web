@@ -73,7 +73,6 @@ const CustomModalSlider = styled(Slider)`
     width: 52px;
     height: 48px;
     z-index: 2;
-    opacity: 0 !important;
     transition: opacity 0.1s ease;
     border: 1px solid #c3c3c3;
   }
@@ -101,10 +100,6 @@ const CustomModalSlider = styled(Slider)`
   &:hover + div {
     opacity: 1 !important;
     transition: opacity 0.1s ease;
-  }
-
-  & + div + div {
-    opacity: 0;
   }
 
   &:hover + div + div {

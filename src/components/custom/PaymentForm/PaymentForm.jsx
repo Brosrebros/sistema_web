@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   PaymentFormContainer,
   InputLabelContainer,
@@ -28,6 +28,12 @@ const paisesOptions = [
 ];
 
 function PaymentForm() {
+  const [ordenSeleccionado, setOrdenSeleccionado] = useState('');
+
+  const handleOrdenChange = event => {
+    setOrdenSeleccionado(event.target.value);
+  };
+
   return (
     <PaymentFormContainer>
       <h3>Método de pago</h3>
@@ -45,17 +51,16 @@ function PaymentForm() {
       <InputLabelContainer>
         <h4>País o región</h4>
         <CustomSelect
-          id="pais"
           name="pais"
-          value="pais"
-          placeholder="Pais o región"
+          onChange={handleOrdenChange}
+          placeholder="País o región"
           options={paisesOptions}
           background="form"
         ></CustomSelect>
       </InputLabelContainer>
       <InputLabelContainer>
         <h4>Información de contacto</h4>
-        <CustomInput placeholder={'¿En dónde lo buscas?'} />
+        <CustomInput placeholder={'Correo electrónico'} />
       </InputLabelContainer>
       <SaveInfoContainer>
         <input type="checkbox" name="save" id="save" />

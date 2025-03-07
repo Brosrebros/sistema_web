@@ -63,7 +63,7 @@ export const CustomListSliderStyled = styled(Slider)`
     background-color: #ffffff !important;
     border-radius: 8px !important;
     width: 52px;
-    height: 41px;
+    height: 48px;
     z-index: 2;
     opacity: 0 !important;
     transition: opacity 0.1s ease;

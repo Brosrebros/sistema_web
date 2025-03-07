@@ -89,6 +89,7 @@ export const ButtonsContainer = styled.div`
 `;
 
 export const TextContainer = styled.div`
+  width: 100%;
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
@@ -109,6 +110,11 @@ export const TextContainer = styled.div`
     font-size: 1rem;
     color: #424242;
     margin: 0px;
+  }
+
+  p {
+    max-width: 89ch;
+    text-align: start;
   }
 `;
 

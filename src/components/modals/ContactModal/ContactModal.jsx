@@ -6,6 +6,7 @@ import {
   DataContainer,
   ButtonsContainer,
   SideDataContainer,
+  CustomButton
 } from './ContactModal.styles';
 import { useModal } from 'modalContext';
 import closeIcon from 'assets/img/icons/close.svg';
@@ -88,30 +89,30 @@ function ContactModal() {
             <div>
               <h4>Teléfono</h4>
               <div>
-                <SecondaryCustomButton
+                <CustomButton
                   onClick={() => handleCopy('+51 972 107 644')}
                 >
                   <img src={whatsappIcon} alt="wtsp" />
-                  +51 972 107 644
-                </SecondaryCustomButton>
-                <SecondaryCustomButton
+                  <span>+51 972 107 644</span>
+                </CustomButton>
+                <CustomButton
                   onClick={() => handleCopy('+51 061 634162')}
                 >
                   <img src={callIcon} alt="wtsp" />
                   +51 061 634162
-                </SecondaryCustomButton>
+                </CustomButton>
               </div>
             </div>
             <div>
               <h4>Correo electrónico</h4>
-              <SecondaryCustomButton
+              <CustomButton
                 onClick={() =>
                   handleCopy('sanchezrealestate@organizacionsanchez.com')
                 }
               >
                 <img src={smsIcon} alt="wtsp" />
                 sanchezrealestate@organizacionsanchez.com
-              </SecondaryCustomButton>
+              </CustomButton>
             </div>
           </SideDataContainer>
         </ContactModalContainer>

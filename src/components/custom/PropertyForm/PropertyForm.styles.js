@@ -19,7 +19,12 @@ export const PropertyFormContainer = styled.form`
 export const FormOptionsContainer = styled.div`
   width: 100%;
   display: grid;
-  grid-template-columns: auto auto 2fr 1.1fr auto auto auto;
+  grid-template-columns: ${({ page }) =>
+    page === 'venta'
+      ? 'auto auto 2fr 1.1fr auto auto auto'
+      : page === 'main'
+      ? 'auto auto 2fr 1.1fr auto auto auto'
+      : 'auto auto 2fr 1.2fr auto 0.9fr auto'};
   gap: 12px;
 
   @media (max-width: 1100px) {

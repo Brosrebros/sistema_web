@@ -77,7 +77,7 @@ function PropertyForm({ page }) {
 
   return (
     <PropertyFormContainer>
-      <FormOptionsContainer>
+      <FormOptionsContainer page={page}>
         <FormTab>
           <TabButtonStyled
             isActive={activeButton === 'venta'}

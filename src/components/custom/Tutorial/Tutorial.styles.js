@@ -118,7 +118,7 @@ export const OptionsDotContainer = styled.div`
 
 export const Option = styled.button`
   width: 100%;
-  height: 41px;
+  height: 48px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -139,8 +139,8 @@ export const Option = styled.button`
 
 export const OptionDot = styled(Option)`
   justify-content: center;
-  width: 41px;
-  height: 41px;
+  width: 48px;
+  height: 48px;
   border-radius: 100px;
   font-size: 1em;
 `;
