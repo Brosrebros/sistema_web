@@ -6,13 +6,20 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { useMenu } from 'menuContext';
 import PropertyData from 'components/custom/PropertyData/PropertyData';
 import styled from 'styled-components';
-import { useProperty } from 'propertyContext';
 
 const CustomLayout = styled.div`
   width: 100%;
   display: grid;
   grid-template-columns: auto auto;
   gap: 24px;
+
+  & + div + div {
+    margin-top: -100px;
+  }
+
+  & + footer {
+    margin-top: -100px;
+  }
 `;
 
 const PropertyDetail = ({type}) => {

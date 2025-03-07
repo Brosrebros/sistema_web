@@ -147,8 +147,8 @@ export const DescriptionContainer = styled.div`
     margin: 0px;
   }
 
-  div {
-    height: 30px;
+  & > div {
+    height: 48px;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -270,11 +270,16 @@ export const MapTitleContainer = styled.div`
     grid-column: span 2;
     height: 100%;
   }
+
+  .leaflet-top, .leaflet-bottom {
+    z-index: 998;
+  }
 `;
 
 export const CustomButton = styled.button`
   /* Botón */
   width: auto;
+  height: 48px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -338,6 +343,10 @@ export const SliderContainer = styled.div`
 
   & > div:last-child {
     width: 100%;
+  }
+
+  .slick-list {
+    height: auto !important;
   }
 `;
 

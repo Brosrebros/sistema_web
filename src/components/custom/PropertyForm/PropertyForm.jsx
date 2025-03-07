@@ -14,13 +14,13 @@ import filterIcon from '../../../assets/img/icons/filter.svg';
 import lupaIconWhite from '../../../assets/img/icons/search-white.svg';
 import tipoIcon from '../../../assets/img/icons/signpost.svg';
 import pinIcon from '../../../assets/img/icons/location.svg';
+import sortIcon from 'assets/img/icons/sort.svg';
 import { rootPaths } from 'routes/paths';
 import { useNavigate } from 'react-router-dom';
 import { useModal } from 'modalContext';
 import { useSearch } from 'searchContext';
 
 function PropertyForm({ page }) {
-
   const propiedadOptions = [
     { value: 'Casa', label: 'Casa' },
     { value: 'Departamento', label: 'Departamento' },
@@ -37,7 +37,16 @@ function PropertyForm({ page }) {
     { value: 'Chalet', label: 'Chalet' },
   ];
 
-
+  const ordenarPorOptions = [
+    { value: 'Precio ascendente', label: 'Precio ↑' },
+    { value: 'Precio descendente', label: 'Precio ↓' },
+    { value: 'Superficie ascendente', label: 'Superficie ↑' },
+    { value: 'Superficie descendente', label: 'Superficie ↓' },
+    { value: 'Fecha ascendente', label: 'Fecha ↑' },
+    { value: 'Fecha descendente', label: 'Fecha ↓' },
+    { value: 'Antigüedad ascendente', label: 'Antigüedad ↑' },
+    { value: 'Antigüedad descendente', label: 'Antigüedad ↓' },
+  ];
   const { openModal } = useModal();
   const [activeButton, setActiveButton] = useState('venta');
   const [activeStep, setActiveStep] = useState(1);
@@ -111,15 +120,27 @@ function PropertyForm({ page }) {
         >
           <img src={tipoIcon} width={'16px'} />
         </CustomSelect>
-        <SecondaryCustomButton variant={'white'}>
-          <img src={mapaIcon} />
-          Ver mapa
-        </SecondaryCustomButton>
         {page === 'main' ? (
           <SecondaryCustomButton variant={'white'}>
             <img src={filterIcon} alt="filter" />
             Mas filtros
           </SecondaryCustomButton>
+        ) : null}
+        <SecondaryCustomButton variant={'white'}>
+          <img src={mapaIcon} />
+          Ver mapa
+        </SecondaryCustomButton>
+        {page === 'catalog' ? (
+          <CustomSelect
+            name="orden"
+            value={propertyType}
+            onChange={e => setPropertyType(e.target.value)}
+            placeholder="Ordenar por"
+            options={ordenarPorOptions}
+            background="form"
+          >
+            <img src={sortIcon} width={'16px'} />
+          </CustomSelect>
         ) : null}
         <PrimaryCustomButton onClick={handleSearchClick}>
           <img src={lupaIconWhite} alt="lupa" />

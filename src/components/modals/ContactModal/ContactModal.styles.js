@@ -93,10 +93,6 @@ export const SideDataContainer = styled.div`
   background-color: #f2f2f2;
   border-radius: 12px;
 
-  button:hover {
-    background-color: white;
-  }
-
   & > div {
     width: 100%;
     display: flex;

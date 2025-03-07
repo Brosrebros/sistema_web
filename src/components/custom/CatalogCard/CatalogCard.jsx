@@ -116,7 +116,7 @@ function CatalogCard({ property, type }) {
         <div
           style={{
             width: '100px',
-            height: '44px',
+            height: '48px',
             position: 'absolute',
             opacity: '0',
             bottom: type === 'proyects' ? '39px' : '12px',

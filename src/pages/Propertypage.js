@@ -5,7 +5,7 @@ import PropertyDetail from 'components/property/propertydetail/PropertyDetail';
 import CustomPageLayout from 'components/custom/CustomPageLayout/CustomPageLayout';
 import { useProperty } from 'propertyContext';
 
-const Propertypage = () => {
+const Propertypage = ({ place }) => {
   const { propertyType } = useProperty();
   const { propertyId } = useParams();
   const {
@@ -22,7 +22,7 @@ const Propertypage = () => {
   console.log(property);
 
   return (
-    <CustomPageLayout>
+    <CustomPageLayout place={place}>
       {property ? (
         <PropertyDetail type={propertyType} />
       ) : (

@@ -19,7 +19,7 @@ export const PropertyFormContainer = styled.form`
 export const FormOptionsContainer = styled.div`
   width: 100%;
   display: grid;
-  grid-template-columns: auto auto 2.2fr 0.8fr auto auto auto;
+  grid-template-columns: auto auto 2fr 1.1fr auto auto auto;
   gap: 12px;
 
   @media (max-width: 1100px) {

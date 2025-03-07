@@ -47,7 +47,7 @@ function Menu({ active }) {
         </svg>
       </CustomCorner>
       <MenuSection isMenuOpen={isMenuOpen}>
-        <h6>Principal</h6>
+        <h6>Categorias</h6>
         <MenuOptionsContainer>
           <MenuOption
             isMenuOpen={isMenuOpen}
@@ -72,7 +72,13 @@ function Menu({ active }) {
             <h4>Premiun</h4>
             <p>Destaca tus anuncios y maximiza tus ventas con un solo clic.</p>
           </div>
-          <PrimaryCustomButton>Actualizar a Premium</PrimaryCustomButton>
+          <PrimaryCustomButton
+            onClick={() => {
+              navigate(`/${rootPaths.premiumRoot}`);
+            }}
+          >
+            Actualizar a Premium
+          </PrimaryCustomButton>
         </PremiumPack>
       </MenuSection>
       {/* <MenuSection isMenuOpen={isMenuOpen}>

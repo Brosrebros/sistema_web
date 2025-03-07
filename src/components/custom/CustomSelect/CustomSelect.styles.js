@@ -110,7 +110,7 @@ export const CustomDropdown = styled.div`
 
 export const CustomOption = styled.div`
   width: 95%;
-  height: 35px;
+  height: 39px;
   cursor: pointer;
   display: flex;
   justify-content: flex-start;

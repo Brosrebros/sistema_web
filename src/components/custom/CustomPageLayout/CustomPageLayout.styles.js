@@ -8,4 +8,8 @@ export const CustomPageLayoutStyled = styled.div`
   font-family: 'Aptos_display';
   transition: all 0.15s linear;
   margin: 0 auto;
+
+  & + footer {
+    margin-top: ${({ place }) => (place === 'property' ? '-100px' : '0px')};
+  }
 `;

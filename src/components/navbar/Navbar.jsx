@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import {
   NavbarContainer,
   NavbarMainDataContainer,
@@ -23,8 +23,25 @@ import Notifications from 'components/custom/Notifications/Notifications';
 
 function Navbar({ type }) {
   const { toggleMenu } = useMenu();
-  const [isActive, setIsActive] = useState();
   const navigate = useNavigate();
+  const [isActive, setIsActive] = useState(false);
+  const notificationRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = event => {
+      if (
+        notificationRef.current &&
+        !notificationRef.current.contains(event.target)
+      ) {
+        setIsActive(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
 
   const idiomaOptions = [
     { value: 'Español', label: 'Español' },
@@ -39,18 +56,18 @@ function Navbar({ type }) {
   ];
 
   const [filterForm, setFilterForm] = useState({
-    tipoPropiedad: '',
+    divisaOptions: divisaOptions[0].value,
+    idiomaOptions: idiomaOptions[0].value,
   });
 
   const handleActive = () => {
     setIsActive(prev => !prev);
   };
 
-  const handleCustomChange = e => {
-    const { name, value } = e.target;
+  const handleCustomChange = (selectedOption, field) => {
     setFilterForm(prev => ({
       ...prev,
-      [name]: value,
+      [field]: selectedOption.value,
     }));
   };
 
@@ -144,7 +161,7 @@ function Navbar({ type }) {
                 variant="white"
                 onClick={() => handleActive()}
               >
-                <Notifications isActive={isActive} />
+                {isActive && <Notifications ref={notificationRef} />}
                 <img src={notificationIcon} alt="lenguaje" />
               </SecondaryCustomButton>
             </NavbarButtonsContainer>

@@ -182,7 +182,7 @@ const CustomButton = styled.button`
   border-radius: 12px;
   position: relative;
   margin-bottom: 4px;
-  height: 41px;
+  height: 48px;
 
   /* Fuente */
   font-size: 1rem;

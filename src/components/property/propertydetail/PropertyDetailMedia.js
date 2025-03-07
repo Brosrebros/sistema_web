@@ -242,7 +242,7 @@ const PropertyDetailMedia = ({ imagenes: files }) => {
                 margin: '0px',
                 backgroundColor: 'white',
                 borderRadius: '8px',
-                height: '41px',
+                height: '48px',
               }}
             >
               <img src={cameraIcon} style={{ height: '20px', width: '20px' }} />
@@ -275,7 +275,7 @@ const PropertyDetailMedia = ({ imagenes: files }) => {
                 style={{ width: '20px', height: '20px' }}
               />
               <p style={{ margin: '0px' }}>
-                <b>Código de anuncio: </b>IMPV-0001
+                Código de anuncio: <b>IMPV-0001</b>
               </p>
             </div>
           </div>
@@ -370,7 +370,7 @@ const PropertyDetailMedia = ({ imagenes: files }) => {
               margin: '0px',
               backgroundColor: 'white',
               borderRadius: '8px',
-              height: '41px',
+              height: '48px',
             }}
           >
             <img src={cameraIcon} style={{ height: '20px', width: '20px' }} />
@@ -387,7 +387,7 @@ const PropertyDetailMedia = ({ imagenes: files }) => {
           </div>
           <div
             style={{
-              height: '41px',
+              height: '48px',
               marginLeft: 'auto',
               color: '#424242',
               display: 'flex',

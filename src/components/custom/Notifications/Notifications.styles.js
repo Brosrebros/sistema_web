@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const NotificationsContainer = styled.div`
   width: 466px;
   height: 556px;
-  display: ${({ isActive }) => (isActive ? 'flex' : 'none')};
+  display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
@@ -35,25 +35,6 @@ export const NotificationsContainer = styled.div`
     }
   }
 
-  & > div:nth-child(2) {
-    max-height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    overflow: auto;
-    gap: 16px;
-    padding: 20px 24px 12px 8px;
-
-    h5 {
-      font-weight: 700;
-      font-size: 1rem;
-      line-height: 11px;
-      color: #424242;
-      margin: 0px;
-    }
-  }
-
   & > div:last-child {
     display: flex;
     justify-content: space-between;
@@ -64,6 +45,59 @@ export const NotificationsContainer = styled.div`
     & > button:last-child {
       border: none;
       color: #940000;
+    }
+  }
+`;
+
+export const NotificationsWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  padding-right: 10px;
+  height: 430px;
+
+  & > div:first-child {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 20px 20px 12px 8px;
+    overflow-y: auto;
+
+    &::-webkit-scrollbar {
+      width: 4px;
+      border-radius: 10px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: #f2f2f2;
+      border-radius: 10px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: #c3c3c3;
+      border-radius: 10px;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+      background: rgb(204, 204, 204);
+    }
+
+    &::-webkit-scrollbar-button {
+      display: none;
+      width: 0;
+      height: 0;
+      background: transparent;
+    }
+
+    h5 {
+      font-weight: 700;
+      font-size: 1rem;
+      line-height: 11px;
+      color: #424242;
+      margin: 0px;
     }
   }
 `;

@@ -36,7 +36,6 @@ export const MenuContainer = styled.div`
 
   &:hover > div > div > div {
     width: 100%;
-    height: auto;
     justify-content: flex-start;
 
     & > span {
@@ -88,7 +87,7 @@ export const MenuOptionsContainer = styled.div`
 
 export const MenuOption = styled.div`
   width: ${({ isMenuOpen }) => (isMenuOpen ? '100%' : '52px')};
-  height: ${({ isMenuOpen }) => (isMenuOpen ? 'auto' : '41px')};
+  height: 48px;
   display: flex;
   justify-content: ${({ isMenuOpen }) =>
     isMenuOpen ? 'flex-start' : 'center'};

@@ -354,7 +354,7 @@ const routes = [
           },
           {
             path: paths.propertyDetail(':propertyId'),
-            element: <Propertypage />,
+            element: <Propertypage place="property"/>,
           },
           {
             path: paths.sellerRoot,

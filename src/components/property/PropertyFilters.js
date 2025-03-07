@@ -172,7 +172,11 @@ const PropertyFilters = ({
                       <img
                         src={closeIcon}
                         alt="close"
-                        style={{ width: '20px', height: '20px' }}
+                        style={{
+                          width: '15px',
+                          height: '15px',
+                          marginBottom: '1px',
+                        }}
                       />
                     </Button>
                   </CustomBadge>
