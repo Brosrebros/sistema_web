@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const CustomCounterStyled = styled.div`
   width: 100%;
-  height: 41px;
+  height: 48px;
   display: flex;
   align-items: center;
   justify-content: space-between;

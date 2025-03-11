@@ -1018,7 +1018,7 @@ const SellerProfilepage = () => {
               <img src={placeholderIcon} />
               <div>
                 <h3>
-                  Inmobiliaria Los Robles <img src={checkIcon} />
+                  Sanchez Real Estate <img src={checkIcon} />
                 </h3>
                 <div>
                   <p>

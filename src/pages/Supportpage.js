@@ -58,7 +58,7 @@ const SupportBanner = styled.div`
 
 const CustomButton = styled.button`
   width: auto;
-  max-height: 41px;
+  height: 48px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -68,7 +68,7 @@ const CustomButton = styled.button`
   background-color: rgba(148, 0, 0, 0);
   border-radius: 12px;
   padding: 12px 16px;
-  transition: all 0.1sease;
+  transition: all 0.1 ease;
   font-size: 1em;
   font-weight: normal;
   font-family: 'Roboto';
@@ -108,7 +108,6 @@ const ButtonContainer = styled.section`
 
 const WhatsappBanner = styled.div`
   width: 100%;
-  height: 188px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -129,7 +128,7 @@ const WhatsappBanner = styled.div`
       font-family: 'Roboto';
       font-weight: 700;
       font-size: 1.44rem;
-      line-height: 114%;
+      line-height: 16px;
       text-align: center;
       color: #ffffff;
       margin: 0px;
@@ -139,7 +138,7 @@ const WhatsappBanner = styled.div`
       font-family: 'Roboto';
       font-weight: 400;
       font-size: 1rem;
-      line-height: 137%;
+      line-height: 11px;
       text-align: center;
       color: #ffffff;
       margin: 0px;

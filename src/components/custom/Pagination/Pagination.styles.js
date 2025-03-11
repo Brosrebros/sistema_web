@@ -15,6 +15,7 @@ export const NumberSelector = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 48px;
   gap: 8px;
   padding: 6px;
   background-color: #f2f2f2;
@@ -22,6 +23,7 @@ export const NumberSelector = styled.div`
   border: 1px solid #c3c3c3;
 
   button {
+    height: 100%;
     border: none;
     line-height: 11px;
   }
@@ -29,6 +31,7 @@ export const NumberSelector = styled.div`
 
 export const SquareButton = styled.button`
   width: auto;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -53,11 +56,11 @@ export const SquareButton = styled.button`
   }
 
   &:hover {
-    background-color: #F9F9F9; 
+    background-color: #f9f9f9;
   }
 
   &:active {
-    background-color: #ECECEC;
+    background-color: #ececec;
   }
 `;
 
@@ -69,8 +72,8 @@ export const PagesContainer = styled.div`
 `;
 
 export const CircleButton = styled(SecondaryCustomButtonStyled)`
+  height: 100%;
   background-color: ${({ variant }) =>
     variant === 'white' ? '#ffffff' : '#f2f2f2'};
-  border: ${({ variant }) =>
-    variant === 'white' ? 'none' : 'none'};
+  border: ${({ variant }) => (variant === 'white' ? 'none' : 'none')};
 `;

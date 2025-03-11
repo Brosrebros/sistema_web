@@ -49,6 +49,7 @@ const ButtonsContainer = styled.div`
     padding: 0px 3px;
     background-color: ${props => (props.isActive ? '#940000' : '#f2f2f2')};
     border-radius: 12px;
+    cursor: pointer;
   }
 
   span {
@@ -207,13 +208,12 @@ function Premiumpage() {
           Destaca tus propiedades y maximiza tus ventas con un solo clic.
         </p>
         <ButtonsContainer isActive={isActive === 'anual'}>
-          <div>
-            <AnualButtonStyled
-              onClick={() => {
-                handleActiveButton('anual');
-              }}
-              isActive={isActive === 'anual'}
-            >
+          <div
+            onClick={() => {
+              handleActiveButton('anual');
+            }}
+          >
+            <AnualButtonStyled isActive={isActive === 'anual'}>
               Anual
             </AnualButtonStyled>
             <span>Mejor precio</span>

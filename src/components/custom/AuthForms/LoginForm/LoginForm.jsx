@@ -14,12 +14,12 @@ function LoginForm() {
       <div>
         <LoginInputContainer>
           <CustomInput placeholder="Correo electrónico" type="email" />
-          <CustomInput placeholder="Password" type="password" />
+          <CustomInput placeholder="Contraseña" type="password" />
           <span>¿Olvidaste tu contraseña?</span>
         </LoginInputContainer>
         <div>
-          <input type="checkbox" />
-          Recordarme
+          <input type="checkbox" id='remember' name='remember'/>
+          <label htmlFor='remember'>Recordarme</label>
         </div>
         <ButtonContainer>
           <PrimaryCustomButton>Iniciar sesión</PrimaryCustomButton>

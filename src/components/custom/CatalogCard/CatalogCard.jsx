@@ -223,7 +223,7 @@ function CatalogCard({ property, type }) {
             <h3>{titulo}</h3>
             <div>
               <img src={pinIcon} alt="pin" />
-              {direccionCompleta}
+              <p>{direccionCompleta}</p>
             </div>
           </div>
 

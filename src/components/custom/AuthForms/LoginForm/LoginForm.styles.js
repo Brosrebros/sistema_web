@@ -32,11 +32,15 @@ export const LoginFormContainer = styled.form`
       align-items: center;
       gap: 8px;
 
-      font-family: 'Roboto';
-      font-weight: 400;
-      font-size: 1rem;
-      line-height: 137%;
-      color: #424242;
+      label {
+        font-family: 'Roboto';
+        font-weight: 400 !important;
+        font-size: 1rem;
+        line-height: 137%;
+        color: #424242;
+        margin: 0px;
+        cursor: pointer;
+      }
 
       input[type='checkbox'] {
         appearance: none;
