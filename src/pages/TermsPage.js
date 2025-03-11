@@ -61,6 +61,10 @@ const MainDataContainer = styled.div`
     justify-content: center;
     align-items: flex-start;
     gap: 24px;
+
+    p {
+      color: #424242;
+    }
   }
 
   & > div:last-child {
