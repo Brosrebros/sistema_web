@@ -99,7 +99,7 @@ function CatalogCard({ property, type }) {
             style={{
               width: '100%',
               position: 'absolute',
-              opacity: '0',
+              opacity: '1',
               top: '12px',
               left: '12px',
               display: 'flex',
