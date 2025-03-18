@@ -92,7 +92,7 @@ function SliderCard({ property, type }) {
         <span>
           <img
             src={locationIcon}
-            alt=""
+            alt="location"
             style={{ width: '15px', height: '15px' }}
           />
           {calleNumero}, Lima, Perú

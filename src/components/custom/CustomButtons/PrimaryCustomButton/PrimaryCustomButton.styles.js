@@ -23,7 +23,7 @@ export const PrimaryCustomButtonStyled = styled.button`
   line-height: 100%;
 
   &:hover {
-    background-color: #A10000;
+    background-color: #a10000;
   }
 
   &:active {
@@ -33,5 +33,9 @@ export const PrimaryCustomButtonStyled = styled.button`
   img {
     height: 20px;
     width: 20px;
+  }
+
+  @media (max-width: 1200px) {
+    font-size: 0.81rem;
   }
 `;

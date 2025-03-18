@@ -4,7 +4,7 @@ import arrowRigth from 'assets/img/icons/arrow-right.svg';
 import arrowLeft from 'assets/img/icons/arrow-left.svg';
 
 export const CustomSliderButtonStyled = styled(Slider)`
-  width: 100%;
+  max-width: 100vw;
   height: 100%;
 
   .slick-slide {
@@ -64,7 +64,7 @@ export const CustomSliderButtonStyled = styled(Slider)`
 
     &::after {
       display: none;
-    }   
+    }
   }
 
   .slick-prev::after,
@@ -89,5 +89,9 @@ export const CustomSliderButtonStyled = styled(Slider)`
 
   .slick-list {
     height: 500px;
+
+    @media (max-width: 968px) {
+      height: auto;
+    }
   }
 `;

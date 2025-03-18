@@ -6,7 +6,7 @@ export const CardButtonContainer = styled.div`
   justify-content: flex-start;
   align-items: center;
   gap: 24px;
-  padding: 20px;
+  padding: 24px;
   background-color: #ffffff;
   border-radius: 12px;
   transition: all 0.1s ease;
@@ -14,7 +14,9 @@ export const CardButtonContainer = styled.div`
   cursor: pointer;
 
   &:hover {
-    box-shadow: 0 3px 7px 0 rgba(84, 84, 84, 0.1), 0 13px 13px 0 rgba(84, 84, 84, 0.09), 0 29px 17px 0 rgba(84, 84, 84, 0.05), 0 51px 20px 0 rgba(84, 84, 84, 0.01), 0 79px 22px 0 rgba(84, 84, 84, 0);
+    box-shadow: 0 3px 7px 0 rgba(84, 84, 84, 0.1),
+      0 13px 13px 0 rgba(84, 84, 84, 0.09), 0 29px 17px 0 rgba(84, 84, 84, 0.05),
+      0 51px 20px 0 rgba(84, 84, 84, 0.01), 0 79px 22px 0 rgba(84, 84, 84, 0);
   }
 
   svg {
@@ -38,6 +40,10 @@ export const CardButtonContainer = styled.div`
       color: black;
       margin: 0px;
       line-height: 120% !important;
+
+      @media (max-width: 968px) {
+        font-size: 0.94rem;
+      }
     }
 
     p {
@@ -47,6 +53,14 @@ export const CardButtonContainer = styled.div`
       color: #424242;
       margin: 0px;
       line-height: 120%;
+
+      @media (max-width: 968px) {
+        font-size: 0.81rem;
+      }
     }
+  }
+
+  @media (max-width: 968px) {
+    padding: 20px;
   }
 `;

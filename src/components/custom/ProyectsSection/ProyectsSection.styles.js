@@ -8,6 +8,10 @@ export const SectionContainer = styled.section`
   align-items: center;
   padding: 0px;
 
+  #mobile {
+    display: none;
+  }
+
   & > div:last-child {
     display: flex;
     flex-direction: column;
@@ -22,6 +26,11 @@ export const SectionContainer = styled.section`
     justify-content: center;
     align-items: flex-start;
     gap: 20px;
+    overflow: hidden;
+
+    #mobile {
+      display: flex;
+    }
   }
 `;
 
@@ -47,6 +56,10 @@ export const TextButtonContainer = styled.div`
       color: black;
       margin: 0px;
       line-height: 120%;
+
+      @media (max-width: 968px) {
+        font-size: 1.12rem;
+      }
     }
 
     p {
@@ -56,12 +69,26 @@ export const TextButtonContainer = styled.div`
       color: #424242;
       line-height: 140% !important;
       margin: 0px;
+
+      @media (max-width: 968px) {
+        font-size: 0.94rem;
+      }
+    }
+
+    @media (max-width: 968px) {
+      gap: 16px;
     }
   }
 
   img {
     width: 17px;
     height: 17px;
+  }
+
+  @media (max-width: 968px) {
+    #desktop {
+      display: none;
+    }
   }
 `;
 
@@ -73,6 +100,12 @@ export const OptionsContainer = styled.div`
   padding: 24px;
   background-color: #ffffff;
   border-radius: 12px;
+  margin-bottom: 16px;
+
+  @media (max-width: 968px) {
+    margin-bottom: 20px;
+    padding: 12px;
+  }
 `;
 
 export const Options = styled.div`
@@ -84,6 +117,11 @@ export const Options = styled.div`
   border-radius: 12px;
   border: 1px solid #c3c3c3;
   background-color: #f2f2f2;
+
+  @media (max-width: 968px) {
+    width: 381px;
+    justify-content: flex-start;
+  }
 `;
 
 export const CustomButton = styled.button`
@@ -106,4 +144,8 @@ export const CustomButton = styled.button`
   font-family: 'Aptos';
   color: ${props => (props.isActive ? 'white' : '#424242')};
   line-height: 70%;
+
+  @media (max-width: 968px) {
+    font-size: 0.81rem;
+  }
 `;

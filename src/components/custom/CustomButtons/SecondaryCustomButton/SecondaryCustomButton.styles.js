@@ -62,4 +62,8 @@ export const SecondaryCustomButtonStyled = styled.button`
     width: 20px;
     height: 20px;
   }
+
+  @media (max-width: 1200px) {
+    font-size: 0.81rem;
+  }
 `;

@@ -22,7 +22,13 @@ export const SliderCardContainer = styled.div`
   }
 
   &:hover {
-    box-shadow: 0 3px 7px 0 rgba(84, 84, 84, 0.1), 0 13px 13px 0 rgba(84, 84, 84, 0.09), 0 29px 17px 0 rgba(84, 84, 84, 0.05), 0 51px 20px 0 rgba(84, 84, 84, 0.01), 0 79px 22px 0 rgba(84, 84, 84, 0);
+    box-shadow: 0 3px 7px 0 rgba(84, 84, 84, 0.1),
+      0 13px 13px 0 rgba(84, 84, 84, 0.09), 0 29px 17px 0 rgba(84, 84, 84, 0.05),
+      0 51px 20px 0 rgba(84, 84, 84, 0.01), 0 79px 22px 0 rgba(84, 84, 84, 0);
+  }
+
+  @media (max-width: 968px) {
+    width: 253px;
   }
 `;
 
@@ -45,12 +51,16 @@ export const TagContainer = styled.div`
 
   font-size: 0.8125em;
   font-weight: normal;
-  font-family: 'Aptos';
+  font-family: 'Roboto';
   color: #424242;
 
   & + div {
     display: flex;
     justify-content: space-between;
+  }
+
+  @media (max-width: 968px) {
+    font-size: 0.62rem;
   }
 `;
 
@@ -65,6 +75,10 @@ export const DataContainer = styled(TagContainer)`
     color: #424242;
     margin: 0px;
     line-height: 70%;
+
+    @media (max-width: 968px) {
+      font-size: 0.81rem;
+    }
   }
 
   h4 {
@@ -74,6 +88,10 @@ export const DataContainer = styled(TagContainer)`
     color: black;
     margin: 0px;
     line-height: 80%;
+
+    @media (max-width: 968px) {
+      font-size: 1.12rem;
+    }
   }
 
   img {
@@ -81,6 +99,11 @@ export const DataContainer = styled(TagContainer)`
     height: 50px;
     border-radius: 200px;
     background-color: #dbdbdb;
+
+    @media (max-width: 968px) {
+      width: 40px;
+      height: 40px;
+    }
   }
 
   & + span {
@@ -96,6 +119,10 @@ export const DataContainer = styled(TagContainer)`
     color: #717171;
     margin: 0px;
     line-height: 70%;
+
+    @media (max-width: 968px) {
+      font-size: 0.62rem;
+    }
   }
 `;
 
@@ -131,7 +158,7 @@ export const ProyectBanner = styled.span`
   left: 0;
 
   font-size: 0.8125em;
-  font-family: 'Aptos';
+  font-family: 'Roboto';
   color: rgb(255, 255, 255);
   margin: 0px;
   line-height: 70%;
@@ -139,9 +166,17 @@ export const ProyectBanner = styled.span`
   b {
     font-size: 1em;
     font-weight: normal;
-    font-family: 'Aptos';
+    font-family: 'Roboto';
     color: rgb(255, 255, 255);
     margin: 0px;
     line-height: 70%;
+
+    @media (max-width: 968px) {
+      font-size: 0.62rem;
+    }
+  }
+
+  @media (max-width: 968px) {
+    font-size: 0.62rem;
   }
 `;

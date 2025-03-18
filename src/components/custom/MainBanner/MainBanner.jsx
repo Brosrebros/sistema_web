@@ -46,7 +46,15 @@ const StyledSlider = styled(Slider)`
     align-items: center;
     width: ${({ isMenuOpen }) => (isMenuOpen ? '1530px' : '1700px')};
     padding: 10px;
-    bottom: ${({ type }) => (type === "home" ? '0' : '-70px')};
+    bottom: ${({ type }) => (type === 'home' ? '0' : '-70px')};
+
+    @media (max-width: 968px) {
+      width: 300px;
+    }
+  }
+
+  @media (max-width: 968px) {
+    width: 400px;
   }
 `;
 

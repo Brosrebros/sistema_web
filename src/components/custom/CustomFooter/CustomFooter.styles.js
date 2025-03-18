@@ -28,6 +28,10 @@ export const FooterContainerStyled = styled.footer`
       font-family: 'Aptos_display';
       color: black;
       line-height: 65%;
+
+      @media (max-width: 968px) {
+        font-size: 0.94rem;
+      }
     }
 
     li {
@@ -41,7 +45,19 @@ export const FooterContainerStyled = styled.footer`
       &:hover {
         filter: brightness(0.9);
       }
+
+      @media (max-width: 968px) {
+        font-size: 0.81rem;
+      }
     }
+  }
+
+  @media (max-width: 968px) {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    border-radius: 0px;
   }
 `;
 
@@ -59,6 +75,11 @@ export const TextContainer = styled.div`
     color: black;
     margin: 0px;
     line-height: 65%;
+
+    @media (max-width: 968px) {
+      line-height: 120%;
+      font-size: 0.94rem;
+    }
   }
 
   p {
@@ -67,6 +88,10 @@ export const TextContainer = styled.div`
     color: #424242;
     margin: 0px;
     line-height: 70%;
+
+    @media (max-width: 968px) {
+      font-size: 0.81rem;
+    }
   }
 `;
 
@@ -79,6 +104,11 @@ export const ButtonsContainer = styled.div`
 
   img {
     cursor: pointer;
+
+    @media (max-width: 968px) {
+      width: 27px;
+      height: 27px;
+    }
   }
 `;
 

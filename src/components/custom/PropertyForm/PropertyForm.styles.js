@@ -11,8 +11,9 @@ export const PropertyFormContainer = styled.form`
   background-color: #ffffff;
   border-radius: 12px;
 
-  @media (max-width: 1100px) {
+  @media (max-width: 1200px) {
     gap: 10px;
+    padding: 10px;
   }
 `;
 
@@ -27,28 +28,29 @@ export const FormOptionsContainer = styled.div`
       : 'auto auto 2fr 1.2fr auto 0.9fr auto'};
   gap: 12px;
 
-  @media (max-width: 1100px) {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  @media (max-width: 1200px) {
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto auto 1fr 1fr;
     gap: 10px;
+    justify-content: space-between;
 
     & > div:nth-child(3),
-    & > div:nth-child(4),
-    & > button:nth-child(5) {
+    & > div:nth-child(4) {
+      grid-column: span 2;
+    }
+
+    & > button:nth-child(5),
+    & > button:nth-child(6) {
       display: none;
     }
 
-    & > div:nth-child(1) {
-      order: 2;
+    & > button:last-child {
+      grid-column: span 2;
     }
 
-    & > div:nth-child(2) {
-      order: 1;
-    }
-
-    & > button:nth-child(6) {
-      order: 3;
+    & > button:nth-child(2) {
+      width: 90px;
+      margin-left: auto;
     }
   }
 `;
@@ -97,5 +99,9 @@ export const TabButtonStyled = styled.button`
 
   &:active {
     background-color: ${props => (props.isActive ? '#850000' : '#f2f2f2')};
+  }
+
+  @media (max-width: 968px) {
+    font-size: 0.8125em;
   }
 `;

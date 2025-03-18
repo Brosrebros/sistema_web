@@ -40,6 +40,10 @@ export const Input = styled.input`
     font-size: 1em;
     color: #424242;
     font-family: 'Roboto';
+
+    @media (max-width: 968px) {
+      font-size: 0.8125em;
+    }
   }
 
   &:hover {

@@ -2,6 +2,46 @@ import React from 'react';
 import SliderCard from 'components/custom/SliderCard/SliderCard';
 import PropTypes from 'prop-types';
 import CustomSliderButton from 'components/custom/CustomButtons/CustomSliderButton/CustomSliderButton';
+import styled from 'styled-components';
+
+const SliderContainer = styled.div`
+  width: 100%;
+  max-width: 100vw;
+
+  h3 {
+    width: 100%;
+    font-size: 1.44rem;
+    font-weight: bold;
+    color: black;
+    display: flex;
+    margin: 0px;
+    line-height: 65%;
+
+    @media (max-width: 968px) {
+      font-size: 1.12rem;
+      line-height: 120%;
+      display: flex;
+      align-items: flex-end;
+    }
+
+    a {
+      margin-left: auto;
+      display: grid;
+      place-items: center;
+      font-weight: bold;
+      color: #717171 !important;
+      font-size: 1.19rem;
+      cursor: pointer;
+      line-height: 65%;
+
+      @media (max-width: 968px) {
+        font-size: 0.94rem;
+        width: 120px;
+        line-height: 120%;
+      }
+    }
+  }
+`;
 
 const PropertySlider = ({ data, title, slidesToShow }) => {
   const sliderSettings = {
@@ -60,41 +100,18 @@ const PropertySlider = ({ data, title, slidesToShow }) => {
       {
         breakpoint: 968,
         settings: {
-          slidesToShow: 1.2, //2.4
+          slidesToShow: 1.25, //2.4
         },
       },
     ],
   };
 
   return (
-    <div style={{ width: '100%' }}>
+    <SliderContainer>
       {title ? (
-        <h3
-          style={{
-            width: '100%',
-            fontSize: '1.4375em',
-            fontWeight: 'bold',
-            color: 'black',
-            display: 'flex',
-            margin: '0px',
-            lineHeight: '65%',
-          }}
-        >
+        <h3>
           {title}
-          <a
-            style={{
-              marginLeft: 'auto',
-              display: 'grid',
-              placeItems: 'center',
-              fontWeight: 'bold',
-              color: '#717171',
-              fontSize: '19px',
-              cursor: 'pointer',
-              lineHeight: '65%',
-            }}
-          >
-            Ver más
-          </a>
+          <a>Ver más</a>
         </h3>
       ) : null}
       {data ? (
@@ -110,7 +127,7 @@ const PropertySlider = ({ data, title, slidesToShow }) => {
           </CustomSliderButton>
         </div>
       ) : null}
-    </div>
+    </SliderContainer>
   );
 };
 

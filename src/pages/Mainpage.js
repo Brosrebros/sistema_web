@@ -41,6 +41,8 @@ const ButtonContainer = styled.section`
   }
 
   @media (max-width: 968px) {
+    max-width: 100vw;
+    display: flex;
     flex-direction: column;
     gap: 20px;
   }
@@ -57,6 +59,21 @@ const CustomPageLayout = styled.div`
 
   & + footer {
     margin-top: -100px;
+
+    @media (max-width: 968px) {
+      margin-top: 0px;
+    }
+  }
+
+  @media (max-width: 968px) {
+    & > div:nth-child(2),
+    & > div:nth-child(4),
+    & > form,
+    & > section {
+      margin-right: 20px;
+      margin-left: 20px;
+      max-width: calc(100vw - 40px);
+    }
   }
 `;
 
@@ -95,7 +112,7 @@ const Mainpage = () => {
           data={propertyState.properties}
           title="Descubre las propiedades recomendadas"
         />
-        <ContentInfo type="left"/>
+        <ContentInfo type="left" />
         <ProyectsSection />
       </CustomPageLayout>
     </>

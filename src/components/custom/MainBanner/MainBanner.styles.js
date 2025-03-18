@@ -5,17 +5,23 @@ export const Banner = styled.div`
   height: 444px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: flex-start;
   padding: 24px;
   gap: 24px;
   background-color: #c6c6c6;
   border-radius: 12px;
   overflow: hidden;
+
+  @media (max-width: 968px) {
+    max-width: 100vw;
+    height: 450px;
+    padding: 20px;
+  }
 `;
 
 export const BannerWrapper = styled.div`
-  max-width: 1900px;
+  max-width: 100vw;
   height: 100%;
   display: flex !important;
   flex-direction: column;
@@ -30,6 +36,12 @@ export const BannerWrapper = styled.div`
     color: black;
     margin: 0px;
     line-height: 100%;
+
+    @media (max-width: 968px) {
+      font-size: 1.38rem;
+      max-width: 20ch;
+      line-height: 110%;
+    }
   }
 
   h2 {
@@ -49,5 +61,10 @@ export const BannerWrapper = styled.div`
     max-width: 55ch;
     margin: 0px;
     line-height: 140%;
+
+    @media (max-width: 968px) {
+      font-size: 0.81rem;
+      max-width: 38ch;
+    }
   }
 `;

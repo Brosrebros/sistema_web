@@ -39,6 +39,11 @@ export const CustomSelectContainer = styled.div`
 export const CustomSelectStyled = styled.div`
   height: 100%;
   font-weight: 400;
+
+  @media (max-width: 968px) {
+    font-size: 0.81rem;
+    width: 95%;
+  }
 `;
 
 export const DropdownContainer = styled.div`
@@ -125,6 +130,10 @@ export const CustomOption = styled.div`
     font-size: 1em;
     font-weight: 400;
     text-overflow: ellipsis;
+
+    @media (max-width: 968px) {
+      font-size: 0.81rem;
+    }
   }
 
   &:hover {
@@ -133,7 +142,6 @@ export const CustomOption = styled.div`
 `;
 
 export const CustomSelectWrapper = styled.div`
-  font-size: 14px;
   border: none;
   height: 100%;
   width: 100%;
@@ -158,6 +166,10 @@ export const CustomSelectWrapper = styled.div`
     font-size: 1rem;
     font-weight: 400;
     text-overflow: ellipsis;
+
+    @media (max-width: 968px) {
+      font-size: 0.81rem;
+    }
   }
 `;
 

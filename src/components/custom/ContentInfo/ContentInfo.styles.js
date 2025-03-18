@@ -23,6 +23,12 @@ export const ContentInfoContainer = styled.div`
       display: none;
     }
   }
+
+  @media (max-width: 968px) {
+    padding: 20px;
+    border-radius: 0px;
+    margin-top: 0px;
+  }
 `;
 
 export const CardContainer = styled.div`
@@ -42,6 +48,12 @@ export const GridTextContainer = styled.div`
   grid-column: span 2;
   gap: 10px;
 
+  @media (max-width: 968px) {
+    gap: 16px;
+    text-align: center;
+    align-items: center;
+  }
+
   h3 {
     font-size: 1.4375em;
     font-weight: bold;
@@ -49,6 +61,10 @@ export const GridTextContainer = styled.div`
     color: black;
     line-height: 120%;
     margin: 0px;
+
+    @media (max-width: 968px) {
+      font-size: 1.12rem;
+    }
   }
 
   h4 {
@@ -58,6 +74,11 @@ export const GridTextContainer = styled.div`
     color: #424242;
     line-height: 65%;
     margin: 0px;
+
+    @media (max-width: 968px) {
+      font-size: 0.94rem;
+      line-height: 120%;
+    }
   }
 `;
 
@@ -98,6 +119,10 @@ export const CustomCard = styled.div`
       line-height: 64%;
       margin: 0px;
       text-align: center;
+
+      @media (max-width: 968px) {
+        font-size: 0.94rem;
+      }
     }
 
     p {
@@ -109,6 +134,11 @@ export const CustomCard = styled.div`
       line-height: 108%;
       margin: 0px;
       text-align: center;
+
+      @media (max-width: 968px) {
+        font-size: 0.81rem;
+        max-width: 100ch;
+      }
     }
   }
 `;

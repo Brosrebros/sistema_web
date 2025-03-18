@@ -51,7 +51,7 @@ const PropertySliderValdemar = ({ data, slidesToShow }) => {
       {
         breakpoint: 968,
         settings: {
-          slidesToShow: 1.2, //2.4
+          slidesToShow: 1.4, //2.4
         },
       },
     ],

@@ -50,6 +50,10 @@ export const MenuContainer = styled.div`
   &:hover > div:nth-child(2) > div:last-child > div {
     width: 182px;
   }
+
+  @media (max-width: 968px) {
+    display: none;
+  }
 `;
 
 export const MenuSection = styled.div`

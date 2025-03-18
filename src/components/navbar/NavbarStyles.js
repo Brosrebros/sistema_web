@@ -16,6 +16,10 @@ export const NavbarContainer = styled.nav`
     isScrolled
       ? '0 5px 10px 0 rgba(0, 0, 0, 0.05), 0 19px 19px 0 rgba(0, 0, 0, 0.04), 0 43px 26px 0 rgba(0, 0, 0, 0.03), 0 76px 30px 0 rgba(0, 0, 0, 0.01), 0 119px 33px 0 rgba(0, 0, 0, 0)'
       : 'none'};
+
+  @media (max-width: 968px) {
+    padding: 1em 20px;
+  }
 `;
 
 export const NavbarMainDataContainer = styled.div`
@@ -23,6 +27,15 @@ export const NavbarMainDataContainer = styled.div`
   display: grid;
   grid-template-columns: 246px auto;
   gap: 24px;
+
+  @media (max-width: 968px) {
+    width: 100%;
+    display: flex;
+
+    & > button:last-child {
+      display: none;
+    }
+  }
 `;
 
 export const NavbarLogoMenuContainer = styled.div`
@@ -38,6 +51,19 @@ export const NavbarLogoMenuContainer = styled.div`
   & > img:last-child {
     width: 159px;
     height: auto;
+  }
+
+  & > button:nth-child(3) {
+    display: none;
+  }
+
+  @media (max-width: 968px) {
+    width: 100%;
+    padding: 0px;
+
+    & > button:nth-child(3) {
+      display: flex;
+    }
   }
 `;
 
@@ -58,6 +84,10 @@ export const NavbarButtonsContainer = styled.div`
     border: none;
     position: relative;
   }
+
+  @media (max-width: 968px) {
+    display: none;
+  }
 `;
 
 export const NavbarExtraButtonsContainer = styled.div`
@@ -68,5 +98,9 @@ export const NavbarExtraButtonsContainer = styled.div`
 
   & > button:last-child {
     color: #940000;
+  }
+
+  @media (max-width: 968px) {
+    display: none;
   }
 `;

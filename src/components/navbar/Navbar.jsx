@@ -111,7 +111,15 @@ function Navbar({ type }) {
                 }}
                 style={{ cursor: 'pointer' }}
               />
+              <SecondaryCustomButton
+                variant="white"
+                onClick={() => handleActive()}
+              >
+                {isActive && <Notifications ref={notificationRef} />}
+                <img src={notificationIcon} alt="lenguaje" />
+              </SecondaryCustomButton>
             </NavbarLogoMenuContainer>
+
             <SecondaryCustomButton
               variant="white"
               onClick={() => {

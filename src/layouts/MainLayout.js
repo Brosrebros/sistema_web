@@ -28,6 +28,26 @@ const CustomPageContainer = styled.div`
   transition: all 0.2s ease;
   background-color: #f2f2f2;
   border-radius: 12px 0px 0px 0px;
+
+  @media (max-width: 968px) {
+    width: 100%;
+    border-radius: 0px;
+    padding: 24px 0px 0px 0px;
+  }
+`;
+
+const StyledContainer = styled.div`
+  width: 100%;
+  display: grid;
+  grid-template-columns: ${({ isMenuOpen }) =>
+    isMenuOpen ? '270px minmax(0, 1fr)' : '100px minmax(0, 1fr)'};
+  position: relative;
+  transition: all 0.2s ease;
+
+  @media (max-width: 968px) {
+    display: flex;
+    max-width: 100vw;
+  }
 `;
 
 const MainLayout = ({ type, active }) => {
@@ -55,17 +75,7 @@ const MainLayout = ({ type, active }) => {
       <ProductProvider>
         <CourseProvider>
           <Navbar />
-          <div
-            style={{
-              width: '100%',
-              display: 'grid',
-              gridTemplateColumns: isMenuOpen
-                ? '270px minmax(0, 1fr)'
-                : '100px minmax(0, 1fr)',
-              position: 'relative',
-              transition: 'all 0.2s ease',
-            }}
-          >
+          <StyledContainer isMenuOpen={isMenuOpen}>
             <Menu active={active} />
             <CustomPageContainer isMenuOpen={isMenuOpen}>
               <PropertyProvider>
@@ -78,7 +88,7 @@ const MainLayout = ({ type, active }) => {
                 ) : null}
               </PropertyProvider>
             </CustomPageContainer>
-          </div>
+          </StyledContainer>
           <LoginModal />
           <ShareModal />
           <ReportModal />
@@ -86,7 +96,7 @@ const MainLayout = ({ type, active }) => {
           <SuccessModal />
           <SettingsModal />
           <ContactModal />
-          <SearchModal/>
+          <SearchModal />
         </CourseProvider>
       </ProductProvider>
     </main>

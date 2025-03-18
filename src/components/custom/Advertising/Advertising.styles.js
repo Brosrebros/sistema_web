@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const AdvertisingContainer = styled.div`
   width: 100%;
@@ -14,4 +14,9 @@ export const AdvertisingContainer = styled.div`
   font-weight: normal;
   font-family: 'Roboto';
   color: #424242;
+
+  @media (max-width: 968px) {
+    font-size: 0.81rem;
+    height: 73px;
+  }
 `;

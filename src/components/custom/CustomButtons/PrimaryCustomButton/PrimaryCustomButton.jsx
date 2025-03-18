@@ -1,8 +1,8 @@
 import { PrimaryCustomButtonStyled } from './PrimaryCustomButton.styles';
 
-function PrimaryCustomButton({ children, onClick }) {
+function PrimaryCustomButton({ children, onClick, id }) {
   return (
-    <PrimaryCustomButtonStyled onClick={onClick} type="submit">
+    <PrimaryCustomButtonStyled onClick={onClick} type="submit" id={id}>
       {children}
     </PrimaryCustomButtonStyled>
   );

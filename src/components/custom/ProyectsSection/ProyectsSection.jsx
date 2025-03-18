@@ -16,7 +16,7 @@ import { rootPaths } from 'routes/paths';
 
 function ProyectsSection() {
   const { isMenuOpen } = useMenu();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [activeButton, setActiveButton] = useState('en construccion');
   const { propertyState } = usePropertyContext();
 
@@ -29,12 +29,15 @@ function ProyectsSection() {
             día a día
           </h3>
           <p>
-            Descubre proyectos en construcción con precios 
-            preferenciales y asegura tu lugar en futuras 
-            propiedades que prometen alta valorización.
+            Descubre proyectos en construcción con precios preferenciales y
+            asegura tu lugar en futuras propiedades que prometen alta
+            valorización.
           </p>
         </div>
-        <PrimaryCustomButton onClick={() => navigate(`/${rootPaths.proyectsRoot}`)}>
+        <PrimaryCustomButton
+          onClick={() => navigate(`/${rootPaths.proyectsRoot}`)}
+          id="desktop"
+        >
           <img src={icon} alt="conoce nuestros desarrollos" />
           Descubre todos los proyectos inmobiliarios
         </PrimaryCustomButton>
@@ -69,6 +72,14 @@ function ProyectsSection() {
           type="proyect"
         />
       </div>
+
+      <PrimaryCustomButton
+        onClick={() => navigate(`/${rootPaths.proyectsRoot}`)}
+        id="mobile"
+      >
+        <img src={icon} alt="conoce nuestros desarrollos" />
+        Descubre todos los proyectos inmobiliarios
+      </PrimaryCustomButton>
     </SectionContainer>
   );
 }
