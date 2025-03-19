@@ -42,7 +42,7 @@ const cardOptions =
           img: Comments,
           title: 'Guías y Preguntas Frecuentes (FAQs)',
           paragraph:
-            'Respuestas a las preguntas más comunes y guías paso a paso para resolver problemas técnicos.',
+            'Respuestas a las preguntas más comunes y guías para resolver problemas técnicos.',
           alt: 'comments',
         },
         option6: {
@@ -83,7 +83,7 @@ const cardOptions =
           img: Comments,
           title: 'Guías y Preguntas Frecuentes (FAQs)',
           paragraph:
-            'Respuestas a las preguntas más comunes y guías paso a paso para resolver problemas técnicos.',
+            'Respuestas a las preguntas más comunes y guías resolver problemas técnicos.',
           alt: 'comments',
         },
         option6: {
