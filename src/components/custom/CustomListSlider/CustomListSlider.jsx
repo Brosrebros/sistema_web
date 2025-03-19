@@ -1,9 +1,9 @@
 import React from 'react';
 import { CustomListSliderStyled } from './CustomListSlider.styles';
 
-function CustomListSlider({ children, onClick, ...sliderSettings }) {
+function CustomListSlider({ children, onClick, id, ...sliderSettings }) {
   return (
-    <CustomListSliderStyled {...sliderSettings} onClick={onClick}>
+    <CustomListSliderStyled {...sliderSettings} onClick={onClick} id={id}>
       {children}
     </CustomListSliderStyled>
   );

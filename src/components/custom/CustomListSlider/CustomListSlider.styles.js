@@ -68,6 +68,7 @@ export const CustomListSliderStyled = styled(Slider)`
     opacity: 0 !important;
     transition: opacity 0.1s ease;
     border: 1px solid #c3c3c3;
+    top: ${({id}) => id === "proyects" ? "40%" : "50%"};
   }
 
   .slick-prev {

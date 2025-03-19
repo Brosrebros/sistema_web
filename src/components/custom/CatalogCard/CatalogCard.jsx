@@ -6,6 +6,8 @@ import {
   MainDataContainer,
   DataDescription,
   OptionsContainer,
+  ImagesCounter,
+  ProyectBanner,
 } from './CatalogCard.styles';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -67,7 +69,7 @@ function CatalogCard({ property, type }) {
       <div onClick={e => e.stopPropagation()}>
         <CustomListSlider
           {...sliderSettings}
-          style={{ width: '100%', height: '100%' }}
+          id="proyects"
         >
           {imagenes && imagenes.length > 0
             ? imagenes.map((img, index) => (
@@ -105,75 +107,16 @@ function CatalogCard({ property, type }) {
         ) : (
           <div></div>
         )}
-        <div
-          style={{
-            width: '100px',
-            height: '48px',
-            position: 'absolute',
-            opacity: '0',
-            bottom: type === 'proyects' ? '39px' : '12px',
-            left: '12px',
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            gap: '8px',
-            padding: '12px 16px',
-            margin: '0px',
-            backgroundColor: 'white',
-            borderRadius: '8px',
-            transition: 'all 0.1s ease',
-          }}
-        >
-          <img src={cameraIcon} style={{ height: '20px', width: '20px' }} />
-          <p
-            style={{
-              color: '#424242',
-              fontSize: '1rem',
-              margin: '0px',
-              lineHeight: '65%',
-            }}
-          >
-            {`${currentSlide + 1}/${imagenes.length}`}
-          </p>
-        </div>
+        <ImagesCounter type="proyects">
+          <img src={cameraIcon} />
+          <p>{`${currentSlide + 1}/${imagenes.length}`}</p>
+        </ImagesCounter>
+
         {type === 'proyects' ? (
-          <div
-            style={{
-              width: '100%',
-              height: '27px',
-              position: 'absolute',
-              bottom: '0px',
-              left: '0px',
-              display: 'flex',
-              justifyContent: 'space-between',
-              alignItems: 'center',
-              padding: '0px 12px',
-              margin: '0px',
-              backgroundColor: '#257573',
-              borderRadius: '0px 0px 12px 12px',
-            }}
-          >
-            <p
-              style={{
-                color: '#ffffff',
-                fontSize: '1rem',
-                margin: '0px',
-                lineHeight: '65%',
-              }}
-            >
-              En construcción
-            </p>
-            <p
-              style={{
-                color: '#ffffff',
-                fontSize: '1rem',
-                margin: '0px',
-                lineHeight: '65%',
-              }}
-            >
-              Entrega en junio 2026
-            </p>
-          </div>
+          <ProyectBanner>
+            <p>En construcción</p>
+            <p>Entrega en junio 2026</p>
+          </ProyectBanner>
         ) : null}
       </div>
 
@@ -233,11 +176,11 @@ function CatalogCard({ property, type }) {
               </CustomBadge>
             ) : null}
           </h3>
-          <img src={placeholderIcon} alt="Sanchez Real Estate" id="mobile"/>
+          <img src={placeholderIcon} alt="Sanchez Real Estate" id="mobile" />
         </MainDataContainer>
         <OptionsContainer>
           <div>
-            <img src={placeholderIcon} alt="Sanchez Real Estate"/>
+            <img src={placeholderIcon} alt="Sanchez Real Estate" />
 
             <div>
               <h5>

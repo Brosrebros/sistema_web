@@ -141,7 +141,7 @@ export const MainDataContainer = styled(CatalogDataContainer)`
   @media (max-width: 1200px) {
     position: relative;
 
-    img {
+    #mobile {
       position: absolute;
       right: 20px;
       width: 50px;
@@ -292,5 +292,65 @@ export const OptionsContainer = styled.div`
 
   @media (max-width: 1200px) {
     order: 5;
+  }
+`;
+
+export const ImagesCounter = styled.div`
+  width: 100px;
+  height: 48px;
+  position: absolute;
+  opacity: 0;
+  bottom: ${({ type }) => (type === 'proyects' ? '39px' : '12px')};
+  left: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  margin: 0px;
+  background-color: white;
+  border-radius: 8px;
+  transition: all 0.1s ease;
+
+  img {
+    width: 20px;
+    height: 20px;
+  }
+
+  p {
+    color: #424242;
+    font-size: 1rem;
+    margin: 0px;
+    line-height: 65%;
+
+    @media (max-width: 1200px) {
+      font-size: 0.81rem;
+    }
+  }
+`;
+
+export const ProyectBanner = styled.div`
+  width: 100%;
+  height: 27px;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 12px;
+  margin: 0px;
+  background-color: #257573;
+  border-radius: 0px 0px 12px 12px;
+
+  p {
+    color: #ffffff;
+    font-size: 1rem;
+    margin: 0px;
+    line-height: 65%;
+
+    @media (max-width: 1200px) {
+      font-size: 0.81rem;
+    }
   }
 `;

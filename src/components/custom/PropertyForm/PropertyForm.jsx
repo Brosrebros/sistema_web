@@ -9,11 +9,11 @@ import PrimaryCustomButton from '../CustomButtons/PrimaryCustomButton/PrimaryCus
 import SecondaryCustomButton from '../CustomButtons/SecondaryCustomButton/SecondaryCustomButton';
 import CustomInput from '../CustomFormUI/CustomInput/CustomInput';
 import CustomSelect from '../CustomSelect/CustomSelect';
-import mapaIcon from '../../../assets/img/icons/map.svg';
-import filterIcon from '../../../assets/img/icons/filter.svg';
-import lupaIconWhite from '../../../assets/img/icons/search-white.svg';
-import tipoIcon from '../../../assets/img/icons/signpost.svg';
-import pinIcon from '../../../assets/img/icons/location.svg';
+import mapaIcon from 'assets/img/icons/map.svg';
+import filterIcon from 'assets/img/icons/filter.svg';
+import lupaIconWhite from 'assets/img/icons/search-white.svg';
+import tipoIcon from 'assets/img/icons/signpost.svg';
+import pinIcon from 'assets/img/icons/location.svg';
 import sortIcon from 'assets/img/icons/sort.svg';
 import { rootPaths } from 'routes/paths';
 import { useNavigate } from 'react-router-dom';
@@ -151,7 +151,7 @@ function PropertyForm({ page }) {
             </SecondaryCustomButton>
 
             <SecondaryCustomButton variant={'white'} id="mobile">
-              <img src={mapaIcon} />
+              <img src={filterIcon} />
             </SecondaryCustomButton>
           </>
         ) : null}
