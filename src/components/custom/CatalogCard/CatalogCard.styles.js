@@ -24,6 +24,41 @@ export const CatalogCardContainer = styled.div`
   &:hover > div:first-child > div:first-child + div + div {
     opacity: 1 !important;
   }
+
+  & > div:first-child {
+    height: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  #mobile {
+    display: none;
+  }
+
+  @media (max-width: 1200px) {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 0px;
+    border: none;
+    border-bottom: 1px solid #c3c3c3;
+    gap: 16px;
+
+    & > div:first-child {
+      height: 217px;
+      max-width: calc(100vw - 40px);
+    }
+
+    #mobile {
+      display: flex;
+    }
+
+    #desktop {
+      display: none;
+    }
+  }
 `;
 
 export const CatalogDataContainer = styled.div`
@@ -33,6 +68,10 @@ export const CatalogDataContainer = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
+
+  @media (max-width: 1200px) {
+    gap: 12px;
+  }
 `;
 
 export const TagContainer = styled.div`
@@ -57,6 +96,15 @@ export const TagContainer = styled.div`
     align-items: center;
     gap: 8px;
   }
+
+  @media (max-width: 1200px) {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
+  }
 `;
 
 export const MainDataContainer = styled(CatalogDataContainer)`
@@ -67,6 +115,10 @@ export const MainDataContainer = styled(CatalogDataContainer)`
     font-weight: normal;
     color: #424242;
     line-height: 11px;
+
+    @media (max-width: 1200px) {
+      font-size: 0.81rem;
+    }
   }
 
   h3 {
@@ -80,6 +132,23 @@ export const MainDataContainer = styled(CatalogDataContainer)`
     color: black;
     line-height: 15px;
     margin: 0px;
+
+    @media (max-width: 1200px) {
+      font-size: 1.12rem;
+    }
+  }
+
+  @media (max-width: 1200px) {
+    position: relative;
+
+    img {
+      position: absolute;
+      right: 20px;
+      width: 50px;
+      height: 50px;
+      border-radius: 200px;
+      background-color: #dbdbdb;
+    }
   }
 `;
 
@@ -118,6 +187,10 @@ export const DataDescription = styled(CatalogDataContainer)`
         color: #717171;
         line-height: 11px;
         margin: 0px;
+
+        @media (max-width: 1200px) {
+          font-size: 0.81rem;
+        }
       }
     }
   }
@@ -134,6 +207,14 @@ export const DataDescription = styled(CatalogDataContainer)`
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
+  }
+
+  @media (max-width: 1200px) {
+    order: 3;
+    h3,
+    & > p:last-child {
+      display: none;
+    }
   }
 `;
 
@@ -183,6 +264,10 @@ export const OptionsContainer = styled.div`
         }
       }
     }
+
+    @media (max-width: 1200px) {
+      display: none;
+    }
   }
 
   & > div:last-child {
@@ -195,5 +280,17 @@ export const OptionsContainer = styled.div`
       color: #940000;
       border: 1px solid ${({ fav }) => (fav ? '#940000' : '#c3c3c3')};
     }
+
+    @media (max-width: 1200px) {
+      width: 100%;
+
+      & > button:last-child {
+        width: 100%;
+      }
+    }
+  }
+
+  @media (max-width: 1200px) {
+    order: 5;
   }
 `;

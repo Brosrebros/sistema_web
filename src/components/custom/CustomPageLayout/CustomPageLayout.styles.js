@@ -12,4 +12,13 @@ export const CustomPageLayoutStyled = styled.div`
   & + footer {
     margin-top: ${({ place }) => (place === 'property' ? '-100px' : '0px')};
   }
+
+  @media (max-width: 1200px) {
+    background-color: #ffffff;
+    gap: 0px;
+
+    & + footer {
+      margin-top: -24px;
+    }
+  }
 `;

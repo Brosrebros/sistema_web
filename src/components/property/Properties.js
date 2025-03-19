@@ -12,20 +12,76 @@ import PropertyFilters from './PropertyFilters';
 import Pagination from 'components/custom/Pagination/Pagination';
 import styled from 'styled-components';
 import Advertising from 'components/custom/Advertising/Advertising';
+import CustomSelect from 'components/custom/CustomSelect/CustomSelect';
+import sortIcon from 'assets/img/icons/sort.svg';
+import { useSearch } from 'searchContext';
 
 const CustomLayout = styled.div`
   width: 100%;
   display: grid;
   grid-template-columns: auto 402px;
   gap: 24px;
+
+  @media (max-width: 1200px) {
+    background-color: #ffffff;
+  }
+`;
+
+const ContainerCustom = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  @media (max-width: 1200px) {
+    background-color: #ffffff;
+    gap: 20px;
+    padding-top: 20px;
+  }
+`;
+
+const Title = styled.h4`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  font-size: 1.19rem;
+  font-weight: normal;
+  color: #424242;
+  margin: 0px;
+
+  #mobile {
+    display: none;
+  }
+
+  @media (max-width: 1200px) {
+    font-size: 0.81rem;
+    padding: 0px 20px;
+
+    #mobile {
+      display: flex;
+    }
+  }
 `;
 
 const Properties = ({ filterForm, setFilterForm, properties, title, type }) => {
-  const [showFilterOffcanvas, setShowFilterOffcanvas] = useState(false);
+  const { searchValue, setSearchValue, propertyType, setPropertyType } =
+    useSearch();
   const [coursePerPage, setCoursePerPage] = useState(6);
   const navigate = useNavigate();
-  const { breakpoints } = useBreakpoints();
   const [layout, setLayout] = useState('list');
+
+  const ordenarPorOptions = [
+    { value: 'Precio ascendente', label: 'Precio ↑' },
+    { value: 'Precio descendente', label: 'Precio ↓' },
+    { value: 'Superficie ascendente', label: 'Superficie ↑' },
+    { value: 'Superficie descendente', label: 'Superficie ↓' },
+    { value: 'Fecha ascendente', label: 'Fecha ↑' },
+    { value: 'Fecha descendente', label: 'Fecha ↓' },
+    { value: 'Antigüedad ascendente', label: 'Antigüedad ↑' },
+    { value: 'Antigüedad descendente', label: 'Antigüedad ↓' },
+  ];
 
   const {
     config: { isNavbarVerticalCollapsed },
@@ -98,24 +154,22 @@ const Properties = ({ filterForm, setFilterForm, properties, title, type }) => {
 
   return (
     <>
-      <div
-        style={{
-          width: '100%',
-          display: 'flex',
-          flexDirection: 'column',
-          gap: '24px',
-        }}
-      >
-        <h4
-          style={{
-            fontSize: '1.19rem',
-            fontWeight: 'normal',
-            color: '#424242',
-            margin: '0px',
-          }}
-        >
+      <ContainerCustom>
+        <Title>
           {title}
-        </h4>
+
+          <CustomSelect
+            name="orden"
+            value={propertyType}
+            onChange={e => setPropertyType(e.target.value)}
+            placeholder="Ordenar por"
+            options={ordenarPorOptions}
+            background="form"
+            id="mobile"
+          >
+            <img src={sortIcon} width={'16px'} />
+          </CustomSelect>
+        </Title>
 
         <CustomLayout>
           <div
@@ -141,7 +195,11 @@ const Properties = ({ filterForm, setFilterForm, properties, title, type }) => {
                 paginatedCourses.map((course, index) =>
                   layout === 'list' ? (
                     <>
-                      <CatalogCard key={course.id} property={course} type={type}/>
+                      <CatalogCard
+                        key={course.id}
+                        property={course}
+                        type={type}
+                      />
                       {(index + 1) % 2 === 0 && <Advertising />}
                     </>
                   ) : (
@@ -167,7 +225,6 @@ const Properties = ({ filterForm, setFilterForm, properties, title, type }) => {
                 </Card>
               )}
             </div>
-            {/* Course pagination */}
             {paginatedCourses.length > 0 && (
               <Pagination
                 totalItems={100}
@@ -184,29 +241,12 @@ const Properties = ({ filterForm, setFilterForm, properties, title, type }) => {
             )}
           </div>
 
-          {breakpoints.up('xl') && (
-            <PropertyFilters
-              filterForm={filterForm}
-              setFilterForm={setFilterForm}
-            />
-          )}
-        </CustomLayout>
-      </div>
-      {breakpoints.down('xl') && (
-        <Offcanvas
-          show={showFilterOffcanvas}
-          onHide={() => setShowFilterOffcanvas(false)}
-          placement="start"
-          className="offcanvas offcanvas-filter-sidebar"
-        >
           <PropertyFilters
             filterForm={filterForm}
             setFilterForm={setFilterForm}
-            isOffcanvas={true}
-            setShow={setShowFilterOffcanvas}
           />
-        </Offcanvas>
-      )}
+        </CustomLayout>
+      </ContainerCustom>
     </>
   );
 };

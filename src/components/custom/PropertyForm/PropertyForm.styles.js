@@ -11,9 +11,27 @@ export const PropertyFormContainer = styled.form`
   background-color: #ffffff;
   border-radius: 12px;
 
+  #mobile {
+    display: none;
+  }
+
   @media (max-width: 1200px) {
     gap: 10px;
     padding: 10px;
+    border-radius: ${({ page }) => (page === 'catalog' ? '0px' : '12px')};
+    margin-top: ${({ page }) => (page === 'catalog' ? '-24px' : '0px')};
+
+    #desktop {
+      display: none;
+    }
+
+    #desktop-catalog {
+      display: ${({ page }) => (page === 'catalog' ? 'none' : 'flex')};
+    }
+
+    #mobile {
+      display: flex;
+    }
   }
 `;
 
@@ -29,29 +47,52 @@ export const FormOptionsContainer = styled.div`
   gap: 12px;
 
   @media (max-width: 1200px) {
-    grid-template-columns: auto 1fr;
-    grid-template-rows: auto auto 1fr 1fr;
-    gap: 10px;
-    justify-content: space-between;
+    ${({ page }) =>
+      page === 'catalog'
+        ? `
+      grid-template-columns: 52px 52px auto;
+      gap: 10px;
 
-    & > div:nth-child(3),
-    & > div:nth-child(4) {
-      grid-column: span 2;
-    }
+      & > div:nth-child(3) {
+        grid-column: span 3;
+      }
 
-    & > button:nth-child(5),
-    & > button:nth-child(6) {
-      display: none;
-    }
+      & > button:nth-child(7),
+      & > button:nth-child(8) {
+        grid-row: 2;
+        grid-column: span 1;
+        max-width: 52px; 
+      }
 
-    & > button:last-child {
-      grid-column: span 2;
-    }
+      & > button:last-child {
+        grid-row: 2;
+        grid-column: 3;
+      }
+  `
+        : `
+      grid-template-columns: auto 1fr;
+      grid-template-rows: auto auto 1fr 1fr;
+      gap: 10px;
+      justify-content: space-between;
 
-    & > button:nth-child(2) {
-      width: 90px;
-      margin-left: auto;
-    }
+      & > div:nth-child(n + 3) {
+        grid-column: span 2;
+      }
+
+      & > button:nth-child(5),
+      & > button:nth-child(6) {
+        display: none;
+      }
+
+      & > button:last-child {
+        grid-column: span 2;
+      }
+
+      & > button:nth-child(2) {
+        width: 90px;
+        margin-left: auto;
+      }
+    `}
   }
 `;
 

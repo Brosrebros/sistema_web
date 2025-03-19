@@ -47,6 +47,7 @@ function PropertyForm({ page }) {
     { value: 'Antigüedad ascendente', label: 'Antigüedad ↑' },
     { value: 'Antigüedad descendente', label: 'Antigüedad ↓' },
   ];
+  
   const { openModal } = useModal();
   const [activeButton, setActiveButton] = useState('venta');
   const [activeStep, setActiveStep] = useState(1);
@@ -72,13 +73,13 @@ function PropertyForm({ page }) {
       setActiveStep(3);
     }
 
-    openModal('searchModal'); // Abre el modal
+    openModal('searchModal');
   };
 
   return (
-    <PropertyFormContainer>
+    <PropertyFormContainer page={page}>
       <FormOptionsContainer page={page}>
-        <FormTab>
+        <FormTab id="desktop-catalog">
           <TabButtonStyled
             isActive={activeButton === 'venta'}
             onClick={e => {
@@ -101,6 +102,7 @@ function PropertyForm({ page }) {
         </FormTab>
         <PrimaryCustomButton
           onClick={() => navigate(`/${rootPaths.proyectsRoot}`)}
+          id="desktop-catalog"
         >
           Proyectos
         </PrimaryCustomButton>
@@ -117,6 +119,7 @@ function PropertyForm({ page }) {
           placeholder="Tipo de propiedad"
           options={propiedadOptions}
           background="form"
+          id="desktop-catalog"
         >
           <img src={tipoIcon} width={'16px'} />
         </CustomSelect>
@@ -126,21 +129,31 @@ function PropertyForm({ page }) {
             Mas filtros
           </SecondaryCustomButton>
         ) : null}
-        <SecondaryCustomButton variant={'white'}>
+        <SecondaryCustomButton variant={'white'} id="desktop">
           <img src={mapaIcon} />
           Ver mapa
         </SecondaryCustomButton>
         {page === 'catalog' ? (
-          <CustomSelect
-            name="orden"
-            value={propertyType}
-            onChange={e => setPropertyType(e.target.value)}
-            placeholder="Ordenar por"
-            options={ordenarPorOptions}
-            background="form"
-          >
-            <img src={sortIcon} width={'16px'} />
-          </CustomSelect>
+          <>
+            <CustomSelect
+              name="orden"
+              value={propertyType}
+              onChange={e => setPropertyType(e.target.value)}
+              placeholder="Ordenar por"
+              options={ordenarPorOptions}
+              background="form"
+              id="desktop"
+            >
+              <img src={sortIcon} width={'16px'} />
+            </CustomSelect>
+            <SecondaryCustomButton variant={'white'} id="mobile">
+              <img src={mapaIcon} />
+            </SecondaryCustomButton>
+
+            <SecondaryCustomButton variant={'white'} id="mobile">
+              <img src={mapaIcon} />
+            </SecondaryCustomButton>
+          </>
         ) : null}
         <PrimaryCustomButton onClick={handleSearchClick}>
           <img src={lupaIconWhite} alt="lupa" />

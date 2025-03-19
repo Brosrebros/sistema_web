@@ -9,6 +9,13 @@ export const PaginationContainer = styled.div`
   padding: 16px;
   background-color: #ffffff;
   border-radius: 12px;
+
+  @media (max-width: 1200px) {
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+    margin-top: -24px;
+  }
 `;
 
 export const NumberSelector = styled.div`
@@ -19,13 +26,18 @@ export const NumberSelector = styled.div`
   gap: 8px;
   padding: 6px;
   background-color: #f2f2f2;
-  border-radius: 16px;
+  border-radius: 12px;
   border: 1px solid #c3c3c3;
 
   button {
     height: 100%;
     border: none;
     line-height: 11px;
+  }
+
+  @media (max-width: 1200px) {
+    width: 100%;
+    justify-content: space-between;
   }
 `;
 
@@ -69,6 +81,11 @@ export const PagesContainer = styled.div`
   justify-content: center;
   align-items: center;
   gap: 20px;
+
+  @media (max-width: 1200px) {
+    width: 100%;
+    justify-content: space-between;
+  }
 `;
 
 export const CircleButton = styled(SecondaryCustomButtonStyled)`

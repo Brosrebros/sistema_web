@@ -19,6 +19,7 @@ const CustomSelect = ({
   background,
   children,
   size,
+  id
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedValue, setSelectedValue] = useState(value || '');
@@ -55,7 +56,7 @@ const CustomSelect = ({
       : options.find(option => option.value === selectedValue)?.label;
 
   return (
-    <CustomSelectContainer background={background} size={size}>
+    <CustomSelectContainer background={background} size={size} id={id}>
       {children}
 
       <CustomSelectStyled ref={selectRef}>

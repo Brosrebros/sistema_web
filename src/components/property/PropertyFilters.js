@@ -19,6 +19,15 @@ import arrowIcon from '../../assets/img/icons/arrow-down.svg';
 import styled from 'styled-components';
 import CustomInput from 'components/custom/CustomFormUI/CustomInput/CustomInput';
 
+const FiltersContainer = styled.div`
+  width: 100%;
+  position: relative;
+
+  @media (max-width: 1200px) {
+    display: none;
+  }
+`;
+
 const PropertyFilters = ({
   filterForm,
   setFilterForm,
@@ -79,12 +88,7 @@ const PropertyFilters = ({
   }, [filterOptions]);
 
   return (
-    <div
-      style={{
-        width: '100%',
-        position: 'relative',
-      }}
-    >
+    <FiltersContainer>
       <div
         style={{
           display: 'flex',
@@ -294,7 +298,7 @@ const PropertyFilters = ({
           </form>
         </SimpleBar>
       </div>
-    </div>
+    </FiltersContainer>
   );
 };
 
@@ -396,7 +400,6 @@ const SurfaceFilter = ({ onChange }) => {
 
         <CustomInput placeholder="Desde" type="text" />
         <CustomInput placeholder="Hasta" type="text" />
-
       </SurfaceContainer>
     </div>
   );

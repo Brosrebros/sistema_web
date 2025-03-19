@@ -64,15 +64,7 @@ function CatalogCard({ property, type }) {
       }}
       isMenuOpen={isMenuOpen}
     >
-      <div
-        onClick={e => e.stopPropagation()}
-        style={{
-          height: '100%',
-          borderRadius: '12px',
-          overflow: 'hidden',
-          position: 'relative',
-        }}
-      >
+      <div onClick={e => e.stopPropagation()}>
         <CustomListSlider
           {...sliderSettings}
           style={{ width: '100%', height: '100%' }}
@@ -223,7 +215,7 @@ function CatalogCard({ property, type }) {
             <h3>{titulo}</h3>
             <div>
               <img src={pinIcon} alt="pin" />
-              <p>{direccionCompleta}</p>
+              <p>Jr. Salaverry N°475, Calleria, Ucayali, Perú</p>
             </div>
           </div>
 
@@ -241,10 +233,11 @@ function CatalogCard({ property, type }) {
               </CustomBadge>
             ) : null}
           </h3>
+          <img src={placeholderIcon} alt="Sanchez Real Estate" id="mobile"/>
         </MainDataContainer>
         <OptionsContainer>
           <div>
-            <img src={placeholderIcon} alt="Sanchez Real Estate" />
+            <img src={placeholderIcon} alt="Sanchez Real Estate"/>
 
             <div>
               <h5>
@@ -259,6 +252,7 @@ function CatalogCard({ property, type }) {
                 e.stopPropagation();
                 openModal('loginModal');
               }}
+              id="desktop"
             >
               <img
                 src={heartIcon}
@@ -266,6 +260,19 @@ function CatalogCard({ property, type }) {
                 style={{ height: '20px', width: '20px' }}
               />
               Guardar
+            </SecondaryCustomButton>
+            <SecondaryCustomButton
+              onClick={e => {
+                e.stopPropagation();
+                openModal('loginModal');
+              }}
+              id="mobile"
+            >
+              <img
+                src={heartIcon}
+                alt="heart"
+                style={{ height: '20px', width: '20px' }}
+              />
             </SecondaryCustomButton>
             <PrimaryCustomButton
               onClick={e => {
