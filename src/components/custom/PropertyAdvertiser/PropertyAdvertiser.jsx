@@ -62,16 +62,23 @@ function PropertyAdvertiser() {
               <img src={shareIcon} alt="heart" />
             </SecondaryCustomButton>
 
-            <SecondaryCustomButton onClick={() => openModal('loginModal')}>
+            <SecondaryCustomButton
+              onClick={() => openModal('loginModal')}
+              id="desktop"
+            >
               <img src={saveIcon} alt="save" />
               Guardar
             </SecondaryCustomButton>
 
+            <SecondaryCustomButton
+              onClick={() => openModal('loginModal')}
+              id="mobile"
+            >
+              <img src={saveIcon} alt="save" />
+            </SecondaryCustomButton>
+
             <PrimaryCustomButton onClick={() => openModal('contactModal')}>
-              <img
-                src={callIcon}
-                alt="sms"
-              />
+              <img src={callIcon} alt="sms" />
               Contactar
             </PrimaryCustomButton>
           </ButtonsContainer>
@@ -86,7 +93,9 @@ function PropertyAdvertiser() {
             inmobiliarias.
           </p>
 
-          <span>Código de anunciante: INM-001</span>
+          <span>
+            Código de anunciante: <b>INM-001</b>
+          </span>
         </TextContainer>
       </AdvertiserDataContainer>
       <TextContainer>

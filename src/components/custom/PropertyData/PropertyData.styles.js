@@ -13,12 +13,22 @@ export const PropertyDataContainer = styled.div`
   border-radius: 12px;
   overflow: hidden;
 
+  #mobile {
+    display: none;
+  }
+
   & > div:first-child {
     width: 100%;
     display: grid;
     grid-template-columns: auto auto;
     align-items: start;
     gap: 24px;
+
+    @media (max-width: 1200px) {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
   }
 
   & > div:last-child {
@@ -28,6 +38,19 @@ export const PropertyDataContainer = styled.div`
     align-items: flex-start;
     justify-content: flex-start;
     gap: 24px;
+  }
+
+  @media (max-width: 1200px) {
+    height: auto;
+    padding: 20px;
+
+    #mobile {
+      display: flex;
+    }
+
+    #desktop {
+      display: none;
+    }
   }
 `;
 
@@ -45,6 +68,11 @@ export const PropertyMainData = styled.div`
     color: black;
     margin: 0px;
     line-height: 120%;
+
+    @media (max-width: 1200px) {
+      font-size: 1.12rem;
+      width: 100%;
+    }
   }
 
   & > div:last-child {
@@ -52,6 +80,10 @@ export const PropertyMainData = styled.div`
     justify-content: center;
     align-items: center;
     gap: 40px;
+  }
+
+  @media (max-width: 1200px) {
+    max-width: 100%;
   }
 `;
 
@@ -67,6 +99,11 @@ export const IconDataContainer = styled.div`
   img {
     width: 48px;
     height: 48px;
+
+    @media (max-width: 1200px) {
+      width: 17px;
+      height: 17px;
+    }
   }
 
   span {
@@ -81,6 +118,14 @@ export const IconDataContainer = styled.div`
 
     b {
       font-weight: 700;
+
+      @media (max-width: 1200px) {
+        font-weight: 400;
+      }
+    }
+
+    @media (max-width: 1200px) {
+      font-size: 0.81rem;
     }
   }
 `;
@@ -91,6 +136,10 @@ export const TagPriceContainer = styled.div`
   justify-content: center;
   align-items: flex-start;
   gap: 16px;
+
+  @media (max-width: 1200px) {
+    gap: 12px;
+  }
 
   & > div {
     max-width: 160px;
@@ -114,6 +163,10 @@ export const TagPriceContainer = styled.div`
     color: #424242;
     height: 14px;
     margin: 0px;
+
+    @media (max-width: 1200px) {
+      font-size: 0.81rem;
+    }
   }
 
   h3 {
@@ -121,6 +174,10 @@ export const TagPriceContainer = styled.div`
     font-size: 1.44em;
     color: #000000;
     margin: 0px;
+
+    @media (max-width: 1200px) {
+      font-size: 1.12rem;
+    }
   }
 `;
 
@@ -138,6 +195,10 @@ export const DescriptionContainer = styled.div`
     color: black;
     margin: 0px;
     line-height: 70%;
+
+    @media (max-width: 1200px) {
+      font-size: 0.94rem;
+    }
   }
 
   p {
@@ -145,6 +206,10 @@ export const DescriptionContainer = styled.div`
     font-size: 1rem;
     color: #424242;
     margin: 0px;
+
+    @media (max-width: 1200px) {
+      font-size: 0.81rem;
+    }
   }
 
   & > div {
@@ -166,6 +231,10 @@ export const DescriptionContainer = styled.div`
     img {
       width: 20px;
       height: 20px;
+
+      @media (max-width: 1200px) {
+        order: 1;
+      }
     }
 
     &:hover {
@@ -174,6 +243,10 @@ export const DescriptionContainer = styled.div`
 
     &:active {
       background-color: #c3c3c3;
+    }
+
+    @media (max-width: 1200px) {
+      font-size: 0.81rem;
     }
   }
 `;
@@ -199,6 +272,10 @@ export const FeaturesContainer = styled.div`
     color: black;
     margin: 0px;
     line-height: 70%;
+
+    @media (max-width: 1200px) {
+      font-size: 0.94rem;
+    }
   }
 
   & > div:nth-child(2) {
@@ -208,6 +285,14 @@ export const FeaturesContainer = styled.div`
     justify-content: flex-start;
     align-items: center;
     gap: 16px;
+
+    @media (max-width: 1200px) {
+      flex-direction: column;
+
+      & > button {
+        width: 100%;
+      }
+    }
   }
 
   & > div:last-child {
@@ -226,6 +311,10 @@ export const FeaturesContainer = styled.div`
         font-size: 1rem;
         color: #424242;
         margin: 0px;
+
+        @media (max-width: 1200px) {
+          font-size: 0.81rem;
+        }
       }
     }
   }
@@ -244,6 +333,10 @@ export const MapTitleContainer = styled.div`
     color: black;
     margin: 0px;
     line-height: 70%;
+
+    @media (max-width: 1200px) {
+      font-size: 0.94rem;
+    }
   }
 
   & > span:nth-child(2) {
@@ -263,6 +356,10 @@ export const MapTitleContainer = styled.div`
       font-size: 1rem;
       color: #424242;
       margin: 0px;
+
+      @media (max-width: 1200px) {
+        font-size: 0.81rem;
+      }
     }
   }
 
@@ -271,8 +368,19 @@ export const MapTitleContainer = styled.div`
     height: 100%;
   }
 
-  .leaflet-top, .leaflet-bottom {
+  .leaflet-top,
+  .leaflet-bottom {
     z-index: 998;
+  }
+
+  @media (max-width: 1200px) {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    & > div:last-child {
+      min-height: 192px !important;
+    }
   }
 `;
 
@@ -322,6 +430,26 @@ export const CustomButton = styled.button`
       border-radius: 10px;
     }
   `}
+
+  @media (max-width: 1200px) {
+    font-size: 0.81rem;
+    background-color: ${({ isActive }) => (isActive ? '#940000' : '#ffffff')};
+    color: ${({ isActive }) => (isActive ? '#ffffff' : '#424242')};
+    border: 1px solid ${({ isActive }) => (isActive ? '#940000' : '#c3c3c3')};
+    justify-content: flex-start;
+
+    &::before {
+      display: none;
+    }
+
+    &:hover {
+      background-color: ${({ isActive }) => (isActive ? '#A10000' : '#f2f2f2')};
+    }
+
+    &:active {
+      background-color: ${({ isActive }) => (isActive ? '#850000' : '#E4E4E4')};
+    }
+  }
 `;
 
 export const SliderContainer = styled.div`

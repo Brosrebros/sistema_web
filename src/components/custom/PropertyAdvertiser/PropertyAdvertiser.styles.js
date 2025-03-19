@@ -16,6 +16,26 @@ export const PropertyAdvertiserContainer = styled.div`
     font-size: 1.19rem;
     color: black;
     margin: 0px;
+
+    @media (max-width: 1200px) {
+      font-size: 0.94rem;
+    }
+  }
+
+  #mobile {
+    display: none;
+  }
+
+  @media (max-width: 1200px) {
+    padding: 20px;
+
+    #mobile {
+      display: flex;
+    }
+
+    #desktop {
+      display: none;
+    }
   }
 `;
 
@@ -46,6 +66,11 @@ export const AdvertiserOptions = styled.div`
       width: 75px;
       background-color: #c6c6c6;
       border-radius: 100px;
+
+      @media (max-width: 1200px) {
+        height: 60px;
+        width: 60px;
+      }
     }
 
     div {
@@ -67,12 +92,20 @@ export const AdvertiserOptions = styled.div`
         margin: 0px;
         line-height: 15px;
 
+        @media (max-width: 1200px) {
+          font-size: 1.12rem;
+        }
+
         img {
           width: 17px;
           height: 17px;
         }
       }
     }
+  }
+
+  @media (max-width: 1200px) {
+    flex-direction: column;
   }
 `;
 
@@ -85,6 +118,14 @@ export const ButtonsContainer = styled.div`
   & > button:nth-child(2) {
     color: #940000;
     border: 1px solid ${({ fav }) => (fav ? '#940000' : '#c3c3c3')};
+  }
+
+  @media (max-width: 1200px) {
+    width: 100%;
+
+    & > button:last-child {
+      width: 100%;
+    }
   }
 `;
 
@@ -102,6 +143,11 @@ export const TextContainer = styled.div`
     color: black;
     margin: 0px;
     line-height: 12px;
+
+    @media (max-width: 1200px) {
+      font-size: 0.94rem;
+      line-height: auto;
+    }
   }
 
   p,
@@ -110,11 +156,19 @@ export const TextContainer = styled.div`
     font-size: 1rem;
     color: #424242;
     margin: 0px;
+
+    @media (max-width: 1200px) {
+      font-size: 0.81rem;
+    }
   }
 
   p {
     max-width: 89ch;
     text-align: start;
+
+    @media (max-width: 1200px) {
+      max-width: none;
+    }
   }
 `;
 
@@ -132,6 +186,20 @@ export const ButtonOptionsContainer = styled.div`
     grid-template-columns: 1fr auto;
     align-items: center;
     gap: 12px;
+
+    @media (max-width: 1200px) {
+      order: 2;
+    }
+  }
+
+  @media (max-width: 1200px) {
+    flex-direction: column;
+
+    & > button {
+      width: 100%;
+      justify-content: flex-start;
+      font-size: 0.81rem;
+    }
   }
 `;
 
@@ -173,6 +241,23 @@ export const ProblemContainer = styled.div`
   padding: 24px;
   background-color: #f2f2f2;
   border-radius: 12px;
+
+  @media (max-width: 1200px) {
+    padding: 20px;
+
+    h5 {
+      line-height: normal;
+    }
+
+    & > div > div {
+      display: flex;
+      flex-direction: row;
+
+      & > button {
+        width: auto;
+      }
+    }
+  }
 `;
 
 export const SecondaryOption = styled(Option)`

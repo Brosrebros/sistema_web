@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import PropertyDetailAdvertiser from './PropertyDetailAdvertiser';
 import { usePropertyContext } from 'providers/PropertyProvider';
 import PropertySlider from '../PropertySlider';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useMenu } from 'menuContext';
 import PropertyData from 'components/custom/PropertyData/PropertyData';
+import PropertyDetailMedia from './PropertyDetailMedia';
+import PropertyAdvertiser from 'components/custom/PropertyAdvertiser/PropertyAdvertiser';
 import styled from 'styled-components';
 
 const CustomLayout = styled.div`
@@ -20,9 +21,22 @@ const CustomLayout = styled.div`
   & + footer {
     margin-top: -100px;
   }
+
+  @media (max-width: 1200px) {
+    display: flex;
+    flex-direction: column;
+  }
 `;
 
-const PropertyDetail = ({type}) => {
+const MainData = styled.div`
+  width: ${({ isMenuOpen }) => (isMenuOpen ? '785px' : '865px')};
+
+  @media (max-width: 1200px) {
+    max-width: 100vw;
+  }
+`;
+
+const PropertyDetail = ({ type }) => {
   const { isMenuOpen } = useMenu();
   const { propertyState, fetchPropertyById } = usePropertyContext();
   const { id } = useParams();
@@ -45,11 +59,19 @@ const PropertyDetail = ({type}) => {
     <>
       {propertyState.property && (
         <CustomLayout>
-          <div style={{ maxWidth: isMenuOpen ? '785px' : '865px' }}>
-            <PropertyDetailAdvertiser property={propertyState.property} />
-          </div>
+          <MainData isMenuOpen={isMenuOpen}>
+            <PropertyDetailMedia
+              imagenes={propertyState.property.multimedia.imagenes}
+            />
+            {window.innerWidth <= 1200 && (
+              <PropertyData property={propertyState.property} type={type} />
+            )}
+            <PropertyAdvertiser />
+          </MainData>
 
-          <PropertyData property={propertyState.property} type={type} />
+          {window.innerWidth > 1200 && (
+            <PropertyData property={propertyState.property} type={type} />
+          )}
         </CustomLayout>
       )}
 

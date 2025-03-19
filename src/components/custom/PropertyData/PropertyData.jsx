@@ -94,6 +94,25 @@ function PropertyData({ property, type }) {
             Fantástica casa residencial de 200 m2 en Calleria, barrio seguro
           </h3>
 
+          <TagPriceContainer id="mobile">
+            <div>
+              {type === 'proyect' ? (
+                <CustomBadge color="turquoise">Proyecto</CustomBadge>
+              ) : (
+                <CustomBadge color="red">Venta</CustomBadge>
+              )}
+              <span>Casa</span>
+
+              {type === 'proyect' ? (
+                <CustomBadge color="gray">Financiamiento directo</CustomBadge>
+              ) : null}
+            </div>
+
+            <span>Precio</span>
+
+            <h3>S/. 918,000</h3>
+          </TagPriceContainer>
+
           <div>
             <IconDataContainer>
               <img src={areaIcon} alt="area" />
@@ -147,7 +166,7 @@ function PropertyData({ property, type }) {
           </div>
         </PropertyMainData>
 
-        <TagPriceContainer>
+        <TagPriceContainer id="desktop">
           <div>
             {type === 'proyect' ? (
               <CustomBadge color="turquoise">Proyecto</CustomBadge>
@@ -296,28 +315,32 @@ function PropertyData({ property, type }) {
               onClick={() => handleActiveButton('caracteristicas')}
               isActive={isActive === 'caracteristicas'}
             >
-              <img src={taskIcon} alt="task" />
+              <img src={taskIcon} alt="task" id='desktop'/>
+              <img src={isActive === 'caracteristicas' ? taskIconWhite : taskIcon} alt="task" id='mobile'/>
               Caracteristicas generales
             </CustomButton>
             <CustomButton
               onClick={() => handleActiveButton('servicios')}
               isActive={isActive === 'servicios'}
             >
-              <img src={serviceIcon} alt="service" />
+              <img src={serviceIcon} alt="service" id="desktop"/>
+              <img src={isActive === 'servicios' ? serviceIconWhite : serviceIcon} alt="service" id="mobile"/>
               Servicios
             </CustomButton>
             <CustomButton
               onClick={() => handleActiveButton('ambientes')}
               isActive={isActive === 'ambientes'}
             >
-              <img src={ambientIcon} alt="ambient" />
+              <img src={ambientIcon} alt="ambient" id="desktop"/>
+              <img src={isActive === 'ambientes' ? ambientIconWhite : ambientIcon} alt="ambient" id="mobile"/>
               Ambientes
             </CustomButton>
             <CustomButton
               onClick={() => handleActiveButton('alrededores')}
               isActive={isActive === 'alrededores'}
             >
-              <img src={buildsIcon} alt="builds" />
+              <img src={buildsIcon} alt="builds" id="desktop"/>
+              <img src={isActive === 'alrededores' ? buildsIconWhite : buildsIcon} alt="builds" id="mobile"/>
               Alrededores
             </CustomButton>
           </div>

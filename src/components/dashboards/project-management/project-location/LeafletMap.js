@@ -99,27 +99,5 @@ const LeafletMap = ({ data, ...rest }) => {
   );
 };
 
-LeafletMap.propTypes = {
-  data: PropTypes.arrayOf(
-    PropTypes.shape({
-      lat: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-      long: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-      name: PropTypes.string,
-      street: PropTypes.string,
-      location: PropTypes.string,
-    })
-  ),
-};
 
-LayerComponent.propTypes = {
-  data: PropTypes.arrayOf(
-    PropTypes.shape({
-      lat: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-      long: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-      name: PropTypes.string,
-      street: PropTypes.string,
-      location: PropTypes.string,
-    })
-  ),
-};
 export default LeafletMap;

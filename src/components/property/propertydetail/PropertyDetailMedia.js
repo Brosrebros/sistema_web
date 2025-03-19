@@ -111,6 +111,118 @@ const CustomModalSlider = styled(Slider)`
   }
 `;
 
+const MainImageContainer = styled.div`
+  border-radius: 12px;
+  overflow: hidden;
+  height: 504px;
+  margin-bottom: 16px;
+
+  @media (max-width: 1200px) {
+    height: 304px;
+  }
+`;
+
+const ImageContainer = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: #d6d6d6;
+  overflow: hidden;
+  border-radius: 10px;
+
+  img {
+    height: 100%;
+    max-width: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    width: 100%;
+  }
+`;
+
+const MiniImagesContainer = styled.div`
+  img {
+    width: ${({ isMenuOpen }) => (isMenuOpen ? '180px' : '200px')};
+    height: 136px;
+    border-radius: 10px;
+    margin-right: 120px;
+
+    @media (max-width: 1200px) {
+      width: 100%;
+      height: 51px;
+      margin: 0px;
+    }
+  }
+`;
+
+const MainContainer = styled.div`
+  width: 100%;
+
+  @media (max-width: 1200px) {
+    font-size: 1.12rem;
+    padding: 20px;
+    padding-top: 0px;
+    background-color: #f2f2f2;
+  }
+`;
+
+const Appear = styled.div`
+  width: calc(100% - 20px);
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  opacity: 0;
+
+  & > div:first-child {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 16px;
+    margin: 0px;
+    background-color: white;
+    border-radius: 8px;
+    height: 48px;
+
+    & > img:first-child {
+      width: 20px;
+      height: 20px;
+    }
+
+    & > p {
+      color: #424242;
+      font-size: 1rem;
+      margin: 0px;
+      line-height: 75%;
+    }
+  }
+
+  & > div:last-child {
+    margin-left: auto;
+    color: #424242;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f2f2f2;
+    gap: 8px;
+    padding: 8px;
+    border-radius: 12px;
+
+    & > img:first-child {
+      width: 20px;
+      height: 20px;
+    }
+
+    & > p {
+      margin: 0px;
+      @media (max-width: 1200px) {
+        font-size: 0.81rem;
+      }
+    }
+  }
+`;
+
 const PropertyDetailMedia = ({ imagenes: files }) => {
   const { isMenuOpen } = useMenu();
   let slider1;
@@ -159,7 +271,7 @@ const PropertyDetailMedia = ({ imagenes: files }) => {
   };
 
   return (
-    <div style={{ width: '100%' }}>
+    <MainContainer>
       <>
         {files.length === 1 && (
           <Image
@@ -170,15 +282,7 @@ const PropertyDetailMedia = ({ imagenes: files }) => {
             onClick={() => handleImageClick(files[0].src)}
           />
         )}
-        <div
-          className="product-slider"
-          style={{
-            borderRadius: '12px',
-            overflow: 'hidden',
-            height: '502px',
-            marginBottom: '16px',
-          }}
-        >
+        <MainImageContainer className="product-slider">
           <CustomListSlider
             {...sliderSettings}
             asNavFor={nav2}
@@ -186,116 +290,45 @@ const PropertyDetailMedia = ({ imagenes: files }) => {
             className="slick-slider-arrow-inner"
           >
             {files.map(item => (
-              <div
-                key={item}
-                style={{
-                  width: '100%',
-                  display: 'flex',
-                  justifyContent: 'center',
-                  backgroundColor: '#D6D6D6',
-                  overflow: 'hidden',
-                  borderRadius: '10px',
-                }}
-              >
+              <ImageContainer key={item}>
                 <img
                   src={item}
                   alt="product media"
-                  style={{
-                    height: '100%',
-                    maxWidth: '100%',
-                    objectFit: 'cover',
-                    borderRadius: '10px',
-                    width: '100%',
-                  }}
                   onClick={() => handleImageClick(item)}
                   className="cursor-pointer"
                 />
-              </div>
+              </ImageContainer>
             ))}
           </CustomListSlider>
 
           <div></div>
-          <div
-            style={{
-              width: 'calc(100% - 20px)',
-              display: 'flex',
-              justifyContent: 'space-between',
-              position: 'absolute',
-              left: '10px',
-              bottom: '10px',
-              opacity: '0',
-            }}
-            className="test"
-          >
-            <div
-              style={{
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-                gap: '8px',
-                padding: '12px 16px',
-                margin: '0px',
-                backgroundColor: 'white',
-                borderRadius: '8px',
-                height: '48px',
-              }}
-            >
-              <img src={cameraIcon} style={{ height: '20px', width: '20px' }} />
-              <p
-                style={{
-                  color: '#424242',
-                  fontSize: '1rem',
-                  margin: '0px',
-                  lineHeight: '75%',
-                }}
-              >
-                {`${currentSlide + 1}/${files.length}`}
-              </p>
+          <Appear className="test">
+            <div>
+              <img src={cameraIcon} />
+              <p>{`${currentSlide + 1}/${files.length}`}</p>
             </div>
-            <div
-              style={{
-                marginLeft: 'auto',
-                color: '#424242',
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-                backgroundColor: '#F2F2F2',
-                gap: '8px',
-                padding: '8px',
-                borderRadius: '12px',
-              }}
-            >
-              <img
-                src={barcodeIcon}
-                style={{ width: '20px', height: '20px' }}
-              />
-              <p style={{ margin: '0px' }}>
+            <div>
+              <img src={barcodeIcon} />
+              <p>
                 Código de anuncio: <b>IMPV-0001</b>
               </p>
             </div>
-          </div>
-        </div>
+          </Appear>
+        </MainImageContainer>
         <CustomListSlider {...miniSliderSettings}>
           {files.map(img => (
-            <div key={img}>
+            <MiniImagesContainer key={img} isMenuOpen={isMenuOpen}>
               <img
                 className="fit-cover"
-                style={{
-                  width: isMenuOpen ? '180px' : '200px',
-                  height: '136px',
-                  borderRadius: '10px',
-                  marginRight: '120px',
-                }}
                 src={img}
                 alt="product media"
                 onClick={() => handleImageClick(img)}
               />
-            </div>
+            </MiniImagesContainer>
           ))}
         </CustomListSlider>
       </>
 
-      {/* Modal */}
       <Modal
         show={showModal}
         onHide={handleCloseModal}
@@ -399,7 +432,7 @@ const PropertyDetailMedia = ({ imagenes: files }) => {
           </div>
         </div>
       </Modal>
-    </div>
+    </MainContainer>
   );
 };
 
