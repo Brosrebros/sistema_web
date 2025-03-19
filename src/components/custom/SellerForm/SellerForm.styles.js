@@ -6,7 +6,7 @@ export const SellerFormContainer = styled.div`
   grid-template-columns: auto 3fr 1.4fr auto;
   align-items: center;
   gap: 16px;
-  padding: 16px;
+  padding: 24px;
   background-color: #ffffff;
   border-radius: 12px;
 `;
