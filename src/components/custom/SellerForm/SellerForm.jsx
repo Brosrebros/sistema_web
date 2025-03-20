@@ -3,12 +3,13 @@ import {
   SellerFormContainer,
   OptionsContainer,
   Option,
+  MobileContainer,
 } from './SellerForm.styles';
 
 import CustomInputText from '../CustomFormUI/CustomInput/CustomInput';
 import CustomSelect from '../CustomSelect/CustomSelect';
 import PrimaryCustomButton from '../CustomButtons/PrimaryCustomButton/PrimaryCustomButton';
-import sortIcon from '../../../assets/img/icons/sort.svg';
+import sortIcon from 'assets/img/icons/sort.svg';
 import lupaIcon from '../../../assets/img/icons/search-white.svg';
 import lupaIconGray from '../../../assets/img/icons/search-normal.svg';
 import locationIcon from '../../../assets/img/icons/location.svg';
@@ -53,16 +54,23 @@ function SellerForm() {
         </Option>
       </OptionsContainer>
       <CustomInputText placeholder="Buscar vendedor" icon={lupaIconGray} />
+      <MobileContainer>
+        <CustomInputText placeholder="Buscar vendedor" icon={lupaIconGray} />
+        <PrimaryCustomButton>
+          <img src={lupaIcon} alt="search" />
+        </PrimaryCustomButton>
+      </MobileContainer>
       <CustomSelect
         name="orden"
         onChange={handleOrdenChange}
         placeholder="Ordenar por"
         options={ordenarPorOptions}
         background="form"
+        id="desktop"
       >
         <img src={sortIcon} />
       </CustomSelect>
-      <PrimaryCustomButton>
+      <PrimaryCustomButton id="desktop">
         <img src={lupaIcon} alt="search" />
         Buscar
       </PrimaryCustomButton>

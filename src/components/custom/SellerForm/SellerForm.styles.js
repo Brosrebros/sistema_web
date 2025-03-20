@@ -9,6 +9,25 @@ export const SellerFormContainer = styled.div`
   padding: 24px;
   background-color: #ffffff;
   border-radius: 12px;
+
+  @media (max-width: 1200px) {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+    border-radius: 0px;
+    margin-top: -24px;
+
+    & > div:first-child,
+    & > div:nth-child(2),
+    & > div:nth-child(3) {
+      width: 100%;
+    }
+
+    #desktop {
+      display: none;
+    }
+  }
 `;
 
 export const OptionsContainer = styled.div`
@@ -20,6 +39,10 @@ export const OptionsContainer = styled.div`
   background: #f2f2f2;
   border: 1px solid #c3c3c3;
   border-radius: 1rem;
+
+  @media (max-width: 1200px) {
+    width: 100%;
+  }
 `;
 
 export const Option = styled.button`
@@ -30,13 +53,30 @@ export const Option = styled.button`
   gap: 0.5rem;
   border: none;
   outline: none;
-  background-color: ${({isActive}) => isActive ? "#940000" : "#f2f2f2"};
+  background-color: ${({ isActive }) => (isActive ? '#940000' : '#f2f2f2')};
   border-radius: 12px;
   padding: 12px 16px;
   transition: all 0.2s ease;
   font-size: 1rem;
   font-weight: normal;
   font-family: 'Aptos';
-  color: ${({isActive}) => isActive ? "#ffffff" : "#424242"};
+  color: ${({ isActive }) => (isActive ? '#ffffff' : '#424242')};
   line-height: 70%;
+
+  @media (max-width: 1200px) {
+    font-size: 0.81rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+`;
+
+export const MobileContainer = styled.div`
+  display: none;
+
+  @media (max-width: 1200px) {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 8px;
+  }
 `;

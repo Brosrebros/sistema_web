@@ -28,7 +28,38 @@ export const SellerCardContainer = styled.div`
   }
 
   &:hover {
-    box-shadow: 0 3px 7px 0 rgba(84, 84, 84, 0.1), 0 13px 13px 0 rgba(84, 84, 84, 0.09), 0 29px 17px 0 rgba(84, 84, 84, 0.05), 0 51px 20px 0 rgba(84, 84, 84, 0.01), 0 79px 22px 0 rgba(84, 84, 84, 0);
+    box-shadow: 0 3px 7px 0 rgba(84, 84, 84, 0.1),
+      0 13px 13px 0 rgba(84, 84, 84, 0.09), 0 29px 17px 0 rgba(84, 84, 84, 0.05),
+      0 51px 20px 0 rgba(84, 84, 84, 0.01), 0 79px 22px 0 rgba(84, 84, 84, 0);
+  }
+
+  #mobile {
+    display: none;
+  }
+
+  @media (max-width: 1200px) {
+    display: flex;
+    flex-direction: column;
+    box-shadow: none;
+    border: none;
+    border-bottom: 1px solid #c3c3c3;
+    border-radius: 0px;
+    
+    &:hover {
+      box-shadow: none;
+    }
+
+    #mobile {
+      display: block;
+    }
+
+    #desktop {
+      display: none;
+    }
+
+    & > img:first-child {
+      display: none;
+    }
   }
 `;
 
@@ -37,6 +68,7 @@ export const TagDateContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
 
   div {
     display: flex;
@@ -44,8 +76,14 @@ export const TagDateContainer = styled.div`
     align-items: center;
   }
 
-  & > div:first-child {
+  & > div:nth-child(2) {
     gap: 8px;
+
+    @media (max-width: 1200px) {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
   }
 
   & > div:last-child {
@@ -62,11 +100,34 @@ export const TagDateContainer = styled.div`
         color: #717171;
         margin: 0px;
       }
+
+      @media (max-width: 1200px) {
+        font-size: 0.62rem;
+      }
     }
 
     img {
       height: 15px;
       width: 15px;
+    }
+
+    @media (max-width: 1200px) {
+      position: absolute;
+      right: 0;
+    }
+  }
+
+  @media (max-width: 1200px) {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 12px;
+
+    & > img:first-child {
+      width: 50px;
+      height: 50px;
+      background-color: #dbdbdb;
+      border-radius: 1000px;
     }
   }
 `;
@@ -92,6 +153,10 @@ export const MainDataContainer = styled.div`
       color: black;
       margin: 0px;
       line-height: 12px;
+
+      @media (max-width: 1200px) {
+        font-size: 0.94rem;
+      }
     }
 
     img {
@@ -106,6 +171,10 @@ export const MainDataContainer = styled.div`
     font-size: 1rem;
     color: #424242;
     margin: 0px;
+
+    @media (max-width: 1200px) {
+      font-size: 0.81rem;
+    }
   }
 `;
 
@@ -120,6 +189,14 @@ export const SecondaryDataContainer = styled.div`
     justify-content: center;
     align-items: center;
     gap: 0px;
+
+    @media (max-width: 1200px) {
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      row-gap: 24px;
+      column-gap: 0px;
+    }
   }
 
   & > div:last-child {
@@ -131,6 +208,19 @@ export const SecondaryDataContainer = styled.div`
     & > button:nth-child(1) {
       color: #940000;
     }
+
+    @media (max-width: 1200px) {
+      width: 100%;
+
+      & > button:last-child {
+        width: 100%;
+      }
+    }
+  }
+
+  @media (max-width: 1200px) {
+    flex-direction: column;
+    gap: 20px;
   }
 `;
 
@@ -147,6 +237,10 @@ export const NumberDataContainer = styled.div`
     color: black;
     line-height: 18px;
     margin: 0px;
+
+    @media (max-width: 1200px) {
+      font-size: 1.19rem;
+    }
   }
 
   div {
@@ -162,6 +256,10 @@ export const NumberDataContainer = styled.div`
       color: #000;
       line-height: 12px;
       margin: 0px;
+
+      @media (max-width: 1200px) {
+        font-size: 0.94rem;
+      }
     }
 
     span {
@@ -170,7 +268,18 @@ export const NumberDataContainer = styled.div`
       color: black;
       line-height: 11px;
       margin: 0px;
+
+      @media (max-width: 1200px) {
+        font-size: 0.81rem;
+        line-height: 9px !important;
+      }
     }
+  }
+
+  @media (max-width: 1200px) {
+    padding: 0px;
+    gap: 8px;
+    justify-content: flex-start;
   }
 `;
 
@@ -179,4 +288,8 @@ export const VerticalBar = styled.span`
   width: 1px;
   display: block;
   background-color: #dbdbdb;
+
+  @media (max-width: 1200px) {
+    display: none;
+  }
 `;

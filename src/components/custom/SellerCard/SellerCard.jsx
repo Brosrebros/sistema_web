@@ -32,6 +32,8 @@ function SellerCard() {
       <img src={placeholderIcon} alt="Sanchez Real Estate" />
       <div>
         <TagDateContainer>
+          <img src={placeholderIcon} alt="Sanchez Real Estate" id="mobile" />
+
           <div>
             <CustomBadge color="turquoise">Inmobiliaria</CustomBadge>
             <CustomBadge color="gray">
@@ -89,9 +91,20 @@ function SellerCard() {
                 e.stopPropagation();
                 openModal('loginModal');
               }}
+              id="desktop"
             >
               <img src={likeIcon} alt="like" />
               Recomendar
+            </SecondaryCustomButton>
+
+            <SecondaryCustomButton
+              onClick={e => {
+                e.stopPropagation();
+                openModal('loginModal');
+              }}
+              id="mobile"
+            >
+              <img src={likeIcon} alt="like" />
             </SecondaryCustomButton>
 
             <PrimaryCustomButton
