@@ -25,6 +25,28 @@ const CustomLayout = styled.div`
   @media (max-width: 1200px) {
     display: flex;
     flex-direction: column;
+
+    & + div + div {
+      margin: 0px;
+    }
+  }
+`;
+
+const SliderLayout = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  & > div {
+    padding: 20px;
+  }
+
+  & > div:last-child {
+    margin-top: -100px;
+
+    @media (max-width: 1200px) {
+      margin: 0px;
+    }
   }
 `;
 
@@ -75,19 +97,21 @@ const PropertyDetail = ({ type }) => {
         </CustomLayout>
       )}
 
-      <PropertySlider
-        slidesToShow={isMenuOpen ? 5.2 : 5.8}
-        data={propertyState.properties}
-        title="Encuentra propiedades similares"
-        onPropertyClick={handlePropertyClick}
-      />
+      <SliderLayout>
+        <PropertySlider
+          slidesToShow={isMenuOpen ? 5.2 : 5.8}
+          data={propertyState.properties}
+          title="Encuentra propiedades similares"
+          onPropertyClick={handlePropertyClick}
+        />
 
-      <PropertySlider
-        slidesToShow={isMenuOpen ? 5.2 : 5.8}
-        data={propertyState.properties}
-        title="Propiedades recomendadas"
-        onPropertyClick={handlePropertyClick}
-      />
+        <PropertySlider
+          slidesToShow={isMenuOpen ? 5.2 : 5.8}
+          data={propertyState.properties}
+          title="Propiedades recomendadas"
+          onPropertyClick={handlePropertyClick}
+        />
+      </SliderLayout>
     </>
   );
 };

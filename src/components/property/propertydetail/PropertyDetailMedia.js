@@ -195,6 +195,15 @@ const Appear = styled.div`
       font-size: 1rem;
       margin: 0px;
       line-height: 75%;
+
+      @media (max-width: 1200px) {
+        font-size: 0.81rem;
+      }
+    }
+
+    @media (max-width: 1200px) {
+      width: 95px;
+      order: 2;
     }
   }
 
@@ -220,6 +229,18 @@ const Appear = styled.div`
         font-size: 0.81rem;
       }
     }
+
+    @media (max-width: 1200px) {
+      width: 231px;
+      height: 41px;
+    }
+  }
+
+  @media (max-width: 1200px) {
+    height: calc(100% - 20px);
+    width: 1px;
+    overflow: visible;
+    flex-direction: column;
   }
 `;
 

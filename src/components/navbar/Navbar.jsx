@@ -9,7 +9,7 @@ import {
 } from './NavbarStyles';
 import { useState } from 'react';
 import CustomSelect from 'components/custom/CustomSelect/CustomSelect';
-import navbarLogo from '../../assets/img/Organización Sanchez Logo.svg';
+import navbarLogo from 'assets/img/Sellblink - logo.svg';
 import divisaIcon from '../../assets/img/icons/money-change.svg';
 import languageIcon from '../../assets/img/icons/global.svg';
 import notificationIcon from '../../assets/img/icons/notification.svg';

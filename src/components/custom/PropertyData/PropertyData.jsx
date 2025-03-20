@@ -94,7 +94,7 @@ function PropertyData({ property, type }) {
             Fantástica casa residencial de 200 m2 en Calleria, barrio seguro
           </h3>
 
-          <TagPriceContainer id="mobile">
+          <TagPriceContainer id="mobile" type={type}>
             <div>
               {type === 'proyect' ? (
                 <CustomBadge color="turquoise">Proyecto</CustomBadge>
@@ -104,7 +104,14 @@ function PropertyData({ property, type }) {
               <span>Casa</span>
 
               {type === 'proyect' ? (
-                <CustomBadge color="gray">Financiamiento directo</CustomBadge>
+                <>
+                  <CustomBadge color="gray" id="desktop">
+                    Financiamiento directo
+                  </CustomBadge>
+                  <CustomBadge color="turquoise" id="mobile">
+                    Financiamiento directo
+                  </CustomBadge>
+                </>
               ) : null}
             </div>
 
@@ -149,10 +156,16 @@ function PropertyData({ property, type }) {
                     <b>1</b> Cochera
                   </span>
                 </IconDataContainer>
-                <IconDataContainer>
+                <IconDataContainer id="desktop">
                   <img src={bedIcon} alt="bed" />
                   <span>
                     <b>1</b> Dormitorio
+                  </span>
+                </IconDataContainer>
+                <IconDataContainer id="mobile">
+                  <img src={bedIcon} alt="bed" />
+                  <span>
+                    <b>1</b> Dorm.
                   </span>
                 </IconDataContainer>
                 <IconDataContainer>
@@ -315,32 +328,48 @@ function PropertyData({ property, type }) {
               onClick={() => handleActiveButton('caracteristicas')}
               isActive={isActive === 'caracteristicas'}
             >
-              <img src={taskIcon} alt="task" id='desktop'/>
-              <img src={isActive === 'caracteristicas' ? taskIconWhite : taskIcon} alt="task" id='mobile'/>
+              <img src={taskIcon} alt="task" id="desktop" />
+              <img
+                src={isActive === 'caracteristicas' ? taskIconWhite : taskIcon}
+                alt="task"
+                id="mobile"
+              />
               Caracteristicas generales
             </CustomButton>
             <CustomButton
               onClick={() => handleActiveButton('servicios')}
               isActive={isActive === 'servicios'}
             >
-              <img src={serviceIcon} alt="service" id="desktop"/>
-              <img src={isActive === 'servicios' ? serviceIconWhite : serviceIcon} alt="service" id="mobile"/>
+              <img src={serviceIcon} alt="service" id="desktop" />
+              <img
+                src={isActive === 'servicios' ? serviceIconWhite : serviceIcon}
+                alt="service"
+                id="mobile"
+              />
               Servicios
             </CustomButton>
             <CustomButton
               onClick={() => handleActiveButton('ambientes')}
               isActive={isActive === 'ambientes'}
             >
-              <img src={ambientIcon} alt="ambient" id="desktop"/>
-              <img src={isActive === 'ambientes' ? ambientIconWhite : ambientIcon} alt="ambient" id="mobile"/>
+              <img src={ambientIcon} alt="ambient" id="desktop" />
+              <img
+                src={isActive === 'ambientes' ? ambientIconWhite : ambientIcon}
+                alt="ambient"
+                id="mobile"
+              />
               Ambientes
             </CustomButton>
             <CustomButton
               onClick={() => handleActiveButton('alrededores')}
               isActive={isActive === 'alrededores'}
             >
-              <img src={buildsIcon} alt="builds" id="desktop"/>
-              <img src={isActive === 'alrededores' ? buildsIconWhite : buildsIcon} alt="builds" id="mobile"/>
+              <img src={buildsIcon} alt="builds" id="desktop" />
+              <img
+                src={isActive === 'alrededores' ? buildsIconWhite : buildsIcon}
+                alt="builds"
+                id="mobile"
+              />
               Alrededores
             </CustomButton>
           </div>

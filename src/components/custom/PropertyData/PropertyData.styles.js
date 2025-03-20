@@ -80,10 +80,17 @@ export const PropertyMainData = styled.div`
     justify-content: center;
     align-items: center;
     gap: 40px;
+
+    @media (max-width: 1200px) {
+      gap: 20px;
+      width: 100%;
+      justify-content: flex-start;
+    }
   }
 
   @media (max-width: 1200px) {
     max-width: 100%;
+    justify-content: space-between;
   }
 `;
 
@@ -128,6 +135,11 @@ export const IconDataContainer = styled.div`
       font-size: 0.81rem;
     }
   }
+
+  @media (max-width: 1200px) {
+    max-width: none;
+    width: 68px;
+  }
 `;
 
 export const TagPriceContainer = styled.div`
@@ -137,16 +149,17 @@ export const TagPriceContainer = styled.div`
   align-items: flex-start;
   gap: 16px;
 
-  @media (max-width: 1200px) {
-    gap: 12px;
-  }
-
   & > div {
     max-width: 160px;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     gap: 8px;
+
+    @media (max-width: 1200px) {
+      gap: 12px;
+      max-width: ${({ type }) => (type === 'proyect' ? '100%' : '160px')};
+    }
 
     span {
       font-size: 0.81rem;
@@ -178,6 +191,10 @@ export const TagPriceContainer = styled.div`
     @media (max-width: 1200px) {
       font-size: 1.12rem;
     }
+  }
+
+  @media (max-width: 1200px) {
+    gap: 12px;
   }
 `;
 
@@ -521,6 +538,10 @@ export const ProyectCard = styled.div`
       color: #424242;
       height: 14px;
       margin: 0px;
+
+      @media (max-width: 1200px) {
+        font-size: 0.81rem;
+      }
     }
 
     h3 {
@@ -528,10 +549,18 @@ export const ProyectCard = styled.div`
       font-size: 1.44em;
       color: #000000;
       margin: 0px;
+
+      @media (max-width: 1200px) {
+        font-size: 1.12rem;
+      }
     }
   }
 
   & > button:last-child {
     width: 100%;
+  }
+
+  @media (max-width: 1200px) {
+    min-width: 222px;
   }
 `;
