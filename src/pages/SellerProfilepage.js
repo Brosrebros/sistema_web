@@ -28,18 +28,46 @@ const SellerProfileContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 24px;
+
+  #mobile {
+    display: none;
+  }
+
+  @media (max-width: 1200px) {
+    #mobile {
+      display: flex;
+    }
+
+    #desktop {
+      display: none;
+    }
+
+    gap: 20px;
+  }
 `;
 
 const SectionOne = styled.div`
   display: grid;
-  grid-template-columns: 2.1fr 1fr;
+  grid-template-columns: 2.04fr 1fr;
   gap: 24px;
+
+  @media (max-width: 1200px) {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
 `;
 
 const SectionTwo = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 24px;
+
+  @media (max-width: 1200px) {
+    gap: 20px;
+    grid-template-columns: 1fr;
+    padding: 0px 20px;
+  }
 `;
 
 const ProfileDataContainer = styled.div`
@@ -55,6 +83,15 @@ const ProfileDataContainer = styled.div`
     width: 100%;
     height: 213px;
     background-color: #dbdbdb;
+
+    @media (max-width: 1200px) {
+      height: 123px;
+      border-radius: 12px;
+    }
+  }
+
+  @media (max-width: 1200px) {
+    padding: 0px 20px;
   }
 `;
 
@@ -79,6 +116,14 @@ const MainDataContainer = styled.div`
       background-color: #dbdbdb;
       border-radius: 140px;
       border: 5px solid #ffffff;
+
+      @media (max-width: 1200px) {
+        position: absolute;
+        height: 140px;
+        width: 140px;
+        top: -62px;
+        left: calc(50% - 70px);
+      }
     }
 
     & > div:nth-child(2) {
@@ -104,9 +149,13 @@ const MainDataContainer = styled.div`
           height: 17px;
           width: 17px;
         }
+
+        @media (max-width: 1200px) {
+          font-size: 1.12rem;
+        }
       }
 
-      div {
+      & > div:nth-child(2) {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -120,6 +169,10 @@ const MainDataContainer = styled.div`
 
           b {
             font-weight: bold;
+          }
+
+          @media (max-width: 1200px) {
+            font-size: 0.81rem;
           }
         }
 
@@ -135,6 +188,10 @@ const MainDataContainer = styled.div`
             color: #424242;
             margin: 0px;
 
+            @media (max-width: 1200px) {
+              font-size: 0.81rem;
+            }
+
             b {
               font-weight: bold;
             }
@@ -146,6 +203,16 @@ const MainDataContainer = styled.div`
           }
         }
       }
+
+      @media (max-width: 1200px) {
+        padding: 0px;
+        align-items: center;
+        margin-top: 90px;
+
+        & > div:nth-child(2) {
+          order: 3;
+        }
+      }
     }
 
     & > div:last-child {
@@ -153,10 +220,20 @@ const MainDataContainer = styled.div`
       justify-content: center;
       align-items: center;
       gap: 16px;
+
+      @media (max-width: 1200px) {
+        display: none;
+      }
+    }
+
+    @media (max-width: 1200px) {
+      display: flex;
+      flex-direction: column;
+      position: relative;
     }
   }
 
-  & > div:last-child {
+  & > div:nth-child(2) {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -165,6 +242,30 @@ const MainDataContainer = styled.div`
     & > button:first-child {
       color: #940000;
     }
+
+    @media (max-width: 1200px) {
+      width: 100%;
+
+      & > button:nth-child(3) {
+        width: 100%;
+      }
+    }
+  }
+
+  & > div:last-child {
+    @media (max-width: 1200px) {
+      width: 100%;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+    }
+  }
+
+  @media (max-width: 1200px) {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 0px;
   }
 `;
 
@@ -215,6 +316,10 @@ const CustomButton = styled.button`
       border-radius: 10px;
     }
   `}
+
+  @media (max-width: 1200px) {
+    font-size: 0.81rem;
+  }
 `;
 
 const Presentation = styled.div`
@@ -234,6 +339,10 @@ const Presentation = styled.div`
     line-height: 16px;
     color: black;
     margin: 0px;
+
+    @media (max-width: 1200px) {
+      font-size: 1.12rem;
+    }
   }
 
   p {
@@ -242,6 +351,10 @@ const Presentation = styled.div`
     line-height: 137%;
     color: #424242;
     margin: 0px;
+
+    @media (max-width: 1200px) {
+      font-size: 0.81rem;
+    }
   }
 
   & > div:last-child {
@@ -260,19 +373,48 @@ const Presentation = styled.div`
 
     & > div:nth-child(1) {
       grid-area: 1 / 1 / 4 / 4;
+
+      @media (max-width: 1200px) {
+        grid-area: 1 / 1 / 4 / 4;
+      }
     }
 
     & > div:nth-child(2) {
       grid-area: 1 / 4 / 3 / 6;
+
+      @media (max-width: 1200px) {
+        grid-area: 4 / 1 / 6 / 3;
+      }
     }
 
     & > div:nth-child(3) {
       grid-area: 3 / 4 / 4 / 5;
+
+      @media (max-width: 1200px) {
+        grid-area: 4 / 3 / 5 / 4;
+      }
     }
 
     & > div:nth-child(4) {
       grid-area: 3 / 5 / 4 / 6;
+
+      @media (max-width: 1200px) {
+        grid-area: 5 / 3 / 6 / 4;
+      }
     }
+
+    @media (max-width: 1200px) {
+      height: 355px;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(5, 1fr);
+      grid-column-gap: 12px;
+      grid-row-gap: 12px;
+    }
+  }
+
+  @media (max-width: 1200px) {
+    padding: 0px 20px;
+    gap: 20px;
   }
 `;
 
@@ -297,6 +439,10 @@ const Certifications = styled.div`
 
     b {
       color: #717171;
+    }
+
+    @media (max-width: 1200px) {
+      font-size: 1.12rem;
     }
   }
 
@@ -331,6 +477,10 @@ const Certifications = styled.div`
       height: 0;
       background: transparent;
     }
+
+    @media (max-width: 1200px) {
+      width: 100%;
+    }
   }
 
   & > div:last-child > div {
@@ -346,8 +496,16 @@ const Certifications = styled.div`
       font-size: 1rem;
       line-height: 137%;
       color: #424242;
-      margin-bottom: 4px;
+
+      @media (max-width: 1200px) {
+        font-size: 0.81rem;
+      }
     }
+  }
+
+  @media (max-width: 1200px) {
+    padding: 0px 20px;
+    gap: 20px;
   }
 `;
 
@@ -362,12 +520,17 @@ const Certificate = styled.div`
 
   & > img {
     width: 174px;
-    height: 172px;
+    height: 179px;
     background-color: #ffffff;
     border-radius: 12px;
+
+    @media (max-width: 1200px) {
+      width: 141px;
+      height: 137px;
+    }
   }
 
-  & > div:last-child {
+  & > div:nth-child(2) {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -381,6 +544,11 @@ const Certificate = styled.div`
       color: black;
       margin: 0px;
       height: 36px;
+
+      @media (max-width: 1200px) {
+        font-size: 0.94rem;
+        height: 31px;
+      }
     }
 
     p {
@@ -390,6 +558,31 @@ const Certificate = styled.div`
       line-height: 137%;
       color: #424242;
       margin: 0px;
+      display: flex;
+      align-items: center;
+
+      @media (max-width: 1200px) {
+        font-size: 0.81rem;
+        align-items: flex-start;
+      }
+    }
+
+    & > button:last-child {
+      width: 100%;
+    }
+
+    @media (max-width: 1200px) {
+      justify-content: flex-start;
+      gap: 16px;
+    }
+  }
+
+  @media (max-width: 1200px) {
+    padding: 12px;
+    gap: 20px;
+
+    & > button:last-child {
+      grid-column: span 2;
     }
   }
 `;
@@ -414,6 +607,10 @@ const DataContainer = styled.div`
 
     b {
       color: #717171;
+    }
+
+    @media (max-width: 1200px) {
+      font-size: 1.12rem;
     }
   }
 
@@ -442,8 +639,25 @@ const DataContainer = styled.div`
         font-size: 1rem;
         line-height: 137%;
         color: #424242;
+
+        @media (max-width: 1200px) {
+          font-size: 0.81rem;
+        }
+      }
+
+      @media (max-width: 1200px) {
+        font-size: 0.81rem;
+        height: auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
       }
     }
+  }
+
+  @media (max-width: 1200px) {
+    padding: 20px;
+    gap: 20px;
+    background-color: #f2f2f2;
   }
 `;
 
@@ -467,6 +681,10 @@ const Reviews = styled.div`
 
     b {
       color: #717171;
+    }
+
+    @media (max-width: 1200px) {
+      font-size: 1.12rem;
     }
   }
 
@@ -493,6 +711,38 @@ const Reviews = styled.div`
         justify-content: center;
         align-items: center;
         gap: 24px;
+
+        @media (max-width: 1200px) {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          grid-template-rows: repeat(5, 1fr);
+          grid-column-gap: 20px;
+          grid-row-gap: 0px;
+
+          & > div:first-child {
+            grid-area: 1 / 1 / 4 / 2;
+          }
+
+          & > div:nth-child(2) {
+            grid-area: 1 / 2 / 2 / 4;
+          }
+
+          & > div:nth-child(3) {
+            grid-area: 2 / 2 / 3 / 4;
+          }
+
+          & > div:nth-child(4) {
+            grid-area: 3 / 2 / 4 / 4;
+          }
+
+          & > div:nth-child(5) {
+            grid-area: 4 / 2 / 5 / 4;
+          }
+
+          & > div:nth-child(6) {
+            grid-area: 5 / 2 / 6 / 4;
+          }
+        }
       }
 
       & > div:last-child {
@@ -508,6 +758,10 @@ const Reviews = styled.div`
           line-height: 116%;
           color: black;
           margin: 0px;
+
+          @media (max-width: 1200px) {
+            font-size: 0.94rem;
+          }
         }
 
         p {
@@ -521,6 +775,17 @@ const Reviews = styled.div`
           color: #424242;
           margin: 0px;
           margin-bottom: 10px;
+
+          @media (max-width: 1200px) {
+            margin-bottom: 0px;
+            font-size: 0.81rem;
+          }
+        }
+
+        @media (max-width: 1200px) {
+          & > button:last-child {
+            width: 100%;
+          }
         }
       }
     }
@@ -536,7 +801,22 @@ const Reviews = styled.div`
           height: 41px;
         }
       }
+
+      @media (max-width: 1200px) {
+        & > div:nth-child(1) {
+          display: none;
+        }
+      }
     }
+
+    @media (max-width: 1200px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 1200px) {
+    padding: 0px 20px;
+    gap: 20px;
   }
 `;
 
@@ -552,6 +832,10 @@ const ScrollContainer = styled.div`
   &::-webkit-scrollbar {
     width: 8px;
     border-radius: 10px;
+
+    @media (max-width: 1200px) {
+      display: none;
+    }
   }
 
   &::-webkit-scrollbar-track {
@@ -581,6 +865,15 @@ const ScrollContainer = styled.div`
     justify-content: flex-start;
     align-items: flex-start;
     gap: 16px;
+
+    @media (max-width: 1200px) {
+      flex-direction: row;
+    }
+  }
+
+  @media (max-width: 1200px) {
+    overflow-x: auto;
+    max-width: calc(100vw - 40px);
   }
 `;
 
@@ -612,6 +905,10 @@ const RatingResume = styled.div`
       justify-content: center;
       align-items: center;
       gap: 11px;
+
+      @media (max-width: 1200px) {
+        gap: 6px;
+      }
     }
 
     p {
@@ -621,14 +918,26 @@ const RatingResume = styled.div`
       color: #424242;
       margin: 0px;
       height: 11px;
+
+      @media (max-width: 1200px) {
+        display: flex;
+        align-items: center;
+        font-size: 0.81rem;
+      }
     }
+  }
+
+  @media (max-width: 1200px) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
   }
 `;
 
 const RatingContainer = styled.div`
   width: 100%;
   display: grid;
-  grid-template-columns: auto auto 1fr auto;
+  grid-template-columns: auto auto 1fr 0.1fr;
   align-items: center;
   gap: 8px;
 
@@ -651,6 +960,14 @@ const RatingContainer = styled.div`
       font-size: 1rem;
       line-height: 137%;
       color: black;
+
+      @media (max-width: 1200px) {
+        font-size: 0.81rem;
+      }
+    }
+
+    @media (max-width: 1200px) {
+      font-size: 0.81rem;
     }
   }
 
@@ -666,6 +983,10 @@ const RatingContainer = styled.div`
       background-color: #940000;
       border-radius: 24px;
     }
+  }
+
+  @media (max-width: 1200px) {
+    grid-template-columns: auto auto 1fr 0.7fr;
   }
 `;
 
@@ -707,6 +1028,13 @@ const ReviewCard = styled.div`
         color: black;
         margin: 0px;
         grid-area: 1 / 2 / 2 / 3;
+
+        @media (max-width: 1200px) {
+          font-size: 0.94rem;
+          height: 11px;
+          display: flex;
+          align-items: center;
+        }
       }
 
       & > p {
@@ -715,6 +1043,13 @@ const ReviewCard = styled.div`
         line-height: 154%;
         color: #717171;
         grid-area: 2 / 2 / 3 / 3;
+
+        @media (max-width: 1200px) {
+          font-size: 0.62rem;
+          height: 7px;
+          display: flex;
+          align-items: center;
+        }
       }
     }
 
@@ -728,6 +1063,16 @@ const ReviewCard = styled.div`
       font-size: 1.44rem;
       line-height: 122%;
       color: #424242;
+
+      @media (max-width: 1200px) {
+        font-size: 1.12rem;
+      }
+    }
+
+    @media (max-width: 1200px) {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
     }
   }
 
@@ -737,10 +1082,20 @@ const ReviewCard = styled.div`
     line-height: 137%;
     color: #424242;
     margin: 0px;
+
+    @media (max-width: 1200px) {
+      font-size: 0.81rem;
+    }
   }
 
   & > button:last-child {
     color: #940000;
+  }
+
+  @media (max-width: 1200px) {
+    padding: 16px;
+    gap: 20px;
+    min-width: 262px;
   }
 `;
 
@@ -777,6 +1132,10 @@ const ResponseCard = styled.div`
       color: black;
       margin: 0px;
       grid-area: 1 / 2 / 2 / 3;
+
+      @media (max-width: 1200px) {
+        font-size: 0.81rem;
+      }
     }
 
     & > p {
@@ -786,6 +1145,10 @@ const ResponseCard = styled.div`
       color: #717171;
       margin: 0px;
       grid-area: 2 / 2 / 3 / 3;
+
+      @media (max-width: 1200px) {
+        font-size: 0.62rem;
+      }
     }
   }
 
@@ -795,6 +1158,15 @@ const ResponseCard = styled.div`
     line-height: 154%;
     color: #424242;
     margin: 0px;
+
+    @media (max-width: 1200px) {
+      font-size: 0.81rem;
+    }
+  }
+
+  @media (max-width: 1200px) {
+    gap: 16px;
+    padding: 16px;
   }
 `;
 
@@ -1053,9 +1425,18 @@ const SellerProfilepage = () => {
                 onClick={() => {
                   openModal('loginModal');
                 }}
+                id="desktop"
               >
                 <img src={likeIcon} alt="like" />
                 Recomendar
+              </SecondaryCustomButton>
+              <SecondaryCustomButton
+                onClick={() => {
+                  openModal('loginModal');
+                }}
+                id="mobile"
+              >
+                <img src={likeIcon} alt="like" />
               </SecondaryCustomButton>
               <PrimaryCustomButton
                 onClick={() => {
@@ -1068,6 +1449,20 @@ const SellerProfilepage = () => {
               <SecondaryCustomButton>
                 <img src={moreIcon} alt="more" />
               </SecondaryCustomButton>
+            </div>
+            <div id="mobile">
+              <CustomButton
+                onClick={() => handleActiveSection('profile')}
+                activeSection={activeSection === 'profile'}
+              >
+                Perfil
+              </CustomButton>
+              <CustomButton
+                onClick={() => handleActiveSection('advertise')}
+                activeSection={activeSection === 'advertise'}
+              >
+                Anuncios
+              </CustomButton>
             </div>
           </MainDataContainer>
         </ProfileDataContainer>
@@ -1105,8 +1500,13 @@ const SellerProfilepage = () => {
                           Informe realizado por terceros para la verificación de
                           identidad del anunciante
                         </p>
-                        <PrimaryCustomButton>Previsualizar</PrimaryCustomButton>
+                        <PrimaryCustomButton id="desktop">
+                          Previsualizar
+                        </PrimaryCustomButton>
                       </div>
+                      <PrimaryCustomButton id="mobile">
+                        Previsualizar
+                      </PrimaryCustomButton>
                     </Certificate>
                     <p>
                       La verificación confirma que la identidad del vendedor
@@ -1122,8 +1522,13 @@ const SellerProfilepage = () => {
                           Informe realizado por terceros para la verificación de
                           identidad del anunciante
                         </p>
-                        <PrimaryCustomButton>Previsualizar</PrimaryCustomButton>
+                        <PrimaryCustomButton id="desktop">
+                          Previsualizar
+                        </PrimaryCustomButton>
                       </div>
+                      <PrimaryCustomButton id="mobile">
+                        Previsualizar
+                      </PrimaryCustomButton>
                     </Certificate>
                   </div>
                 </div>

@@ -5,6 +5,7 @@ import { RouterProvider } from 'react-router-dom';
 import AppProvider from 'providers/AppProvider';
 import { router } from 'routes';
 import 'helpers/initFA';
+import "styles.module.css"
 
 const LoadingScreen = ({ show }) => (
   <div className={`loading-overlay ${show ? '' : 'hidden'}`}>

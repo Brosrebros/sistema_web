@@ -51,8 +51,12 @@ export const MenuContainer = styled.div`
     width: 182px;
   }
 
-  @media (max-width: 968px) {
+  @media (max-width: 1200px) {
     display: none;
+    position: absolute;
+    height: 100vh;
+    top: 0;
+    /* transform: translateX(-270px); */
   }
 `;
 
@@ -144,6 +148,10 @@ export const CustomCorner = styled.div`
   top: 0;
   right: -12px;
   z-index: 1000;
+
+  @media (max-width: 1200px) {
+    display: none;
+  }
 `;
 
 export const PremiumPack = styled.div`
