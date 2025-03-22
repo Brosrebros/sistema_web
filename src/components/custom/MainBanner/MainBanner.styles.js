@@ -51,6 +51,11 @@ export const BannerWrapper = styled.div`
     color: black;
     margin: 0px;
     line-height: 120%;
+
+    @media (max-width: 1200px) {
+      font-size: 1.38rem;
+      max-width: 20ch;
+    }
   }
 
   p {

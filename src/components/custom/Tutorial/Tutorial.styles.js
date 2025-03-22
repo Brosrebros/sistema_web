@@ -27,6 +27,11 @@ export const TutorialContainer = styled.div`
       margin: 0px;
       line-height: 70%;
       font-family: 'Roboto';
+
+      @media (max-width: 1200px) {
+        font-size: 1.12rem;
+        line-height: 120%;
+      }
     }
 
     p {
@@ -37,6 +42,14 @@ export const TutorialContainer = styled.div`
       margin: 0px;
       line-height: 110%;
       font-family: 'Roboto';
+
+      @media (max-width: 1200px) {
+        font-size: 0.81rem;
+      }
+    }
+
+    @media (max-width: 1200px) {
+      gap: 20px;
     }
   }
 
@@ -77,6 +90,11 @@ export const TutorialContainer = styled.div`
           line-height: 70%;
           margin: 0px;
           font-family: 'Roboto';
+
+          @media (max-width: 1200px) {
+            font-size: 0.94rem;
+            line-height: 120%;
+          }
         }
 
         p {
@@ -87,9 +105,29 @@ export const TutorialContainer = styled.div`
           margin: 0px;
           line-height: 110%;
           font-family: 'Roboto';
+
+          @media (max-width: 1200px) {
+            font-size: 0.81rem;
+          }
+        }
+
+        @media (max-width: 1200px) {
+          gap: 16px;
         }
       }
     }
+
+    @media (max-width: 1200px) {
+      grid-template-columns: 1fr;
+      gap: 40px;
+      padding-top: 0px;
+    }
+  }
+
+  @media (max-width: 1200px) {
+    height: auto;
+    padding: 40px 20px;
+    gap: 32px;
   }
 `;
 
@@ -135,6 +173,10 @@ export const Option = styled.button`
   margin: 0px;
   line-height: 65%;
   text-align: center;
+
+  @media (max-width: 1200px) {
+    font-size: 0.81rem;
+  }
 `;
 
 export const OptionDot = styled(Option)`

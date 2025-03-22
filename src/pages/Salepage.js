@@ -34,6 +34,10 @@ const CustomButton = styled.button`
   &:hover {
     filter: brightness(0.9);
   }
+
+  @media (max-width: 1200px) {
+    font-size: 0.81rem;
+  }
 `;
 
 const InfoBanner = styled.div`
@@ -59,6 +63,10 @@ const InfoBanner = styled.div`
       text-transform: uppercase;
       color: #ffffff;
       line-height: 100% !important;
+
+      @media (max-width: 1200px) {
+        font-size: 2rem;
+      }
     }
 
     h3 {
@@ -68,6 +76,10 @@ const InfoBanner = styled.div`
       color: #ffffff;
       margin: 0px;
       line-height: 100%;
+
+      @media (max-width: 1200px) {
+        font-size: 1.12rem;
+      }
     }
 
     h4 {
@@ -77,6 +89,10 @@ const InfoBanner = styled.div`
       color: #ffffff;
       margin: 0px;
       line-height: 100%;
+
+      @media (max-width: 1200px) {
+        font-size: 0.94rem;
+      }
     }
 
     p {
@@ -85,6 +101,11 @@ const InfoBanner = styled.div`
       text-align: center;
       color: #ffffff;
       margin: 0px;
+
+      @media (max-width: 1200px) {
+        font-size: 0.81rem;
+        max-width: 30ch;
+      }
     }
 
     div {
@@ -94,6 +115,55 @@ const InfoBanner = styled.div`
       justify-content: center;
       align-items: center;
       gap: 10px;
+
+      @media (max-width: 1200px) {
+        gap: 12px;
+      }
+    }
+
+    @media (max-width: 1200px) {
+      gap: 24px;
+    }
+  }
+
+  @media (max-width: 1200px) {
+    border-radius: 0px;
+    padding: 32px 20px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+  }
+`;
+
+const CustomLayout = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+  font-family: 'Aptos_display';
+  transition: all 0.15s linear;
+  margin: 0 auto;
+
+  @media (max-width: 1200px) {
+    background-color: #ffffff;
+    gap: 0px;
+    margin-top: -24px;
+    padding-top: 24px;
+
+    & > div:first-child {
+      margin: 0px 20px;
+      margin-bottom: 20px;
+      max-width: calc(100vw - 40px);
+      justify-content: center;
+    }
+
+    & > div:nth-child(3) {
+      padding-top: 40px;
+    }
+
+    & + footer {
+      margin-top: -24px;
     }
   }
 `;
@@ -103,7 +173,7 @@ const Salepage = () => {
   const navigate = useNavigate();
 
   return (
-    <CustomPageLayout>
+    <CustomLayout>
       <MainBanner type="sale" />
       <InfoBanner>
         <div>
@@ -149,13 +219,13 @@ const Salepage = () => {
           </p>
           <CustomButton
             type="secondary"
-            onClick={() => openModal("loginModal")}
+            onClick={() => openModal('loginModal')}
           >
             Vende tu inmueble ahora
           </CustomButton>
         </div>
       </InfoBanner>
-    </CustomPageLayout>
+    </CustomLayout>
   );
 };
 
