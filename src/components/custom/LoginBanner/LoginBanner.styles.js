@@ -26,4 +26,8 @@ export const LoginBannerContainer = styled.div`
     color: #424242;
     margin: 0px;
   }
+
+  @media (max-width: 1200px) {
+    display: none;
+  }
 `;

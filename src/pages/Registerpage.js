@@ -12,6 +12,15 @@ const RegisterpageContainer = styled.div`
 
   & > div:last-child {
     padding: 40px 40px;
+
+    @media (max-width: 1200px) {
+      padding: 0px;
+      max-width: calc(100vw - 40px);
+    }
+  }
+
+  @media (max-width: 1200px) {
+    grid-template-columns: 1fr;
   }
 `;
 

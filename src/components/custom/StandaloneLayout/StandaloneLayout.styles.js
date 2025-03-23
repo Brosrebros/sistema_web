@@ -8,6 +8,10 @@ export const StandaloneLayoutStyled = styled.div`
   align-items: center;
   gap: 24px;
   padding: ${({ type }) => (type === 'process' ? '0px' : '24px')};
+
+  @media (max-width: 1200px) {
+    padding: ${({ type }) => (type === 'process' ? '0px' : '20px')};
+  }
 `;
 
 export const StandaloneContainer = styled.div`
@@ -20,6 +24,10 @@ export const StandaloneContainer = styled.div`
   padding: 40px 0px;
   background-color: #ffffff;
   border-radius: 12px;
+
+  @media (max-width: 1200px) {
+    padding: 0px;
+  }
 `;
 
 export const StandaloneNavigate = styled.div`
@@ -31,6 +39,32 @@ export const StandaloneNavigate = styled.div`
 
   button {
     border: 0px;
+
+    @media (max-width: 1200px) {
+      position: absolute;
+      left: 0;
+    }
+  }
+
+  h3 {
+    display: none;
+  }
+
+  @media (max-width: 1200px) {
+    padding: 0px;
+    height: 56px;
+    position: relative;
+    justify-content: center;
+
+    h3 {
+      display: block;
+      font-weight: 700;
+      font-size: 1.12rem;
+      line-height: 122%;
+      text-align: center;
+      color: black;
+      margin: 0px;
+    }
   }
 `;
 

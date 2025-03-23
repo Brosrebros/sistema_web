@@ -16,6 +16,10 @@ export const RegisterFormContainer = styled.form`
     font-size: 1.44rem;
     color: black;
     margin: 0px;
+
+    @media (max-width: 1200px) {
+      font-size: 1.12rem;
+    }
   }
 
   & > div:last-child {
@@ -38,7 +42,23 @@ export const RegisterFormContainer = styled.form`
       color: black;
       margin: 0px;
       margin-top: -12px;
+
+      @media (max-width: 1200px) {
+        font-size: 0.62rem;
+      }
     }
+
+    @media (max-width: 1200px) {
+      gap: 24px;
+
+      u {
+        text-decoration: none;
+      }
+    }
+  }
+
+  @media (max-width: 1200px) {
+    gap: 24px;
   }
 `;
 
@@ -56,6 +76,10 @@ export const RegisterDataContainer = styled.div`
     font-size: 1.19rem;
     color: black;
     margin: 0px;
+
+    @media (max-width: 1200px) {
+      font-size: 0.94rem;
+    }
   }
 `;
 

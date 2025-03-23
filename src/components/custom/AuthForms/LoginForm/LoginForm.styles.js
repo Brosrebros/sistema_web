@@ -17,6 +17,10 @@ export const LoginFormContainer = styled.form`
     font-size: 1.44rem;
     color: black;
     margin: 0px;
+
+    @media (max-width: 1200px) {
+      font-size: 1.12rem;
+    }
   }
 
   & > div:last-child {
@@ -40,6 +44,10 @@ export const LoginFormContainer = styled.form`
         color: #424242;
         margin: 0px;
         cursor: pointer;
+
+        @media (max-width: 1200px) {
+          font-size: 0.81rem;
+        }
       }
 
       input[type='checkbox'] {
@@ -67,8 +75,16 @@ export const LoginFormContainer = styled.form`
             background-position: center;
           }
         }
+
+        @media (max-width: 1200px) {
+          background-color: white;
+        }
       }
     }
+  }
+
+  @media (max-width: 1200px) {
+    gap: 20px;
   }
 `;
 
@@ -82,6 +98,10 @@ export const LoginInputContainer = styled.div`
     font-weight: 400;
     font-size: 0.81rem;
     color: #940000;
+
+    @media (max-width: 1200px) {
+      font-size: 0.62rem;
+    }
   }
 `;
 
@@ -91,5 +111,17 @@ export const ButtonContainer = styled(LoginInputContainer)`
     font-size: 0.81rem;
     color: black;
     margin: 0px;
+
+    @media (max-width: 1200px) {
+      font-size: 0.62rem;
+    }
+  }
+
+  u {
+    text-decoration: none;
+
+    @media (max-width: 1200px) {
+      font-size: 0.62rem;
+    }
   }
 `;

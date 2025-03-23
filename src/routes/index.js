@@ -243,12 +243,18 @@ const routes = [
         children: [
           {
             path: rootPaths.authSimpleRoot,
-            element: <StandaloneLayout />,
+            element: <StandaloneLayout title="Crear cuenta"/>,
             children: [
               {
                 path: paths.registerRoot,
                 element: <Registerpage />,
               },
+            ],
+          },
+          {
+            path: rootPaths.authSimpleRoot,
+            element: <StandaloneLayout title="Iniciar sesión"/>,
+            children: [
               {
                 path: paths.loginRoot,
                 element: <Loginpage />,
@@ -354,7 +360,7 @@ const routes = [
           },
           {
             path: paths.propertyDetail(':propertyId'),
-            element: <Propertypage place="property"/>,
+            element: <Propertypage place="property" />,
           },
           {
             path: paths.sellerRoot,

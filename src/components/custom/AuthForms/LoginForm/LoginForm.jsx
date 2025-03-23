@@ -25,7 +25,7 @@ function LoginForm() {
           <PrimaryCustomButton>Iniciar sesión</PrimaryCustomButton>
           <p>
             Al continuar, aceptas las <u>Condiciones de uso</u> y el
-            <u>Aviso de privacidad</u> de Organización Sanchez
+            <u>Aviso de privacidad</u> de Sellblink.
           </p>
         </ButtonContainer>
       </div>

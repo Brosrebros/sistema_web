@@ -16,7 +16,7 @@ import arrowUpIcon from '../../../assets/img/icons/arrow-up.svg';
 import { Outlet, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 
-function StandaloneLayout({ type, children }) {
+function StandaloneLayout({ type, title, children }) {
   const cardContents = [
     {
       id: 'option-1',
@@ -81,6 +81,7 @@ function StandaloneLayout({ type, children }) {
             >
               <img src={arrowIcon} alt="arrow" />
             </SecondaryCustomButton>
+            <h3>{title}</h3>
           </StandaloneNavigate>
           <Outlet />
           {children}

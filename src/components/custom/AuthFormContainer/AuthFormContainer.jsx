@@ -10,6 +10,7 @@ import {
 import SecondaryCustomButton from '../CustomButtons/SecondaryCustomButton/SecondaryCustomButton';
 import googleIcon from '../../../assets/img/icons/Google.svg';
 import appleIcon from '../../../assets/img/icons/Apple.svg';
+import Logo from 'assets/img/Sellblink - logo.svg';
 
 import { useNavigate } from 'react-router-dom';
 import { rootPaths } from 'routes/paths';
@@ -19,10 +20,11 @@ function AuthFormContainer({ children, authType }) {
 
   return (
     <AuthFormContainerStyled>
+      <img src={Logo} alt="Sellblink" />
       <TextContainer>
         {authType === 'login' ? (
           <>
-            <h4>¡Bienvenido de vuelta a la Organización Sanchez!</h4>
+            <h4>Conecta, compra y crece con el mundo.</h4>
             <p>
               Conéctate al futuro de los negocios. Gestiona, invierte y crece
               con Organización Sánchez.
@@ -30,8 +32,8 @@ function AuthFormContainer({ children, authType }) {
           </>
         ) : (
           <>
-            <h4>Construye tu futuro con la organización Sánchez</h4>
-            <p>
+            <h4>Únete a Sellblink y expande tus oportunidades</h4>
+            <p id="register">
               Regístrate y accede a un ecosistema de oportunidades. Todo lo que
               necesitas para crecer está aquí.
             </p>
@@ -56,7 +58,7 @@ function AuthFormContainer({ children, authType }) {
       {children}
       {authType === 'login' ? (
         <AnotherOptionContainer>
-          <p>¿Eres nuevo en Organización Sanchez?</p>
+          <p>¿Eres nuevo en Sellblink?</p>
           <SecondaryCustomButton
             onClick={() => {
               navigate(
