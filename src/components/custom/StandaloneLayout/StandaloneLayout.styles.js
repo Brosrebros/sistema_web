@@ -10,7 +10,7 @@ export const StandaloneLayoutStyled = styled.div`
   padding: ${({ type }) => (type === 'process' ? '0px' : '24px')};
 
   @media (max-width: 1200px) {
-    padding: ${({ type }) => (type === 'process' ? '0px' : '20px')};
+    padding: ${({ type }) => (type === 'process' ? '0px' : '20px 20px 0px 20px')};;
   }
 `;
 
@@ -27,6 +27,7 @@ export const StandaloneContainer = styled.div`
 
   @media (max-width: 1200px) {
     padding: 0px;
+    gap: 20px;
   }
 `;
 
@@ -81,6 +82,11 @@ export const TextContainer = styled.div`
     font-size: 1.44rem;
     color: black;
     margin: 0px;
+
+    @media (max-width: 1200px) {
+      font-size: 1.12rem;
+      text-align: center;
+    }
   }
 
   p {
@@ -89,6 +95,11 @@ export const TextContainer = styled.div`
     line-height: 122%;
     color: #424242;
     margin: 0px;
+
+    @media (max-width: 1200px) {
+      font-size: 0.81rem;
+      text-align: center;
+    }
   }
 `;
 
@@ -127,6 +138,11 @@ export const DataCard = styled.div`
       font-size: 1.19rem;
       color: black;
       margin: 0px;
+
+      @media (max-width: 1200px) {
+        font-size: 0.94rem;
+        height: 31px;
+      }
     }
 
     img {
@@ -143,6 +159,10 @@ export const DataCard = styled.div`
     line-height: 122%;
     color: #424242;
     margin: 0px;
+
+    @media (max-width: 1200px) {
+      font-size: 0.81rem;
+    }
   }
 
   &:hover {
@@ -169,6 +189,13 @@ export const SideDataContainer = styled.div`
     gap: 40px;
     height: 100%;
   }
+
+  @media (max-width: 1200px) {
+    grid-template-columns: 1fr;
+    padding: 20px;
+    border-radius: 0px;
+    width: 100vw;
+  }
 `;
 
 export const TextBanner = styled.div`
@@ -181,4 +208,8 @@ export const TextBanner = styled.div`
   background-color: #c3c3c3;
   border-radius: 12px;
   padding: 40px;
+
+  @media (max-width: 1200px) {
+    display: none;
+  }
 `;

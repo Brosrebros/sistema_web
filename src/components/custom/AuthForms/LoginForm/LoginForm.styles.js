@@ -97,7 +97,8 @@ export const LoginInputContainer = styled.div`
   a {
     font-weight: 400;
     font-size: 0.81rem;
-    color: #940000;
+    color: #940000 !important;
+    cursor: pointer;
 
     @media (max-width: 1200px) {
       font-size: 0.62rem;

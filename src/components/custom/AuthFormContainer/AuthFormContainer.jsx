@@ -37,23 +37,23 @@ function AuthFormContainer({ children, authType }) {
         ) : authType === 'register' ? (
           <>
             <h4>Únete a Sellblink y expande tus oportunidades</h4>
-            <p id="register">
+            <p id="start">
               Regístrate y accede a un ecosistema de oportunidades. Todo lo que
               necesitas para crecer está aquí.
             </p>
           </>
         ) : authType === 'reset' ? (
           <>
-            <h4>Olvidé mi contraseña</h4>
-            <p>
+            <h4 id="mobile">Olvidé mi contraseña</h4>
+            <p id="start">
               Ingresa tu correo electrónico y te enviaremos un código de
               verificación para restablecer tu contraseña de forma segura.
             </p>
           </>
         ) : authType === 'sent' ? (
           <>
-            <h4>¡Correo enviado con exito!</h4>
-            <p>
+            <h4 id="start">¡Correo enviado con exito!</h4>
+            <p id="start">
               Hemos enviado un código de verificación a{' '}
               <b>gabrielm@hotmail.com.</b> Revisa tu bandeja de entrada y sigue
               las instrucciones para restablecer tu contraseña.
@@ -61,8 +61,8 @@ function AuthFormContainer({ children, authType }) {
           </>
         ) : authType === 'new-pass' ? (
           <>
-            <h4>Crea una nueva contraseña</h4>
-            <p>
+            <h4 id="mobile">Crea una nueva contraseña</h4>
+            <p id="start">
               Ingresa una nueva contraseña segura y diferente a la anterior para
               proteger tu cuenta. Asegúrate de que cumpla con los requisitos de
               seguridad.

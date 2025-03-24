@@ -17,6 +17,11 @@ export const PremiumCardContainer = styled.div`
     color: black;
     margin: 0px;
     height: 16px;
+
+    @media (max-width: 1200px) {
+      font-size: 1.12rem;
+      height: 13px;
+    }
   }
 
   span {
@@ -33,6 +38,10 @@ export const PremiumCardContainer = styled.div`
       color: black;
       margin: 0px;
       line-height: 11px !important;
+
+      @media (max-width: 1200px) {
+        font-size: 0.81rem;
+      }
     }
 
     b {
@@ -40,6 +49,10 @@ export const PremiumCardContainer = styled.div`
       font-size: 2.25rem;
       color: black;
       line-height: 24px;
+
+      @media (max-width: 1200px) {
+        font-size: 1.81rem;
+      }
     }
   }
 
@@ -56,6 +69,10 @@ export const PremiumCardContainer = styled.div`
       line-height: 122%;
       color: #424242;
       margin: 0px;
+
+      @media (max-width: 1200px) {
+        font-size: 0.81rem;
+      }
     }
   }
 
@@ -81,6 +98,10 @@ export const PremiumCardContainer = styled.div`
       font-size: 1.19rem;
       color: black;
       margin-bottom: 20px;
+
+      @media (max-width: 1200px) {
+        font-size: 0.94rem;
+      }
     }
 
     li {
@@ -98,6 +119,10 @@ export const PremiumCardContainer = styled.div`
         width: 24px;
         height: 24px;
       }
+
+      @media (max-width: 1200px) {
+        font-size: 0.81rem;
+      }
     }
   }
 
@@ -105,5 +130,9 @@ export const PremiumCardContainer = styled.div`
     width: 100%;
     background-color: #dbdbdb;
     cursor: none;
+  }
+
+  @media (max-width: 1200px) {
+    gap: 18px;
   }
 `;

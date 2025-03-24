@@ -19,6 +19,11 @@ const TitleContainer = styled.div`
     font-size: 1.44rem;
     color: black;
     margin: 0px;
+
+    @media (max-width: 1200px) {
+      font-size: 1.38rem;
+      height: 16px;
+    }
   }
 
   p {
@@ -29,6 +34,14 @@ const TitleContainer = styled.div`
     text-align: center;
     color: #424242;
     margin: 0px;
+
+    @media (max-width: 1200px) {
+      font-size: 0.81rem;
+    }
+  }
+
+  @media (max-width: 1200px) {
+    gap: 20px;
   }
 `;
 
@@ -50,6 +63,10 @@ const ButtonsContainer = styled.div`
     background-color: ${props => (props.isActive ? '#940000' : '#f2f2f2')};
     border-radius: 12px;
     cursor: pointer;
+
+    @media (max-width: 1200px) {
+      height: 36px;
+    }
   }
 
   span {
@@ -66,6 +83,10 @@ const ButtonsContainer = styled.div`
     font-size: 0.81rem;
     line-height: 122%;
     color: #424242;
+
+    @media (max-width: 1200px) {
+      font-size: 0.62rem;
+    }
   }
 `;
 
@@ -88,6 +109,10 @@ const TabButtonStyled = styled.button`
   font-family: 'Aptos';
   color: ${props => (props.isActive ? 'white' : '#424242')};
   line-height: 70%;
+
+  @media (max-width: 1200px) {
+    font-size: 0.81rem;
+  }
 `;
 
 const AnualButtonStyled = styled.button`
@@ -108,6 +133,10 @@ const AnualButtonStyled = styled.button`
   font-family: 'Aptos';
   color: ${props => (props.isActive ? 'white' : '#424242')};
   line-height: 70%;
+
+  @media (max-width: 1200px) {
+    font-size: 0.81rem;
+  }
 `;
 
 const CardContainer = styled.div`
@@ -117,6 +146,10 @@ const CardContainer = styled.div`
   justify-content: center;
   align-items: flex-start;
   gap: 32px;
+
+  @media (max-width: 1200px) {
+    flex-direction: column;
+  }
 `;
 
 const DetailsContainer = styled.div`
@@ -139,6 +172,11 @@ const DetailsContainer = styled.div`
       font-size: 1.44rem;
       color: black;
       margin: 0px;
+
+      @media (max-width: 1200px) {
+        font-size: 1.12rem;
+        line-height: 13px;
+      }
     }
 
     span {
@@ -146,10 +184,18 @@ const DetailsContainer = styled.div`
       font-size: 1rem;
       color: black;
 
+      @media (max-width: 1200px) {
+        height: 19px;
+      }
+
       b {
         font-weight: 700;
         font-size: 2.25rem;
         color: black;
+
+        @media (max-width: 1200px) {
+          font-size: 1.81rem;
+        }
       }
     }
 
@@ -159,6 +205,10 @@ const DetailsContainer = styled.div`
       line-height: 122%;
       color: #424242;
       margin: 0px;
+
+      @media (max-width: 1200px) {
+        font-size: 0.81rem;
+      }
     }
   }
 
@@ -185,8 +235,19 @@ const DetailsContainer = styled.div`
         line-height: 122%;
         color: #424242;
         margin: 0px;
+        padding: 6px;
+
+        @media (max-width: 1200px) {
+          font-size: 0.62rem;
+        }
       }
     }
+  }
+
+  @media (max-width: 1200px) {
+    grid-template-columns: 1fr;
+    padding: 0px 28px;
+    gap: 16px;
   }
 `;
 

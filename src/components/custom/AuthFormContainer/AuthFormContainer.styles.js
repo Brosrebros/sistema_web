@@ -51,8 +51,13 @@ export const TextContainer = styled.div`
     padding: 0px;
     align-items: center;
 
-    #register {
+    #start {
       text-align: start;
+      width: 100%;
+    }
+
+    #mobile {
+      display: none;
     }
   }
 `;
