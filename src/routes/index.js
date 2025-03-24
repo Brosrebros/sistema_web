@@ -207,6 +207,9 @@ import Sellerpage from 'pages/Sellerpage';
 import Salepage from 'pages/Salepage';
 import Loginpage from 'pages/Loginpage';
 import Registerpage from 'pages/Registerpage';
+import ResetPasspage from 'pages/ResetPasspage';
+import MailSentpage from 'pages/MailSentpage';
+import NewPasspage from 'pages/NewPasspage';
 import StandaloneLayout from 'components/custom/StandaloneLayout/StandaloneLayout';
 import Premiumpage from 'pages/Premiumpage';
 import Paymentpage from 'pages/Paymentpage';
@@ -243,7 +246,7 @@ const routes = [
         children: [
           {
             path: rootPaths.authSimpleRoot,
-            element: <StandaloneLayout title="Crear cuenta"/>,
+            element: <StandaloneLayout title="Crear cuenta" />,
             children: [
               {
                 path: paths.registerRoot,
@@ -253,11 +256,35 @@ const routes = [
           },
           {
             path: rootPaths.authSimpleRoot,
-            element: <StandaloneLayout title="Iniciar sesión"/>,
+            element: <StandaloneLayout title="Iniciar sesión" />,
             children: [
               {
                 path: paths.loginRoot,
                 element: <Loginpage />,
+              },
+            ],
+          },
+          {
+            path: rootPaths.authSimpleRoot,
+            element: <StandaloneLayout title="Restablecer contraseña" />,
+            children: [
+              {
+                path: paths.resetRoot,
+                element: <ResetPasspage />,
+              },
+              {
+                path: paths.sentRoot,
+                element: <MailSentpage />,
+              },
+            ],
+          },
+          {
+            path: rootPaths.authSimpleRoot,
+            element: <StandaloneLayout title="Crear nueva contraseña" />,
+            children: [
+              {
+                path: paths.newPassRoot,
+                element: <NewPasspage />,
               },
             ],
           },

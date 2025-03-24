@@ -94,7 +94,7 @@ export const LoginInputContainer = styled.div`
   flex-direction: column;
   gap: 12px;
 
-  span {
+  a {
     font-weight: 400;
     font-size: 0.81rem;
     color: #940000;

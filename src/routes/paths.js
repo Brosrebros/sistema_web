@@ -49,6 +49,9 @@ export const rootPaths = {
   proyectsRoot: 'proyectos',
   offersRoot: 'ofertas',
   settingsRoot: 'settings',
+  resetRoot: 'reset-password',
+  sentRoot: 'mail-sent',
+  newPassRoot: 'new-pass',
 };
 
 export default {
@@ -67,6 +70,9 @@ export default {
   sellerProfileRoot: `/${rootPaths.sellerProfileRoot}`,
   loginRoot: `/${rootPaths.authRoot}/${rootPaths.authSimpleRoot}/${rootPaths.loginRoot}`,
   registerRoot: `/${rootPaths.authRoot}/${rootPaths.authSimpleRoot}/${rootPaths.registerRoot}`,
+  resetRoot: `/${rootPaths.authRoot}/${rootPaths.authSimpleRoot}/${rootPaths.resetRoot}`,
+  sentRoot: `/${rootPaths.authRoot}/${rootPaths.authSimpleRoot}/${rootPaths.sentRoot}`,
+  newPassRoot: `/${rootPaths.authRoot}/${rootPaths.authSimpleRoot}/${rootPaths.newPassRoot}`,
   premiumRoot: `/${rootPaths.premiumRoot}`,
   paymentRoot: `/${rootPaths.premiumRoot}/${rootPaths.paymentRoot}`,
   processRoot: `/${rootPaths.processRoot}`,

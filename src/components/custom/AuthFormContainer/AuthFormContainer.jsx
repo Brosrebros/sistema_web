@@ -20,7 +20,11 @@ function AuthFormContainer({ children, authType }) {
 
   return (
     <AuthFormContainerStyled>
-      <img src={Logo} alt="Sellblink" />
+      {authType === 'reset' ||
+      authType === 'sent' ||
+      authType === 'new-pass' ? null : (
+        <img src={Logo} alt="Sellblink" />
+      )}
       <TextContainer>
         {authType === 'login' ? (
           <>
@@ -30,7 +34,7 @@ function AuthFormContainer({ children, authType }) {
               con Organización Sánchez.
             </p>
           </>
-        ) : (
+        ) : authType === 'register' ? (
           <>
             <h4>Únete a Sellblink y expande tus oportunidades</h4>
             <p id="register">
@@ -38,23 +42,56 @@ function AuthFormContainer({ children, authType }) {
               necesitas para crecer está aquí.
             </p>
           </>
-        )}
+        ) : authType === 'reset' ? (
+          <>
+            <h4>Olvidé mi contraseña</h4>
+            <p>
+              Ingresa tu correo electrónico y te enviaremos un código de
+              verificación para restablecer tu contraseña de forma segura.
+            </p>
+          </>
+        ) : authType === 'sent' ? (
+          <>
+            <h4>¡Correo enviado con exito!</h4>
+            <p>
+              Hemos enviado un código de verificación a{' '}
+              <b>gabrielm@hotmail.com.</b> Revisa tu bandeja de entrada y sigue
+              las instrucciones para restablecer tu contraseña.
+            </p>
+          </>
+        ) : authType === 'new-pass' ? (
+          <>
+            <h4>Crea una nueva contraseña</h4>
+            <p>
+              Ingresa una nueva contraseña segura y diferente a la anterior para
+              proteger tu cuenta. Asegúrate de que cumpla con los requisitos de
+              seguridad.
+            </p>
+          </>
+        ) : null}
       </TextContainer>
-      <ButtonsContainer>
-        <SecondaryCustomButton>
-          <img src={googleIcon} alt="google" />
-          Iniciar sesión con Google
-        </SecondaryCustomButton>
-        <SecondaryCustomButton>
-          <img src={appleIcon} alt="apple" />
-          Iniciar sesión con Apple
-        </SecondaryCustomButton>
-      </ButtonsContainer>
-      <Separator>
-        <span></span>
-        <p>O también puedes</p>
-        <span></span>
-      </Separator>
+      {authType === 'reset' ||
+      authType === 'sent' ||
+      authType === 'new-pass' ? null : (
+        <>
+          <ButtonsContainer>
+            <SecondaryCustomButton>
+              <img src={googleIcon} alt="google" />
+              Iniciar sesión con Google
+            </SecondaryCustomButton>
+            <SecondaryCustomButton>
+              <img src={appleIcon} alt="apple" />
+              Iniciar sesión con Apple
+            </SecondaryCustomButton>
+          </ButtonsContainer>
+          <Separator>
+            <span></span>
+            <p>O también puedes</p>
+            <span></span>
+          </Separator>
+        </>
+      )}
+
       {children}
       {authType === 'login' ? (
         <AnotherOptionContainer>
@@ -69,9 +106,15 @@ function AuthFormContainer({ children, authType }) {
             Crea tu cuenta
           </SecondaryCustomButton>
         </AnotherOptionContainer>
-      ) : (
+      ) : authType === 'new-pass' ? null : (
         <AnotherOptionContainer>
-          <p>¿Ya tienes una cuenta?</p>
+          {authType === 'reset' ? (
+            <p>¿Recordaste la contraseña? </p>
+          ) : authType === 'sent' ? (
+            <p>¿No recibiste el correo electrónico?</p>
+          ) : (
+            <p>¿Ya tienes una cuenta?</p>
+          )}
           <SecondaryCustomButton
             onClick={() => {
               navigate(
@@ -79,7 +122,9 @@ function AuthFormContainer({ children, authType }) {
               );
             }}
           >
-            Iniciar sesión
+            {authType === 'sent'
+              ? 'Reenviar correo electrónico'
+              : 'Iniciar sesión'}
           </SecondaryCustomButton>
         </AnotherOptionContainer>
       )}
