@@ -8,7 +8,7 @@ import Comments from 'assets/img/icons/Comments.svg';
 import Document from 'assets/img/icons/Document.svg';
 
 const cardOptions =
-  window.innerWidth >= 968
+  window.innerWidth > 1200
     ? {
         option1: {
           img: HomeOnSale,
@@ -76,14 +76,14 @@ const cardOptions =
           img: SpreadSheet,
           title: 'Términos legales',
           paragraph:
-            'Información esencial sobre los acuerdos y positivas que rigen el uso de nuestros servicios.',
+            'Información sobre los acuerdos y positivas que rigen en el sitio.',
           alt: 'spreadsheet',
         },
         option5: {
           img: Comments,
           title: 'Guías y Preguntas Frecuentes (FAQs)',
           paragraph:
-            'Respuestas a las preguntas más comunes y guías resolver problemas técnicos.',
+            'Respuestas a las preguntas más comunes y guías paso a paso.',
           alt: 'comments',
         },
         option6: {

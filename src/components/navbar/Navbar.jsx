@@ -21,7 +21,7 @@ import { useNavigate } from 'react-router-dom';
 import SecondaryCustomButton from 'components/custom/CustomButtons/SecondaryCustomButton/SecondaryCustomButton';
 import Notifications from 'components/custom/Notifications/Notifications';
 
-function Navbar({ type }) {
+function Navbar({ type, id }) {
   const { toggleMenu } = useMenu();
   const navigate = useNavigate();
   const [isActive, setIsActive] = useState(false);

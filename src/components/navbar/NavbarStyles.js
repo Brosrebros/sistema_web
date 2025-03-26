@@ -17,7 +17,7 @@ export const NavbarContainer = styled.nav`
       ? '0 5px 10px 0 rgba(0, 0, 0, 0.05), 0 19px 19px 0 rgba(0, 0, 0, 0.04), 0 43px 26px 0 rgba(0, 0, 0, 0.03), 0 76px 30px 0 rgba(0, 0, 0, 0.01), 0 119px 33px 0 rgba(0, 0, 0, 0)'
       : 'none'};
 
-  @media (max-width: 968px) {
+  @media (max-width: 1200px) {
     padding: 1em 20px;
   }
 `;
@@ -28,7 +28,7 @@ export const NavbarMainDataContainer = styled.div`
   grid-template-columns: 246px auto;
   gap: 24px;
 
-  @media (max-width: 968px) {
+  @media (max-width: 1200px) {
     width: 100%;
     display: flex;
 
@@ -57,7 +57,7 @@ export const NavbarLogoMenuContainer = styled.div`
     display: none;
   }
 
-  @media (max-width: 968px) {
+  @media (max-width: 1200px) {
     width: 100%;
     padding: 0px;
 
@@ -85,7 +85,7 @@ export const NavbarButtonsContainer = styled.div`
     position: relative;
   }
 
-  @media (max-width: 968px) {
+  @media (max-width: 1200px) {
     display: none;
   }
 `;
@@ -100,7 +100,7 @@ export const NavbarExtraButtonsContainer = styled.div`
     color: #940000;
   }
 
-  @media (max-width: 968px) {
+  @media (max-width: 1200px) {
     display: none;
   }
 `;

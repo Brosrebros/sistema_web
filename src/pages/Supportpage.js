@@ -5,6 +5,26 @@ import CardButton from 'components/custom/CustomButtons/CardButton/CardButton';
 import wtspIcon from 'assets/img/icons/whatsapp.svg';
 import { rootPaths } from 'routes/paths';
 import { useNavigate } from 'react-router-dom';
+import arrowLeft from 'assets/img/icons/arrow-left.svg';
+
+const SupportContainer = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+
+  @media (max-width: 1200px) {
+    background-color: #ffffff;
+    margin-top: -24px;
+    padding: 20px;
+    gap: 20px;
+
+    & + footer {
+      margin-top: -24px;
+    }
+  }
+`;
 
 const SupportBanner = styled.div`
   width: 100%;
@@ -16,6 +36,10 @@ const SupportBanner = styled.div`
   gap: 32px;
   background-color: #940000;
   border-radius: 12px;
+
+  #mobile {
+    display: none;
+  }
 
   & > div:first-child {
     display: flex;
@@ -33,6 +57,11 @@ const SupportBanner = styled.div`
       text-align: center;
       color: #ffffff;
       margin: 0px;
+
+      @media (max-width: 1200px) {
+        font-size: 1.38rem;
+        max-width: 100%;
+      }
     }
 
     p {
@@ -44,6 +73,14 @@ const SupportBanner = styled.div`
       text-align: center;
       color: #ffffff;
       margin: 0px;
+
+      @media (max-width: 1200px) {
+        font-size: 0.81rem;
+      }
+    }
+
+    @media (max-width: 1200px) {
+      gap: 20px;
     }
   }
 
@@ -53,6 +90,24 @@ const SupportBanner = styled.div`
     display: grid;
     grid-template-columns: 500px auto;
     gap: 8px;
+
+    @media (max-width: 1200px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 1200px) {
+    height: 282px;
+    gap: 24px;
+    padding: 32px 20px;
+
+    #mobile {
+      display: flex;
+    }
+
+    #desktop {
+      display: none;
+    }
   }
 `;
 
@@ -87,6 +142,10 @@ const CustomButton = styled.button`
     width: 20px;
     height: 20px;
   }
+
+  @media (max-width: 1200px) {
+    font-size: 0.81rem;
+  }
 `;
 
 const ButtonContainer = styled.section`
@@ -97,12 +156,12 @@ const ButtonContainer = styled.section`
   padding: 0px;
 
   @media (max-width: 1200px) {
-    gap: 12px;
-  }
+    grid-template-columns: 1fr;
+    gap: 16px;
 
-  @media (max-width: 968px) {
-    flex-direction: column;
-    gap: 20px;
+    & > div p {
+      max-width: 24ch;
+    }
   }
 `;
 
@@ -132,6 +191,11 @@ const WhatsappBanner = styled.div`
       text-align: center;
       color: #ffffff;
       margin: 0px;
+
+      @media (max-width: 1200px) {
+        font-size: 1.12rem;
+        text-align: start;
+      }
     }
 
     p {
@@ -142,7 +206,62 @@ const WhatsappBanner = styled.div`
       text-align: center;
       color: #ffffff;
       margin: 0px;
+
+      @media (max-width: 1200px) {
+        font-size: 0.81rem;
+        text-align: start;
+      }
     }
+
+    @media (max-width: 1200px) {
+      gap: 12px;
+    }
+  }
+
+  @media (max-width: 1200px) {
+    width: 100vw;
+    padding: 32px 20px;
+    gap: 22px;
+    border-radius: 0px;
+  }
+`;
+
+const MobileHeader = styled.div`
+  display: none;
+  width: 100vw;
+  height: 56px;
+  justify-content: center;
+  align-items: center;
+  margin-top: -24px;
+  background-color: #ffffff;
+  padding: 0px 20px;
+
+  & > div {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    h4 {
+      font-weight: 700;
+      font-size: 0.94rem;
+      line-height: 133%;
+      text-align: center;
+      color: black;
+      margin: 0px;
+    }
+
+    img {
+      width: 20px;
+      height: 20px;
+      position: absolute;
+      left: 0;
+    }
+  }
+
+  @media (max-width: 1200px) {
+    display: flex;
   }
 `;
 
@@ -151,51 +270,64 @@ function Supportpage() {
 
   return (
     <>
-      <SupportBanner>
+      <MobileHeader>
         <div>
-          <h2>
-            Te damos la bienvenida al servicio de soporte de la organización
-            Sanchez
-          </h2>
-          <p>
-            ¿Con qué te gustaría recibir ayuda hoy? Puedes encargarte
-            rápidamente de la mayoría de las cosas aquí, o conectarte con
-            nosotros.
-          </p>
+          <img src={arrowLeft} onClick={() => navigate(-1)} />
+          <h4>Soporte</h4>
         </div>
+      </MobileHeader>
+      <SupportContainer>
+        <SupportBanner>
+          <div>
+            <h2 id="desktop">Te damos la bienvenida al soporte de Sellblink</h2>
+            <p id="desktop">
+              ¿Con qué te gustaría recibir ayuda hoy? Puedes encargarte
+              rápidamente de la mayoría de las cosas aquí, o conectarte con
+              nosotros.
+            </p>
 
-        <div>
-          <CustomInput placeholder="Escribe aquí" />
-          <CustomButton>Buscar</CustomButton>
-        </div>
-      </SupportBanner>
+            <h2 id="mobile">¿Con qué te gustaría recibir ayuda hoy?</h2>
+            <p id="mobile">
+              Puedes encargarte rápidamente de la mayoría de las cosas aquí, o
+              conectarte con nosotros.
+            </p>
+          </div>
 
-      <ButtonContainer>
-        <CardButton
-          option="option4"
-          onClick={() => {
-            navigate(`/${rootPaths.supportRoot}/terms`);
-          }}
-        />
-        <CardButton option="option5" />
-        <CardButton
-          option="option6"
-          onClick={() => {
-            navigate(`/${rootPaths.supportRoot}/updates`);
-          }}
-        />
-      </ButtonContainer>
+          <div>
+            <CustomInput placeholder="Escribe aquí" />
+            <CustomButton>Buscar</CustomButton>
+          </div>
+        </SupportBanner>
 
-      <WhatsappBanner>
-        <div>
-          <h3>¿No encontraste lo que buscabas?</h3>
-          <p>Escríbenos directamente y nuestro equipo se pondrá en contacto.</p>
-        </div>
-        <CustomButton>
-          <img src={wtspIcon} alt="whatsapp" />
-          WhatsApp
-        </CustomButton>
-      </WhatsappBanner>
+        <ButtonContainer>
+          <CardButton
+            option="option4"
+            onClick={() => {
+              navigate(`/${rootPaths.supportRoot}/terms`);
+            }}
+          />
+          <CardButton option="option5" />
+          <CardButton
+            option="option6"
+            onClick={() => {
+              navigate(`/${rootPaths.supportRoot}/updates`);
+            }}
+          />
+        </ButtonContainer>
+
+        <WhatsappBanner>
+          <div>
+            <h3>¿No encontraste lo que buscabas?</h3>
+            <p>
+              Escríbenos directamente y nuestro equipo se pondrá en contacto.
+            </p>
+          </div>
+          <CustomButton>
+            <img src={wtspIcon} alt="whatsapp" />
+            WhatsApp
+          </CustomButton>
+        </WhatsappBanner>
+      </SupportContainer>
     </>
   );
 }

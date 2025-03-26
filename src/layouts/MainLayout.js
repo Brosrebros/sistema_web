@@ -29,7 +29,7 @@ const CustomPageContainer = styled.div`
   background-color: #f2f2f2;
   border-radius: 12px 0px 0px 0px;
 
-  @media (max-width: 968px) {
+  @media (max-width: 1200px) {
     width: 100%;
     border-radius: 0px;
     padding: 24px 0px 0px 0px;
@@ -44,7 +44,7 @@ const StyledContainer = styled.div`
   position: relative;
   transition: all 0.2s ease;
 
-  @media (max-width: 968px) {
+  @media (max-width: 1200px) {
     display: flex;
     max-width: 100vw;
   }
@@ -53,18 +53,20 @@ const StyledContainer = styled.div`
 const MainLayout = ({ type, active }) => {
   const { isMenuOpen } = useMenu();
   const { hash, pathname } = useLocation();
+  const [viewWidth, setViewWidth] = React.useState(window.innerWidth);
 
   useEffect(() => {
-    setTimeout(() => {
-      if (hash) {
-        const id = hash.replace('#', '');
-        const element = document.getElementById(id);
-        if (element) {
-          element.scrollIntoView({ block: 'start', behavior: 'smooth' });
-        }
-      }
-    }, 0);
+    const handleResize = () => setViewWidth(window.innerWidth);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
+
+  useEffect(() => {
+    if (hash) {
+      const element = document.getElementById(hash.replace('#', ''));
+      element?.scrollIntoView({ block: 'start', behavior: 'smooth' });
+    }
+  }, [hash]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -74,7 +76,7 @@ const MainLayout = ({ type, active }) => {
     <main>
       <ProductProvider>
         <CourseProvider>
-          <Navbar />
+          {viewWidth < 1200 && active === 'soporte' ? null : <Navbar />}
           <StyledContainer isMenuOpen={isMenuOpen}>
             <Menu active={active} />
             <CustomPageContainer isMenuOpen={isMenuOpen}>
