@@ -18,6 +18,10 @@ const PaymentContainer = styled.div`
     align-items: flex-start;
     gap: 24px;
   }
+
+  @media (max-width: 1200px) {
+    flex-direction: column;
+  }
 `;
 
 export const PaymentTitle = styled.div`

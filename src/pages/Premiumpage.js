@@ -244,19 +244,201 @@ const DetailsContainer = styled.div`
     }
   }
 
+  #mobile {
+    display: none;
+  }
+
   @media (max-width: 1200px) {
     grid-template-columns: 1fr;
     padding: 0px 28px;
     gap: 16px;
+
+    #desktop {
+      display: none;
+    }
+
+    #mobile {
+      display: flex;
+    }
+  }
+`;
+
+const PaymentModal = styled.div`
+  display: none;
+
+  @media (max-width: 1200px) {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: #ffffff;
+    border-radius: 12px 12px 0px 0px;
+    position: fixed;
+    bottom: 0;
+    transform: ${({ open }) =>
+      open ? 'translateY(0px)' : 'translateY(700px)'};
+    transition: all 0.3s ease-in-out;
+
+    & > div:first-child {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 8px;
+
+      & > span {
+        width: 60px;
+        height: 4px;
+        border-radius: 100px;
+        background-color: #c3c3c3;
+      }
+    }
+
+    & > div:nth-child(2) {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 12px 20px 24px 20px;
+      gap: 16px;
+
+      & > div:nth-child(7) {
+        padding-bottom: 0px;
+      }
+
+      & > div:last-child {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: #f2f2f2;
+        padding: 20px;
+        gap: 24px;
+        border-radius: 12px;
+        margin-top: calc(40px - 16px);
+
+        & > button {
+          width: 100%;
+        }
+
+        & > p {
+          font-family: 'Roboto';
+          font-weight: 400;
+          font-size: 0.62rem;
+          color: #424242;
+          margin-bottom: 0px;
+        }
+      }
+    }
+  }
+`;
+
+const PaymentTitle = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+
+  h3 {
+    font-weight: 700;
+    height: 13px;
+    font-size: 1.12rem;
+    color: black;
+    margin: 0px;
+    display: flex;
+    align-items: center;
+  }
+
+  span {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    gap: 10px;
+    color: black;
+
+    b {
+      font-weight: 700;
+      font-size: 1.81rem;
+      color: black;
+      line-height: 24px;
+    }
+
+    p {
+      max-height: 24px;
+      font-weight: 400;
+      font-size: 0.81rem;
+      color: black;
+      margin: 0px;
+      line-height: 11px;
+    }
+  }
+`;
+
+const PaymentData = styled.div`
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-content: space-between;
+  gap: 10px;
+
+  p {
+    font-weight: 400;
+    font-size: 0.94rem;
+    color: black;
+    margin: 0px;
+    line-height: 9px !important;
+  }
+
+  b {
+    font-weight: 900;
+    color: black;
+    margin: 0px;
+    line-height: 11px;
+  }
+
+  & > p:nth-child(even) {
+    text-align: right;
+  }
+
+  padding-bottom: 24px;
+`;
+
+const Separador = styled.span`
+  display: block;
+  width: 100%;
+  height: 1px;
+  background-color: #dbdbdb;
+`;
+
+const Wrapper = styled.div`
+  display: none;
+
+  @media (max-width: 1200px) {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    background-color: #00000099;
+    position: fixed;
+    bottom: 0;
+    opacity: ${({ open }) => (open ? '1' : '0')};
+    pointer-events: ${({ open }) => (open ? 'auto' : 'none')};
+    transition: opacity 0.2s ease;
   }
 `;
 
 function Premiumpage() {
   const [isActive, setIsActive] = useState('anual');
+  const [open, setOpen] = useState(false);
   const navigate = useNavigate();
 
   const handleActiveButton = button => {
     setIsActive(button);
+  };
+
+  const handleModal = () => {
+    setOpen(prev => !prev);
   };
 
   return (
@@ -316,6 +498,15 @@ function Premiumpage() {
             onClick={() => {
               navigate(`/${rootPaths.premiumRoot}/${rootPaths.paymentRoot}`);
             }}
+            id="desktop"
+          >
+            Actualizar y pagar
+          </PrimaryCustomButton>
+          <PrimaryCustomButton
+            onClick={() => {
+              handleModal();
+            }}
+            id="mobile"
           >
             Actualizar y pagar
           </PrimaryCustomButton>
@@ -331,6 +522,65 @@ function Premiumpage() {
           </div>
         </div>
       </DetailsContainer>
+      <Wrapper
+        open={open}
+        onClick={() => {
+          handleModal();
+        }}
+      />
+      <PaymentModal open={open}>
+        <div>
+          <span></span>
+        </div>
+
+        <div>
+          <PaymentTitle>
+            <h3>Actualízate a Premium</h3>
+            <span>
+              <b>S/. 432.00</b>
+              <p>/ año</p>
+            </span>
+          </PaymentTitle>
+
+          <Separador />
+
+          <PaymentData>
+            <p>
+              <b>Premium</b>
+            </p>
+            <p>S/. 432.00</p>
+            <p>Se factura anualmente</p>
+          </PaymentData>
+
+          <Separador />
+
+          <PaymentData>
+            <p>Sub total</p>
+            <p>S/. 432.00</p>
+            <p>Impuesto</p>
+            <p>S/. 00.00</p>
+          </PaymentData>
+
+          <Separador />
+
+          <PaymentData>
+            <p>
+              <b>Sub total</b>
+            </p>
+            <p>
+              <b>S/. 432.00</b>
+            </p>
+          </PaymentData>
+          <div>
+            <PrimaryCustomButton>Actualizar y pagar</PrimaryCustomButton>
+            <p>
+              Si confirmas tu suscripción, permitirás que la organización
+              Sanchez efectúe cargos de futuros pagos conforme a las condiciones
+              estipuladas. Siempre puedes cancelar tu suscripción.
+            </p>
+          </div>
+        </div>
+      </PaymentModal>
     </>
   );
 }
