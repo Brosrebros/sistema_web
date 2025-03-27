@@ -4,7 +4,7 @@ const MenuContext = createContext();
 
 export const MenuProvider = ({ children }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(true);
-
+ 
   const toggleMenu = () => setIsMenuOpen((prev) => !prev);
 
   return (

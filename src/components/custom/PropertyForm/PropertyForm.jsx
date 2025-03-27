@@ -4,6 +4,7 @@ import {
   FormOptionsContainer,
   FormTab,
   TabButtonStyled,
+  TabContainer,
 } from './PropertyForm.styles';
 import PrimaryCustomButton from '../CustomButtons/PrimaryCustomButton/PrimaryCustomButton';
 import SecondaryCustomButton from '../CustomButtons/SecondaryCustomButton/SecondaryCustomButton';
@@ -47,7 +48,7 @@ function PropertyForm({ page }) {
     { value: 'Antigüedad ascendente', label: 'Antigüedad ↑' },
     { value: 'Antigüedad descendente', label: 'Antigüedad ↓' },
   ];
-  
+
   const { openModal } = useModal();
   const [activeButton, setActiveButton] = useState('venta');
   const [activeStep, setActiveStep] = useState(1);
@@ -78,7 +79,7 @@ function PropertyForm({ page }) {
 
   return (
     <PropertyFormContainer page={page}>
-      <FormOptionsContainer page={page}>
+      <FormOptionsContainer page={page} id="desktop">
         <FormTab id="desktop-catalog">
           <TabButtonStyled
             isActive={activeButton === 'venta'}
@@ -106,6 +107,7 @@ function PropertyForm({ page }) {
         >
           Proyectos
         </PrimaryCustomButton>
+
         <CustomInput
           placeholder={'¿En dónde lo buscas?'}
           icon={pinIcon}
@@ -159,6 +161,60 @@ function PropertyForm({ page }) {
           <img src={lupaIconWhite} alt="lupa" />
           Buscar
         </PrimaryCustomButton>
+      </FormOptionsContainer>
+
+      <FormOptionsContainer page={page} id="mobile-grid">
+        <CustomInput
+          placeholder={'¿En dónde lo buscas?'}
+          icon={pinIcon}
+          value={searchValue}
+          onChange={e => setSearchValue(e.target.value)}
+        />
+
+        <PrimaryCustomButton onClick={handleSearchClick}>
+          <img src={lupaIconWhite} alt="lupa" />
+        </PrimaryCustomButton>
+
+        <FormTab>
+          <TabButtonStyled
+            isActive={activeButton === 'venta'}
+            onClick={e => {
+              e.preventDefault();
+              setActiveButton('venta');
+            }}
+          >
+            Venta
+          </TabButtonStyled>
+
+          <TabButtonStyled
+            isActive={activeButton === 'alquiler'}
+            onClick={e => {
+              e.preventDefault();
+              setActiveButton('alquiler');
+            }}
+          >
+            Alquiler
+          </TabButtonStyled>
+        </FormTab>
+
+        <PrimaryCustomButton
+          onClick={() => navigate(`/${rootPaths.proyectsRoot}`)}
+          id="desktop-catalog"
+        >
+          Proyectos
+        </PrimaryCustomButton>
+
+        <CustomSelect
+          name="tipoPropiedad"
+          value={propertyType}
+          onChange={e => setPropertyType(e.target.value)}
+          placeholder="Tipo de propiedad"
+          options={propiedadOptions}
+          background="form"
+          id="desktop-catalog"
+        >
+          <img src={tipoIcon} width={'16px'} />
+        </CustomSelect>
       </FormOptionsContainer>
     </PropertyFormContainer>
   );

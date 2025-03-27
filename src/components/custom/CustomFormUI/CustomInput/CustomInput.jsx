@@ -10,6 +10,7 @@ function CustomInput({
   card,
   value,
   onChange,
+  id
 }) {
   const [showPassword, setShowPassword] = useState(false);
 
@@ -20,7 +21,7 @@ function CustomInput({
   const inputType = type === 'password' && showPassword ? 'text' : type;
 
   return (
-    <CustomInputContainer>
+    <CustomInputContainer id={id}>
       {type === 'password-hidden' ? null : (
         <>
           {icon && <img src={icon} alt="icon" />}

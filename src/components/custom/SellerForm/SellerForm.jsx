@@ -53,7 +53,7 @@ function SellerForm() {
           Dueño directo
         </Option>
       </OptionsContainer>
-      <CustomInputText placeholder="Buscar vendedor" icon={lupaIconGray} />
+      <CustomInputText placeholder="Buscar vendedor" icon={lupaIconGray} id="desktop"/>
       <MobileContainer>
         <CustomInputText placeholder="Buscar vendedor" icon={lupaIconGray} />
         <PrimaryCustomButton>

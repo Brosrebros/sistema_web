@@ -15,12 +15,14 @@ export const PropertyFormContainer = styled.form`
     display: none;
   }
 
+  #mobile-grid {
+    display: none;
+  }
+
   @media (max-width: 1200px) {
     gap: 10px;
-    padding: 10px;
-    border-radius: ${({ page }) => (page === 'catalog' ? '0px' : '12px')};
-    margin-top: ${({ page }) => (page === 'catalog' ? '-24px' : '0px')};
-
+    padding: 20px;
+    border-radius: 0px;
     #desktop {
       display: none;
     }
@@ -31,6 +33,10 @@ export const PropertyFormContainer = styled.form`
 
     #mobile {
       display: flex;
+    }
+
+    #mobile-grid {
+      display: grid;
     }
   }
 `;
@@ -50,48 +56,33 @@ export const FormOptionsContainer = styled.div`
     ${({ page }) =>
       page === 'catalog'
         ? `
-      grid-template-columns: 52px 52px auto;
-      gap: 10px;
+        grid-template-columns: 52px 52px auto;
+        gap: 10px;
 
-      & > div:nth-child(3) {
-        grid-column: span 3;
-      }
+        & > div:nth-child(3) {
+          grid-column: span 3;
+        }
 
-      & > button:nth-child(7),
-      & > button:nth-child(8) {
-        grid-row: 2;
-        grid-column: span 1;
-        max-width: 52px; 
-      }
+        & > button:nth-child(7),
+        & > button:nth-child(8) {
+          grid-row: 2;
+          grid-column: span 1;
+          max-width: 52px; 
+        }
 
-      & > button:last-child {
-        grid-row: 2;
-        grid-column: 3;
-      }
-  `
+        & > button:last-child {
+          grid-row: 2;
+          grid-column: 3;
+        }
+          `
         : `
-      grid-template-columns: auto 1fr;
-      grid-template-rows: auto auto 1fr 1fr;
-      gap: 10px;
-      justify-content: space-between;
-
-      & > div:nth-child(n + 3) {
-        grid-column: span 2;
-      }
-
-      & > button:nth-child(5),
-      & > button:nth-child(6) {
-        display: none;
-      }
-
-      & > button:last-child {
-        grid-column: span 2;
-      }
-
-      & > button:nth-child(2) {
-        width: 90px;
-        margin-left: auto;
-      }
+        grid-template-columns: repeat(3, 1fr);
+      
+        & > div:first-child { grid-area: 1 / 1 / 2 / 5; }
+        & > button:nth-child(2) { grid-area: 1 / 5 / 2 / 6; }
+        & > div:nth-child(3) { grid-area: 2 / 1 / 3 / 4; }
+        & > button:nth-child(4) { grid-area: 2 / 4 / 3 / 6; }
+        & > div:last-child { grid-area: 3 / 1 / 4 / 6; }
     `}
   }
 `;
@@ -144,5 +135,12 @@ export const TabButtonStyled = styled.button`
 
   @media (max-width: 968px) {
     font-size: 0.8125em;
+    width: 100%;
   }
+`;
+
+export const TabContainer = styled.div`
+  width: 100%;
+  display: flex;
+  gap: 16px;
 `;

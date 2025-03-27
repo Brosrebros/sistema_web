@@ -14,7 +14,7 @@ export const SellerFormContainer = styled.div`
     display: flex;
     flex-direction: column;
     gap: 10px;
-    padding: 10px;
+    padding: 20px;
     border-radius: 0px;
     margin-top: -24px;
 
@@ -22,6 +22,10 @@ export const SellerFormContainer = styled.div`
     & > div:nth-child(2),
     & > div:nth-child(3) {
       width: 100%;
+    }
+
+    & > div:first-child {
+      order: 2;
     }
 
     #desktop {

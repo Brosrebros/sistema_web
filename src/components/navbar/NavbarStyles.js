@@ -18,7 +18,7 @@ export const NavbarContainer = styled.nav`
       : 'none'};
 
   @media (max-width: 1200px) {
-    padding: 1em 20px;
+    padding: 8px 20px 0px 20px;
   }
 `;
 
@@ -43,13 +43,18 @@ export const NavbarLogoMenuContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   padding-right: 24px;
+  position: relative;
+
+  #mobile {
+    display: none;
+  }
 
   button {
     border: none;
   }
 
-  & > img:last-child {
-    width: 159px;
+  & > img:nth-child(2) {
+    width: 164px;
     height: auto;
   }
 
@@ -59,10 +64,29 @@ export const NavbarLogoMenuContainer = styled.div`
 
   @media (max-width: 1200px) {
     width: 100%;
+    height: 48px;
     padding: 0px;
+    justify-content: center;
+
+    & > img:nth-child(2) {
+      width: 120px;
+    }
 
     & > button:nth-child(3) {
       display: flex;
+    }
+
+    #mobile {
+      display: flex;
+    }
+
+    #desktop {
+      display: none;
+    }
+
+    & > button:first-child {
+      position: absolute;
+      left: 0;
     }
   }
 `;

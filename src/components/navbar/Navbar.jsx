@@ -114,6 +114,7 @@ function Navbar({ type, id }) {
               <SecondaryCustomButton
                 variant="white"
                 onClick={() => handleActive()}
+                id="desktop"
               >
                 {isActive && <Notifications ref={notificationRef} />}
                 <img src={notificationIcon} alt="lenguaje" />
