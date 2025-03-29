@@ -8,7 +8,7 @@ import importIcon from 'assets/img/icons/import-gray.svg';
 import styled from 'styled-components';
 import { useMenu } from 'menuContext';
 import Slider from 'react-slick';
-import arrowRigth from 'assets/img/icons/arrow-right.svg';
+import arrowRight from 'assets/img/icons/arrow-right.svg';
 import arrowLeft from 'assets/img/icons/arrow-left.svg';
 
 const CustomModalSlider = styled(Slider)`
@@ -55,7 +55,7 @@ const CustomModalSlider = styled(Slider)`
       margin: 0 auto;
       width: 20px;
       height: 20px;
-      background-image: url(${arrowRigth});
+      background-image: url(${arrowRight});
       background-size: 100%;
       background-repeat: no-repeat;
       background-position: center;
@@ -69,8 +69,8 @@ const CustomModalSlider = styled(Slider)`
   .slick-prev,
   .slick-next {
     background-color: #ffffff !important;
-    border-radius: 8px !important;
-    width: 52px;
+    border-radius: 100px !important;
+    width: 48px;
     height: 48px;
     z-index: 2;
     transition: opacity 0.1s ease;
@@ -159,8 +159,7 @@ const MainContainer = styled.div`
 
   @media (max-width: 1200px) {
     font-size: 1.12rem;
-    padding: 20px;
-    padding-top: 0px;
+    padding: 20px 20px 0px 20px;
     background-color: #f2f2f2;
   }
 `;
@@ -204,35 +203,6 @@ const Appear = styled.div`
     @media (max-width: 1200px) {
       width: 95px;
       order: 2;
-    }
-  }
-
-  & > div:last-child {
-    margin-left: auto;
-    color: #424242;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #f2f2f2;
-    gap: 8px;
-    padding: 8px;
-    border-radius: 12px;
-
-    & > img:first-child {
-      width: 20px;
-      height: 20px;
-    }
-
-    & > p {
-      margin: 0px;
-      @media (max-width: 1200px) {
-        font-size: 0.81rem;
-      }
-    }
-
-    @media (max-width: 1200px) {
-      width: 231px;
-      height: 41px;
     }
   }
 
@@ -293,6 +263,7 @@ const PropertyDetailMedia = ({ imagenes: files }) => {
 
   return (
     <MainContainer>
+
       <>
         {files.length === 1 && (
           <Image
@@ -327,12 +298,6 @@ const PropertyDetailMedia = ({ imagenes: files }) => {
             <div>
               <img src={cameraIcon} />
               <p>{`${currentSlide + 1}/${files.length}`}</p>
-            </div>
-            <div>
-              <img src={barcodeIcon} />
-              <p>
-                Código de anuncio: <b>IMPV-0001</b>
-              </p>
             </div>
           </Appear>
         </MainImageContainer>

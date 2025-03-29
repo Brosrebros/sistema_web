@@ -107,7 +107,7 @@ function CatalogCard({ property, type }) {
         ) : (
           <div></div>
         )}
-        <ImagesCounter type="proyects">
+        <ImagesCounter type={type}>
           <img src={cameraIcon} />
           <p>{`${currentSlide + 1}/${imagenes.length}`}</p>
         </ImagesCounter>

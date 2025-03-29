@@ -56,23 +56,9 @@ export const FormOptionsContainer = styled.div`
     ${({ page }) =>
       page === 'catalog'
         ? `
-        grid-template-columns: 52px 52px auto;
-        gap: 10px;
-
-        & > div:nth-child(3) {
-          grid-column: span 3;
-        }
-
-        & > button:nth-child(7),
-        & > button:nth-child(8) {
-          grid-row: 2;
-          grid-column: span 1;
-          max-width: 52px; 
-        }
-
-        & > button:last-child {
-          grid-row: 2;
-          grid-column: 3;
+        display:flex;
+        & > div:first-child {
+        
         }
           `
         : `

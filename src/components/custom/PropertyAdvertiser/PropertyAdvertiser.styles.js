@@ -45,7 +45,7 @@ export const AdvertiserDataContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 18px;
+  gap: 22px;
 `;
 
 export const AdvertiserOptions = styled.div`
@@ -135,7 +135,7 @@ export const TextContainer = styled.div`
   align-items: flex-start;
   justify-content: flex-start;
   flex-direction: column;
-  gap: 16px;
+  gap: 24px;
 
   h5 {
     font-weight: 700;
@@ -169,6 +169,16 @@ export const TextContainer = styled.div`
     @media (max-width: 1200px) {
       max-width: none;
     }
+  }
+
+  span {
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 14px 16px;
+    background-color: #f2f2f2;
+    border-radius: 12px;
   }
 `;
 
@@ -242,6 +252,18 @@ export const ProblemContainer = styled.div`
   background-color: #f2f2f2;
   border-radius: 12px;
 
+  & > div:last-child {
+    & > div:last-child {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+
+      & > button:last-child {
+        grid-column: span 2;
+        color: #940000;
+      }
+    }
+  }
+
   @media (max-width: 1200px) {
     padding: 20px;
 
@@ -264,4 +286,14 @@ export const SecondaryOption = styled(Option)`
   background-color: #ffffff;
   border: 1px solid #c3c3c3;
   color: #424242;
+`;
+
+export const VerticalBar = styled.div`
+  width: 100%;
+  height: 1px;
+  background-color: #c3c3c3;
+
+  @media (max-width: 1200px) {
+    display: none;
+  }
 `;

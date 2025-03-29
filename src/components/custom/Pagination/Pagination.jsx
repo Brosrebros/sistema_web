@@ -31,19 +31,6 @@ function Pagination({
 
   return (
     <PaginationContainer>
-      {/* Selector de artículos por página */}
-      <NumberSelector>
-        {itemsPerPageOptions.map(option => (
-          <SecondaryCustomButton
-            key={option}
-            variant={selectedItemsPerPage === option ? 'white' : 'gray'}
-            onClick={() => setSelectedItemsPerPage(option)}
-          >
-            {option} {selectedItemsPerPage === option ? 'Artículos' : null}
-          </SecondaryCustomButton>
-        ))}
-      </NumberSelector>
-
       {/* Contenedor de paginación */}
       <PagesContainer>
         {/* Botón de página anterior */}

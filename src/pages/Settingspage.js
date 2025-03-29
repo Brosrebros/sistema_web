@@ -7,7 +7,10 @@ import CustomInput from 'components/custom/CustomFormUI/CustomInput/CustomInput'
 import lupeIcon from 'assets/img/icons/search-normal.svg';
 import brushIcon from 'assets/img/icons/brush-2.svg';
 import boxIcon from 'assets/img/icons/box.svg';
+import SecondaryCustomButton from 'components/custom/CustomButtons/SecondaryCustomButton/SecondaryCustomButton';
 import arrowRight from 'assets/img/icons/arrow-right.svg';
+import arrowLeft from 'assets/img/icons/arrow-left.svg';
+import { useNavigate } from 'react-router-dom';
 
 const SettingsModalContainer = styled.div`
   width: 100%;
@@ -30,6 +33,10 @@ const SettingsModalContainer = styled.div`
       line-height: 122%;
       color: black;
       margin: 0px;
+
+      @media (max-width: 1200px) {
+        display: none;
+      }
     }
   }
 
@@ -40,13 +47,30 @@ const SettingsModalContainer = styled.div`
     & > h3 + div {
       width: 100%;
     }
+
+    @media (max-width: 1200px) {
+      width: 100vw;
+      padding: 20px;
+      gap: 20px;
+      height: 100vh;
+      filter: ${({ isActive }) =>
+        isActive === 'access' ? 'brightness(60%)' : 'brightness(100%)'};
+      transform: ${({ isActive }) =>
+        isActive === 'access' ? 'translateX(-25vw)' : 'translateX(0vw)'};
+      transition: all 0.2s ease-in-out;
+      background-color: #ffffff;
+
+      & > div:first-child {
+        margin-left: -20px;
+      }
+    }
   }
 
   & > div:last-child {
     padding: 32px;
     gap: 40px;
 
-    & > div:first-child {
+    & > div:nth-child(2) {
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -60,6 +84,41 @@ const SettingsModalContainer = styled.div`
         line-height: 137%;
         color: #424242;
         margin: 0px;
+
+        @media (max-width: 1200px) {
+          font-size: 0.81rem;
+          text-align: center;
+          width: 100%;
+        }
+      }
+
+      @media (max-width: 1200px) {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 1200px) {
+      position: absolute;
+      height: 100vh;
+      width: 100vw;
+      top: 0px;
+      transform: ${({ isActive }) =>
+        isActive === 'access' ? 'translateX(0vw)' : 'translateX(100vw)'};
+      background-color: #ffffff;
+      transition: all 0.2s ease-in-out;
+      padding: 20px;
+      gap: 20px;
+
+      & > div:first-child {
+        margin-left: -20px;
+
+        h3 {
+          display: flex;
+
+          @media (max-width: 1200px) {
+            font-size: 0.94rem;
+          }
+        }
       }
     }
   }
@@ -69,11 +128,26 @@ const SettingsModalContainer = styled.div`
     height: 100%;
     background-color: #c3c3c3;
     width: 1px;
+
+    @media (max-width: 1200px) {
+      display: none;
+    }
   }
 
   & + footer,
   & + footer + footer {
     display: none;
+  }
+
+  @media (max-width: 1200px) {
+    margin-top: -24px;
+    grid-template-columns: 1fr;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    border-radius: 0px;
+    height: 100vh;
+    background-color: #ffffff;
   }
 `;
 
@@ -116,6 +190,12 @@ const AltButton = styled.div`
   &:active {
     background-color: #e4e4e4;
   }
+
+  @media (max-width: 1200px) {
+    background-color: #ffffff;
+    outline: none;
+    font-size: 0.81rem;
+  }
 `;
 
 const AltButtonContainer = styled.div`
@@ -134,6 +214,10 @@ const OptionContainer = styled.div`
   align-items: flex-start;
   gap: 16px;
 
+  #mobile {
+    display: none;
+  }
+
   h4 {
     font-family: 'Roboto';
     font-weight: 700;
@@ -141,6 +225,11 @@ const OptionContainer = styled.div`
     line-height: 116%;
     color: black;
     margin: 0px;
+
+    @media (max-width: 1200px) {
+      font-size: 0.94rem;
+      margin: auto 0;
+    }
   }
 
   & > div:last-child {
@@ -180,9 +269,96 @@ const OptionContainer = styled.div`
       line-height: 137%;
       color: #424242;
       margin: 0px;
+
+      @media (max-width: 1200px) {
+        font-size: 0.81rem;
+      }
+    }
+
+    @media (max-width: 1200px) {
+      grid-column: span 2;
+    }
+  }
+
+  @media (max-width: 1200px) {
+    display: grid;
+    grid-template-columns: 2fr auto;
+
+    #desktop {
+      display: none;
+    }
+
+    #mobile {
+      display: flex;
+    }
+
+    & > div:nth-child(2) {
+      display: flex;
+
+      & > img {
+        position: absolute;
+        right: 16px;
+        z-index: 2;
+        background-color: white;
+        transition: all 0.1s ease;
+      }
+
+      & > img + div {
+        width: 100%;
+      }
+
+      & > div:last-child:hover > img {
+        background-color: #f9f9f9;
+      }
+
+      & > div:last-child:active > img {
+        background-color: #ececec;
+      }
     }
   }
 `;
+
+const StandaloneNavigate = styled.div`
+  width: 100vw;
+  display: none;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0px 40px;
+  margin-top: -24px;
+  background-color: #ffffff;
+
+  button {
+    border: 0px;
+
+    @media (max-width: 1200px) {
+      position: absolute;
+      left: 4px;
+    }
+  }
+
+  h3 {
+    display: none;
+  }
+
+  @media (max-width: 1200px) {
+    display: flex;
+    padding: 0px;
+    height: 56px;
+    position: relative;
+    justify-content: center;
+
+    h3 {
+      display: block !important;
+      font-weight: 700;
+      font-size: 0.94rem !important;
+      line-height: 122%;
+      text-align: center;
+      color: black;
+      margin: 0px;
+    }
+  }
+`;
+
 const temaOptions = [
   { value: 'Sistema', label: 'Sistema' },
   { value: 'Oscuro', label: 'Oscuro' },
@@ -195,7 +371,8 @@ const regionOptions = [
 ];
 
 function Settingspage() {
-  const [isActive, setIsActive] = useState('access');
+  const [isActive, setIsActive] = useState('');
+  const navigate = useNavigate();
   const [selecciones, setSelecciones] = useState({
     tema: temaOptions.length > 0 ? temaOptions[0].value : '',
     idioma: regionOptions.length > 0 ? regionOptions[0].value : '',
@@ -211,8 +388,18 @@ function Settingspage() {
   };
 
   return (
-    <SettingsModalContainer>
+    <SettingsModalContainer isActive={isActive}>
       <div>
+        <StandaloneNavigate>
+          <SecondaryCustomButton
+            onClick={() => {
+              navigate(-1);
+            }}
+          >
+            <img src={arrowLeft} alt="arrow" />
+          </SecondaryCustomButton>
+          <h3>Configuración</h3>
+        </StandaloneNavigate>
         <h3>Configuración</h3>
         <CustomInput
           placeholder={'Búsqueda de configuración'}
@@ -243,12 +430,33 @@ function Settingspage() {
       </div>
       <span></span>
       <div>
+        <StandaloneNavigate>
+          <SecondaryCustomButton
+            onClick={() => {
+              handleActive(' ');
+            }}
+          >
+            <img src={arrowLeft} alt="arrow" />
+          </SecondaryCustomButton>
+          <h3>Accesibilidad y pantalla</h3>
+        </StandaloneNavigate>
         <div>
           <h3>Accesibilidad y pantalla</h3>
-          <p>Gestiona como ves el contenido en la organización Sanchez.</p>
+          <p>Gestiona como ves el contenido en Sellblink</p>
         </div>
         <OptionContainer>
           <h4>Tema</h4>
+          <CustomSelect
+            name="tema"
+            value={selecciones.tema}
+            onChange={handleChange}
+            placeholder="Tema"
+            options={temaOptions}
+            background="form"
+            id="mobile"
+          >
+            <img src={arrowIcon} alt="arrow" />
+          </CustomSelect>
           <div>
             <p>
               Personaliza la apariencia de la página alternando entre el modo
@@ -262,6 +470,7 @@ function Settingspage() {
               placeholder="Tema"
               options={temaOptions}
               background="form"
+              id="desktop"
             >
               <img src={arrowIcon} alt="arrow" />
             </CustomSelect>
@@ -269,6 +478,17 @@ function Settingspage() {
         </OptionContainer>
         <OptionContainer>
           <h4>Región</h4>
+          <CustomSelect
+            name="idioma"
+            value={selecciones.idioma}
+            onChange={handleChange}
+            placeholder="Región"
+            options={regionOptions}
+            background="form"
+            id="mobile"
+          >
+            <img src={arrowIcon} alt="arrow" />
+          </CustomSelect>
           <div>
             <p>
               Personaliza tu experiencia configurando tu región. Esto te
@@ -283,6 +503,7 @@ function Settingspage() {
               placeholder="Región"
               options={regionOptions}
               background="form"
+              id="desktop"
             >
               <img src={arrowIcon} alt="arrow" />
             </CustomSelect>

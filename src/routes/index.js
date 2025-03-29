@@ -367,27 +367,25 @@ const routes = [
       },
       {
         path: '/',
+        element: <MainLayout type="process" active="detalles" />,
+        children: [
+          {
+            path: paths.propertyDetail(':propertyId'),
+            element: <Propertypage place="property" />,
+          },
+          {
+            path: paths.sellerProfileRoot,
+            element: <SellerProfilepage />,
+          },
+        ],
+      },
+      {
+        path: '/',
         element: <MainLayout type="main" active="inmobiliaria" />,
         children: [
           {
             index: true,
             element: <Mainpage />,
-          },
-          {
-            path: rootPaths.catalogRoot,
-            element: <Catalogpage />,
-          },
-          {
-            path: rootPaths.proyectsRoot,
-            element: <Catalogpage type="proyects" />,
-          },
-          {
-            path: rootPaths.offersRoot,
-            element: <Catalogpage type="offers" />,
-          },
-          {
-            path: paths.propertyDetail(':propertyId'),
-            element: <Propertypage place="property" />,
           },
           {
             path: paths.sellerRoot,
@@ -396,10 +394,6 @@ const routes = [
           {
             path: paths.saleRoot,
             element: <Salepage />,
-          },
-          {
-            path: paths.sellerProfileRoot,
-            element: <SellerProfilepage />,
           },
           {
             path: rootPaths.dashboardRoot,
@@ -1188,6 +1182,28 @@ const routes = [
           {
             path: paths.changelog,
             element: <Changelog />,
+          },
+        ],
+      },
+      {
+        path: '/',
+        element: <MainLayout type="main" active="catalogo" />,
+        children: [
+          {
+            index: true,
+            element: <Mainpage />,
+          },
+          {
+            path: rootPaths.catalogRoot,
+            element: <Catalogpage />,
+          },
+          {
+            path: rootPaths.proyectsRoot,
+            element: <Catalogpage type="proyects" />,
+          },
+          {
+            path: rootPaths.offersRoot,
+            element: <Catalogpage type="offers" />,
           },
         ],
       },

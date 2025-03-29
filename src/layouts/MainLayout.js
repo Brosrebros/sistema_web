@@ -21,7 +21,7 @@ import SearchModal from 'components/modals/SearchModal/SearchModal';
 const CustomPageContainer = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   gap: 24px;
   padding: 24px;
@@ -76,7 +76,7 @@ const MainLayout = ({ type, active }) => {
     <main>
       <ProductProvider>
         <CourseProvider>
-          {viewWidth < 1200 && active === 'soporte' ? null : <Navbar />}
+        {(viewWidth < 1200 && (active === 'soporte' || active === 'catalogo' || active === "detalles" || active === "settings")) ? null : <Navbar />}
           <StyledContainer isMenuOpen={isMenuOpen}>
             <Menu active={active} />
             <CustomPageContainer isMenuOpen={isMenuOpen}>

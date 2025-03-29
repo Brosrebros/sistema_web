@@ -9,6 +9,7 @@ import {
   Option,
   ProblemContainer,
   SecondaryOption,
+  VerticalBar,
 } from './PropertyAdvertiser.styles';
 import CustomBadge from '../CustomBadge/CustomBadge';
 import PrimaryCustomButton from '../CustomButtons/PrimaryCustomButton/PrimaryCustomButton';
@@ -97,6 +98,7 @@ function PropertyAdvertiser() {
             Código de anunciante: <b>INM-001</b>
           </span>
         </TextContainer>
+        <VerticalBar />
       </AdvertiserDataContainer>
       <TextContainer>
         <h5>Preguntas para el enunciante</h5>
@@ -148,9 +150,9 @@ function PropertyAdvertiser() {
               Información engañosa
             </SecondaryOption>
 
-            <PrimaryCustomButton onClick={() => openModal('reportModal')}>
+            <SecondaryCustomButton onClick={() => openModal('reportModal')}>
               Otros motivos
-            </PrimaryCustomButton>
+            </SecondaryCustomButton>
           </ButtonOptionsContainer>
         </TextContainer>
       </ProblemContainer>

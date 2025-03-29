@@ -4,7 +4,7 @@ import { SecondaryCustomButtonStyled } from '../CustomButtons/SecondaryCustomBut
 export const PaginationContainer = styled.div`
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   padding: 16px;
   background-color: #ffffff;
@@ -33,6 +33,9 @@ export const NumberSelector = styled.div`
     height: 100%;
     border: none;
     line-height: 11px;
+    height: 36px;
+    width: 36px;
+    border-radius: 100px;
   }
 
   @media (max-width: 1200px) {
@@ -42,7 +45,7 @@ export const NumberSelector = styled.div`
 `;
 
 export const SquareButton = styled.button`
-  width: auto;
+  width: 48px;
   height: 100%;
   display: flex;
   justify-content: center;
@@ -51,7 +54,7 @@ export const SquareButton = styled.button`
   border: none;
   outline: none;
   background-color: white;
-  border-radius: 12px;
+  border-radius: 100px;
   padding: 12px 16px;
   transition: all 0.2s ease;
   font-size: 1em;

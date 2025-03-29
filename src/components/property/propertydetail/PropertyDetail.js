@@ -6,6 +6,8 @@ import { useMenu } from 'menuContext';
 import PropertyData from 'components/custom/PropertyData/PropertyData';
 import PropertyDetailMedia from './PropertyDetailMedia';
 import PropertyAdvertiser from 'components/custom/PropertyAdvertiser/PropertyAdvertiser';
+import SecondaryCustomButton from 'components/custom/CustomButtons/SecondaryCustomButton/SecondaryCustomButton';
+import arrowLeft from 'assets/img/icons/arrow-left.svg';
 import styled from 'styled-components';
 
 const CustomLayout = styled.div`
@@ -58,6 +60,47 @@ const MainData = styled.div`
   }
 `;
 
+const StandaloneNavigate = styled.div`
+  width: 100vw;
+  display: none;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0px 40px;
+  margin-top: -24px;
+  background-color: #ffffff;
+
+  button {
+    border: 0px;
+
+    @media (max-width: 1200px) {
+      position: absolute;
+      left: 20px;
+    }
+  }
+
+  h3 {
+    display: none;
+  }
+
+  @media (max-width: 1200px) {
+    display: flex;
+    padding: 0px;
+    height: 56px;
+    position: relative;
+    justify-content: center;
+
+    h3 {
+      display: block;
+      font-weight: 700;
+      font-size: 0.94rem;
+      line-height: 122%;
+      text-align: center;
+      color: black;
+      margin: 0px;
+    }
+  }
+`;
+
 const PropertyDetail = ({ type }) => {
   const { isMenuOpen } = useMenu();
   const { propertyState, fetchPropertyById } = usePropertyContext();
@@ -79,6 +122,16 @@ const PropertyDetail = ({ type }) => {
 
   return (
     <>
+      <StandaloneNavigate>
+        <SecondaryCustomButton
+          onClick={() => {
+            navigate(-1);
+          }}
+        >
+          <img src={arrowLeft} alt="arrow" />
+        </SecondaryCustomButton>
+        <h3>Descripción del anuncio</h3>
+      </StandaloneNavigate>
       {propertyState.property && (
         <CustomLayout>
           <MainData isMenuOpen={isMenuOpen}>

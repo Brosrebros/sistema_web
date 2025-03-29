@@ -22,6 +22,9 @@ import PropertySlider from 'components/property/PropertySlider';
 import { usePropertyContext } from 'providers/PropertyProvider';
 import { useMenu } from 'menuContext';
 import { useNavigate } from 'react-router-dom';
+import arrowLeft from 'assets/img/icons/arrow-left.svg';
+import Footer from 'components/footer/Footer';
+import CustomFooter from 'components/custom/CustomFooter/CustomFooter';
 
 const SellerProfileContainer = styled.div`
   width: 100%;
@@ -43,6 +46,12 @@ const SellerProfileContainer = styled.div`
     }
 
     gap: 20px;
+
+    & > div:last-child {
+      background-color:rgb(255, 255, 255);
+      margin-top: -20px;
+      padding: 20px;
+    }
   }
 `;
 
@@ -91,7 +100,7 @@ const ProfileDataContainer = styled.div`
   }
 
   @media (max-width: 1200px) {
-    padding: 0px 20px;
+    padding: 20px 20px 0px 20px;
   }
 `;
 
@@ -1187,6 +1196,11 @@ const Selected = styled.div`
     line-height: 16px;
     color: black;
     margin: 0px;
+
+    @media (max-width: 1200px) {
+      line-height: 13px;
+      font-size: 1.12rem;
+    }
   }
 
   & > div:last-child {
@@ -1200,6 +1214,10 @@ const Selected = styled.div`
 
     & > div:first-child {
       width: 100%;
+
+      @media (max-width: 1200px) {
+        order: 2;
+      }
     }
 
     & > div:last-child {
@@ -1220,16 +1238,49 @@ const Selected = styled.div`
 
       & > img:first-child {
         grid-area: 1 / 1 / 3 / 3;
+
+        @media (max-width: 1200px) {
+          grid-area: 1 / 1 / 3 / 3;
+        }
       }
 
       & > img:nth-child(2) {
         grid-area: 1 / 3 / 2 / 4;
+
+        @media (max-width: 1200px) {
+          grid-area: 3 / 1 / 4 / 2;
+        }
       }
 
       & > img:nth-child(3) {
         grid-area: 2 / 3 / 3 / 4;
+
+        @media (max-width: 1200px) {
+          grid-area: 3 / 2 / 4 / 3;
+        }
+      }
+
+      @media (max-width: 1200px) {
+        max-width: 100%;
+        height: 323px;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 1fr);
       }
     }
+
+    @media (max-width: 1200px) {
+      flex-direction: column;
+      gap: 20px;
+      padding: 0px;
+      background-color: #ffffff;
+    }
+  }
+
+  @media (max-width: 1200px) {
+    padding: 0px 20px 20px 20px;
+    gap: 20px;
+    border-bottom: 1px solid #c3c3c3;
+    border-radius: 0px;
   }
 `;
 
@@ -1240,6 +1291,10 @@ const CatalogDataContainer = styled.div`
   justify-content: center;
   align-items: flex-start;
   gap: 24px;
+
+  @media (max-width: 1200px) {
+    gap: 20px;
+  }
 `;
 
 const TagContainer = styled.div`
@@ -1263,6 +1318,18 @@ const TagContainer = styled.div`
     display: flex;
     align-items: center;
     gap: 8px;
+
+    @media (max-width: 1200px) {
+      & > div {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+  }
+
+  @media (max-width: 1200px) {
+    width: 100%;
   }
 `;
 
@@ -1274,6 +1341,11 @@ const AdvertiseDataContainer = styled(CatalogDataContainer)`
     font-weight: normal;
     color: #424242;
     line-height: 11px;
+
+    @media (max-width: 1200px) {
+      font-size: 0.81rem;
+      line-height: 9px !important;
+    }
   }
 
   h3 {
@@ -1282,6 +1354,15 @@ const AdvertiseDataContainer = styled(CatalogDataContainer)`
     color: black;
     line-height: 15px;
     margin: 0px;
+
+    @media (max-width: 1200px) {
+      font-size: 1.12rem;
+      line-height: 13px;
+    }
+  }
+
+  @media (max-width: 1200px) {
+    gap: 12px;
   }
 `;
 
@@ -1301,6 +1382,11 @@ const DataDescription = styled(CatalogDataContainer)`
       color: black;
       line-height: 12px;
       margin: 0px;
+
+      @media (max-width: 1200px) {
+        font-size: 0.94rem;
+        line-height: 133%;
+      }
     }
 
     & > div:nth-child(2) {
@@ -1314,12 +1400,14 @@ const DataDescription = styled(CatalogDataContainer)`
         height: 20px;
       }
 
-      p {
-        font-size: 1em;
-        font-weight: normal;
-        color: #717171;
-        line-height: 11px;
-        margin: 0px;
+      font-size: 1em;
+      font-weight: normal;
+      color: #717171;
+      line-height: 11px;
+      margin: 0px;
+
+      @media (max-width: 1200px) {
+        font-size: 0.81rem;
       }
     }
   }
@@ -1336,6 +1424,11 @@ const DataDescription = styled(CatalogDataContainer)`
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
+
+    @media (max-width: 1200px) {
+      font-size: 0.81rem;
+      -webkit-line-clamp: 4;
+    }
   }
 `;
 
@@ -1347,6 +1440,70 @@ const OptionsContainer = styled.div`
 
   & > button:first-child {
     color: #940000;
+  }
+`;
+
+const StandaloneNavigate = styled.div`
+  width: 100vw;
+  display: none;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0px 40px;
+  margin-top: -24px;
+  background-color: #ffffff;
+
+  button {
+    border: 0px;
+
+    @media (max-width: 1200px) {
+      position: absolute;
+      left: 4px;
+    }
+  }
+
+  h3 {
+    display: none;
+  }
+
+  @media (max-width: 1200px) {
+    display: flex;
+    padding: 0px;
+    height: 56px;
+    position: relative;
+    justify-content: center;
+
+    h3 {
+      display: block;
+      font-weight: 700;
+      font-size: 0.94rem;
+      line-height: 122%;
+      text-align: center;
+      color: black;
+      margin: 0px;
+    }
+  }
+`;
+
+const CustomContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+  transition: all 0.15s linear;
+  margin: 0 auto;
+
+  @media (max-width: 1200px) {
+    background-color: #ffffff;
+    gap: 0px;
+  }
+
+  & > footer:nth-child(3) {
+    margin-top: -100px;
+
+    @media (max-width: 1200px) {
+      background-color: #ffffff;
+      margin-top: 0px;
+    }
   }
 `;
 
@@ -1381,7 +1538,17 @@ const SellerProfilepage = () => {
   };
 
   return (
-    <CustomPageLayout>
+    <CustomContainer>
+      <StandaloneNavigate>
+        <SecondaryCustomButton
+          onClick={() => {
+            navigate(-1);
+          }}
+        >
+          <img src={arrowLeft} alt="arrow" />
+        </SecondaryCustomButton>
+        <h3>Perfil del vendedor</h3>
+      </StandaloneNavigate>
       <SellerProfileContainer>
         <ProfileDataContainer>
           <div></div>
@@ -1857,7 +2024,9 @@ const SellerProfilepage = () => {
           </>
         )}
       </SellerProfileContainer>
-    </CustomPageLayout>
+      <CustomFooter />
+      <Footer />
+    </CustomContainer>
   );
 };
 
