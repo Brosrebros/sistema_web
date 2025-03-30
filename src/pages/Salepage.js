@@ -6,6 +6,7 @@ import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 import { rootPaths } from 'routes/paths';
 import { useModal } from 'modalContext';
+import MobileMenu from 'components/custom/MobileMenu/MobileMenu';
 
 const CustomButton = styled.button`
   width: auto;
@@ -225,6 +226,7 @@ const Salepage = () => {
           </CustomButton>
         </div>
       </InfoBanner>
+      <MobileMenu active="sale" />
     </CustomLayout>
   );
 };

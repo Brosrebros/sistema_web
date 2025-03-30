@@ -256,10 +256,21 @@ export const ProblemContainer = styled.div`
     & > div:last-child {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+
+      @media (max-width: 1200px) {
+        display: flex;
+        flex-direction: column;
+
+        & > button {
+          width: 100%;
+        }
+      }
 
       & > button:last-child {
         grid-column: span 2;
         color: #940000;
+        justify-content: center;
       }
     }
   }

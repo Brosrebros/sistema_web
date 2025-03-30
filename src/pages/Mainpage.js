@@ -5,6 +5,7 @@ import ContentInfo from 'components/custom/ContentInfo/ContentInfo';
 import ProyectsSection from 'components/custom/ProyectsSection/ProyectsSection';
 import PropertyForm from 'components/custom/PropertyForm/PropertyForm';
 import PropertySlider from 'components/property/PropertySlider';
+import MobileMenu from 'components/custom/MobileMenu/MobileMenu';
 import { usePropertyContext } from 'providers/PropertyProvider';
 import { useMenu } from 'menuContext';
 import styled from 'styled-components';
@@ -211,6 +212,7 @@ const Mainpage = () => {
         />
         <ContentInfo type="left" />
         <ProyectsSection />
+        <MobileMenu active="main" />
       </CustomPageLayout>
     </>
   );
