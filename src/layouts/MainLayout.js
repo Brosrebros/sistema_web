@@ -76,8 +76,8 @@ const MainLayout = ({ type, active }) => {
     <main>
       <ProductProvider>
         <CourseProvider>
-        {(viewWidth < 1200 && (active === 'soporte' || active === 'catalogo' || active === "detalles" || active === "settings")) ? null : <Navbar />}
-          <StyledContainer isMenuOpen={isMenuOpen}>
+        {(viewWidth < 1200 && (active === 'soporte' || active === 'catalogo' || active === "detalles" || active === "settings" || active === "news")) ? null : <Navbar/>}
+          <StyledContainer isMenuOpen={isMenuOpen}> 
             <Menu active={active} />
             <CustomPageContainer isMenuOpen={isMenuOpen}>
               <PropertyProvider>

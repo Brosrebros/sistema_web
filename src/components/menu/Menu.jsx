@@ -176,7 +176,7 @@ function Menu({ active }) {
           </MenuOptionsContainer>
         </MenuSection>
       </MenuContainer>
-      <Wrapper isMenuOpen={isMenuOpen}/>
+      <Wrapper isMenuOpen={isMenuOpen} onClick={toggleMenu}/>
     </>
   );
 }

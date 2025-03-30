@@ -27,7 +27,7 @@ export const MobileMenuContainer = styled.div`
     gap: 48px;
   }
 
-  @media (max-width: 968px) {
+  @media (max-width: 1200px) {
     display: flex;
   }
 `;

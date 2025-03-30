@@ -279,6 +279,7 @@ export const Wrapper = styled.div`
   display: none;
 
   @media (max-width: 1200px) {
+    display: block;
     width: 100vw;
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.3);

@@ -52,6 +52,7 @@ export const rootPaths = {
   resetRoot: 'reset-password',
   sentRoot: 'mail-sent',
   newPassRoot: 'new-pass',
+  newsRoot: 'news',
 };
 
 export default {
@@ -77,6 +78,7 @@ export default {
   paymentRoot: `/${rootPaths.premiumRoot}/${rootPaths.paymentRoot}`,
   processRoot: `/${rootPaths.processRoot}`,
   settingsRoot: `/${rootPaths.settingsRoot}`,
+  newsRoot: `/${rootPaths.newsRoot}`,
   /* -------------------------- */
   starter: `/${rootPaths.pagesRoot}/starter`,
   error404: `/${rootPaths.errorsRoot}/404`,

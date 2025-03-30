@@ -21,7 +21,7 @@ import { useNavigate } from 'react-router-dom';
 import SecondaryCustomButton from 'components/custom/CustomButtons/SecondaryCustomButton/SecondaryCustomButton';
 import Notifications from 'components/custom/Notifications/Notifications';
 
-function Navbar({ type, id }) {
+function Navbar({ type, active }) {
   const { toggleMenu } = useMenu();
   const navigate = useNavigate();
   const [isActive, setIsActive] = useState(false);
@@ -103,14 +103,19 @@ function Navbar({ type, id }) {
                 <img src={menuIcon} alt="menu" />
               </SecondaryCustomButton>
 
-              <img
-                src={navbarLogo}
-                alt="inmobiliaria sanchez"
-                onClick={() => {
-                  navigate(`/`);
-                }}
-                style={{ cursor: 'pointer' }}
-              />
+              {active === 'news' ? (
+                <h3>Novedades</h3>
+              ) : (
+                <img
+                  src={navbarLogo}
+                  alt="inmobiliaria sanchez"
+                  onClick={() => {
+                    navigate(`/`);
+                  }}
+                  style={{ cursor: 'pointer' }}
+                />
+              )}
+
               <SecondaryCustomButton
                 variant="white"
                 onClick={() => handleActive()}

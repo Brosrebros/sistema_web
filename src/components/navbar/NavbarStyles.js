@@ -62,6 +62,14 @@ export const NavbarLogoMenuContainer = styled.div`
     display: none;
   }
 
+  h3 {
+    font-weight: 700;
+    font-size: 0.94rem;
+    line-height: 133%;
+    text-align: center;
+    color: black;
+  }
+
   @media (max-width: 1200px) {
     width: 100%;
     height: 48px;

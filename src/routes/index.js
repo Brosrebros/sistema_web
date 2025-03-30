@@ -218,6 +218,7 @@ import SellProcesspage from 'pages/SellProcesspage';
 import TermsPage from 'pages/TermsPage';
 import Updatepage from 'pages/Updatepage';
 import Settingspage from 'pages/Settingspage';
+import Newspage from 'pages/Newspage';
 
 const routes = [
   {
@@ -352,6 +353,16 @@ const routes = [
           {
             index: true,
             element: <Settingspage />,
+          },
+        ],
+      },
+      {
+        path: `/${rootPaths.newsRoot}`,
+        element: <MainLayout type="main" active="news" />,
+        children: [
+          {
+            index: true,
+            element: <Newspage />,
           },
         ],
       },
