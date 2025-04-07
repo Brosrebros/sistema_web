@@ -15,6 +15,9 @@ import Advertising from 'components/custom/Advertising/Advertising';
 import CustomSelect from 'components/custom/CustomSelect/CustomSelect';
 import sortIcon from 'assets/img/icons/sort.svg';
 import { useSearch } from 'searchContext';
+import SecondaryCustomButton from 'components/custom/CustomButtons/SecondaryCustomButton/SecondaryCustomButton';
+import { useFilter } from 'filterContext';
+import { translate } from 'react-range/lib/utils';
 
 const CustomLayout = styled.div`
   width: 100%;
@@ -22,8 +25,40 @@ const CustomLayout = styled.div`
   grid-template-columns: auto 402px;
   gap: 24px;
 
+  #mobile {
+    display: none;
+  }
+
   @media (max-width: 1200px) {
     background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+
+    #mobile {
+      display: flex;
+    }
+
+    & > div:nth-child(3) {
+      top: 0;
+      position: fixed;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.26);
+      opacity: ${({ state }) => (state ? 1 : 0)};
+      pointer-events: ${({ state }) => (state ? 'all' : 'none')};
+      transition: all 0.3s ease-in-out;
+    }
+
+    & > div:nth-child(4) {
+      top: 0;
+      position: fixed;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.26);
+      opacity: ${({ isActive }) => (isActive ? 1 : 0)};
+      pointer-events: ${({ isActive }) => (isActive ? 'all' : 'none')};
+      transition: all 0.3s ease-in-out;
+    }
   }
 `;
 
@@ -36,7 +71,6 @@ const ContainerCustom = styled.div`
   @media (max-width: 1200px) {
     background-color: #ffffff;
     gap: 20px;
-    padding-top: 20px;
   }
 `;
 
@@ -65,12 +99,86 @@ const Title = styled.h4`
   }
 `;
 
+const OrderOptions = styled.div`
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 20px;
+  position: fixed;
+  bottom: 0;
+  background-color: #ffffff;
+  border-radius: 12px 12px 0px 0px;
+  transform: ${({isActive}) => isActive ? "translateY(0)" : "translateY(100%)"};
+  transition: all 0.3s ease-in-out;
+
+  & > div:first-child {
+    width: 100%;
+    padding: 8px;
+
+    & > span {
+      width: 60px;
+      height: 4px;
+      background-color: #c3c3c3;
+      border-radius: 100px;
+      display: block;
+      margin: 0 auto;
+    }
+  }
+
+  & > div:last-child {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 12px 0px;
+
+    & > h4 {
+      font-weight: 700;
+      font-size: 0.94rem;
+      line-height: 100%;
+      color: black;
+      margin: 0px;
+    }
+
+    & > div {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 8px;
+
+      span {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 12px 16px;
+        height: 33px;
+        font-weight: 400;
+        font-size: 0.81rem;
+        line-height: 154%;
+        color: #424242;
+      }
+    }
+  }
+`;
+
 const Properties = ({ filterForm, setFilterForm, properties, title, type }) => {
+  const { state, toggleState } = useFilter();
   const { searchValue, setSearchValue, propertyType, setPropertyType } =
     useSearch();
   const [coursePerPage, setCoursePerPage] = useState(6);
   const navigate = useNavigate();
   const [layout, setLayout] = useState('list');
+  const [isActive, setIsActive] = useState(false);
+
+  const handleActive = () => {
+    setIsActive(prev => !prev);
+  };
 
   const ordenarPorOptions = [
     { value: 'Precio ascendente', label: 'Precio ↑' },
@@ -158,20 +266,12 @@ const Properties = ({ filterForm, setFilterForm, properties, title, type }) => {
         <Title>
           {title}
 
-          <CustomSelect
-            name="orden"
-            value={propertyType}
-            onChange={e => setPropertyType(e.target.value)}
-            placeholder="Ordenar por"
-            options={ordenarPorOptions}
-            background="form"
-            id="mobile"
-          >
-            <img src={sortIcon} width={'16px'} />
-          </CustomSelect>
+          <SecondaryCustomButton id="mobile" onClick={() => handleActive()}>
+            <img src={sortIcon} alt="sort" />
+          </SecondaryCustomButton>
         </Title>
 
-        <CustomLayout>
+        <CustomLayout state={state} isActive={isActive}>
           <div
             style={{
               display: 'flex',
@@ -245,23 +345,27 @@ const Properties = ({ filterForm, setFilterForm, properties, title, type }) => {
             filterForm={filterForm}
             setFilterForm={setFilterForm}
           />
+
+          <div id="mobile" onClick={() => toggleState()}></div>
+          <div id="mobile" onClick={() => handleActive()}></div>
         </CustomLayout>
+        <OrderOptions isActive={isActive}>
+          <div>
+            <span></span>
+          </div>
+          <div>
+            <h4>Ordenar por</h4>
+            <div>
+              <span>Precio ↑</span>
+              <span>Precio ↓</span>
+              <span>Superficie ↑</span>
+              <span>Superficie ↓</span>
+            </div>
+          </div>
+        </OrderOptions>
       </ContainerCustom>
     </>
   );
-};
-
-Properties.propTypes = {
-  filterForm: PropTypes.shape({
-    tipoOperacion: PropTypes.string,
-    direccionCompleta: PropTypes.string,
-    tipoPropiedad: PropTypes.string,
-    presupuesto: PropTypes.string,
-    ordenarPor: PropTypes.string,
-  }),
-  setFilterForm: PropTypes.func,
-  properties: PropTypes.object,
-  title: PropTypes.string,
 };
 
 export default Properties;

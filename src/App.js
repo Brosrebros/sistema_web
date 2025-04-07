@@ -13,6 +13,7 @@ import { MenuProvider } from './menuContext';
 import { ModalProvider } from 'modalContext';
 import { PropertyProvider } from './propertyContext';
 import { SearchProvider } from 'searchContext';
+import { FilterProvider } from './filterContext';
 
 ChartJS.register(...registerables);
 
@@ -46,15 +47,17 @@ const App = () => {
 
   return (
     <>
-      <SearchProvider>
-        <PropertyProvider>
-          <MenuProvider>
-            <ModalProvider>
-              <Outlet />
-            </ModalProvider>
-          </MenuProvider>
-        </PropertyProvider>
-      </SearchProvider>
+      <FilterProvider>
+        <SearchProvider>
+          <PropertyProvider>
+            <MenuProvider>
+              <ModalProvider>
+                <Outlet />
+              </ModalProvider>
+            </MenuProvider>
+          </PropertyProvider>
+        </SearchProvider>
+      </FilterProvider>
       {/* <SettingsToggle />
       <SettingsPanel />
       <ToastContainer

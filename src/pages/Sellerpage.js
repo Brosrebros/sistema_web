@@ -54,13 +54,17 @@ const TextContainer = styled.div`
 
 const TabButtonContainer = styled.div`
   width: 100%;
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
   gap: 16px;
   background-color: #ffffff;
   border-bottom: 1px solid #c3c3c3;
   margin-top: -24px;
+
+  @media (max-width: 1200px) {
+    display: flex;
+  }
 `;
 
 const CustomButton = styled.button`

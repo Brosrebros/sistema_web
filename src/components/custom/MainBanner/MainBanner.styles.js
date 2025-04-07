@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import bannerImg from 'assets/img/banner.jpg';
 
 export const Banner = styled.div`
   width: 100%;
@@ -12,8 +13,11 @@ export const Banner = styled.div`
   background-color: #c6c6c6;
   border-radius: 12px;
   overflow: hidden;
+  background-image: url(${bannerImg});
+  background-size: cover;
+  background-position: center;
 
-  @media (max-width: 968px) {
+  @media (max-width: 1200px) {
     max-width: 100vw;
     height: 450px;
     padding: 20px;
@@ -37,7 +41,7 @@ export const BannerWrapper = styled.div`
     margin: 0px;
     line-height: 100%;
 
-    @media (max-width: 968px) {
+    @media (max-width: 1200px) {
       font-size: 1.38rem;
       max-width: 20ch;
       line-height: 110%;
@@ -67,7 +71,7 @@ export const BannerWrapper = styled.div`
     margin: 0px;
     line-height: 140%;
 
-    @media (max-width: 968px) {
+    @media (max-width: 1200px) {
       font-size: 0.81rem;
       max-width: 38ch;
     }

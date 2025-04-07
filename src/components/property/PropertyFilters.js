@@ -18,13 +18,129 @@ import filterIcon from '../../assets/img/icons/filter.svg';
 import arrowIcon from '../../assets/img/icons/arrow-down.svg';
 import styled from 'styled-components';
 import CustomInput from 'components/custom/CustomFormUI/CustomInput/CustomInput';
+import { useFilter } from 'filterContext';
 
 const FiltersContainer = styled.div`
   width: 100%;
   position: relative;
 
-  @media (max-width: 1200px) {
+  #mobile {
     display: none;
+  }
+
+  & > div:last-child {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 16px;
+    border-radius: 12px;
+    background-color: white;
+    padding: 24px;
+    position: sticky;
+    top: 95px;
+    height: calc(100vh - 120px);
+    overflow: hidden;
+
+    & > div:nth-child(3) {
+      width: 100%;
+      height: calc(-260px + 100vh);
+    }
+
+    & > div:first-child {
+      display: none;
+    }
+  }
+
+  @media (max-width: 1200px) {
+    position: fixed;
+    display: flex;
+    align-items: flex-end;
+    bottom: 0;
+    z-index: 1;
+    transform: ${({ state }) => (state ? 'translateY(0)' : 'translateY(100%)')};
+    transition: transform 0.3s ease-in-out;
+
+    & > div:last-child {
+      width: 100vw;
+      padding: 20px;
+      max-height: 832px;
+      border-radius: 12px 12px 0px 0px;
+
+      & > div:first-child {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 20px;
+        margin-top: -20px;
+        padding: 8px;
+
+        & > span {
+          display: block;
+          width: 60px;
+          height: 4px;
+          border-radius: 100px;
+          background-color: #c3c3c3;
+        }
+      }
+
+      & > div:nth-child(3) {
+        width: 100%;
+        height: calc(-320px + 100vh);
+      }
+    }
+
+    #mobile {
+      width: 100vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid #c3c3c3;
+      padding: 16px 20px;
+      position: absolute;
+      height: 80px;
+      background-color: #ffffff;
+      bottom: 0;
+
+      & > button {
+        width: 100%;
+      }
+    }
+  }
+`;
+
+const FiltersHeader = styled.div`
+  width: 100%;
+  padding: 12px;
+  background-color: #f2f2f2;
+  border-radius: 12px;
+
+  & > div:first-child {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    & > div:first-child {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+
+      img {
+        width: 20px;
+        height: 20px;
+      }
+
+      h4 {
+        font-weight: 700;
+        font-size: 1.19em;
+        line-height: 116%;
+        color: black;
+        margin: 0px;
+      }
+    }
   }
 `;
 
@@ -87,110 +203,74 @@ const PropertyFilters = ({
     console.log(filterOptions);
   }, [filterOptions]);
 
+  const { state } = useFilter();
+
   return (
-    <FiltersContainer>
-      <div
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'flex-start',
-          alignItems: 'center',
-          gap: '16px',
-          borderRadius: '12px',
-          backgroundColor: 'white',
-          padding: '24px',
-          position: 'sticky',
-          top: '95px',
-          height: 'calc(100vh - 120px)',
-          overflow: 'hidden',
-        }}
-      >
-        <div
-          as={Flex}
-          style={{
-            width: '100%',
-            flexDirection: 'column',
-          }}
-        >
-          <div
-            style={{
-              width: '100%',
-              padding: '12px',
-              backgroundColor: '#f2f2f2',
-              borderRadius: '12px',
-            }}
-          >
-            <Flex
-              className="gap-4 flex-xl-grow-1 align-items-center justify-content-xl-between"
-              style={{ width: '100%' }}
-            >
-              <h4
-                className="mb-0 fs-9 d-flex align-items-center"
-                style={{ color: '#1e1e1e', fontWeight: 'bold', gap: '6px' }}
-              >
-                <img src={filterIcon} />
-                <span style={{ fontSize: '1.1875em' }}>Más filtros</span>
-              </h4>
-              <div>
-                <PrimaryCustomButton
-                  onClick={() => setFilterOptions([])}
-                  variant="primary"
-                >
-                  <img
-                    src={resetIcon}
-                    style={{ width: '20px', height: '20px' }}
-                  />
-                  Reiniciar
-                </PrimaryCustomButton>
-              </div>
-            </Flex>
-            {isOffcanvas && (
-              <Button
-                onClick={() => setShow(false)}
-                className="btn-close text-reset"
-                size="sm"
-                variant="link"
-              />
-            )}
-            {filterOptions.length > 0 && (
-              <Flex
-                wrap="wrap"
-                className="gap-2"
-                style={{ width: '100%', marginTop: '1em' }}
-              >
-                {filterOptions.map((tag, idx) => (
-                  <CustomBadge key={`${tag.name}-${idx}`} color="white">
-                    {tag.value}
-                    <Button
-                      size="sm"
-                      variant="link"
-                      className="p-0 text-900"
-                      onClick={() =>
-                        setFilterOptions(
-                          filterOptions.filter(
-                            ({ name, value }) =>
-                              !(name === tag.name && value === tag.value)
-                          )
-                        )
-                      }
-                    >
-                      <img
-                        src={closeIcon}
-                        alt="close"
-                        style={{
-                          width: '15px',
-                          height: '15px',
-                          marginBottom: '1px',
-                        }}
-                      />
-                    </Button>
-                  </CustomBadge>
-                ))}
-              </Flex>
-            )}
-          </div>
+    <FiltersContainer state={state}>
+      <div>
+        <div>
+          <span></span>
         </div>
-        <SimpleBar style={{ width: '100%', height: 'calc(100vh - 260px)' }}>
+        <FiltersHeader>
+          <div>
+            <div>
+              <img src={filterIcon} />
+              <h4>Más filtros</h4>
+            </div>
+            <PrimaryCustomButton
+              onClick={() => setFilterOptions([])}
+              variant="primary"
+            >
+              <img src={resetIcon} style={{ width: '20px', height: '20px' }} />
+              Reiniciar
+            </PrimaryCustomButton>
+          </div>
+          {isOffcanvas && (
+            <Button
+              onClick={() => setShow(false)}
+              className="btn-close text-reset"
+              size="sm"
+              variant="link"
+            />
+          )}
+          {filterOptions.length > 0 && (
+            <Flex
+              wrap="wrap"
+              className="gap-2"
+              style={{ width: '100%', marginTop: '1em' }}
+            >
+              {filterOptions.map((tag, idx) => (
+                <CustomBadge key={`${tag.name}-${idx}`} color="white">
+                  {tag.value}
+                  <Button
+                    size="sm"
+                    variant="link"
+                    className="p-0 text-900"
+                    onClick={() =>
+                      setFilterOptions(
+                        filterOptions.filter(
+                          ({ name, value }) =>
+                            !(name === tag.name && value === tag.value)
+                        )
+                      )
+                    }
+                  >
+                    <img
+                      src={closeIcon}
+                      alt="close"
+                      style={{
+                        width: '15px',
+                        height: '15px',
+                        marginBottom: '1px',
+                      }}
+                    />
+                  </Button>
+                </CustomBadge>
+              ))}
+            </Flex>
+          )}
+        </FiltersHeader>
+        <SimpleBar>
           <form
             style={{ overflow: 'hidden' }}
             onSubmit={e => {
@@ -297,6 +377,9 @@ const PropertyFilters = ({
             />
           </form>
         </SimpleBar>
+        <div id="mobile">
+          <PrimaryCustomButton>Ver resultados</PrimaryCustomButton>
+        </div>
       </div>
     </FiltersContainer>
   );
@@ -306,29 +389,38 @@ const SurfaceContainer = styled.div`
   width: 100%;
   display: grid;
   grid-template-columns: auto auto auto;
-  margin-top: 0.6em;
+  margin-top: 1em;
   gap: 12px;
   padding-right: 2px;
 
   & > div:first-child {
-    position: relative;
+    display: flex;
     min-width: 125px !important;
+  }
+`;
 
-    img {
-      position: absolute;
-      right: 16px;
-      z-index: 1;
+const SurfaceFilterContainer = styled.div`
+  width: 100%;
+  margin-top: 1em;
+  grid-column: span 2;
+
+  & > h5 {
+    margin: 0px;
+    font-size: 1em;
+    color: black;
+    font-weight: bold;
+    line-height: 11px;
+
+    @media (max-width: 1200px) {
+      font-size: 0.81rem;
+      line-height: 9px;
     }
+  }
 
-    img + div {
-      width: 80%;
-      position: absolute;
-      left: 16px;
-      z-index: 2;
-    }
-
-    svg {
-      display: none;
+  @media (max-width: 1200px) {
+    & > div:nth-child(2) {
+      display: flex !important;
+      flex-direction: column;
     }
   }
 `;
@@ -351,10 +443,8 @@ const SurfaceFilter = ({ onChange }) => {
   ];
 
   return (
-    <div style={{ width: '100%', marginTop: '1em', gridColumn: '2 span' }}>
-      <h5 style={{ fontSize: '1em', color: 'black', fontWeight: 'bold' }}>
-        Superficie
-      </h5>
+    <SurfaceFilterContainer>
+      <h5>Superficie</h5>
       <div
         style={{
           width: '100%',
@@ -394,14 +484,12 @@ const SurfaceFilter = ({ onChange }) => {
           onChange={handleChange}
           options={options}
           background="form"
-        >
-          <img src={arrowIcon} alt="arrow" />
-        </CustomSelect>
+        />
 
         <CustomInput placeholder="Desde" type="text" />
         <CustomInput placeholder="Hasta" type="text" />
       </SurfaceContainer>
-    </div>
+    </SurfaceFilterContainer>
   );
 };
 
@@ -463,15 +551,38 @@ const NumberFeaturesFilter = ({ onChange }) => {
   );
 };
 
+const NumberFeature = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 16px;
+
+  & > h5 {
+    font-weight: 700;
+    font-size: 1rem;
+    line-height: 11px;
+    color: black;
+    margin: 0px;
+  }
+
+  @media (max-width: 1200px) {
+    gap: 12px;
+
+    & > h5 {
+      font-size: 0.81rem;
+      line-height: 9px;
+    }
+  }
+`;
+
 const NumberFeatureContainer = ({ title, value, onValueChange }) => {
   const increment = () => onValueChange(value + 1);
   const decrement = () => onValueChange(Math.max(0, value - 1)); // Evitar valores negativos
 
   return (
-    <div>
-      <h5 style={{ fontSize: '1em', color: 'black', fontWeight: 'bold' }}>
-        {title}
-      </h5>
+    <NumberFeature>
+      <h5>{title}</h5>
       <CustomCounter>
         <button onClick={decrement}>
           <img src={removeIcon} alt="remove" />
@@ -481,7 +592,7 @@ const NumberFeatureContainer = ({ title, value, onValueChange }) => {
           <img src={addIcon} alt="add" />
         </button>
       </CustomCounter>
-    </div>
+    </NumberFeature>
   );
 };
 

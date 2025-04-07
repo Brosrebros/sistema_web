@@ -48,17 +48,36 @@ export const FormOptionsContainer = styled.div`
     page === 'venta'
       ? 'auto auto 2fr 1.1fr auto auto auto'
       : page === 'main'
-      ? 'auto auto 2fr 1.1fr auto auto auto'
-      : 'auto auto 2fr 1.2fr auto 0.9fr auto'};
+      ? 'auto auto 1.1fr 2fr auto'
+      : 'auto auto 1.2fr 2fr auto 0.9fr auto'};
   gap: 12px;
 
   @media (max-width: 1200px) {
     ${({ page }) =>
       page === 'catalog'
         ? `
-        display:flex;
-        & > div:first-child {
-        
+        grid-template-columns: repeat(6, 1fr);
+        grid-template-rows: repeat(2, 1fr); 
+
+        & > button:first-child {
+          border: none;
+          grid-area: 1 / 1 / 2 / 2;
+        }
+
+        & > div:nth-child(2) {
+          grid-area: 1 / 2 / 2 / 7;
+        }
+
+        &  > button:nth-child(3) {
+          grid-area: 1 / 7 / 2 / 8;
+        }
+
+        & > div:nth-child(4) {
+          grid-area: 2 / 1 / 3 / 5;
+        }
+
+        & > button:nth-child(5) {
+          grid-area: 2 / 5 / 3 / 8;
         }
           `
         : `

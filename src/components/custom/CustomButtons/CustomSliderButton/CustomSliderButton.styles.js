@@ -21,6 +21,7 @@ export const CustomSliderButtonStyled = styled(Slider)`
     opacity: 0 !important;
     border: 1px solid #c3c3c3 !important;
     transition: all 0.1s ease;
+    transform: translateY(-80px);
 
     &:hover {
       background-color: #f2f2f2;

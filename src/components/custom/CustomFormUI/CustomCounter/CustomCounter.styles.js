@@ -28,4 +28,8 @@ export const CustomCounterStyled = styled.div`
       transition: all 0.2s ease;
     }
   }
+
+  @media (max-width: 1200px) {
+    font-size: 0.81rem;
+  }
 `;

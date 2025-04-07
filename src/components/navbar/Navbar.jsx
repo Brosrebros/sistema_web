@@ -37,9 +37,9 @@ function Navbar({ type, active }) {
       }
     };
 
-    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener('click', handleClickOutside);
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('click', handleClickOutside);
     };
   }, []);
 
@@ -61,7 +61,9 @@ function Navbar({ type, active }) {
   });
 
   const handleActive = () => {
-    setIsActive(prev => !prev);
+    setTimeout(() => {
+      setIsActive(prev => !prev);
+    }, 0);
   };
 
   const handleCustomChange = (selectedOption, field) => {
@@ -173,7 +175,10 @@ function Navbar({ type, active }) {
               </PrimaryCustomButton>
               <SecondaryCustomButton
                 variant="white"
-                onClick={() => handleActive()}
+                onClick={e => {
+                  e.stopPropagation();
+                  handleActive();
+                }}
               >
                 {isActive && <Notifications ref={notificationRef} />}
                 <img src={notificationIcon} alt="lenguaje" />

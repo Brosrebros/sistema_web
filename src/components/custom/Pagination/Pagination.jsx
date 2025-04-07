@@ -25,9 +25,9 @@ function Pagination({
     itemsPerPageOptions[0]
   );
 
-  useEffect(() => {
-    onItemsPerPageChange(selectedItemsPerPage);
-  }, [selectedItemsPerPage, onItemsPerPageChange]);
+  // useEffect(() => {
+  //   onItemsPerPageChange(selectedItemsPerPage);
+  // }, [selectedItemsPerPage, onItemsPerPageChange]);
 
   return (
     <PaginationContainer>

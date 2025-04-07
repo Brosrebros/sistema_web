@@ -42,7 +42,6 @@ export const NavbarLogoMenuContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-right: 24px;
   position: relative;
 
   #mobile {

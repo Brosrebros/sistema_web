@@ -12,7 +12,7 @@ export const CustomLabelStyled = styled.label`
   white-space: nowrap;
   overflow: visible;
   text-overflow: ellipsis;
-  font-family: "Roboto";
+  font-family: 'Roboto';
   font-size: 1rem;
   margin: 0px;
   padding: 0px;
@@ -58,5 +58,9 @@ export const CustomLabelStyled = styled.label`
         background-position: center;
       }
     }
+  }
+
+  @media (max-width: 1200px) {
+    font-size: 0.81rem;
   }
 `;

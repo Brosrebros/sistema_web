@@ -16,13 +16,14 @@ export const CustomSelectContainer = styled.div`
   transition: all 0.1s ease;
   position: relative;
 
-  @media (max-width: 968px) {
+  @media (max-width: 1200px) {
     display: ${({ background }) => (background === 'form' ? 'flex' : 'none')};
   }
 
   img {
     width: 20px;
     height: 20px;
+    margin-left: auto;
   }
 
   &:hover {
@@ -37,10 +38,11 @@ export const CustomSelectContainer = styled.div`
 `;
 
 export const CustomSelectStyled = styled.div`
+  width: 100%;
   height: 100%;
   font-weight: 400;
 
-  @media (max-width: 968px) {
+  @media (max-width: 1200px) {
     font-size: 0.81rem;
     width: 95%;
   }
@@ -131,7 +133,7 @@ export const CustomOption = styled.div`
     font-weight: 400;
     text-overflow: ellipsis;
 
-    @media (max-width: 968px) {
+    @media (max-width: 1200px) {
       font-size: 0.81rem;
     }
   }
@@ -167,7 +169,7 @@ export const CustomSelectWrapper = styled.div`
     font-weight: 400;
     text-overflow: ellipsis;
 
-    @media (max-width: 968px) {
+    @media (max-width: 1200px) {
       font-size: 0.81rem;
     }
   }

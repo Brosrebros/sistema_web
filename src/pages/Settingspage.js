@@ -238,28 +238,8 @@ const OptionContainer = styled.div`
     justify-content: space-between;
     align-items: center;
 
-    & > div:last-child {
+    & > div {
       display: flex;
-
-      & > img {
-        position: absolute;
-        right: 16px;
-        z-index: 2;
-        background-color: white;
-        transition: all 0.1s ease;
-      }
-
-      & > img + div {
-        width: 100%;
-      }
-    }
-
-    & > div:last-child:hover > img {
-      background-color: #f9f9f9;
-    }
-
-    & > div:last-child:active > img {
-      background-color: #ececec;
     }
 
     p {
@@ -455,7 +435,6 @@ function Settingspage() {
             background="form"
             id="mobile"
           >
-            <img src={arrowIcon} alt="arrow" />
           </CustomSelect>
           <div>
             <p>
@@ -472,7 +451,6 @@ function Settingspage() {
               background="form"
               id="desktop"
             >
-              <img src={arrowIcon} alt="arrow" />
             </CustomSelect>
           </div>
         </OptionContainer>
@@ -487,7 +465,6 @@ function Settingspage() {
             background="form"
             id="mobile"
           >
-            <img src={arrowIcon} alt="arrow" />
           </CustomSelect>
           <div>
             <p>
@@ -505,7 +482,6 @@ function Settingspage() {
               background="form"
               id="desktop"
             >
-              <img src={arrowIcon} alt="arrow" />
             </CustomSelect>
           </div>
         </OptionContainer>

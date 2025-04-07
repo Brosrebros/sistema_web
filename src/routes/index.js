@@ -378,7 +378,7 @@ const routes = [
       },
       {
         path: '/',
-        element: <MainLayout type="process" active="detalles" />,
+        element: <MainLayout type="process" active="inmobiliaria" />,
         children: [
           {
             path: paths.propertyDetail(':propertyId'),
@@ -1198,7 +1198,7 @@ const routes = [
       },
       {
         path: '/',
-        element: <MainLayout type="main" active="catalogo" />,
+        element: <MainLayout type="main" active="inmobiliaria" />,
         children: [
           {
             index: true,

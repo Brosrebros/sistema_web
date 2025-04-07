@@ -8,7 +8,7 @@ import {
   CustomHiddenInput,
   DropdownContainer,
 } from './CustomSelect.styles';
-import { IoIosArrowDown } from 'react-icons/io';
+import arrowVector from "assets/img/icons/arrow-down.svg"
 
 const CustomSelect = ({
   options,
@@ -62,7 +62,7 @@ const CustomSelect = ({
       <CustomSelectStyled ref={selectRef}>
         <CustomSelectWrapper onClick={toggleDropdown} background={background}>
           <span>{selectedLabel}</span>
-          <IoIosArrowDown background={background} />
+          <img src={arrowVector} alt="arrow" />
         </CustomSelectWrapper>
         <CustomHiddenInput type="hidden" name={name} value={selectedValue} />
       </CustomSelectStyled>

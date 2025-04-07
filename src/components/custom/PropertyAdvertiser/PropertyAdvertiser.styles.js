@@ -10,6 +10,7 @@ export const PropertyAdvertiserContainer = styled.div`
   padding: 24px;
   background-color: white;
   border-radius: 12px;
+  margin-top: 12px;
 
   h4 {
     font-weight: 700;
@@ -28,6 +29,7 @@ export const PropertyAdvertiserContainer = styled.div`
 
   @media (max-width: 1200px) {
     padding: 20px;
+    margin-top: 8px;
 
     #mobile {
       display: flex;

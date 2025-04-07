@@ -11,11 +11,21 @@ export const ContactModalContainer = styled.div`
   padding: 20px 40px 40px 40px;
   background-color: #ffffff;
   border-radius: 12px;
+  position: relative;
+
+  #mobile {
+    display: none;
+  }
 
   & > img:nth-child(2) {
     width: 140px;
     height: 140px;
     border-radius: 140px;
+
+    @media (max-width: 1200px) {
+      width: 60px;
+      height: 60px;
+    }
   }
 
   & > div:nth-child(3) {
@@ -37,6 +47,58 @@ export const ContactModalContainer = styled.div`
       line-height: 122%;
       color: black;
       margin: 0px;
+
+      @media (max-width: 1200px) {
+        line-height: 13px;
+        font-size: 1.12rem;
+      }
+    }
+
+    @media (max-width: 1200px) {
+      align-items: flex-start;
+      gap: 12px;
+    }
+  }
+
+  @media (max-width: 1200px) {
+    width: 100vw;
+    border-radius: 0px;
+    display: grid;
+    justify-content: flex-start;
+    justify-items: flex-start;
+    align-items: flex-start;
+    grid-template-columns: 60px auto;
+    padding: 20px;
+    gap: 20px;
+
+    #desktop {
+      display: none;
+    }
+
+    #mobile {
+      display: flex;
+    }
+
+    & > img:nth-child(2) {
+      grid-area: 1 / 1 / 2 / 2;
+    }
+
+    & > div:nth-child(3) {
+      grid-area: 1 / 2 / 2 / 5;
+    }
+
+    & > div:nth-child(4) {
+      grid-area: 2 / 1 / 3 / 5;
+      width: 100%;
+      max-width: calc(100vw - 40px);
+
+      & > button {
+        width: 100%;
+      }
+    }
+
+    & > div:nth-child(5) {
+      grid-column: span 2;
     }
   }
 `;
@@ -66,7 +128,15 @@ export const DataContainer = styled.div`
         line-height: 137%;
         color: #424242;
       }
+
+      @media (max-width: 1200px) {
+        font-size: 0.81rem;
+      }
     }
+  }
+
+  @media (max-width: 1200px) {
+    justify-content: flex-start;
   }
 `;
 
@@ -107,6 +177,10 @@ export const SideDataContainer = styled.div`
       line-height: 116%;
       color: black;
       margin: 0px;
+
+      @media (max-width: 1200px) {
+        font-size: 0.94rem;
+      }
     }
 
     & > div {
@@ -115,6 +189,25 @@ export const SideDataContainer = styled.div`
       justify-content: flex-start;
       align-items: center;
       gap: 16px;
+
+      @media (max-width: 1200px) {
+        flex-direction: column;
+        gap: 12px;
+
+        & > div {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 1200px) {
+    max-width: calc(100vw - 40px);
+    padding: 20px;
+    gap: 20px;
+
+    #row {
+      flex-direction: row;
     }
   }
 `;
@@ -165,4 +258,34 @@ export const CustomButton = styled.div`
   color: #424242;
   line-height: 100%;
   border: 1px solid #c3c3c3;
+
+  & > span {
+    display: block;
+    font-size: 1em;
+    font-weight: normal;
+    font-family: 'Roboto';
+    color: #424242;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+`;
+
+export const Handler = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 20px;
+  padding: 8px;
+  background-color: #ffffff;
+  transform: translateY(1px);
+  border-radius: 12px 12px 0px 0px;
+
+  & > div {
+    width: 60px;
+    height: 4px;
+    background-color: #c3c3c3;
+    border-radius: 100px;
+  }
 `;

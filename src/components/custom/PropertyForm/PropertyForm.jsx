@@ -4,7 +4,6 @@ import {
   FormOptionsContainer,
   FormTab,
   TabButtonStyled,
-  TabContainer,
 } from './PropertyForm.styles';
 import PrimaryCustomButton from '../CustomButtons/PrimaryCustomButton/PrimaryCustomButton';
 import SecondaryCustomButton from '../CustomButtons/SecondaryCustomButton/SecondaryCustomButton';
@@ -16,10 +15,12 @@ import lupaIconWhite from 'assets/img/icons/search-white.svg';
 import tipoIcon from 'assets/img/icons/signpost.svg';
 import pinIcon from 'assets/img/icons/location.svg';
 import sortIcon from 'assets/img/icons/sort.svg';
+import arrowIcon from 'assets/img/icons/arrow-left.svg';
 import { rootPaths } from 'routes/paths';
 import { useNavigate } from 'react-router-dom';
 import { useModal } from 'modalContext';
 import { useSearch } from 'searchContext';
+import { useFilter } from 'filterContext';
 
 function PropertyForm({ page }) {
   const propiedadOptions = [
@@ -77,6 +78,8 @@ function PropertyForm({ page }) {
     openModal('searchModal');
   };
 
+  const { toggleState } = useFilter();
+
   return (
     <PropertyFormContainer page={page}>
       <FormOptionsContainer page={page} id="desktop">
@@ -108,12 +111,6 @@ function PropertyForm({ page }) {
           Proyectos
         </PrimaryCustomButton>
 
-        <CustomInput
-          placeholder={'¿En dónde lo buscas?'}
-          icon={pinIcon}
-          value={searchValue}
-          onChange={e => setSearchValue(e.target.value)}
-        />
         <CustomSelect
           name="tipoPropiedad"
           value={propertyType}
@@ -125,16 +122,21 @@ function PropertyForm({ page }) {
         >
           <img src={tipoIcon} width={'16px'} />
         </CustomSelect>
-        {page === 'main' ? (
-          <SecondaryCustomButton variant={'white'}>
-            <img src={filterIcon} alt="filter" />
-            Mas filtros
+
+        <CustomInput
+          placeholder={'¿En donde buscas el inmueble?'}
+          icon={pinIcon}
+          value={searchValue}
+          onChange={e => setSearchValue(e.target.value)}
+        />
+
+        {page === 'main' ? null : (
+          <SecondaryCustomButton variant={'white'} id="desktop">
+            <img src={mapaIcon} />
+            Ver mapa
           </SecondaryCustomButton>
-        ) : null}
-        <SecondaryCustomButton variant={'white'} id="desktop">
-          <img src={mapaIcon} />
-          Ver mapa
-        </SecondaryCustomButton>
+        )}
+
         {page === 'catalog' ? (
           <>
             <CustomSelect
@@ -157,13 +159,27 @@ function PropertyForm({ page }) {
             </SecondaryCustomButton>
           </>
         ) : null}
-        <PrimaryCustomButton onClick={handleSearchClick}>
+        <PrimaryCustomButton onClick={handleSearchClick} id="desktop">
+          <img src={lupaIconWhite} alt="lupa" />
+          Buscar
+        </PrimaryCustomButton>
+
+        <PrimaryCustomButton
+          onClick={() => navigate(`/${rootPaths.catalogRoot}`)}
+          id="mobile"
+        >
           <img src={lupaIconWhite} alt="lupa" />
           Buscar
         </PrimaryCustomButton>
       </FormOptionsContainer>
 
       <FormOptionsContainer page={page} id="mobile-grid">
+        {page === 'catalog' ? (
+          <SecondaryCustomButton variant={'white'} onClick={() => navigate(-1)}>
+            <img src={arrowIcon} alt="arrow" />
+          </SecondaryCustomButton>
+        ) : null}
+
         <CustomInput
           placeholder={'¿En dónde lo buscas?'}
           icon={pinIcon}
@@ -171,31 +187,57 @@ function PropertyForm({ page }) {
           onChange={e => setSearchValue(e.target.value)}
         />
 
-        <PrimaryCustomButton onClick={handleSearchClick}>
+        <PrimaryCustomButton onClick={() => navigate(`/${rootPaths.catalogRoot}`)}>
           <img src={lupaIconWhite} alt="lupa" />
         </PrimaryCustomButton>
 
-        <FormTab>
-          <TabButtonStyled
-            isActive={activeButton === 'venta'}
-            onClick={e => {
-              e.preventDefault();
-              setActiveButton('venta');
-            }}
-          >
-            Venta
-          </TabButtonStyled>
+        {page === 'main' ? (
+          <FormTab>
+            <TabButtonStyled
+              isActive={activeButton === 'venta'}
+              onClick={e => {
+                e.preventDefault();
+                setActiveButton('venta');
+              }}
+            >
+              Venta
+            </TabButtonStyled>
 
-          <TabButtonStyled
-            isActive={activeButton === 'alquiler'}
-            onClick={e => {
-              e.preventDefault();
-              setActiveButton('alquiler');
-            }}
-          >
-            Alquiler
-          </TabButtonStyled>
-        </FormTab>
+            <TabButtonStyled
+              isActive={activeButton === 'alquiler'}
+              onClick={e => {
+                e.preventDefault();
+                setActiveButton('alquiler');
+              }}
+            >
+              Alquiler
+            </TabButtonStyled>
+          </FormTab>
+        ) : (
+          <>
+            <CustomSelect
+              name="tipoPropiedad"
+              value={propertyType}
+              onChange={e => setPropertyType(e.target.value)}
+              placeholder="Tipo de propiedad"
+              options={propiedadOptions}
+              background="form"
+              id="mobile"
+            >
+              <img src={tipoIcon} width={'16px'} />
+            </CustomSelect>
+            <SecondaryCustomButton
+              variant={'white'}
+              onClick={e => {
+                e.preventDefault();
+                toggleState();
+              }}
+            >
+              <img src={sortIcon} alt="sort" />
+              Más filtros
+            </SecondaryCustomButton>
+          </>
+        )}
 
         <PrimaryCustomButton
           onClick={() => navigate(`/${rootPaths.proyectsRoot}`)}
