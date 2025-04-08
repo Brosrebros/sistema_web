@@ -1,5 +1,5 @@
-import React from 'react';
-import { Banner, BannerWrapper } from './MainBanner.styles';
+import React, { useRef, useState } from 'react';
+import { Banner, BannerWrapper, ButtonsContainer } from './MainBanner.styles';
 import CustomBadge from '../CustomBadge/CustomBadge';
 import PrimaryCustomButton from '../CustomButtons/PrimaryCustomButton/PrimaryCustomButton';
 import Advertising from '../Advertising/Advertising';
@@ -7,9 +7,14 @@ import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { useMenu } from 'menuContext';
 
+import arrowLeft from 'assets/img/icons/arrow-left.svg';
+import arrowRight from 'assets/img/icons/arrow-right.svg';
+import playIcon from 'assets/img/icons/play-white.svg';
+
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import SecondaryCustomButton from '../CustomButtons/SecondaryCustomButton/SecondaryCustomButton';
 
 const StyledSlider = styled(Slider)`
   width: 1900px;
@@ -40,8 +45,9 @@ const StyledSlider = styled(Slider)`
   }
 
   .slick-dots {
+    height: 41px;
     position: relative;
-    display: flex;
+    display: flex !important;
     justify-content: center;
     align-items: center;
     width: ${({ isMenuOpen }) => (isMenuOpen ? '1530px' : '1700px')};
@@ -61,6 +67,8 @@ const StyledSlider = styled(Slider)`
 function HomeBanner({ type }) {
   const navigate = useNavigate();
   const { isMenuOpen } = useMenu();
+  const sliderRef = useRef(null);
+  const [autoplay, setAutoplay] = useState(false);
 
   const settings = {
     dots: true,
@@ -70,11 +78,27 @@ function HomeBanner({ type }) {
     slidesToShow: 1,
     slidesToScroll: 1,
     dotsClass: 'slick-dots custom-dots',
+    autoplay: autoplay,
+    autoplaySpeed: 3000,
+  };
+
+  const toggleAutoplay = () => {
+    if (autoplay) {
+      sliderRef.current?.slickPause();
+    } else {
+      sliderRef.current?.slickPlay();
+    }
+    setAutoplay(!autoplay);
   };
 
   return (
     <Banner type={type}>
-      <StyledSlider {...settings} isMenuOpen={isMenuOpen} type={type}>
+      <StyledSlider
+        ref={sliderRef}
+        {...settings}
+        isMenuOpen={isMenuOpen}
+        type={type}
+      >
         <BannerWrapper>
           {type === 'home' ? (
             <div style={{ display: 'flex', gap: '12px' }}>
@@ -292,6 +316,18 @@ function HomeBanner({ type }) {
           )}
         </BannerWrapper>
       </StyledSlider>
+
+      <ButtonsContainer>
+        <SecondaryCustomButton onClick={() => sliderRef.current?.slickPrev()}>
+          <img src={arrowLeft} alt="arrow" />
+        </SecondaryCustomButton>
+        <SecondaryCustomButton onClick={() => sliderRef.current?.slickNext()}>
+          <img src={arrowRight} alt="arrow" />
+        </SecondaryCustomButton>
+        <SecondaryCustomButton onClick={toggleAutoplay}>
+          <img src={playIcon} alt="play" />
+        </SecondaryCustomButton>
+      </ButtonsContainer>
 
       {type === 'home' ? (
         <Advertising>Espacio de publicidad relacionada al servicio</Advertising>

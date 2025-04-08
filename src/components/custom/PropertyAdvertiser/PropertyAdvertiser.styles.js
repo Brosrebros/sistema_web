@@ -224,27 +224,24 @@ export const Option = styled.button`
   gap: 8px;
   border: none;
   outline: none;
-  background-color: ${({ isSelected }) => (isSelected ? '#940000' : '#ffffff')};
+  background-color: #ffffff;
   border-radius: 12px;
   padding: 12px 16px;
   transition: all 0.1s ease;
-  border: 1px solid ${({ isSelected }) => (isSelected ? '#940000' : '#C3C3C3')};
+  border: 1px solid ${({ isSelected }) => (isSelected ? '#940000' : '#ffffff')};
 
   /* Fuente */
   font-size: 1em;
   font-weight: normal;
-  font-family: 'Aptos';
-  color: ${({ isSelected }) => (isSelected ? '#ffffff' : '#424242')};
+  color: #940000;
   line-height: 100%;
 
   &:hover {
-    background-color: ${({ isSelected }) =>
-      isSelected ? '#A10000' : '#F9F9F9'};
+    background-color: #f2f2f2;
   }
 
   &:active {
-    background-color: ${({ isSelected }) =>
-      isSelected ? '#850000' : '#ECECEC'};
+    background-color: #e4e4e4;
   }
 `;
 

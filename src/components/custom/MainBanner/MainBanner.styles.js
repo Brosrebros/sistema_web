@@ -16,6 +16,7 @@ export const Banner = styled.div`
   background-image: url(${bannerImg});
   background-size: cover;
   background-position: center;
+  position: relative;
 
   @media (max-width: 1200px) {
     max-width: 100vw;
@@ -75,5 +76,22 @@ export const BannerWrapper = styled.div`
       font-size: 0.81rem;
       max-width: 38ch;
     }
+  }
+`;
+
+export const ButtonsContainer = styled.div`
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  right: 24px;
+  bottom: calc(48px + 87px);
+
+  & > button {
+    width: 41px;
+    height: 41px;
+    border: 1px solid #c3c3c3;
+    border-radius: 100px;
   }
 `;
