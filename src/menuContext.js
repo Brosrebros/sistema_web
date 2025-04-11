@@ -1,11 +1,24 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useState, useEffect } from 'react';
 
 const MenuContext = createContext();
 
 export const MenuProvider = ({ children }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(true);
- 
+
   const toggleMenu = () => setIsMenuOpen((prev) => !prev);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth <= 1200) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    handleResize();
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   return (
     <MenuContext.Provider value={{ isMenuOpen, toggleMenu }}>
