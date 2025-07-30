@@ -272,8 +272,8 @@ export const CustomButton = styled.div`
 `;
 
 export const Handler = styled.div`
+  display: none;
   width: 100%;
-  display: flex;
   justify-content: center;
   align-items: center;
   height: 20px;
@@ -287,5 +287,9 @@ export const Handler = styled.div`
     height: 4px;
     background-color: #c3c3c3;
     border-radius: 100px;
+  }
+
+  @media (max-width: 1200px) {
+    display: flex;
   }
 `;

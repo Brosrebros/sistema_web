@@ -351,7 +351,7 @@ const regionOptions = [
 ];
 
 function Settingspage() {
-  const [isActive, setIsActive] = useState('');
+  const [isActive, setIsActive] = useState('access');
   const navigate = useNavigate();
   const [selecciones, setSelecciones] = useState({
     tema: temaOptions.length > 0 ? temaOptions[0].value : '',

@@ -90,7 +90,7 @@ function StandaloneLayout({ type, title, children }) {
         {type === 'premium' ? (
           <>
             <SideDataContainer>
-              <div>
+              <div style={{ height: '100%' }}>
                 <TextContainer>
                   <h3>Resuelve tus dudas y elige el plan perfecto para ti</h3>
                   <p>

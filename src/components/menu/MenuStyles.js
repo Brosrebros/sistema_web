@@ -144,8 +144,8 @@ export const MenuOption = styled.div`
   background-color: ${({ active }) => (active ? '#F2F2F2' : '#ffffff')};
   outline: ${({ active }) => (active ? '1px solid #c3c3c3' : 'none')};
   outline-offset: -1px;
-  transition: all 0.1s ease;
   cursor: pointer;
+  transition: background 0.1s ease;
   box-sizing: border-box;
 
   span {

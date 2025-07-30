@@ -10,7 +10,8 @@ export const StandaloneLayoutStyled = styled.div`
   padding: ${({ type }) => (type === 'process' ? '0px' : '24px')};
 
   @media (max-width: 1200px) {
-    padding: ${({ type }) => (type === 'process' ? '0px' : '20px 20px 0px 20px')};;
+    padding: ${({ type }) =>
+      type === 'process' ? '0px' : '20px 20px 0px 20px'};
   }
 `;
 
@@ -105,14 +106,14 @@ export const TextContainer = styled.div`
 
 export const CardContainer = styled.div`
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: start;
   gap: 16px;
 `;
 
 export const DataCard = styled.div`
+  height: 100%;
   cursor: pointer;
   width: 100%;
   display: flex;
@@ -172,6 +173,7 @@ export const DataCard = styled.div`
 
 export const SideDataContainer = styled.div`
   width: 100%;
+  height: 100%;
   min-height: min-content;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -200,7 +202,7 @@ export const SideDataContainer = styled.div`
 
 export const TextBanner = styled.div`
   width: 100%;
-  height: 800px;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;

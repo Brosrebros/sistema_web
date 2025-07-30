@@ -38,10 +38,7 @@ const SliderLayout = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-
-  & > div {
-    padding: 20px;
-  }
+  gap: 24px;
 
   & > div:last-child {
     margin-top: -100px;
